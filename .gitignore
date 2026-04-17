@@ -1,0 +1,78 @@
+# =============================================================================
+# Python
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+.installed.cfg
+lib/
+lib64/
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# Testing
+.tox/
+.nox/
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+nosetests.xml
+
+# =============================================================================
+# Project-specific
+# =============================================================================
+
+# Downloaded datasets (large binary files — re-downloadable)
+data/
+
+# Experiment results and model checkpoints (large, reproducible from config)
+results/
+checkpoints/
+
+# Jupyter notebooks (keep .py scripts; exclude checkpoints)
+.ipynb_checkpoints/
+*.ipynb
+
+# =============================================================================
+# IDEs and editors
+# =============================================================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

@@ -1,0 +1,101 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+# =============================================================================
+# Project metadata
+# =============================================================================
+[project]
+name = "fl-backdoor-framework"
+version = "0.1.0"
+description = "A modular framework for backdoor attacks and defenses in federated learning."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+keywords = [
+    "federated-learning",
+    "backdoor-attacks",
+    "machine-learning",
+    "security",
+    "privacy",
+]
+
+# Core runtime dependencies — pinned to tested minor versions.
+# Exact versions are locked in requirements.lock (generated via pip-compile).
+dependencies = [
+    "torch>=2.1,<3.0",
+    "torchvision>=0.16,<1.0",
+    "numpy>=1.24,<3.0",
+]
+
+# =============================================================================
+# Optional dependency groups
+# =============================================================================
+[project.optional-dependencies]
+
+# Development tools: linting, formatting, type-checking, testing
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "ruff>=0.4",          # linting + formatting (replaces flake8 + black)
+    "mypy>=1.8",
+]
+
+# =============================================================================
+# Package discovery
+# =============================================================================
+[tool.setuptools.packages.find]
+# Discover all packages in the project root.
+# Excludes test directories and the results/ output folder.
+where = ["."]
+exclude = ["results*", "data*", "tests*", "*.egg-info"]
+
+# =============================================================================
+# Ruff — linting and formatting
+# =============================================================================
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes (unused imports, undefined names, …)
+    "I",   # isort (import ordering)
+    "UP",  # pyupgrade (modernise syntax)
+    "B",   # flake8-bugbear (likely bugs and design issues)
+    "C4",  # flake8-comprehensions
+    "SIM", # flake8-simplify
+]
+ignore = [
+    "E501",  # line-length handled by formatter
+    "B008",  # function call in default argument (common in dataclasses)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = [
+    "fl",
+    "datasets",
+    "models",
+    "attacks",
+    "defenses",
+    "experiment",
+]
+
+# =============================================================================
+# Mypy — static type checking
+# =============================================================================
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true   # torch stubs are incomplete
+
+# =============================================================================
+# Pytest
+# =============================================================================
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--tb=short -q"
