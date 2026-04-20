@@ -40,11 +40,15 @@ Typical usage::
 from .adapter import DatasetAdapter
 from .backdoor import BackdoorDataset
 from .cifar10 import CIFAR10Dataset
+from .femnist import FEMNISTDataset
+from .gtsrb import GTSRBDataset
 from .utils import extract_labels
 
 __all__ = [
     "DatasetAdapter",
     "BackdoorDataset",
     "CIFAR10Dataset",
+    "FEMNISTDataset",
+    "GTSRBDataset",
     "extract_labels",
 ]

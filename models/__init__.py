@@ -20,6 +20,8 @@ from typing import Callable, Dict
 
 from .base import BaseModel, ModelConfig
 from .cnn import SimpleCNN
+from .gtsrb_cnn import GTSRBNet
+from .lenet5 import LeNet5
 from .resnet import resnet18, resnet34
 
 # ---------------------------------------------------------------------------
@@ -105,6 +107,16 @@ def _build_simple_cnn(config: ModelConfig) -> BaseModel:
     return SimpleCNN(config)
 
 
+@register_model("gtsrb_cnn")
+def _build_gtsrb_cnn(config: ModelConfig) -> BaseModel:
+    return GTSRBNet(config)
+
+
+@register_model("lenet5")
+def _build_lenet5(config: ModelConfig) -> BaseModel:
+    return LeNet5(config)
+
+
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
@@ -117,4 +129,6 @@ __all__ = [
     "list_models",
     # concrete classes exposed for type-checking / isinstance guards
     "SimpleCNN",
+    "GTSRBNet",
+    "LeNet5",
 ]

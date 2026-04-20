@@ -12,6 +12,8 @@ from typing import Any, Dict, Optional
 import json
 import os
 
+import yaml
+
 
 # ---------------------------------------------------------------------------
 # Sub-configs
@@ -37,6 +39,7 @@ class AttackConfig:
     target_label: int = 0
     poison_fraction: float = 0.5
     attack_start_round: int = 0
+    attack_end_round: Optional[int] = None  # None means no end
     trigger_kwargs: Dict[str, Any] = field(default_factory=dict)
     trigger_sample_size: int = 512
 
@@ -144,3 +147,18 @@ class ExperimentConfig:
         data["attack"] = AttackConfig(**data.get("attack", {}))
         data["defense"] = DefenseConfig(**data.get("defense", {}))
         return cls(**data)
+
+    @classmethod
+    def from_yaml(cls, path: str) -> "ExperimentConfig":
+        """Load a config from a YAML file."""
+        with open(path) as f:
+            data = yaml.safe_load(f)
+        data["attack"] = AttackConfig(**data.get("attack", {}))
+        data["defense"] = DefenseConfig(**data.get("defense", {}))
+        return cls(**data)
+
+    def to_yaml(self, path: str) -> None:
+        """Write this config to a YAML file."""
+        os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+        with open(path, "w") as f:
+            yaml.dump(asdict(self), f, default_flow_style=False, sort_keys=False)

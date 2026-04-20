@@ -71,9 +71,13 @@ def build_adapter(config):
         ValueError: if ``config.dataset`` is not registered.
     """
     from datasets.cifar10 import CIFAR10Dataset
+    from datasets.femnist import FEMNISTDataset
+    from datasets.gtsrb import GTSRBDataset
 
     registry = {
         "cifar10": lambda: CIFAR10Dataset(root=config.data_root, download=True),
+        "femnist": lambda: FEMNISTDataset(root=config.data_root, download=True),
+        "gtsrb":   lambda: GTSRBDataset(root=config.data_root, download=True),
     }
 
     key = config.dataset.lower()
@@ -209,6 +213,10 @@ def build_clients(
                     normalize_transform=adapter.normalize_transform,
                     poison_fraction=atk.poison_fraction,
                     attack_start_round=atk.attack_start_round,
+                    attack_end_round=(
+                        float("inf") if atk.attack_end_round is None
+                        else atk.attack_end_round
+                    ),
                     trigger_sample_size=atk.trigger_sample_size,
                     seed=cfg.seed + cid,
                 )
@@ -333,3 +341,39 @@ class DetectionResult:
             return math.nan
         fp = len(self.rejected_ids - self.true_malicious)
         return fp / n_selected_benign
+
+
+# ---------------------------------------------------------------------------
+# Defense server factory
+# ---------------------------------------------------------------------------
+
+def build_server(config, model, device):
+    """Construct the defense server specified in *config*.
+
+    Args:
+        config: :class:`~experiment.config.ExperimentConfig`.
+        model:  Global model (already on *device*).
+        device: Torch device.
+
+    Returns:
+        A server instance compatible with :class:`~fl.server.FedAvgAggregator`.
+
+    Raises:
+        ValueError: if ``config.defense.defense_type`` is not registered.
+    """
+    from fl.server import FedAvgAggregator
+
+    defense_type = config.defense.defense_type.lower()
+    kwargs = config.defense.defense_kwargs
+
+    if defense_type == "none":
+        return FedAvgAggregator(model=model, device=device)
+
+    if defense_type == "mkrum":
+        from defenses.mkrum import MKrumServer
+        return MKrumServer(model=model, device=device, **kwargs)
+
+    raise ValueError(
+        f"Unknown defense '{defense_type}'. "
+        f"Available: 'none', 'mkrum'."
+    )

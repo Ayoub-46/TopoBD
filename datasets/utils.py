@@ -15,9 +15,11 @@ def extract_labels(ds: Dataset) -> np.ndarray:
     """Extract all integer class labels from a dataset as a 1-D numpy array.
 
     Resolution order:
-    1. ``.targets`` / ``.labels`` attribute (torchvision standard).
-    2. ``.samples`` attribute (``ImageFolder`` / ``DatasetFolder`` style).
-    3. ``Subset`` — delegates to the underlying dataset then slices by index.
+    1. ``.targets`` / ``.labels``   — torchvision standard (CIFAR, MNIST, …).
+    2. ``.samples`` / ``._samples`` — ``ImageFolder`` / GTSRB style
+                                      (list of ``(path, label)`` tuples).
+    3. ``Subset``                   — delegates to the inner dataset, then
+                                      slices by index.
     4. Slow O(n) iteration fallback with a ``RuntimeWarning``.
 
     Args:
@@ -30,17 +32,18 @@ def extract_labels(ds: Dataset) -> np.ndarray:
         if hasattr(ds, attr):
             return np.asarray(getattr(ds, attr))
 
-    if hasattr(ds, "samples"):
-        return np.asarray([s[1] for s in ds.samples])
+    for attr in ("samples", "_samples"):
+        if hasattr(ds, attr):
+            return np.asarray([s[1] for s in getattr(ds, attr)])
 
     if isinstance(ds, Subset):
         inner_labels = extract_labels(ds.dataset)   # type: ignore[arg-type]
         return inner_labels[np.asarray(ds.indices)]
 
     warnings.warn(
-        f"Dataset {type(ds).__name__} has no 'targets', 'labels', or 'samples' "
-        "attribute. Falling back to slow O(n) label extraction. "
-        "Consider adding a 'targets' attribute to your dataset class.",
+        f"Dataset {type(ds).__name__} has no recognised label attribute. "
+        "Falling back to slow O(n) label extraction. "
+        "Consider adding a 'targets' property to your dataset class.",
         RuntimeWarning,
         stacklevel=2,
     )

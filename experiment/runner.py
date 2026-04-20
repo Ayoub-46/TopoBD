@@ -35,6 +35,7 @@ from .utils import (
     DetectionResult,
     build_adapter,
     build_clients,
+    build_server,
     resolve_device,
     seed_everything,
 )
@@ -118,7 +119,7 @@ class FLRunner:
                 {k: v.to(self.device) for k, v in global_model.state_dict().items()}
             )
         else:
-            self.server = FedAvgAggregator(model=global_model, device=self.device)
+            self.server = build_server(config, global_model, self.device)
 
         # Detection-based defenses expose filter_updates(); aggregation-only
         # defenses do not — checked once here rather than every round.
@@ -176,7 +177,19 @@ class FLRunner:
             malicious_selected: FrozenSet[int] = frozenset(
                 cid for cid in selected_ids if cid in self.malicious_ids
             )
-            n_mal = len(malicious_selected)
+
+            # Clients outside the attack window train benignly — they are not
+            # adversarial this round even if they are in the malicious set.
+            atk = cfg.attack
+            attack_window_active = (
+                atk.attack_start_round <= round_idx
+                and (atk.attack_end_round is None or round_idx <= atk.attack_end_round)
+            )
+            true_malicious_this_round: FrozenSet[int] = (
+                malicious_selected if attack_window_active else frozenset()
+            )
+
+            n_mal = len(true_malicious_this_round)
             n_ben = len(selected_ids) - n_mal
 
             # ---- Local training --------------------------------------------
@@ -198,7 +211,7 @@ class FLRunner:
             detection: Optional[DetectionResult] = None
             if self._has_detection_defense:
                 detection = self.server.filter_updates(
-                    true_malicious=malicious_selected
+                    true_malicious=true_malicious_this_round
                 )
 
             # ---- Aggregation + round reset ---------------------------------
@@ -252,6 +265,11 @@ class FLRunner:
 
         tracker.save()
         tracker.print_summary()
+
+        model_path = os.path.join(output_dir, "final_model.pt")
+        torch.save(global_params, model_path)
+        logger.info("Final model saved to %s", model_path)
+
         return tracker
 
     # ------------------------------------------------------------------
