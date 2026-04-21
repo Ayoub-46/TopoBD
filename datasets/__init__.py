@@ -42,6 +42,7 @@ from .backdoor import BackdoorDataset
 from .cifar10 import CIFAR10Dataset
 from .femnist import FEMNISTDataset
 from .gtsrb import GTSRBDataset
+from .mnist import MNISTDataset
 from .utils import extract_labels
 
 __all__ = [
@@ -50,5 +51,6 @@ __all__ = [
     "CIFAR10Dataset",
     "FEMNISTDataset",
     "GTSRBDataset",
+    "MNISTDataset",
     "extract_labels",
 ]

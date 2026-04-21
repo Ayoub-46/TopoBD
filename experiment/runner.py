@@ -25,6 +25,7 @@ import random
 from typing import Dict, FrozenSet, List, Optional
 
 import torch
+from torch.utils.data import DataLoader
 
 from fl.server import FedAvgAggregator
 from models import get_model, ModelConfig
@@ -136,13 +137,15 @@ class FLRunner:
             batch_size=config.batch_size, num_workers=2
         )
         self.backdoor_test_loader = self._build_backdoor_loader()
+        self.chameleon_evaluator  = self._build_chameleon_evaluator()
 
         logger.info(
             "Setup complete — %d clients (%d malicious) | "
-            "backdoor eval loader: %s",
+            "backdoor eval: %s",
             len(self.clients),
             len(self.malicious_ids),
-            "yes" if self.backdoor_test_loader is not None else "no",
+            "chameleon-adaptive" if self.chameleon_evaluator is not None
+            else ("static-trigger" if self.backdoor_test_loader is not None else "none"),
         )
 
     # ------------------------------------------------------------------
@@ -194,6 +197,7 @@ class FLRunner:
 
             # ---- Local training --------------------------------------------
             total_samples = 0
+            round_updates = []
             for cid in selected_ids:
                 client = self.clients[cid]
                 client.set_params(global_params)
@@ -206,6 +210,19 @@ class FLRunner:
                     length=update.num_samples,
                 )
                 total_samples += update.num_samples
+                round_updates.append(update)
+
+            # ---- Feed Chameleon trigger to evaluator -----------------------
+            if self.chameleon_evaluator is not None and attack_window_active:
+                mal_updates = [
+                    u for u in round_updates
+                    if u.is_malicious and "avg_delta" in u.metadata
+                ]
+                if mal_updates:
+                    avg_delta = torch.stack(
+                        [u.metadata["avg_delta"] for u in mal_updates]
+                    ).mean(dim=0)
+                    self.chameleon_evaluator.update_trigger(avg_delta)
 
             # ---- Defense filtering (detection-based) -----------------------
             detection: Optional[DetectionResult] = None
@@ -238,6 +255,8 @@ class FLRunner:
                 bd = self.server.evaluate(self.backdoor_test_loader)
                 asr      = bd.metrics["main_accuracy"]
                 asr_loss = bd.metrics["loss"]
+            elif self.chameleon_evaluator is not None:
+                asr = self.chameleon_evaluator.evaluate_asr(global_params)
 
             # ---- TPR / FPR -------------------------------------------------
             d_tpr = math.nan
@@ -284,6 +303,30 @@ class FLRunner:
         if atk.attack_type == "none" or atk.num_malicious == 0:
             return None
 
+        # trigger_type="none" signals that this attack has no fixed trigger
+        # (e.g. Chameleon uses sample-specific perturbations). Skip ASR eval.
+        trigger_name = atk.trigger_type or atk.attack_type
+        if trigger_name == "none":
+            return None
+
+        # IBA uses a shared generator trained in-place each round.  Obtain
+        # the trigger from the first malicious client so the backdoor test
+        # loader always calls trigger.apply on the CURRENT trained generator
+        # (BackdoorDataset is not cached, so apply() is called fresh per item).
+        if atk.attack_type == "iba":
+            first_mal = next(
+                (cid for cid in sorted(self.malicious_ids) if cid in self.clients), None
+            )
+            if first_mal is None:
+                return None
+            trigger = self.clients[first_mal].config.trigger
+            return self.adapter.get_backdoor_test_loader(
+                trigger_fn=trigger.apply,
+                target_label=atk.target_label,
+                batch_size=cfg.batch_size,
+                num_workers=2,
+            )
+
         from attacks.triggers import get_trigger
 
         # Inject dataset shape defaults; trigger factories tolerate unknown
@@ -292,12 +335,65 @@ class FLRunner:
         trigger_kw = {"in_channels": C, "image_size": (H, W)}
         trigger_kw.update(atk.trigger_kwargs)
 
-        trigger = get_trigger(atk.attack_type, **trigger_kw)
+        trigger = get_trigger(trigger_name, **trigger_kw)
         return self.adapter.get_backdoor_test_loader(
             trigger_fn=trigger.apply,
             target_label=atk.target_label,
             batch_size=cfg.batch_size,
             num_workers=2,
+        )
+
+    def _build_chameleon_evaluator(self):
+        """Build a :class:`ChameleonASREvaluator` when the attack is Chameleon.
+
+        Collects non-target test images from the adapter's pre-normalisation
+        test dataset and sub-samples to ``num_eval_samples`` for speed.
+        Returns ``None`` for all other attack types.
+        """
+        atk = self.config.attack
+        if atk.attack_type != "chameleon":
+            return None
+
+        from attacks.chameleon_client import ChameleonASREvaluator
+
+        # Materialise pre-norm test images on CPU
+        pre_loader = DataLoader(
+            self.adapter.test_pre_dataset,
+            batch_size=256,
+            shuffle=False,
+            num_workers=2,
+        )
+        images_list, labels_list = [], []
+        for imgs, lbls in pre_loader:
+            images_list.append(imgs.cpu())
+            labels_list.append(lbls.cpu())
+        all_images = torch.cat(images_list)
+        all_labels = torch.cat(labels_list)
+
+        # Keep only non-target samples
+        non_target = (all_labels != atk.target_label).nonzero(as_tuple=True)[0]
+        eval_images = all_images[non_target]
+
+        # Sub-sample for evaluation speed
+        num_eval = atk.trigger_kwargs.get("num_eval_samples", 500)
+        if len(eval_images) > num_eval:
+            rng = torch.Generator()
+            rng.manual_seed(self.config.seed)
+            idx = torch.randperm(len(eval_images), generator=rng)[:num_eval]
+            eval_images = eval_images[idx]
+
+        logger.info(
+            "Chameleon ASR evaluator: %d non-target test images "
+            "(trigger-replay mode — no PGD at eval time).",
+            len(eval_images),
+        )
+
+        return ChameleonASREvaluator(
+            model_cfg=self.model_cfg,
+            test_images=eval_images,
+            target_label=atk.target_label,
+            normalize_transform=self.adapter.normalize_transform,
+            device=self.device,
         )
 
     @staticmethod

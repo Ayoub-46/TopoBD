@@ -117,8 +117,9 @@ class BenignClient(BaseClient):
     def _create_optimizer(self) -> None:
         """(Re)create the optimizer bound to the current model parameters.
 
-        Called both at construction time and after every set_params() so that
-        stale optimizer momentum buffers never bleed across rounds.
+        Called at construction and after every set_params() to ensure the
+        momentum buffer never carries over between rounds — standard FedAvg
+        behaviour expected by FL security benchmarks.
         """
         self.optimizer = torch.optim.SGD(
             self._model.parameters(),
@@ -141,12 +142,7 @@ class BenignClient(BaseClient):
         return self.dataset_len
 
     def set_params(self, params: Dict[str, torch.Tensor]) -> None:
-        """Load a new parameter snapshot and reset the optimizer state.
-
-        Tensors are moved to the client's device inside load_state_dict so
-        that the model is always resident on the correct device after this
-        call.
-        """
+        """Load a new parameter snapshot and reset the optimizer state."""
         self._model.load_state_dict(
             {k: v.to(self.device) for k, v in params.items()}
         )

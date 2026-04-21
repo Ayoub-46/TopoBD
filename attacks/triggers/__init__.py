@@ -19,6 +19,8 @@ from typing import Callable, Dict
 from .base import BaseTrigger, LearnableTrigger
 from .patch import PatchTrigger
 from .a3fl import A3FLTrigger
+from .iba import IBATrigger
+from .unet import UNet
 
 # ---------------------------------------------------------------------------
 # Registry
@@ -104,6 +106,17 @@ def _build_a3fl(**kwargs) -> A3FLTrigger:
     return A3FLTrigger(**{k: v for k, v in kwargs.items() if k in valid})
 
 
+@register_trigger("iba")
+def _build_iba(**kwargs) -> IBATrigger:
+    in_channels        = kwargs.get("in_channels", 3)
+    base_features      = kwargs.get("base_features", 32)
+    normalize_transform = kwargs.get("normalize_transform", None)
+    valid = {"alpha", "lambda_noise", "generator_epochs", "generator_lr"}
+    trigger_kw = {k: v for k, v in kwargs.items() if k in valid}
+    unet = UNet(in_channels=in_channels, base_features=base_features)
+    return IBATrigger(unet=unet, normalize_transform=normalize_transform, **trigger_kw)
+
+
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
@@ -113,6 +126,8 @@ __all__ = [
     "LearnableTrigger",
     "PatchTrigger",
     "A3FLTrigger",
+    "IBATrigger",
+    "UNet",
     "get_trigger",
     "register_trigger",
     "list_triggers",

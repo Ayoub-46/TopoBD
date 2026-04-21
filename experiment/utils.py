@@ -10,7 +10,7 @@ import logging
 import math
 import random
 from dataclasses import dataclass
-from typing import Dict, FrozenSet, Optional, Tuple
+from typing import Dict, FrozenSet, Tuple
 
 import numpy as np
 import torch
@@ -73,11 +73,13 @@ def build_adapter(config):
     from datasets.cifar10 import CIFAR10Dataset
     from datasets.femnist import FEMNISTDataset
     from datasets.gtsrb import GTSRBDataset
+    from datasets.mnist import MNISTDataset
 
     registry = {
         "cifar10": lambda: CIFAR10Dataset(root=config.data_root, download=True),
         "femnist": lambda: FEMNISTDataset(root=config.data_root, download=True),
         "gtsrb":   lambda: GTSRBDataset(root=config.data_root, download=True),
+        "mnist":   lambda: MNISTDataset(root=config.data_root, download=True),
     }
 
     key = config.dataset.lower()
@@ -148,7 +150,6 @@ def build_clients(
     from fl.client import BenignClient
     from models import get_model
     from attacks.triggers import get_trigger
-    # FIX: correct path — attacks/a3fl_client.py, no clients/ subdirectory
     from attacks.a3fl_client import A3FLClient, A3FLConfig
     from datasets.backdoor import BackdoorDataset
 
@@ -189,6 +190,18 @@ def build_clients(
     C, H, W = adapter.input_shape
     trigger_kw = {"in_channels": C, "image_size": (H, W)}
     trigger_kw.update(atk.trigger_kwargs)
+
+    # ---- IBA: build ONE shared trigger for all malicious clients -----------
+    # All clients fine-tune the same U-Net generator sequentially each round.
+    # The runner's _build_backdoor_loader obtains the trigger from any one
+    # malicious client, so the ASR loader always reflects the latest trained
+    # generator state (BackdoorDataset calls trigger.apply on-the-fly).
+    iba_shared_trigger = None
+    if atk.attack_type == "iba":
+        from attacks.iba_client import IBAClient, IBAConfig
+        iba_trigger_kw = dict(trigger_kw)
+        iba_trigger_kw["normalize_transform"] = adapter.normalize_transform
+        iba_shared_trigger = get_trigger("iba", **iba_trigger_kw)
 
     # ---- Build clients ------------------------------------------------------
     clients: Dict[int, object] = {}
@@ -262,10 +275,94 @@ def build_clients(
                     device=device,
                 )
 
+            elif atk.attack_type == "neurotoxin":
+                from attacks.neurotoxin_client import NeurotoxinClient, NeurotoxinConfig
+                trigger = get_trigger("patch", **trigger_kw)
+                nt_cfg = NeurotoxinConfig(
+                    trigger=trigger,
+                    target_label=atk.target_label,
+                    normalize_transform=adapter.normalize_transform,
+                    poison_fraction=atk.poison_fraction,
+                    attack_start_round=atk.attack_start_round,
+                    attack_end_round=(
+                        float("inf") if atk.attack_end_round is None
+                        else atk.attack_end_round
+                    ),
+                    mask_k_percent=atk.trigger_kwargs.get("mask_k_percent", 0.95),
+                    seed=cfg.seed + cid,
+                )
+                clients[cid] = NeurotoxinClient(
+                    config=nt_cfg,
+                    id=cid,
+                    trainloader=pre_loaders[cid],
+                    testloader=None,
+                    model=model,
+                    lr=cfg.lr,
+                    weight_decay=cfg.weight_decay,
+                    epochs=cfg.local_epochs,
+                    device=device,
+                )
+
+            elif atk.attack_type == "iba":
+                iba_cfg = IBAConfig(
+                    trigger=iba_shared_trigger,
+                    target_label=atk.target_label,
+                    normalize_transform=adapter.normalize_transform,
+                    poison_fraction=atk.poison_fraction,
+                    attack_start_round=atk.attack_start_round,
+                    attack_end_round=(
+                        float("inf") if atk.attack_end_round is None
+                        else atk.attack_end_round
+                    ),
+                    trigger_sample_size=atk.trigger_kwargs.get("trigger_sample_size", 512),
+                    seed=cfg.seed + cid,
+                )
+                clients[cid] = IBAClient(
+                    config=iba_cfg,
+                    id=cid,
+                    trainloader=pre_loaders[cid],
+                    testloader=None,
+                    model=model,
+                    lr=cfg.lr,
+                    weight_decay=cfg.weight_decay,
+                    epochs=cfg.local_epochs,
+                    device=device,
+                )
+
+            elif atk.attack_type == "chameleon":
+                from attacks.chameleon_client import ChameleonClient, ChameleonConfig
+                ch_cfg = ChameleonConfig(
+                    target_label=atk.target_label,
+                    normalize_transform=adapter.normalize_transform,
+                    poison_fraction=atk.poison_fraction,
+                    attack_start_round=atk.attack_start_round,
+                    attack_end_round=(
+                        float("inf") if atk.attack_end_round is None
+                        else atk.attack_end_round
+                    ),
+                    epsilon=atk.trigger_kwargs.get("epsilon", 0.3),
+                    lambda_sim=atk.trigger_kwargs.get("lambda_sim", 1.0),
+                    num_pgd_steps=atk.trigger_kwargs.get("num_pgd_steps", 100),
+                    pgd_lr=atk.trigger_kwargs.get("pgd_lr", 0.01),
+                    peer_pool_size=atk.trigger_kwargs.get("peer_pool_size", 128),
+                    seed=cfg.seed + cid,
+                )
+                clients[cid] = ChameleonClient(
+                    config=ch_cfg,
+                    id=cid,
+                    trainloader=pre_loaders[cid],
+                    testloader=None,
+                    model=model,
+                    lr=cfg.lr,
+                    weight_decay=cfg.weight_decay,
+                    epochs=cfg.local_epochs,
+                    device=device,
+                )
+
             else:
                 raise ValueError(
                     f"Unknown attack type '{atk.attack_type}'. "
-                    "Valid options: 'none', 'patch', 'a3fl'."
+                    "Valid options: 'none', 'patch', 'a3fl', 'neurotoxin', 'chameleon', 'iba'."
                 )
 
         # ---- Benign clients -------------------------------------------------

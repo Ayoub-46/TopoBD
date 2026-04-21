@@ -13,8 +13,8 @@ class GTSRBDataset(DatasetAdapter):
     43 traffic-sign classes.
     """
 
-    _MEAN: Tuple[float, float, float] = (0.3337, 0.3064, 0.3171)
-    _STD:  Tuple[float, float, float] = (0.2672, 0.2564, 0.2629)
+    _MEAN: Tuple[float, float, float] = (0.3403, 0.3121, 0.3214)
+    _STD:  Tuple[float, float, float] = (0.2724, 0.2608, 0.2669)
 
     def __init__(self, root: str = "data", download: bool = True):
         super().__init__(
@@ -22,8 +22,8 @@ class GTSRBDataset(DatasetAdapter):
             download=download,
             train_pre_transform=T.Compose([
                 T.Resize((32, 32)),
-                T.RandomCrop(32, padding=4),
-                T.RandomHorizontalFlip(),
+                T.RandomRotation(10),
+                T.ColorJitter(brightness=0.2, contrast=0.2),
                 T.ToTensor(),
             ]),
             test_pre_transform=T.Compose([

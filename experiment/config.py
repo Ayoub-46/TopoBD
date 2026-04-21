@@ -40,6 +40,7 @@ class AttackConfig:
     poison_fraction: float = 0.5
     attack_start_round: int = 0
     attack_end_round: Optional[int] = None  # None means no end
+    trigger_type: Optional[str] = None  # trigger for ASR eval; None → falls back to attack_type
     trigger_kwargs: Dict[str, Any] = field(default_factory=dict)
     trigger_sample_size: int = 512
 
