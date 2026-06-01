@@ -9,8 +9,8 @@ from __future__ import annotations
 import logging
 import math
 import random
-from dataclasses import dataclass
-from typing import Dict, FrozenSet, Tuple
+from dataclasses import dataclass, field
+from typing import Dict, FrozenSet, Optional, Tuple
 
 import numpy as np
 import torch
@@ -74,12 +74,17 @@ def build_adapter(config):
     from datasets.femnist import FEMNISTDataset
     from datasets.gtsrb import GTSRBDataset
     from datasets.mnist import MNISTDataset
+    from datasets.tiny_imagenet import TinyImageNetDataset
+
+    from datasets.leaf_femnist import LEAFFEMNISTDataset
 
     registry = {
-        "cifar10": lambda: CIFAR10Dataset(root=config.data_root, download=True),
-        "femnist": lambda: FEMNISTDataset(root=config.data_root, download=True),
-        "gtsrb":   lambda: GTSRBDataset(root=config.data_root, download=True),
-        "mnist":   lambda: MNISTDataset(root=config.data_root, download=True),
+        "cifar10":        lambda: CIFAR10Dataset(root=config.data_root, download=True),
+        "femnist":        lambda: FEMNISTDataset(root=config.data_root, download=True),
+        "femnist_leaf":   lambda: LEAFFEMNISTDataset(root=config.data_root),
+        "gtsrb":          lambda: GTSRBDataset(root=config.data_root, download=True),
+        "mnist":          lambda: MNISTDataset(root=config.data_root, download=True),
+        "tiny_imagenet":  lambda: TinyImageNetDataset(root=config.data_root, download=True),
     }
 
     key = config.dataset.lower()
@@ -191,17 +196,23 @@ def build_clients(
     trigger_kw = {"in_channels": C, "image_size": (H, W)}
     trigger_kw.update(atk.trigger_kwargs)
 
-    # ---- IBA: build ONE shared trigger for all malicious clients -----------
-    # All clients fine-tune the same U-Net generator sequentially each round.
-    # The runner's _build_backdoor_loader obtains the trigger from any one
-    # malicious client, so the ASR loader always reflects the latest trained
-    # generator state (BackdoorDataset calls trigger.apply on-the-fly).
+    # ---- IBA / A3FL: build ONE shared trigger for all malicious clients ----
+    # For IBA: all clients fine-tune the same U-Net generator sequentially each
+    # round.  For A3FL: all clients optimise the same pattern so ASR evaluation
+    # always reflects the trigger that was actually trained this round.
+    # The runner's _build_backdoor_loader obtains the trigger from the first
+    # malicious client (BackdoorDataset calls trigger.apply on-the-fly).
     iba_shared_trigger = None
+    a3fl_shared_trigger = None
     if atk.attack_type == "iba":
         from attacks.iba_client import IBAClient, IBAConfig
         iba_trigger_kw = dict(trigger_kw)
         iba_trigger_kw["normalize_transform"] = adapter.normalize_transform
         iba_shared_trigger = get_trigger("iba", **iba_trigger_kw)
+    elif atk.attack_type == "a3fl":
+        a3fl_trigger_kw = dict(trigger_kw)
+        a3fl_trigger_kw["normalize_transform"] = adapter.normalize_transform
+        a3fl_shared_trigger = get_trigger("a3fl", **a3fl_trigger_kw)
 
     # ---- Build clients ------------------------------------------------------
     clients: Dict[int, object] = {}
@@ -219,7 +230,7 @@ def build_clients(
                 continue
 
             if atk.attack_type == "a3fl":
-                trigger = get_trigger("a3fl", **trigger_kw)
+                trigger = a3fl_shared_trigger
                 a3fl_cfg = A3FLConfig(
                     trigger=trigger,
                     target_label=atk.target_label,
@@ -408,9 +419,36 @@ class DetectionResult:
         rejected_ids:   Client IDs whose updates were rejected this round.
         true_malicious: Ground-truth set of malicious IDs that were selected
                         this round (passed in by the runner).
+        client_scores:  Optional per-client anomaly score (the actual decision
+                        variable for score-based defenses, e.g. Krum score or
+                        bias-distance).  Used for AUPRC / PR curves.  ``None``
+                        for hard-decision defenses (FLAME, DeepSight) or when
+                        the defense does not expose a score.
     """
     rejected_ids: FrozenSet[int]
     true_malicious: FrozenSet[int]
+    client_scores: Optional[Dict[int, float]] = field(default=None)
+
+    def raw_counts(self, n_selected_benign: int) -> Tuple[int, int, int, int]:
+        """Return (TP, FP, TN, FN) for this round.
+
+        TP/FN are -1 when no malicious clients were selected (undefined).
+        FP/TN are always defined when a detection defense is active.
+
+        Args:
+            n_selected_benign: Benign clients sampled this round.
+
+        Returns:
+            ``(tp, fp, tn, fn)`` with -1 as "not applicable" sentinel.
+        """
+        fp = len(self.rejected_ids - self.true_malicious)
+        tn = n_selected_benign - fp
+        if self.true_malicious:
+            tp = len(self.rejected_ids & self.true_malicious)
+            fn = len(self.true_malicious) - tp
+        else:
+            tp = fn = -1
+        return tp, fp, tn, fn
 
     @property
     def tpr(self) -> float:
@@ -428,8 +466,6 @@ class DetectionResult:
 
         Args:
             n_selected_benign: Number of benign clients selected this round.
-                               Supplied by the runner, which has the full
-                               client roster.
 
         Returns:
             FPR in ``[0, 1]``, or ``NaN`` when no benign clients were selected.
@@ -441,16 +477,76 @@ class DetectionResult:
 
 
 # ---------------------------------------------------------------------------
+# Client atypicality
+# ---------------------------------------------------------------------------
+
+def compute_client_atypicality(
+    adapter,
+    num_clients: int,
+    strategy: str,
+    seed: int,
+    alpha: float = 0.5,
+) -> Dict[int, float]:
+    """Return per-client Total-Variation distance from the global label distribution.
+
+    Atypicality = 0 for IID clients; rises toward 1 as the client's label
+    distribution diverges from the global empirical distribution.
+
+    Under IID partitioning every client gets a near-uniform slice, so TV
+    distance ≈ 0 for all.  Under Dirichlet, minority clients can reach ≈ 0.9.
+
+    Args:
+        adapter:     A set-up :class:`~datasets.adapter.DatasetAdapter`.
+        num_clients: Total number of clients.
+        strategy:    Partition strategy (``"iid"`` or ``"dirichlet"``).
+        seed:        Partition seed (must match the seed used for the run).
+        alpha:       Dirichlet concentration (ignored for IID).
+
+    Returns:
+        ``{client_id: tv_distance}`` for every client 0 … num_clients-1.
+        Returns an empty dict if the partition cannot be computed.
+    """
+    import numpy as np
+    from datasets.utils import extract_labels
+
+    try:
+        kw: dict = {"alpha": alpha} if strategy == "dirichlet" else {}
+        partitions = adapter._make_partitions(num_clients, strategy, seed, **kw)
+        all_labels = extract_labels(adapter.train_dataset)
+
+        num_classes = int(np.max(all_labels)) + 1
+        global_counts = np.bincount(all_labels, minlength=num_classes).astype(float)
+        global_dist   = global_counts / global_counts.sum()
+
+        atypicality: Dict[int, float] = {}
+        for cid, indices in partitions.items():
+            if not indices:
+                atypicality[cid] = float("nan")
+                continue
+            client_labels  = all_labels[indices]
+            client_counts  = np.bincount(client_labels, minlength=num_classes).astype(float)
+            client_dist    = client_counts / client_counts.sum()
+            tv_dist        = 0.5 * float(np.abs(client_dist - global_dist).sum())
+            atypicality[cid] = tv_dist
+        return atypicality
+    except Exception as exc:
+        logger.warning("compute_client_atypicality failed: %s", exc)
+        return {}
+
+
+# ---------------------------------------------------------------------------
 # Defense server factory
 # ---------------------------------------------------------------------------
 
-def build_server(config, model, device):
+def build_server(config, model, device, adapter=None):
     """Construct the defense server specified in *config*.
 
     Args:
-        config: :class:`~experiment.config.ExperimentConfig`.
-        model:  Global model (already on *device*).
-        device: Torch device.
+        config:  :class:`~experiment.config.ExperimentConfig`.
+        model:   Global model (already on *device*).
+        device:  Torch device.
+        adapter: Optional dataset adapter — used to inject ``input_shape``
+                 for defenses that need it (e.g. DeepSight).
 
     Returns:
         A server instance compatible with :class:`~fl.server.FedAvgAggregator`.
@@ -461,7 +557,7 @@ def build_server(config, model, device):
     from fl.server import FedAvgAggregator
 
     defense_type = config.defense.defense_type.lower()
-    kwargs = config.defense.defense_kwargs
+    kwargs = dict(config.defense.defense_kwargs)  # copy so we can mutate safely
 
     if defense_type == "none":
         return FedAvgAggregator(model=model, device=device)
@@ -470,7 +566,26 @@ def build_server(config, model, device):
         from defenses.mkrum import MKrumServer
         return MKrumServer(model=model, device=device, **kwargs)
 
+    if defense_type == "deepsight":
+        from defenses.deepsight import DeepSightServer
+        if "input_shape" not in kwargs and adapter is not None:
+            C, H, W = adapter.input_shape
+            kwargs["input_shape"] = (C, H, W)
+        return DeepSightServer(model=model, device=device, **kwargs)
+
+    if defense_type == "flame":
+        from defenses.flame import FlameServer
+        return FlameServer(model=model, device=device, **kwargs)
+
+    if defense_type == "nnm":
+        from defenses.nnm import NNMServer
+        return NNMServer(model=model, device=device, **kwargs)
+
+    if defense_type == "toposentinel":
+        from defenses.toposentinel import TopoSentinelServer
+        return TopoSentinelServer(model=model, device=device, **kwargs)
+
     raise ValueError(
         f"Unknown defense '{defense_type}'. "
-        f"Available: 'none', 'mkrum'."
+        f"Available: 'none', 'mkrum', 'deepsight', 'flame', 'nnm', 'toposentinel'."
     )

@@ -7,6 +7,8 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
+from experiment.metrics import PerClassEvalResult
+
 
 # ---------------------------------------------------------------------------
 # Typed return containers
@@ -240,6 +242,70 @@ class FedAvgAggregator(BaseServer):
                 "loss": loss_sum / iters if iters > 0 else float("nan"),
                 "main_accuracy": correct / total if total > 0 else float("nan"),
             },
+        )
+
+    def evaluate_per_class(
+        self, valloader: Optional[DataLoader] = None
+    ) -> Optional[PerClassEvalResult]:
+        """Compute per-class precision, recall, and F1 on the global model.
+
+        Only collects predictions and targets in a single forward pass — the
+        detection algorithm is not touched.
+
+        Args:
+            valloader: DataLoader to evaluate on; falls back to the loader
+                       provided at construction if *None*.
+
+        Returns:
+            :class:`~experiment.metrics.PerClassEvalResult`, or ``None`` when
+            no loader is available.
+        """
+        loader = valloader or self.testloader
+        if loader is None:
+            return None
+
+        self.model.eval()
+        all_preds: List[torch.Tensor] = []
+        all_targets: List[torch.Tensor] = []
+
+        with torch.no_grad():
+            for inputs, targets in loader:
+                inputs = inputs.to(self.device)
+                outputs = self.model(inputs)
+                _, preds = torch.max(outputs, 1)
+                all_preds.append(preds.cpu())
+                all_targets.append(targets.cpu())
+
+        preds   = torch.cat(all_preds)
+        targets = torch.cat(all_targets)
+        num_classes = int(targets.max().item()) + 1
+
+        per_class: Dict[int, Dict[str, float]] = {}
+        for c in range(num_classes):
+            mask_gt   = targets == c
+            mask_pred = preds == c
+            tp = int((mask_gt & mask_pred).sum())
+            fp = int((~mask_gt & mask_pred).sum())
+            fn = int((mask_gt & ~mask_pred).sum())
+            prec = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+            rec  = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+            f1   = (2 * prec * rec / (prec + rec)) if (prec + rec) > 0 else 0.0
+            per_class[c] = {
+                "tp": tp, "fp": fp, "fn": fn,
+                "precision": prec, "recall": rec, "f1": f1,
+            }
+
+        # Macro-average over classes that actually appear in the test set
+        present = [c for c in per_class if (per_class[c]["tp"] + per_class[c]["fn"]) > 0]
+        macro_p  = sum(per_class[c]["precision"] for c in present) / len(present) if present else 0.0
+        macro_r  = sum(per_class[c]["recall"]    for c in present) / len(present) if present else 0.0
+        macro_f1 = sum(per_class[c]["f1"]        for c in present) / len(present) if present else 0.0
+
+        return PerClassEvalResult(
+            per_class=per_class,
+            macro_precision=macro_p,
+            macro_recall=macro_r,
+            macro_f1=macro_f1,
         )
 
     def save_model(self, path: str) -> None:

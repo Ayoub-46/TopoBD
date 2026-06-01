@@ -1,0 +1,37 @@
+# Reproduction sanity: A3FL (Zhang et al., NeurIPS 2023)
+# Original setup: CIFAR-10, 100 clients, 10/round, 10% malicious
+# Published ASR target: ~80%+ with no defense
+name: repro_a3fl_cifar10
+dataset: cifar10
+model: resnet18
+num_clients: 100
+num_rounds: 200
+clients_per_round: 10
+local_epochs: 5
+lr: 0.01
+weight_decay: 5e-4
+batch_size: 64
+seed: 0
+eval_every: 5
+output_dir: results/reproduction_sanity
+device: auto
+partition: iid
+
+attack:
+  attack_type: a3fl
+  num_malicious: 10
+  target_label: 0
+  poison_fraction: 0.5
+  attack_start_round: 50
+  attack_end_round: null
+  trigger_sample_size: 512
+  trigger_kwargs:
+    position: [2, 2]
+    size: [5, 5]
+    trigger_epochs: 5
+    adv_epochs: 20
+    trigger_lr: 0.01
+    lambda_balance: 0.1
+
+defense:
+  defense_type: none

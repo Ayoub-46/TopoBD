@@ -118,7 +118,7 @@ class ExperimentConfig:
 
     # Optimiser
     lr: float = 0.01
-    weight_decay: float = 1e-4
+    weight_decay: float = 5e-4
 
     # Attack / Defense
     attack: AttackConfig = field(default_factory=AttackConfig)
@@ -129,6 +129,13 @@ class ExperimentConfig:
     output_dir: str = "results"
     device: str = "auto"
     seed: int = 42
+
+    def __post_init__(self) -> None:
+        # PyYAML parses '5e-4' as a string (needs '5.0e-4' or '0.0005').
+        # Coerce numeric fields so YAML files with scientific notation work.
+        self.lr           = float(self.lr)
+        self.weight_decay = float(self.weight_decay)
+        self.dirichlet_alpha = float(self.dirichlet_alpha)
 
     # ------------------------------------------------------------------
     # Serialisation

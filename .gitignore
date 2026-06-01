@@ -61,7 +61,7 @@ data/
 # Experiment results and model checkpoints (large, reproducible from config)
 results/
 checkpoints/
-
+configs/
 # Jupyter notebooks (keep .py scripts; exclude checkpoints)
 .ipynb_checkpoints/
 *.ipynb

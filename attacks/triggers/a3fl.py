@@ -23,7 +23,7 @@ Design notes
 
 import copy
 import logging
-from typing import Tuple
+from typing import Optional, Tuple
 
 import torch
 import torch.nn as nn
@@ -52,12 +52,16 @@ class A3FLTrigger(LearnableTrigger):
         size:             ``(width, height)`` of the trigger patch.
         in_channels:      Number of image channels (1 for greyscale, 3 for RGB).
         image_size:       ``(H, W)`` of the full image.
-        trigger_epochs:   Number of outer optimisation epochs.
-        trigger_lr:       PGD step size for the pattern update.
-        lambda_balance:   Scaling factor for the adaptation loss term.
-        adv_epochs:       Number of fine-tuning epochs for the adversarial model.
-        adv_lr:           Learning rate for the adversarial model fine-tuning.
-        alpha:            Blending factor (passed to :class:`BaseTrigger`).
+        trigger_epochs:      Number of outer optimisation epochs.
+        trigger_lr:          PGD step size for the pattern update.
+        lambda_balance:      Scaling factor for the adaptation loss term.
+        adv_epochs:          Number of fine-tuning epochs for the adversarial model.
+        adv_lr:              Learning rate for the adversarial model fine-tuning.
+        alpha:               Blending factor (passed to :class:`BaseTrigger`).
+        normalize_transform: Dataset normalisation transform (e.g. ``Normalize(mean, std)``).
+                             Applied to blended images before every model forward pass during
+                             trigger optimisation.  Must be provided — without it the model
+                             receives raw [0, 1] inputs and the PGD gradient is meaningless.
     """
 
     def __init__(
@@ -72,6 +76,7 @@ class A3FLTrigger(LearnableTrigger):
         adv_epochs: int = 100,
         adv_lr: float = 0.01,
         alpha: float = 1.0,
+        normalize_transform: Optional[object] = None,
     ):
         # Initialise pattern to 0.5 (mid-range), matching the official repo.
         # Shape: (C, H, W) — full image size, not patch size.
@@ -94,6 +99,7 @@ class A3FLTrigger(LearnableTrigger):
         self.lambda_balance = lambda_balance
         self.adv_epochs = adv_epochs
         self.adv_lr = adv_lr
+        self.normalize_transform = normalize_transform
 
     # ------------------------------------------------------------------
     # LearnableTrigger interface
@@ -124,6 +130,10 @@ class A3FLTrigger(LearnableTrigger):
 
         loss_fn = nn.CrossEntropyLoss()
 
+        # Pre-compute normalisation constants so we don't call the transform
+        # per-batch (avoids repeated tensor construction on the hot path).
+        mean_t, std_t = self._norm_constants(device)
+
         # FIX: similarity is constant (both models frozen) — compute once.
         similarity = self._cosine_similarity(model, adversarial_model)
         dynamic_lambda = float(self.lambda_balance * similarity)
@@ -137,14 +147,20 @@ class A3FLTrigger(LearnableTrigger):
         for epoch in range(self.trigger_epochs):
             epoch_loss = 0.0
             for inputs, _ in dataloader:
-                inputs = inputs.to(device)
-                poisoned = self._blend(inputs, pattern)
+                inputs = inputs.to(device)                  # [0, 1] pre-norm
+                poisoned = self._blend(inputs, pattern)     # still [0, 1]-ish
+
+                # Normalise before the forward pass so the model receives the
+                # same distribution it was trained on.  Clamp first to keep
+                # values in [0, 1] before applying per-channel statistics.
+                poisoned_norm = self._normalize(poisoned.clamp(0.0, 1.0), mean_t, std_t)
+
                 targets = torch.full(
                     (inputs.size(0),), target_class, dtype=torch.long, device=device
                 )
 
-                backdoor_loss = loss_fn(model(poisoned), targets)
-                adapt_loss = loss_fn(adversarial_model(poisoned), targets)
+                backdoor_loss = loss_fn(model(poisoned_norm), targets)
+                adapt_loss = loss_fn(adversarial_model(poisoned_norm), targets)
                 total_loss = backdoor_loss + dynamic_lambda * adapt_loss
 
                 # Manual PGD step — pattern is a leaf tensor, not in any optimizer
@@ -154,9 +170,9 @@ class A3FLTrigger(LearnableTrigger):
 
                 with torch.no_grad():
                     pattern.sub_(self.trigger_lr * pattern.grad.sign())
-                    # No hard clamp here — see value-range contract in base.py.
-                    # If operating in raw-pixel [0,1] space, uncomment:
-                    # pattern.clamp_(0.0, 1.0)
+                    # Clamp to valid pixel range so the trigger stays in [0, 1]
+                    # space, consistent with the pre-norm value-range contract.
+                    pattern.clamp_(0.0, 1.0)
 
                 epoch_loss += total_loss.item()
 
@@ -239,6 +255,7 @@ class A3FLTrigger(LearnableTrigger):
             adv_model.parameters(), lr=self.adv_lr, momentum=0.9, weight_decay=5e-4
         )
         loss_fn = nn.CrossEntropyLoss()
+        mean_t, std_t = self._norm_constants(device)
 
         for _ in range(self.adv_epochs):
             for inputs, labels in dataloader:
@@ -246,8 +263,9 @@ class A3FLTrigger(LearnableTrigger):
                 # Triggered images, but trained to predict ORIGINAL labels —
                 # this teaches the adversarial model to ignore the trigger.
                 poisoned = self._blend(inputs, pattern.detach())
+                poisoned_norm = self._normalize(poisoned.clamp(0.0, 1.0), mean_t, std_t)
                 optimizer.zero_grad()
-                loss_fn(adv_model(poisoned), labels).backward()
+                loss_fn(adv_model(poisoned_norm), labels).backward()
                 optimizer.step()
 
         self._set_grad(adv_model, requires_grad=False)
@@ -269,3 +287,30 @@ class A3FLTrigger(LearnableTrigger):
     def _set_grad(model: nn.Module, requires_grad: bool) -> None:
         for param in model.parameters():
             param.requires_grad = requires_grad
+
+    def _norm_constants(
+        self, device: torch.device
+    ) -> Tuple[Optional[Tensor], Optional[Tensor]]:
+        """Return (mean, std) tensors for normalisation, or (None, None)."""
+        nt = self.normalize_transform
+        if nt is None:
+            logger.warning(
+                "A3FLTrigger: normalize_transform is None — model receives "
+                "raw [0,1] inputs during trigger optimisation."
+            )
+            return None, None
+        C = len(nt.mean)
+        mean = torch.tensor(nt.mean, dtype=torch.float32, device=device).view(1, C, 1, 1)
+        std  = torch.tensor(nt.std,  dtype=torch.float32, device=device).view(1, C, 1, 1)
+        return mean, std
+
+    @staticmethod
+    def _normalize(
+        x: Tensor,
+        mean: Optional[Tensor],
+        std: Optional[Tensor],
+    ) -> Tensor:
+        """Apply (x - mean) / std, or return x unchanged if constants are None."""
+        if mean is None or std is None:
+            return x
+        return (x - mean) / std

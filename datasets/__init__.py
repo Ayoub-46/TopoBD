@@ -42,7 +42,9 @@ from .backdoor import BackdoorDataset
 from .cifar10 import CIFAR10Dataset
 from .femnist import FEMNISTDataset
 from .gtsrb import GTSRBDataset
+from .leaf_femnist import LEAFFEMNISTDataset
 from .mnist import MNISTDataset
+from .tiny_imagenet import TinyImageNetDataset
 from .utils import extract_labels
 
 __all__ = [
@@ -51,6 +53,8 @@ __all__ = [
     "CIFAR10Dataset",
     "FEMNISTDataset",
     "GTSRBDataset",
+    "LEAFFEMNISTDataset",
     "MNISTDataset",
+    "TinyImageNetDataset",
     "extract_labels",
 ]

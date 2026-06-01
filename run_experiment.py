@@ -27,10 +27,19 @@ from experiment import ExperimentConfig, FLRunner
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run one FL experiment from a YAML config.")
-    parser.add_argument("--config", help="Path to the YAML experiment config file.")
+    parser.add_argument("--config", required=True, help="Path to the YAML experiment config file.")
+    parser.add_argument("--device",     default=None, help="Override config device (auto/cpu/cuda/cuda:N).")
+    parser.add_argument("--seed",       type=int, default=None, help="Override config seed.")
+    parser.add_argument("--output-dir", default=None, dest="output_dir", help="Override config output_dir.")
     args = parser.parse_args()
 
     cfg = ExperimentConfig.from_yaml(args.config)
+    if args.device is not None:
+        cfg.device = args.device
+    if args.seed is not None:
+        cfg.seed = args.seed
+    if args.output_dir is not None:
+        cfg.output_dir = args.output_dir
 
     print(f"\n{'=' * 62}")
     print(f"  Experiment : {cfg.name}")

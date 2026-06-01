@@ -1,0 +1,5 @@
+layer_name,layer_idx,gamma_max,gamma_mean,eff_rank_clean_direct,eff_rank_bd_min,eff_rank_bd_max,rank_gap
+conv_layers.0,0,0.8956,0.2882,5.6170,1.2413,3.6951,1.9219
+conv_layers.4,1,0.7476,0.1617,19.3548,1.3979,3.0854,16.2694
+fc_layers.0,2,0.7346,0.0703,41.1430,2.2606,3.1950,37.9480
+fc_layers.3,3,0.8292,0.0390,18.4485,1.4471,1.8170,16.6315

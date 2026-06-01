@@ -177,6 +177,8 @@ class MKrumServer(FedAvgAggregator):
         rejected_ids: FrozenSet[int] = frozenset(
             cid for cid in client_ids if cid not in selected_ids
         )
+        # Expose raw Krum scores (the actual decision variable) for AUPRC.
+        client_scores = {client_ids[i]: float(scores[i]) for i in range(n)}
 
         logger.info(
             "MKrum selected %d / %d clients: %s  |  rejected: %s",
@@ -192,4 +194,5 @@ class MKrumServer(FedAvgAggregator):
         return DetectionResult(
             rejected_ids=rejected_ids,
             true_malicious=true_malicious,
+            client_scores=client_scores,
         )

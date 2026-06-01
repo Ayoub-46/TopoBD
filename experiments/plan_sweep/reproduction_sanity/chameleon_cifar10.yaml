@@ -1,0 +1,36 @@
+# Reproduction sanity: Chameleon (Dai et al.)
+# Original setup: CIFAR-10, 100 clients, 10/round, 10% malicious
+# Published ASR target: varies by participation rate
+name: repro_chameleon_cifar10
+dataset: cifar10
+model: resnet18
+num_clients: 100
+num_rounds: 200
+clients_per_round: 10
+local_epochs: 5
+lr: 0.01
+weight_decay: 5e-4
+batch_size: 64
+seed: 0
+eval_every: 5
+output_dir: results/reproduction_sanity
+device: auto
+partition: iid
+
+attack:
+  attack_type: chameleon
+  num_malicious: 10
+  target_label: 0
+  poison_fraction: 0.5
+  attack_start_round: 50
+  attack_end_round: null
+  trigger_type: none
+  trigger_kwargs:
+    epsilon: 0.3
+    num_pgd_steps: 100
+    pgd_lr: 0.01
+    peer_pool_size: 128
+    lambda_sim: 1.0
+
+defense:
+  defense_type: none

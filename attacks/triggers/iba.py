@@ -154,7 +154,10 @@ class IBATrigger(LearnableTrigger):
 
         for p in model.parameters():
             p.requires_grad_(True)
-        self.generator.eval()
+        # Move generator back to CPU so that apply() is safe to call from
+        # DataLoader worker processes, which are forked and cannot initialise
+        # a CUDA context inherited from the parent.
+        self.generator.cpu().eval()
         logger.info("IBA: generator training complete.")
 
     # ------------------------------------------------------------------
@@ -168,13 +171,15 @@ class IBATrigger(LearnableTrigger):
         Expects ``image`` in raw ``[0, 1]`` space (pre-normalisation).
         Returns the triggered image in ``[0, 1]``.
 
+        The generator is always on CPU here: ``train_trigger`` moves it back
+        to CPU after each training call so that this method is safe to invoke
+        from DataLoader worker processes (forked, no CUDA context available).
+
         Args:
             image: Float tensor ``(C, H, W)`` in ``[0, 1]``.
 
         Returns:
             Triggered image ``(C, H, W)`` in ``[0, 1]``.
         """
-        device = image.device
-        self.generator.to(device).eval()
         perturbation = self.generator(image.unsqueeze(0)).squeeze(0)
         return torch.clamp(image + self.alpha * perturbation, 0.0, 1.0)

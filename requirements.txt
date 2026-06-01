@@ -1,0 +1,28 @@
+# Core dependencies — pinned to versions tested locally (torch 2.5.1, CUDA 12.4).
+#
+# Install on a CUDA cluster:
+#   pip install --index-url https://download.pytorch.org/whl/cu124 \
+#               torch==2.5.1+cu124 torchvision==0.20.1+cu124
+#   pip install -r requirements.txt
+#
+# Install CPU-only (local dev without GPU):
+#   pip install torch==2.5.1 torchvision==0.20.1
+#   pip install -r requirements.txt
+
+# --- PyTorch (installed separately — see note above) -------------------------
+# torch==2.5.1+cu124
+# torchvision==0.20.1+cu124
+
+# --- Core framework ----------------------------------------------------------
+numpy==1.26.4
+pyyaml==6.0.2
+scipy==1.15.1
+
+# --- Topological data analysis -----------------------------------------------
+hdbscan==0.8.40
+ripser==0.6.12
+persim==0.3.8
+
+# --- Experiment diagnostics --------------------------------------------------
+matplotlib==3.10.0
+pandas==2.2.3

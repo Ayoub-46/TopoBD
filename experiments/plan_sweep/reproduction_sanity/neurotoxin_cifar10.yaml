@@ -1,0 +1,34 @@
+# Reproduction sanity: Neurotoxin (Sun et al., CCS 2021)
+# Original setup: CIFAR-10, 100 clients, 10/round, 10% malicious, static patch
+# Published ASR target: ~90% with no defense
+name: repro_neurotoxin_cifar10
+dataset: cifar10
+model: resnet18
+num_clients: 100
+num_rounds: 200
+clients_per_round: 10
+local_epochs: 5
+lr: 0.01
+weight_decay: 5e-4
+batch_size: 64
+seed: 0
+eval_every: 5
+output_dir: results/reproduction_sanity
+device: auto
+partition: iid
+
+attack:
+  attack_type: neurotoxin
+  num_malicious: 10
+  target_label: 0
+  poison_fraction: 0.5
+  attack_start_round: 50
+  attack_end_round: null
+  trigger_kwargs:
+    position: [29, 29]
+    size: [3, 3]
+    color: [1.0, 1.0, 1.0]
+    mask_k_percent: 0.95
+
+defense:
+  defense_type: none

@@ -101,7 +101,7 @@ def _build_a3fl(**kwargs) -> A3FLTrigger:
     valid = {
         "position", "size", "in_channels", "image_size",
         "trigger_epochs", "trigger_lr", "lambda_balance",
-        "adv_epochs", "adv_lr", "alpha",
+        "adv_epochs", "adv_lr", "alpha", "normalize_transform",
     }
     return A3FLTrigger(**{k: v for k, v in kwargs.items() if k in valid})
 
