@@ -71,6 +71,7 @@ def build_adapter(config):
         ValueError: if ``config.dataset`` is not registered.
     """
     from datasets.cifar10 import CIFAR10Dataset
+    from datasets.cifar100 import CIFAR100Dataset
     from datasets.femnist import FEMNISTDataset
     from datasets.gtsrb import GTSRBDataset
     from datasets.mnist import MNISTDataset
@@ -80,6 +81,7 @@ def build_adapter(config):
 
     registry = {
         "cifar10":        lambda: CIFAR10Dataset(root=config.data_root, download=True),
+        "cifar100":       lambda: CIFAR100Dataset(root=config.data_root, download=True),
         "femnist":        lambda: FEMNISTDataset(root=config.data_root, download=True),
         "femnist_leaf":   lambda: LEAFFEMNISTDataset(root=config.data_root),
         "gtsrb":          lambda: GTSRBDataset(root=config.data_root, download=True),
@@ -156,7 +158,6 @@ def build_clients(
     from models import get_model
     from attacks.triggers import get_trigger
     from attacks.a3fl_client import A3FLClient, A3FLConfig
-    from datasets.backdoor import BackdoorDataset
 
     cfg = config
     atk = config.attack
@@ -257,27 +258,24 @@ def build_clients(
                 )
 
             elif atk.attack_type == "patch":
+                from attacks.patch_client import PatchClient, PatchConfig
                 trigger = get_trigger("patch", **trigger_kw)
-                bd_ds = BackdoorDataset(
-                    original_dataset=pre_loaders[cid].dataset,
-                    trigger_fn=trigger.apply,
+                patch_cfg = PatchConfig(
+                    trigger=trigger,
                     target_label=atk.target_label,
-                    post_trigger_transform=adapter.normalize_transform,
+                    normalize_transform=adapter.normalize_transform,
                     poison_fraction=atk.poison_fraction,
+                    attack_start_round=atk.attack_start_round,
+                    attack_end_round=(
+                        float("inf") if atk.attack_end_round is None
+                        else atk.attack_end_round
+                    ),
                     seed=cfg.seed + cid,
                 )
-                poisoned_loader = DataLoader(
-                    bd_ds,
-                    batch_size=cfg.batch_size,
-                    shuffle=True,
-                    num_workers=2,
-                    pin_memory=(device.type == "cuda"),
-                )
-                # Static-trigger attack clients are plain BenignClients whose
-                # trainloader has already been poisoned at construction time.
-                clients[cid] = BenignClient(
+                clients[cid] = PatchClient(
+                    config=patch_cfg,
                     id=cid,
-                    trainloader=poisoned_loader,
+                    trainloader=pre_loaders[cid],
                     testloader=None,
                     model=model,
                     lr=cfg.lr,

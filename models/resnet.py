@@ -73,8 +73,9 @@ class ResNet(BaseModel):
         base_width:  Number of filters in the first stage (default 64).
 
     The stem automatically switches from a lightweight 3×3 convolution (for
-    inputs with height < 64px, e.g. CIFAR) to the standard 7×7/stride-2
-    ImageNet stem for larger inputs.
+    inputs with height ≤ 64px, e.g. CIFAR-10 at 32×32 and Tiny-ImageNet at
+    64×64) to the standard 7×7/stride-2 ImageNet stem for larger inputs
+    (> 64px, e.g. full ImageNet at 224×224).
     """
 
     def __init__(
@@ -90,7 +91,7 @@ class ResNet(BaseModel):
         h = config.input_shape[1]             # H
 
         # ---- Stem: small-image vs large-image --------------------------------
-        if h < 64:
+        if h <= 64:
             # CIFAR-style: preserve spatial resolution through the stem
             self.stem = nn.Sequential(
                 nn.Conv2d(in_channels, base_width, kernel_size=3,

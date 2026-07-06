@@ -1,0 +1,317 @@
+
+Dataset: femnist
+
+Checkpoint status:
+  femnist_fedavg_chameleon                  MISSING (will train)
+
+
+==================================================================
+  Run      : femnist_fedavg_chameleon
+  Purpose  : Chameleon attack checkpoint (Experiment 1)
+  Config   : /Utilisateurs/abellach/TopoBD/configs/femnist_fedavg_chameleon.yaml
+  Attack   : chameleon  |  Defense: none
+  Rounds   : 150  |  Clients: 100/10
+==================================================================
+
+11:03:21  INFO      experiment.runner — Initialising 'femnist_fedavg_chameleon' | device=cuda | rounds=150 | clients=10/100 | attack=chameleon | defense=none
+11:03:55  INFO      experiment.utils — Built 100 clients — 10 malicious, 90 benign.
+11:04:06  INFO      experiment.runner — Chameleon ASR evaluator: 500 non-target test images.
+11:04:06  INFO      experiment.runner — Setup complete — 100 clients (10 malicious) | backdoor eval: chameleon-adaptive
+11:05:14  INFO      experiment.runner — Round    1/150  |  acc:  50.62%  loss: 1.9591  |  mF1: 21.8%
+11:09:14  INFO      experiment.runner — Round   11/150  |  acc:  80.25%  loss: 0.6074  |  mF1: 60.3%
+11:13:26  INFO      experiment.runner — Round   21/150  |  acc:  82.91%  loss: 0.5026  |  mF1: 65.2%
+11:17:35  INFO      experiment.runner — Round   31/150  |  acc:  83.76%  loss: 0.4690  |  mF1: 67.3%
+11:20:40  INFO      attacks.chameleon_client — Chameleon client [31] round 39: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:20:42  INFO      attacks.chameleon_client — Chameleon client [31] round 39: poisoned 3312/6980 samples (target=0, loss=0.2815, acc=0.906).
+11:21:45  INFO      experiment.runner — Round   41/150  |  acc:  84.27%  loss: 0.4483  |  ASR:   2.20%  asr_loss: nan  |  mF1: 67.9%
+11:21:47  INFO      attacks.chameleon_client — Chameleon client [13] round 41: optimising δ for 3315/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:21:48  INFO      attacks.chameleon_client — Chameleon client [13] round 41: poisoned 3315/6980 samples (target=0, loss=0.2810, acc=0.912).
+11:21:50  INFO      attacks.chameleon_client — Chameleon client [17] round 41: optimising δ for 3311/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:21:51  INFO      attacks.chameleon_client — Chameleon client [17] round 41: poisoned 3311/6980 samples (target=0, loss=0.2762, acc=0.912).
+11:21:55  INFO      attacks.chameleon_client — Chameleon client [14] round 41: optimising δ for 3329/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:21:57  INFO      attacks.chameleon_client — Chameleon client [14] round 41: poisoned 3329/6980 samples (target=0, loss=0.2661, acc=0.916).
+11:22:21  INFO      attacks.chameleon_client — Chameleon client [81] round 42: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:22:22  INFO      attacks.chameleon_client — Chameleon client [81] round 42: poisoned 3316/6979 samples (target=0, loss=0.2926, acc=0.906).
+11:22:37  INFO      attacks.chameleon_client — Chameleon client [81] round 43: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:22:38  INFO      attacks.chameleon_client — Chameleon client [81] round 43: poisoned 3316/6979 samples (target=0, loss=0.2596, acc=0.915).
+11:22:42  INFO      attacks.chameleon_client — Chameleon client [35] round 43: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:22:44  INFO      attacks.chameleon_client — Chameleon client [35] round 43: poisoned 3314/6979 samples (target=0, loss=0.2629, acc=0.913).
+11:23:04  INFO      attacks.chameleon_client — Chameleon client [94] round 44: optimising δ for 3311/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:23:05  INFO      attacks.chameleon_client — Chameleon client [94] round 44: poisoned 3311/6979 samples (target=0, loss=0.2695, acc=0.913).
+11:23:20  INFO      attacks.chameleon_client — Chameleon client [14] round 44: optimising δ for 3329/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:23:21  INFO      attacks.chameleon_client — Chameleon client [14] round 44: poisoned 3329/6980 samples (target=0, loss=0.2560, acc=0.915).
+11:24:01  INFO      attacks.chameleon_client — Chameleon client [31] round 46: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:24:02  INFO      attacks.chameleon_client — Chameleon client [31] round 46: poisoned 3312/6980 samples (target=0, loss=0.2716, acc=0.910).
+11:24:06  INFO      attacks.chameleon_client — Chameleon client [13] round 46: optimising δ for 3315/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:24:07  INFO      attacks.chameleon_client — Chameleon client [13] round 46: poisoned 3315/6980 samples (target=0, loss=0.2612, acc=0.918).
+11:24:29  INFO      attacks.chameleon_client — Chameleon client [3] round 47: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:24:30  INFO      attacks.chameleon_client — Chameleon client [3] round 47: poisoned 3304/6980 samples (target=0, loss=0.2599, acc=0.915).
+11:24:32  INFO      attacks.chameleon_client — Chameleon client [94] round 47: optimising δ for 3311/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:24:33  INFO      attacks.chameleon_client — Chameleon client [94] round 47: poisoned 3311/6979 samples (target=0, loss=0.2634, acc=0.915).
+11:24:42  INFO      attacks.chameleon_client — Chameleon client [94] round 48: optimising δ for 3311/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:24:43  INFO      attacks.chameleon_client — Chameleon client [94] round 48: poisoned 3311/6979 samples (target=0, loss=0.2476, acc=0.919).
+11:24:45  INFO      attacks.chameleon_client — Chameleon client [31] round 48: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:24:46  INFO      attacks.chameleon_client — Chameleon client [31] round 48: poisoned 3312/6980 samples (target=0, loss=0.2775, acc=0.910).
+11:24:55  INFO      attacks.chameleon_client — Chameleon client [13] round 48: optimising δ for 3315/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:24:56  INFO      attacks.chameleon_client — Chameleon client [13] round 48: poisoned 3315/6980 samples (target=0, loss=0.2691, acc=0.914).
+11:25:04  INFO      attacks.chameleon_client — Chameleon client [28] round 49: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:25:05  INFO      attacks.chameleon_client — Chameleon client [28] round 49: poisoned 3326/6980 samples (target=0, loss=0.2562, acc=0.914).
+11:25:18  INFO      attacks.chameleon_client — Chameleon client [3] round 49: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:25:20  INFO      attacks.chameleon_client — Chameleon client [3] round 49: poisoned 3304/6980 samples (target=0, loss=0.2514, acc=0.915).
+11:25:30  INFO      attacks.chameleon_client — Chameleon client [35] round 50: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:25:31  INFO      attacks.chameleon_client — Chameleon client [35] round 50: poisoned 3314/6979 samples (target=0, loss=0.2562, acc=0.915).
+11:25:46  INFO      attacks.chameleon_client — Chameleon client [86] round 50: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:25:47  INFO      attacks.chameleon_client — Chameleon client [86] round 50: poisoned 3333/6979 samples (target=0, loss=0.2544, acc=0.916).
+11:26:17  INFO      experiment.runner — Round   51/150  |  acc:  84.61%  loss: 0.4382  |  ASR:  12.20%  asr_loss: nan  |  mF1: 68.4%
+11:26:23  INFO      attacks.chameleon_client — Chameleon client [3] round 51: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:26:24  INFO      attacks.chameleon_client — Chameleon client [3] round 51: poisoned 3304/6980 samples (target=0, loss=0.2459, acc=0.917).
+11:26:26  INFO      attacks.chameleon_client — Chameleon client [14] round 51: optimising δ for 3329/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:26:27  INFO      attacks.chameleon_client — Chameleon client [14] round 51: poisoned 3329/6980 samples (target=0, loss=0.2614, acc=0.917).
+11:26:38  INFO      attacks.chameleon_client — Chameleon client [13] round 51: optimising δ for 3315/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:26:39  INFO      attacks.chameleon_client — Chameleon client [13] round 51: poisoned 3315/6980 samples (target=0, loss=0.2548, acc=0.915).
+11:26:56  INFO      attacks.chameleon_client — Chameleon client [14] round 52: optimising δ for 3329/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:26:57  INFO      attacks.chameleon_client — Chameleon client [14] round 52: poisoned 3329/6980 samples (target=0, loss=0.2413, acc=0.920).
+11:27:26  INFO      attacks.chameleon_client — Chameleon client [94] round 53: optimising δ for 3311/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:27:27  INFO      attacks.chameleon_client — Chameleon client [94] round 53: poisoned 3311/6979 samples (target=0, loss=0.2500, acc=0.920).
+11:27:29  INFO      attacks.chameleon_client — Chameleon client [94] round 54: optimising δ for 3311/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:27:30  INFO      attacks.chameleon_client — Chameleon client [94] round 54: poisoned 3311/6979 samples (target=0, loss=0.2485, acc=0.916).
+11:28:32  INFO      attacks.chameleon_client — Chameleon client [86] round 56: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:28:33  INFO      attacks.chameleon_client — Chameleon client [86] round 56: poisoned 3333/6979 samples (target=0, loss=0.2510, acc=0.916).
+11:29:13  INFO      attacks.chameleon_client — Chameleon client [86] round 58: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:29:14  INFO      attacks.chameleon_client — Chameleon client [86] round 58: poisoned 3333/6979 samples (target=0, loss=0.2385, acc=0.920).
+11:29:24  INFO      attacks.chameleon_client — Chameleon client [94] round 58: optimising δ for 3311/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:29:25  INFO      attacks.chameleon_client — Chameleon client [94] round 58: poisoned 3311/6979 samples (target=0, loss=0.2505, acc=0.917).
+11:29:40  INFO      attacks.chameleon_client — Chameleon client [81] round 59: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:29:41  INFO      attacks.chameleon_client — Chameleon client [81] round 59: poisoned 3316/6979 samples (target=0, loss=0.2644, acc=0.911).
+11:29:53  INFO      attacks.chameleon_client — Chameleon client [86] round 60: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:29:55  INFO      attacks.chameleon_client — Chameleon client [86] round 60: poisoned 3333/6979 samples (target=0, loss=0.2434, acc=0.919).
+11:30:02  INFO      attacks.chameleon_client — Chameleon client [28] round 60: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:30:03  INFO      attacks.chameleon_client — Chameleon client [28] round 60: poisoned 3326/6980 samples (target=0, loss=0.2563, acc=0.913).
+11:30:10  INFO      attacks.chameleon_client — Chameleon client [3] round 60: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:30:11  INFO      attacks.chameleon_client — Chameleon client [3] round 60: poisoned 3304/6980 samples (target=0, loss=0.2358, acc=0.919).
+11:30:15  INFO      attacks.chameleon_client — Chameleon client [31] round 60: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:30:16  INFO      attacks.chameleon_client — Chameleon client [31] round 60: poisoned 3312/6980 samples (target=0, loss=0.2576, acc=0.915).
+11:30:46  INFO      experiment.runner — Round   61/150  |  acc:  84.85%  loss: 0.4312  |  ASR:  15.00%  asr_loss: nan  |  mF1: 68.8%
+11:31:17  INFO      attacks.chameleon_client — Chameleon client [31] round 62: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:31:18  INFO      attacks.chameleon_client — Chameleon client [31] round 62: poisoned 3312/6980 samples (target=0, loss=0.2560, acc=0.913).
+11:31:33  INFO      attacks.chameleon_client — Chameleon client [13] round 63: optimising δ for 3315/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:31:34  INFO      attacks.chameleon_client — Chameleon client [13] round 63: poisoned 3315/6980 samples (target=0, loss=0.2488, acc=0.915).
+11:31:41  INFO      attacks.chameleon_client — Chameleon client [28] round 63: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:31:42  INFO      attacks.chameleon_client — Chameleon client [28] round 63: poisoned 3326/6980 samples (target=0, loss=0.2673, acc=0.915).
+11:31:59  INFO      attacks.chameleon_client — Chameleon client [31] round 64: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:32:00  INFO      attacks.chameleon_client — Chameleon client [31] round 64: poisoned 3312/6980 samples (target=0, loss=0.2644, acc=0.913).
+11:32:06  INFO      attacks.chameleon_client — Chameleon client [17] round 64: optimising δ for 3311/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:32:08  INFO      attacks.chameleon_client — Chameleon client [17] round 64: poisoned 3311/6980 samples (target=0, loss=0.2423, acc=0.917).
+11:32:56  INFO      attacks.chameleon_client — Chameleon client [31] round 66: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:32:58  INFO      attacks.chameleon_client — Chameleon client [31] round 66: poisoned 3312/6980 samples (target=0, loss=0.2679, acc=0.909).
+11:33:02  INFO      attacks.chameleon_client — Chameleon client [81] round 66: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:33:03  INFO      attacks.chameleon_client — Chameleon client [81] round 66: poisoned 3316/6979 samples (target=0, loss=0.2507, acc=0.919).
+11:33:05  INFO      attacks.chameleon_client — Chameleon client [35] round 66: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:33:06  INFO      attacks.chameleon_client — Chameleon client [35] round 66: poisoned 3314/6979 samples (target=0, loss=0.2512, acc=0.919).
+11:33:22  INFO      attacks.chameleon_client — Chameleon client [35] round 67: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:33:23  INFO      attacks.chameleon_client — Chameleon client [35] round 67: poisoned 3314/6979 samples (target=0, loss=0.2507, acc=0.915).
+11:33:45  INFO      attacks.chameleon_client — Chameleon client [17] round 68: optimising δ for 3311/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:33:47  INFO      attacks.chameleon_client — Chameleon client [17] round 68: poisoned 3311/6980 samples (target=0, loss=0.2517, acc=0.915).
+11:35:18  INFO      experiment.runner — Round   71/150  |  acc:  85.05%  loss: 0.4228  |  ASR:  12.60%  asr_loss: nan  |  mF1: 69.3%
+11:35:30  INFO      attacks.chameleon_client — Chameleon client [94] round 71: optimising δ for 3311/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:35:31  INFO      attacks.chameleon_client — Chameleon client [94] round 71: poisoned 3311/6979 samples (target=0, loss=0.2604, acc=0.914).
+11:35:38  INFO      attacks.chameleon_client — Chameleon client [28] round 71: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:35:39  INFO      attacks.chameleon_client — Chameleon client [28] round 71: poisoned 3326/6980 samples (target=0, loss=0.2435, acc=0.919).
+11:35:43  INFO      attacks.chameleon_client — Chameleon client [28] round 72: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:35:45  INFO      attacks.chameleon_client — Chameleon client [28] round 72: poisoned 3326/6980 samples (target=0, loss=0.2417, acc=0.918).
+11:35:53  INFO      attacks.chameleon_client — Chameleon client [3] round 72: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:35:54  INFO      attacks.chameleon_client — Chameleon client [3] round 72: poisoned 3304/6980 samples (target=0, loss=0.2403, acc=0.920).
+11:36:02  INFO      attacks.chameleon_client — Chameleon client [86] round 72: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:36:04  INFO      attacks.chameleon_client — Chameleon client [86] round 72: poisoned 3333/6979 samples (target=0, loss=0.2416, acc=0.919).
+11:36:21  INFO      attacks.chameleon_client — Chameleon client [3] round 73: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:36:22  INFO      attacks.chameleon_client — Chameleon client [3] round 73: poisoned 3304/6980 samples (target=0, loss=0.2416, acc=0.918).
+11:36:33  INFO      attacks.chameleon_client — Chameleon client [3] round 74: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:36:34  INFO      attacks.chameleon_client — Chameleon client [3] round 74: poisoned 3304/6980 samples (target=0, loss=0.2425, acc=0.919).
+11:36:43  INFO      attacks.chameleon_client — Chameleon client [17] round 74: optimising δ for 3311/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:36:44  INFO      attacks.chameleon_client — Chameleon client [17] round 74: poisoned 3311/6980 samples (target=0, loss=0.2478, acc=0.914).
+11:37:09  INFO      attacks.chameleon_client — Chameleon client [35] round 75: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:37:10  INFO      attacks.chameleon_client — Chameleon client [35] round 75: poisoned 3314/6979 samples (target=0, loss=0.2525, acc=0.919).
+11:37:35  INFO      attacks.chameleon_client — Chameleon client [28] round 76: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:37:36  INFO      attacks.chameleon_client — Chameleon client [28] round 76: poisoned 3326/6980 samples (target=0, loss=0.2489, acc=0.915).
+11:37:58  INFO      attacks.chameleon_client — Chameleon client [3] round 77: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:37:59  INFO      attacks.chameleon_client — Chameleon client [3] round 77: poisoned 3304/6980 samples (target=0, loss=0.2328, acc=0.922).
+11:38:01  INFO      attacks.chameleon_client — Chameleon client [31] round 77: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:38:03  INFO      attacks.chameleon_client — Chameleon client [31] round 77: poisoned 3312/6980 samples (target=0, loss=0.2536, acc=0.916).
+11:38:25  INFO      attacks.chameleon_client — Chameleon client [14] round 78: optimising δ for 3329/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:38:26  INFO      attacks.chameleon_client — Chameleon client [14] round 78: poisoned 3329/6980 samples (target=0, loss=0.2386, acc=0.920).
+11:38:55  INFO      attacks.chameleon_client — Chameleon client [14] round 79: optimising δ for 3329/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:38:56  INFO      attacks.chameleon_client — Chameleon client [14] round 79: poisoned 3329/6980 samples (target=0, loss=0.2404, acc=0.921).
+11:39:05  INFO      attacks.chameleon_client — Chameleon client [13] round 80: optimising δ for 3315/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:39:06  INFO      attacks.chameleon_client — Chameleon client [13] round 80: poisoned 3315/6980 samples (target=0, loss=0.2518, acc=0.916).
+11:39:11  INFO      attacks.chameleon_client — Chameleon client [3] round 80: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:39:12  INFO      attacks.chameleon_client — Chameleon client [3] round 80: poisoned 3304/6980 samples (target=0, loss=0.2322, acc=0.921).
+11:39:18  INFO      attacks.chameleon_client — Chameleon client [86] round 80: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:39:19  INFO      attacks.chameleon_client — Chameleon client [86] round 80: poisoned 3333/6979 samples (target=0, loss=0.2332, acc=0.924).
+11:39:57  INFO      experiment.runner — Round   81/150  |  acc:  85.05%  loss: 0.4217  |  ASR:  16.00%  asr_loss: nan  |  mF1: 69.2%
+11:40:08  INFO      attacks.chameleon_client — Chameleon client [31] round 81: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:40:09  INFO      attacks.chameleon_client — Chameleon client [31] round 81: poisoned 3312/6980 samples (target=0, loss=0.2539, acc=0.916).
+11:40:12  INFO      attacks.chameleon_client — Chameleon client [13] round 81: optimising δ for 3315/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:40:13  INFO      attacks.chameleon_client — Chameleon client [13] round 81: poisoned 3315/6980 samples (target=0, loss=0.2457, acc=0.919).
+11:41:08  INFO      attacks.chameleon_client — Chameleon client [13] round 83: optimising δ for 3315/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:41:10  INFO      attacks.chameleon_client — Chameleon client [13] round 83: poisoned 3315/6980 samples (target=0, loss=0.2497, acc=0.918).
+11:41:16  INFO      attacks.chameleon_client — Chameleon client [81] round 83: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:41:17  INFO      attacks.chameleon_client — Chameleon client [81] round 83: poisoned 3316/6979 samples (target=0, loss=0.2392, acc=0.918).
+11:42:03  INFO      attacks.chameleon_client — Chameleon client [31] round 85: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:42:04  INFO      attacks.chameleon_client — Chameleon client [31] round 85: poisoned 3312/6980 samples (target=0, loss=0.2557, acc=0.912).
+11:42:08  INFO      attacks.chameleon_client — Chameleon client [35] round 86: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:42:09  INFO      attacks.chameleon_client — Chameleon client [35] round 86: poisoned 3314/6979 samples (target=0, loss=0.2514, acc=0.916).
+11:42:14  INFO      attacks.chameleon_client — Chameleon client [31] round 86: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:42:15  INFO      attacks.chameleon_client — Chameleon client [31] round 86: poisoned 3312/6980 samples (target=0, loss=0.2545, acc=0.914).
+11:42:33  INFO      attacks.chameleon_client — Chameleon client [3] round 87: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:42:34  INFO      attacks.chameleon_client — Chameleon client [3] round 87: poisoned 3304/6980 samples (target=0, loss=0.2325, acc=0.924).
+11:42:56  INFO      attacks.chameleon_client — Chameleon client [35] round 87: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:42:57  INFO      attacks.chameleon_client — Chameleon client [35] round 87: poisoned 3314/6979 samples (target=0, loss=0.2445, acc=0.918).
+11:43:05  INFO      attacks.chameleon_client — Chameleon client [35] round 88: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:43:06  INFO      attacks.chameleon_client — Chameleon client [35] round 88: poisoned 3314/6979 samples (target=0, loss=0.2334, acc=0.922).
+11:43:55  INFO      attacks.chameleon_client — Chameleon client [28] round 90: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:43:56  INFO      attacks.chameleon_client — Chameleon client [28] round 90: poisoned 3326/6980 samples (target=0, loss=0.2499, acc=0.915).
+11:44:03  INFO      attacks.chameleon_client — Chameleon client [31] round 90: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:44:04  INFO      attacks.chameleon_client — Chameleon client [31] round 90: poisoned 3312/6980 samples (target=0, loss=0.2497, acc=0.917).
+11:44:39  INFO      experiment.runner — Round   91/150  |  acc:  85.31%  loss: 0.4161  |  ASR:  16.60%  asr_loss: nan  |  mF1: 69.6%
+11:45:43  INFO      attacks.chameleon_client — Chameleon client [94] round 93: optimising δ for 3311/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:45:44  INFO      attacks.chameleon_client — Chameleon client [94] round 93: poisoned 3311/6979 samples (target=0, loss=0.2449, acc=0.920).
+11:45:48  INFO      attacks.chameleon_client — Chameleon client [35] round 93: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:45:50  INFO      attacks.chameleon_client — Chameleon client [35] round 93: poisoned 3314/6979 samples (target=0, loss=0.2473, acc=0.919).
+11:46:32  INFO      attacks.chameleon_client — Chameleon client [35] round 95: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:46:34  INFO      attacks.chameleon_client — Chameleon client [35] round 95: poisoned 3314/6979 samples (target=0, loss=0.2407, acc=0.918).
+11:46:49  INFO      attacks.chameleon_client — Chameleon client [81] round 96: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:46:51  INFO      attacks.chameleon_client — Chameleon client [81] round 96: poisoned 3316/6979 samples (target=0, loss=0.2351, acc=0.920).
+11:47:00  INFO      attacks.chameleon_client — Chameleon client [13] round 96: optimising δ for 3315/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:47:01  INFO      attacks.chameleon_client — Chameleon client [13] round 96: poisoned 3315/6980 samples (target=0, loss=0.2448, acc=0.914).
+11:47:27  INFO      attacks.chameleon_client — Chameleon client [14] round 97: optimising δ for 3329/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:47:28  INFO      attacks.chameleon_client — Chameleon client [14] round 97: poisoned 3329/6980 samples (target=0, loss=0.2312, acc=0.924).
+11:47:58  INFO      attacks.chameleon_client — Chameleon client [31] round 99: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:47:59  INFO      attacks.chameleon_client — Chameleon client [31] round 99: poisoned 3312/6980 samples (target=0, loss=0.2480, acc=0.913).
+11:48:19  INFO      attacks.chameleon_client — Chameleon client [28] round 99: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:48:21  INFO      attacks.chameleon_client — Chameleon client [28] round 99: poisoned 3326/6980 samples (target=0, loss=0.2351, acc=0.920).
+11:49:13  INFO      experiment.runner — Round  101/150  |  acc:  85.41%  loss: 0.4122  |  ASR:  15.40%  asr_loss: nan  |  mF1: 70.2%
+11:49:19  INFO      attacks.chameleon_client — Chameleon client [94] round 101: optimising δ for 3311/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:49:21  INFO      attacks.chameleon_client — Chameleon client [94] round 101: poisoned 3311/6979 samples (target=0, loss=0.2301, acc=0.925).
+11:50:43  INFO      attacks.chameleon_client — Chameleon client [14] round 104: optimising δ for 3329/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:50:44  INFO      attacks.chameleon_client — Chameleon client [14] round 104: poisoned 3329/6980 samples (target=0, loss=0.2268, acc=0.926).
+11:50:48  INFO      attacks.chameleon_client — Chameleon client [28] round 105: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:50:50  INFO      attacks.chameleon_client — Chameleon client [28] round 105: poisoned 3326/6980 samples (target=0, loss=0.2395, acc=0.917).
+11:51:57  INFO      attacks.chameleon_client — Chameleon client [94] round 107: optimising δ for 3311/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:51:58  INFO      attacks.chameleon_client — Chameleon client [94] round 107: poisoned 3311/6979 samples (target=0, loss=0.2453, acc=0.922).
+11:52:06  INFO      attacks.chameleon_client — Chameleon client [3] round 108: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:52:08  INFO      attacks.chameleon_client — Chameleon client [3] round 108: poisoned 3304/6980 samples (target=0, loss=0.2254, acc=0.925).
+11:52:14  INFO      attacks.chameleon_client — Chameleon client [86] round 108: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:52:15  INFO      attacks.chameleon_client — Chameleon client [86] round 108: poisoned 3333/6979 samples (target=0, loss=0.2427, acc=0.919).
+11:52:26  INFO      attacks.chameleon_client — Chameleon client [86] round 109: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:52:28  INFO      attacks.chameleon_client — Chameleon client [86] round 109: poisoned 3333/6979 samples (target=0, loss=0.2220, acc=0.925).
+11:52:52  INFO      attacks.chameleon_client — Chameleon client [35] round 110: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:52:54  INFO      attacks.chameleon_client — Chameleon client [35] round 110: poisoned 3314/6979 samples (target=0, loss=0.2325, acc=0.921).
+11:53:03  INFO      attacks.chameleon_client — Chameleon client [81] round 110: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:53:04  INFO      attacks.chameleon_client — Chameleon client [81] round 110: poisoned 3316/6979 samples (target=0, loss=0.2385, acc=0.917).
+11:53:40  INFO      experiment.runner — Round  111/150  |  acc:  85.36%  loss: 0.4126  |  ASR:  16.80%  asr_loss: nan  |  mF1: 69.7%
+11:53:51  INFO      attacks.chameleon_client — Chameleon client [13] round 111: optimising δ for 3315/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:53:52  INFO      attacks.chameleon_client — Chameleon client [13] round 111: poisoned 3315/6980 samples (target=0, loss=0.2371, acc=0.922).
+11:54:25  INFO      attacks.chameleon_client — Chameleon client [14] round 112: optimising δ for 3329/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:54:26  INFO      attacks.chameleon_client — Chameleon client [14] round 112: poisoned 3329/6980 samples (target=0, loss=0.2366, acc=0.920).
+11:55:33  INFO      attacks.chameleon_client — Chameleon client [3] round 115: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:55:34  INFO      attacks.chameleon_client — Chameleon client [3] round 115: poisoned 3304/6980 samples (target=0, loss=0.2200, acc=0.926).
+11:56:00  INFO      attacks.chameleon_client — Chameleon client [28] round 116: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:56:01  INFO      attacks.chameleon_client — Chameleon client [28] round 116: poisoned 3326/6980 samples (target=0, loss=0.2484, acc=0.919).
+11:56:03  INFO      attacks.chameleon_client — Chameleon client [14] round 117: optimising δ for 3329/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:56:04  INFO      attacks.chameleon_client — Chameleon client [14] round 117: poisoned 3329/6980 samples (target=0, loss=0.2315, acc=0.921).
+11:56:34  INFO      attacks.chameleon_client — Chameleon client [31] round 118: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:56:36  INFO      attacks.chameleon_client — Chameleon client [31] round 118: poisoned 3312/6980 samples (target=0, loss=0.2531, acc=0.917).
+11:56:55  INFO      attacks.chameleon_client — Chameleon client [17] round 119: optimising δ for 3311/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:56:56  INFO      attacks.chameleon_client — Chameleon client [17] round 119: poisoned 3311/6980 samples (target=0, loss=0.2325, acc=0.921).
+11:57:00  INFO      attacks.chameleon_client — Chameleon client [35] round 119: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+11:57:01  INFO      attacks.chameleon_client — Chameleon client [35] round 119: poisoned 3314/6979 samples (target=0, loss=0.2551, acc=0.918).
+11:58:02  INFO      experiment.runner — Round  121/150  |  acc:  85.51%  loss: 0.4076  |  ASR:  13.20%  asr_loss: nan  |  mF1: 70.2%
+12:00:13  INFO      attacks.chameleon_client — Chameleon client [86] round 126: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:00:14  INFO      attacks.chameleon_client — Chameleon client [86] round 126: poisoned 3333/6979 samples (target=0, loss=0.2221, acc=0.925).
+12:01:05  INFO      attacks.chameleon_client — Chameleon client [81] round 128: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:01:06  INFO      attacks.chameleon_client — Chameleon client [81] round 128: poisoned 3316/6979 samples (target=0, loss=0.2468, acc=0.916).
+12:01:19  INFO      attacks.chameleon_client — Chameleon client [3] round 129: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:01:20  INFO      attacks.chameleon_client — Chameleon client [3] round 129: poisoned 3304/6980 samples (target=0, loss=0.2179, acc=0.926).
+12:01:40  INFO      attacks.chameleon_client — Chameleon client [31] round 130: optimising δ for 3312/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:01:42  INFO      attacks.chameleon_client — Chameleon client [31] round 130: poisoned 3312/6980 samples (target=0, loss=0.2510, acc=0.915).
+12:02:29  INFO      experiment.runner — Round  131/150  |  acc:  85.62%  loss: 0.4053  |  ASR:  10.60%  asr_loss: nan  |  mF1: 70.4%
+12:02:56  INFO      attacks.chameleon_client — Chameleon client [81] round 132: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:02:57  INFO      attacks.chameleon_client — Chameleon client [81] round 132: poisoned 3316/6979 samples (target=0, loss=0.2391, acc=0.918).
+12:03:10  INFO      attacks.chameleon_client — Chameleon client [86] round 132: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:03:11  INFO      attacks.chameleon_client — Chameleon client [86] round 132: poisoned 3333/6979 samples (target=0, loss=0.2294, acc=0.923).
+12:03:29  INFO      attacks.chameleon_client — Chameleon client [81] round 133: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:03:30  INFO      attacks.chameleon_client — Chameleon client [81] round 133: poisoned 3316/6979 samples (target=0, loss=0.2332, acc=0.918).
+12:03:53  INFO      attacks.chameleon_client — Chameleon client [13] round 134: optimising δ for 3315/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:03:54  INFO      attacks.chameleon_client — Chameleon client [13] round 134: poisoned 3315/6980 samples (target=0, loss=0.2318, acc=0.923).
+12:04:18  INFO      attacks.chameleon_client — Chameleon client [35] round 135: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:04:19  INFO      attacks.chameleon_client — Chameleon client [35] round 135: poisoned 3314/6979 samples (target=0, loss=0.2344, acc=0.919).
+12:04:51  INFO      attacks.chameleon_client — Chameleon client [28] round 136: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:04:52  INFO      attacks.chameleon_client — Chameleon client [28] round 136: poisoned 3326/6980 samples (target=0, loss=0.2275, acc=0.923).
+12:04:54  INFO      attacks.chameleon_client — Chameleon client [81] round 136: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:04:55  INFO      attacks.chameleon_client — Chameleon client [81] round 136: poisoned 3316/6979 samples (target=0, loss=0.2345, acc=0.921).
+12:05:04  INFO      attacks.chameleon_client — Chameleon client [86] round 137: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:05:05  INFO      attacks.chameleon_client — Chameleon client [86] round 137: poisoned 3333/6979 samples (target=0, loss=0.2339, acc=0.922).
+12:05:18  INFO      attacks.chameleon_client — Chameleon client [17] round 137: optimising δ for 3311/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:05:19  INFO      attacks.chameleon_client — Chameleon client [17] round 137: poisoned 3311/6980 samples (target=0, loss=0.2238, acc=0.926).
+12:06:25  INFO      attacks.chameleon_client — Chameleon client [14] round 140: optimising δ for 3329/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:06:26  INFO      attacks.chameleon_client — Chameleon client [14] round 140: poisoned 3329/6980 samples (target=0, loss=0.2319, acc=0.924).
+12:06:54  INFO      experiment.runner — Round  141/150  |  acc:  85.63%  loss: 0.4043  |  ASR:  12.80%  asr_loss: nan  |  mF1: 70.5%
+12:07:06  INFO      attacks.chameleon_client — Chameleon client [28] round 141: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:07:08  INFO      attacks.chameleon_client — Chameleon client [28] round 141: poisoned 3326/6980 samples (target=0, loss=0.2386, acc=0.918).
+12:07:11  INFO      attacks.chameleon_client — Chameleon client [86] round 141: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:07:12  INFO      attacks.chameleon_client — Chameleon client [86] round 141: poisoned 3333/6979 samples (target=0, loss=0.2277, acc=0.920).
+12:07:45  INFO      attacks.chameleon_client — Chameleon client [86] round 142: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:07:46  INFO      attacks.chameleon_client — Chameleon client [86] round 142: poisoned 3333/6979 samples (target=0, loss=0.2261, acc=0.923).
+12:07:50  INFO      attacks.chameleon_client — Chameleon client [86] round 143: optimising δ for 3333/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:07:51  INFO      attacks.chameleon_client — Chameleon client [86] round 143: poisoned 3333/6979 samples (target=0, loss=0.2287, acc=0.923).
+12:08:00  INFO      attacks.chameleon_client — Chameleon client [81] round 143: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:08:02  INFO      attacks.chameleon_client — Chameleon client [81] round 143: poisoned 3316/6979 samples (target=0, loss=0.2382, acc=0.918).
+12:08:06  INFO      attacks.chameleon_client — Chameleon client [13] round 143: optimising δ for 3315/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:08:07  INFO      attacks.chameleon_client — Chameleon client [13] round 143: poisoned 3315/6980 samples (target=0, loss=0.2391, acc=0.920).
+12:08:13  INFO      attacks.chameleon_client — Chameleon client [3] round 143: optimising δ for 3304/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:08:15  INFO      attacks.chameleon_client — Chameleon client [3] round 143: poisoned 3304/6980 samples (target=0, loss=0.2193, acc=0.925).
+12:08:29  INFO      attacks.chameleon_client — Chameleon client [28] round 144: optimising δ for 3326/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:08:30  INFO      attacks.chameleon_client — Chameleon client [28] round 144: poisoned 3326/6980 samples (target=0, loss=0.2255, acc=0.922).
+12:08:36  INFO      attacks.chameleon_client — Chameleon client [81] round 144: optimising δ for 3316/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:08:37  INFO      attacks.chameleon_client — Chameleon client [81] round 144: poisoned 3316/6979 samples (target=0, loss=0.2481, acc=0.918).
+12:08:50  INFO      attacks.chameleon_client — Chameleon client [14] round 145: optimising δ for 3329/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:08:51  INFO      attacks.chameleon_client — Chameleon client [14] round 145: poisoned 3329/6980 samples (target=0, loss=0.2243, acc=0.923).
+12:08:53  INFO      attacks.chameleon_client — Chameleon client [17] round 145: optimising δ for 3311/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:08:54  INFO      attacks.chameleon_client — Chameleon client [17] round 145: poisoned 3311/6980 samples (target=0, loss=0.2267, acc=0.926).
+12:09:10  INFO      attacks.chameleon_client — Chameleon client [17] round 146: optimising δ for 3311/6980 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:09:12  INFO      attacks.chameleon_client — Chameleon client [17] round 146: poisoned 3311/6980 samples (target=0, loss=0.2286, acc=0.923).
+12:09:54  INFO      attacks.chameleon_client — Chameleon client [35] round 148: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:09:55  INFO      attacks.chameleon_client — Chameleon client [35] round 148: poisoned 3314/6979 samples (target=0, loss=0.2279, acc=0.922).
+12:10:33  INFO      attacks.chameleon_client — Chameleon client [35] round 149: optimising δ for 3314/6979 samples (ε=0.300, λ_sim=1.00, steps=100).
+12:10:34  INFO      attacks.chameleon_client — Chameleon client [35] round 149: poisoned 3314/6979 samples (target=0, loss=0.2485, acc=0.917).
+12:11:08  INFO      experiment.runner — Round  150/150  |  acc:  85.63%  loss: 0.4034  |  ASR:  10.00%  asr_loss: nan  |  mF1: 70.5%
+
+==============================================================
+  Summary — 16 rounds evaluated
+==============================================================
+  Final clean accuracy               85.63%
+  Best  clean accuracy               85.63%
+  Final clean loss                   0.4034
+  Macro F1                           70.54%
+  Final ASR                          10.00%
+  Mean ASR (attack window)           13.75%
+  Max  ASR (attack window)           16.80%
+==============================================================
+
+12:11:08  INFO      experiment.runner — Final model saved to results/femnist_fedavg_chameleon/final_model.pt
+12:11:08  INFO      experiment.runner — Client atypicality written to results/femnist_fedavg_chameleon/client_atypicality.json
+12:11:08  INFO      experiment.runner — Client inclusion rates written to results/femnist_fedavg_chameleon/client_inclusion.csv
+
+==================================================================
+  Done: femnist_fedavg_chameleon  (1h 7m 46s)
+  Clean accuracy : 85.63%
+  ASR            : 10.00%
+  Checkpoint     : /Utilisateurs/abellach/TopoBD/results/femnist_fedavg_chameleon/final_model.pt
+==================================================================
+
+
+==================================================================
+  Training complete  (1h 7m 46s total)
+  Trained : ['femnist_fedavg_chameleon']
+  Skipped : —
+==================================================================

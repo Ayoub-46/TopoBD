@@ -1,0 +1,15 @@
+
+Dataset: cifar10
+
+Checkpoint status:
+  cifar10_benign_iid                        PRESENT (will skip)
+  cifar10_fedavg_neurotoxin                 PRESENT (will skip)
+
+SKIP  cifar10_benign_iid  (final_model.pt exists)
+SKIP  cifar10_fedavg_neurotoxin  (final_model.pt exists)
+
+==================================================================
+  Training complete  (0s total)
+  Trained : —
+  Skipped : ['cifar10_benign_iid', 'cifar10_fedavg_neurotoxin']
+==================================================================

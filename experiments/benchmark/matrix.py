@@ -5,10 +5,11 @@ One `ExperimentConfig` is built programmatically for every
 
 Dataset-specific convergence parameters
 ----------------------------------------
-* mnist   — 100 rounds, 50 clients, 5/round, 2 local epochs (fast convergence)
-* femnist — 150 rounds, 100 clients, 10/round, 2 local epochs (62 classes, moderate)
-* gtsrb   — 200 rounds, 100 clients, 10/round, 5 local epochs (43 classes, CNN)
-* cifar10 — 200 rounds, 100 clients, 10/round, 5 local epochs (ResNet, slower)
+* mnist    — 100 rounds, 50 clients, 5/round, 2 local epochs (fast convergence)
+* femnist  — 150 rounds, 100 clients, 10/round, 2 local epochs (62 classes, moderate)
+* gtsrb    — 200 rounds, 100 clients, 10/round, 5 local epochs (43 classes, CNN)
+* cifar10  — 240 rounds, 100 clients, 10/round, 5 local epochs (ResNet, slower)
+* cifar100 — 240 rounds, 100 clients, 10/round, 5 local epochs (ResNet, 100 classes)
 
 Attack window
 -------------
@@ -31,91 +32,41 @@ from experiment.config import AttackConfig, DefenseConfig, ExperimentConfig
 # Per-dataset hyperparameters
 # ---------------------------------------------------------------------------
 
-DATASET_CFG: Dict[str, Dict[str, Any]] = {
-    "mnist": dict(
-        model="lenet5",
-        num_rounds=100,
-        num_clients=50,
-        clients_per_round=5,
-        local_epochs=2,
-        lr=0.01,
-        batch_size=64,
-        attack_start=25,
-        attack_end=75,
-        num_malicious=5,        # 10 % of 50
-        img_h=28, img_w=28,
-        in_channels=1,
-        patch_pos=(25, 25),
-        patch_size=(3, 3),
-        patch_color=[1.0],
-    ),
+DATASET_CFG = {
     "femnist": dict(
-        model="lenet5",
-        num_rounds=150,
-        num_clients=100,
-        clients_per_round=10,
-        local_epochs=2,
-        lr=0.01,
-        batch_size=64,
-        attack_start=37,        # ~25 % of 150
-        attack_end=87,
-        num_malicious=10,       # 10 % of 100
-        img_h=28, img_w=28,
-        in_channels=1,
-        patch_pos=(25, 25),
-        patch_size=(3, 3),
-        patch_color=[1.0],
+        model="lenet5", num_rounds=150, num_clients=100, clients_per_round=10,
+        local_epochs=2, lr=0.01, batch_size=64, weight_decay=5e-4,
+        attack_start=37, attack_end=150,            # continuous to end
+        num_malicious=10, img_h=28, img_w=28, in_channels=1,
+        patch_pos=(25, 25), patch_size=(3, 3), patch_color=[1.0],
     ),
     "gtsrb": dict(
-        model="gtsrb_cnn",
-        num_rounds=200,
-        num_clients=100,
-        clients_per_round=10,
-        local_epochs=5,
-        lr=0.01,
-        batch_size=64,
-        attack_start=50,        # 25 % of 200
-        attack_end=100,
-        num_malicious=10,
-        img_h=32, img_w=32,
-        in_channels=3,
-        patch_pos=(29, 29),
-        patch_size=(3, 3),
-        patch_color=[1.0, 1.0, 1.0],
+        model="gtsrb_cnn", num_rounds=200, num_clients=100, clients_per_round=10,
+        local_epochs=5, lr=0.01, batch_size=64, weight_decay=5e-4,
+        attack_start=50, attack_end=200,
+        num_malicious=10, img_h=32, img_w=32, in_channels=3,
+        patch_pos=(29, 29), patch_size=(3, 3), patch_color=[1.0, 1.0, 1.0],
     ),
     "cifar10": dict(
-        model="resnet18",
-        num_rounds=200,
-        num_clients=100,
-        clients_per_round=10,
-        local_epochs=5,
-        lr=0.01,
-        batch_size=64,
-        attack_start=50,
-        attack_end=100,
-        num_malicious=10,
-        img_h=32, img_w=32,
-        in_channels=3,
-        patch_pos=(29, 29),
-        patch_size=(3, 3),
-        patch_color=[1.0, 1.0, 1.0],
+        model="resnet18", num_rounds=240, num_clients=100, clients_per_round=10,
+        local_epochs=5, lr=0.01, batch_size=64, weight_decay=5e-4,
+        attack_start=80, attack_end=240,            # ~33%, gate convergence
+        num_malicious=10, img_h=32, img_w=32, in_channels=3,
+        patch_pos=(29, 29), patch_size=(3, 3), patch_color=[1.0, 1.0, 1.0],
+    ),
+    "cifar100": dict(
+        model="resnet18", num_rounds=240, num_clients=100, clients_per_round=10,
+        local_epochs=5, lr=0.01, batch_size=64, weight_decay=5e-4,
+        attack_start=80, attack_end=240,            # ~33%, gate convergence
+        num_malicious=10, img_h=32, img_w=32, in_channels=3,
+        patch_pos=(29, 29), patch_size=(3, 3), patch_color=[1.0, 1.0, 1.0],
     ),
     "tiny_imagenet": dict(
-        model="resnet18",
-        num_rounds=300,
-        num_clients=100,
-        clients_per_round=10,
-        local_epochs=5,
-        lr=0.01,
-        batch_size=64,
-        attack_start=75,        # 25 % of 300
-        attack_end=125,
-        num_malicious=10,
-        img_h=64, img_w=64,
-        in_channels=3,
-        patch_pos=(61, 61),     # bottom-right corner of 64×64
-        patch_size=(3, 3),
-        patch_color=[1.0, 1.0, 1.0],
+        model="resnet18", num_rounds=300, num_clients=100, clients_per_round=10,
+        local_epochs=5, lr=0.05, batch_size=64, weight_decay=5e-4,
+        attack_start=100, attack_end=300,           # ~33%
+        num_malicious=10, img_h=64, img_w=64, in_channels=3,
+        patch_pos=(58, 58), patch_size=(6, 6), patch_color=[1.0, 1.0, 1.0],  # ~comparable footprint
     ),
 }
 
@@ -125,14 +76,14 @@ ESTIMATED_RUN_SECS: Dict[str, int] = {
     "femnist":       50 * 60,
     "gtsrb":         90 * 60,
     "cifar10":      180 * 60,
+    "cifar100":     200 * 60,
     "tiny_imagenet": 300 * 60,
 }
 
-DATASETS  = ["mnist", "femnist", "gtsrb", "cifar10", "tiny_imagenet"]
-ATTACKS   = ["none", "patch", "neurotoxin", "a3fl", "iba", "chameleon"]
-# "krum" = single Krum (MKrumServer with num_to_select=1)
+DATASETS  = ["femnist", "gtsrb", "cifar10", "cifar100"]
+ATTACKS   = ["a3fl", "iba", "neurotoxin", "chameleon"]
 # "nnm_krum" = NNM + Krum base rule
-DEFENSES  = ["none", "toposentinel", "flame", "deepsight", "mkrum", "krum", "nnm_krum"]
+DEFENSES  = ["deepsight", "flame", "mkrum", "nnm_krum"]
 N_SEEDS   = 10
 EVAL_EVERY = 10   # evaluate every N rounds; final round always evaluated
 

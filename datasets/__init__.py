@@ -40,6 +40,7 @@ Typical usage::
 from .adapter import DatasetAdapter
 from .backdoor import BackdoorDataset
 from .cifar10 import CIFAR10Dataset
+from .cifar100 import CIFAR100Dataset
 from .femnist import FEMNISTDataset
 from .gtsrb import GTSRBDataset
 from .leaf_femnist import LEAFFEMNISTDataset
@@ -51,6 +52,7 @@ __all__ = [
     "DatasetAdapter",
     "BackdoorDataset",
     "CIFAR10Dataset",
+    "CIFAR100Dataset",
     "FEMNISTDataset",
     "GTSRBDataset",
     "LEAFFEMNISTDataset",

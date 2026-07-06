@@ -1,0 +1,921 @@
+11:02:19  INFO      benchmark — Matrix: 1 datasets × 4 attacks × 4 defenses × 10 seeds = 160 runs
+11:02:19  INFO      benchmark — Status — complete: 124  partial/incomplete: 1  not started: 35
+11:02:19  INFO      benchmark — Time budget: 98.0 h
+11:02:19  INFO      benchmark — ▶  gtsrb_chameleon_deepsight_seed4
+11:02:19  INFO      experiment.runner — Initialising 'gtsrb_chameleon_deepsight_seed4' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_deepsight_seed4 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_deepsight_seed5
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_deepsight_seed5' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_deepsight_seed5 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_deepsight_seed6
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_deepsight_seed6' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_deepsight_seed6 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_deepsight_seed7
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_deepsight_seed7' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_deepsight_seed7 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_deepsight_seed8
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_deepsight_seed8' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_deepsight_seed8 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_deepsight_seed9
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_deepsight_seed9' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_deepsight_seed9 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_flame_seed0
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_flame_seed0' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_flame_seed0 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_flame_seed1
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_flame_seed1' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_flame_seed1 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_flame_seed2
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_flame_seed2' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_flame_seed2 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_flame_seed3
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_flame_seed3' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_flame_seed3 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_flame_seed4
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_flame_seed4' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_flame_seed4 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_flame_seed5
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_flame_seed5' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_flame_seed5 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_flame_seed6
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_flame_seed6' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_flame_seed6 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_flame_seed7
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_flame_seed7' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_flame_seed7 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_flame_seed8
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_flame_seed8' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_flame_seed8 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_flame_seed9
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_flame_seed9' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_flame_seed9 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_mkrum_seed0
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_mkrum_seed0' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_mkrum_seed0 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_mkrum_seed1
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_mkrum_seed1' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_mkrum_seed1 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_mkrum_seed2
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_mkrum_seed2' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_mkrum_seed2 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_mkrum_seed3
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_mkrum_seed3' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_mkrum_seed3 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_mkrum_seed4
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_mkrum_seed4' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_mkrum_seed4 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_mkrum_seed5
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_mkrum_seed5' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_mkrum_seed5 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_mkrum_seed6
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_mkrum_seed6' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_mkrum_seed6 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_mkrum_seed7
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_mkrum_seed7' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_mkrum_seed7 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_mkrum_seed8
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_mkrum_seed8' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_mkrum_seed8 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_mkrum_seed9
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_mkrum_seed9' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_mkrum_seed9 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_nnm_krum_seed0
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_nnm_krum_seed0' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_nnm_krum_seed0 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_nnm_krum_seed1
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_nnm_krum_seed1' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_nnm_krum_seed1 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_nnm_krum_seed2
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_nnm_krum_seed2' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_nnm_krum_seed2 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_nnm_krum_seed3
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_nnm_krum_seed3' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_nnm_krum_seed3 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_nnm_krum_seed4
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_nnm_krum_seed4' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_nnm_krum_seed4 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_nnm_krum_seed5
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_nnm_krum_seed5' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_nnm_krum_seed5 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_nnm_krum_seed6
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_nnm_krum_seed6' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_nnm_krum_seed6 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_nnm_krum_seed7
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_nnm_krum_seed7' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_nnm_krum_seed7 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_nnm_krum_seed8
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_nnm_krum_seed8' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_nnm_krum_seed8 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — ▶  gtsrb_chameleon_nnm_krum_seed9
+11:02:36  INFO      experiment.runner — Initialising 'gtsrb_chameleon_nnm_krum_seed9' | device=cuda | rounds=200 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  gtsrb_chameleon_nnm_krum_seed9 — [Errno 2] No such file or directory: 'data/gtsrb'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/gtsrb.py", line 43, in load_datasets
+    setattr(self, attr_full, GTSRB(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 44, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/gtsrb.py", line 88, in download
+    download_and_extract_archive(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+11:02:36  INFO      benchmark — Training done — 36 new runs  (36 failed).
+11:02:36  INFO      benchmark — Generating summary CSV …
+11:02:37  INFO      benchmark — Summary → results/benchmark_summary.csv  (13 rows)
+
+dataset     attack   defense  n_seeds  clean_acc_mean  clean_acc_std  asr_mean  asr_std
+  gtsrb       a3fl deepsight       10           0.928          0.003     0.996    0.005
+  gtsrb       a3fl     flame       10           0.929          0.003     0.991    0.008
+  gtsrb       a3fl     mkrum       10           0.928          0.003     0.993    0.010
+  gtsrb       a3fl  nnm_krum       10           0.924          0.004     0.985    0.019
+  gtsrb        iba deepsight       10           0.929          0.004     0.997    0.005
+  gtsrb        iba     flame       10           0.928          0.005     0.997    0.006
+  gtsrb        iba     mkrum       10           0.928          0.003     0.998    0.003
+  gtsrb        iba  nnm_krum       10           0.924          0.003     0.994    0.009
+  gtsrb neurotoxin deepsight       10           0.925          0.002     0.606    0.046
+  gtsrb neurotoxin     flame       10           0.927          0.004     0.618    0.072
+  gtsrb neurotoxin     mkrum       10           0.927          0.003     0.451    0.086
+  gtsrb neurotoxin  nnm_krum       10           0.923          0.002     0.259    0.092
+  gtsrb  chameleon deepsight        5           0.924          0.012     0.466    0.091

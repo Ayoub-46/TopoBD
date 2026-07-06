@@ -1,60 +1,33 @@
 #!/bin/bash
-# =============================================================================
-# SLURM job: FL benchmark — full attack × defense × dataset × seed matrix.
-#
-# Parallelism
-# -----------
-# Three GPUs run in parallel:
-#   GPU 0  mnist + femnist          (fast datasets — share one GPU)
-#   GPU 1  gtsrb + cifar10          (medium datasets — share one GPU)
-#   GPU 2  tiny_imagenet            (heaviest — alone on one GPU)
-#
-# Each GPU worker calls run_benchmark.py with its dataset subset and the
-# shared time budget.  The main process waits for all three, then runs a
-# final summarize-only pass that merges all four datasets into one CSV.
-#
-# Resume / graceful stop
-# ----------------------
-# Already-complete runs (final_model.pt present + full metrics.csv) are
-# skipped automatically.  Resubmit the same sbatch command to continue from
-# where the job left off.  The Python script also catches SIGTERM so the
-# current run finishes cleanly before the job exits.
-#
-# Usage
-# -----
-#   sbatch experiments/benchmark/slurm_run.sh
-#
-# Optional overrides via --export:
-#   sbatch --export=ALL,ATTACKS="patch neurotoxin",SEEDS="0 1 2" \
-#          experiments/benchmark/slurm_run.sh
-#   sbatch --export=ALL,SUMMARIZE_ONLY=1 \
-#          experiments/benchmark/slurm_run.sh
-# =============================================================================
 
-# ---- SLURM directives -------------------------------------------------------
+# ==========================================
+# SLURM DIRECTIVES
+# ==========================================
+#SBATCH --partition=gpu-h100
+#SBATCH --time=100:00:00
 #SBATCH --job-name=fl_benchmark
-#SBATCH --partition=gpu-a6000
+#SBATCH --error=logs/benchmark_%j.err
+#SBATCH --output=logs/benchmark_%j.out
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=24          # 8 per GPU worker + headroom
-#SBATCH --mem=96GB                  # ~32 GB per worker
-#SBATCH --gres=gpu:3
-#SBATCH --time=100:00:00
-#SBATCH --output=logs/benchmark_%j.out
-#SBATCH --error=logs/benchmark_%j.err
+#SBATCH --cpus-per-task=32          # 8 per GPU worker
+#SBATCH --mem=32GB
+#SBATCH --gres=gpu:1
 
-# ---- Configuration (override via --export) ----------------------------------
-ENVIRONMENT_NAME="${ENVIRONMENT_NAME:-toposentinel}"
-PYTHON_VERSION="${PYTHON_VERSION:-3.10}"
+# ==========================================
+# CONFIGURATION
+# ==========================================
+PYTHON_VERSION=3.10
+ENVIRONMENT_NAME="toposentinel"
 TORCH_CUDA="${TORCH_CUDA:-cu124}"
 
-# Python-side time budget (hours).  Set below the SBATCH --time value so the
-# workers stop voluntarily and the summary pass completes before the hard kill.
+# Python-side time budget — workers stop voluntarily before the hard SLURM
+# limit so the summary pass completes cleanly.  Set ~2 h below --time.
 TIME_LIMIT_HOURS="${TIME_LIMIT_HOURS:-98}"
 
 RESULTS_DIR="${RESULTS_DIR:-results}"
 
-# Optional subsetting — leave empty to run the full matrix
+# Optional subsetting — leave empty to run the full matrix for each dataset
 ATTACKS="${ATTACKS:-}"
 DEFENSES="${DEFENSES:-}"
 SEEDS="${SEEDS:-}"
@@ -62,170 +35,172 @@ SEEDS="${SEEDS:-}"
 # Set to 1 to skip training and only (re-)generate the summary CSV
 SUMMARIZE_ONLY="${SUMMARIZE_ONLY:-0}"
 
-# ---- Strict error handling --------------------------------------------------
-set -uo pipefail
+# ==========================================
+# ENVIRONMENT SETUP
+# ==========================================
+module load Anaconda3
 
-# =============================================================================
-# 1. ENVIRONMENT SETUP
-# =============================================================================
+if ! conda info --envs | grep -q "^${ENVIRONMENT_NAME}"; then
+    echo "Creating environment ${ENVIRONMENT_NAME}..."
+    conda create -n ${ENVIRONMENT_NAME} python=${PYTHON_VERSION} -y
+fi
+
+source activate ${ENVIRONMENT_NAME}
+
+echo "Installing PyTorch (${TORCH_CUDA})..."
+pip install torch==2.5.1+${TORCH_CUDA} torchvision==0.20.1+${TORCH_CUDA} \
+    --index-url https://download.pytorch.org/whl/${TORCH_CUDA} -q
+
+echo "Installing project dependencies..."
+pip install -r requirements.txt -q
+
+mkdir -p logs "$RESULTS_DIR/benchmark"
+
 echo "============================================================"
 echo " Job ID   : $SLURM_JOB_ID"
 echo " Node     : $(hostname)"
 echo " Start    : $(date '+%Y-%m-%d %H:%M:%S')"
-echo " Workdir  : $(pwd)"
-echo " GPUs     : $(nvidia-smi --query-gpu=name --format=csv,noheader 2>/dev/null | paste -sd ',' || echo 'n/a')"
+echo " Python   : $(python --version)"
+echo " PyTorch  : $(python -c 'import torch; print(torch.__version__)')"
+echo " CUDA     : $(python -c 'import torch; print(torch.cuda.is_available())')"
+echo " GPUs     : $(nvidia-smi --query-gpu=name --format=csv,noheader 2>/dev/null | paste -sd ',' || echo n/a)"
 echo "============================================================"
 
-mkdir -p logs "$RESULTS_DIR/benchmark"
-
-module load Anaconda3 2>/dev/null || module load anaconda3 2>/dev/null || true
-
-if ! conda info --envs | grep -qE "^${ENVIRONMENT_NAME}\s"; then
-    echo "[setup] Creating conda environment '${ENVIRONMENT_NAME}' …"
-    conda create -n "${ENVIRONMENT_NAME}" python="${PYTHON_VERSION}" -y
-fi
-
-CONDA_RUN="conda run -n ${ENVIRONMENT_NAME} --no-capture-output"
-TORCH_WHEEL_URL="https://download.pytorch.org/whl/${TORCH_CUDA}"
-
-echo "[setup] Installing PyTorch (${TORCH_CUDA}) …"
-$CONDA_RUN pip install \
-    torch==2.5.1+${TORCH_CUDA} \
-    torchvision==0.20.1+${TORCH_CUDA} \
-    --index-url "${TORCH_WHEEL_URL}" -q
-
-echo "[setup] Installing project dependencies …"
-$CONDA_RUN pip install -r requirements.txt -q
-
-set -e
-
-echo "[setup] Python : $($CONDA_RUN python --version)"
-echo "[setup] PyTorch: $($CONDA_RUN python -c 'import torch; print(torch.__version__)')"
-echo "[setup] CUDA   : $($CONDA_RUN python -c 'import torch; print(torch.cuda.is_available())')"
-
-# =============================================================================
-# 2. DATA: COPY ALL DATASETS TO LOCAL SCRATCH
-# =============================================================================
-REPO_DATA="$(pwd)/data"
-
-SCRATCH="${SLURM_TMPDIR:-/tmp/${USER:-user}/$SLURM_JOB_ID}"
-SCRATCH_DATA="$SCRATCH/data"
-mkdir -p "$SCRATCH_DATA"
-
-_ORIGINAL_DATA_WAS_DIR=0
-cleanup() {
-    echo "[cleanup] Restoring data directory …"
-    [ -L "data" ] && rm -f data
-    if [ "$_ORIGINAL_DATA_WAS_DIR" -eq 1 ] && [ -d "${REPO_DATA}_network_backup" ]; then
-        mv "${REPO_DATA}_network_backup" "$REPO_DATA"
-    fi
-    rm -rf "$SCRATCH"
-    echo "[cleanup] Done."
-}
-trap cleanup EXIT
-
-if [ -d "$REPO_DATA" ]; then
-    echo "[data] Copying datasets to scratch …"
-    T0=$(date +%s)
-    cp -r "$REPO_DATA/." "$SCRATCH_DATA/"
-    echo "[data] Copy complete in $(( $(date +%s) - T0 ))s"
-    _ORIGINAL_DATA_WAS_DIR=1
-    mv "$REPO_DATA" "${REPO_DATA}_network_backup"
-    ln -s "$SCRATCH_DATA" "$REPO_DATA"
-    echo "[data] data/ → scratch (fast path)"
+# ==========================================
+# DATA: COPY TO LOCAL SCRATCH
+# ==========================================
+if [ -z "$SLURM_TMPDIR" ]; then
+    SCRATCH_DIR="/tmp/$USER/$SLURM_JOB_ID"
 else
-    echo "[data] Warning: data/ not found — datasets will be downloaded on first run."
+    SCRATCH_DIR="$SLURM_TMPDIR"
 fi
 
-# =============================================================================
-# 3. BUILD COMMON ARGUMENTS
-# =============================================================================
-COMMON_ARGS="--results-dir $RESULTS_DIR --time-limit-hours $TIME_LIMIT_HOURS --device cuda"
-[ -n "$ATTACKS" ]  && COMMON_ARGS="$COMMON_ARGS --attacks $ATTACKS"
-[ -n "$DEFENSES" ] && COMMON_ARGS="$COMMON_ARGS --defenses $DEFENSES"
-[ -n "$SEEDS" ]    && COMMON_ARGS="$COMMON_ARGS --seeds $SEEDS"
-[ "$SUMMARIZE_ONLY" -eq 1 ] && COMMON_ARGS="$COMMON_ARGS --summarize-only"
+echo "Setting up scratch at: $SCRATCH_DIR"
+mkdir -p $SCRATCH_DIR
 
-# =============================================================================
-# 4. PARALLEL GPU WORKERS
-# =============================================================================
+if [ -d "data" ]; then
+    echo "Copying data to local scratch..."
+    cp -r data $SCRATCH_DIR/
+    mv data data_network_backup
+    ln -s $SCRATCH_DIR/data ./data
+    echo "data/ -> scratch (fast path)"
+else
+    echo "Warning: 'data' folder not found — datasets will be downloaded on first run."
+fi
+
+# ==========================================
+# BUILD COMMON ARGUMENTS
+# ==========================================
+COMMON="--results-dir $RESULTS_DIR --time-limit-hours $TIME_LIMIT_HOURS --device cuda"
+[ -n "$ATTACKS" ]  && COMMON="$COMMON --attacks $ATTACKS"
+[ -n "$DEFENSES" ] && COMMON="$COMMON --defenses $DEFENSES"
+[ -n "$SEEDS" ]    && COMMON="$COMMON --seeds $SEEDS"
+[ "$SUMMARIZE_ONLY" -eq 1 ] && COMMON="$COMMON --summarize-only"
+
+# ==========================================
+# PARALLEL EXECUTION — 4 GPUS
+# ==========================================
+# One GPU per dataset; each worker runs the full attack × defense × seed
+# matrix for its dataset and stops gracefully when the time budget runs out.
+# Already-complete runs are skipped automatically on resubmission.
+#
+#   GPU 0  femnist        (~50 min/run)
+#   GPU 1  gtsrb          (~90 min/run)
+#   GPU 2  cifar10        (~180 min/run)
+#   GPU 3  tiny_imagenet  (~300 min/run)
+
 echo ""
-echo "============================================================"
-echo " FL Benchmark — parallel execution"
-echo " $(date '+%Y-%m-%d %H:%M:%S')"
-echo "============================================================"
+echo "Starting parallel benchmark on 4 GPUs..."
+echo "$(date '+%Y-%m-%d %H:%M:%S')"
 
-T_START=$(date +%s)
+# # --- GPU 0: FEMNIST ---
+# (
+#     echo "[GPU 0] Starting femnist"
+#     export CUDA_VISIBLE_DEVICES=0
+#     python -m experiments.benchmark.run_benchmark \
+#         --datasets femnist \
+#         $COMMON \
+#         > logs/benchmark_gpu0_${SLURM_JOB_ID}.log 2>&1
+#     echo "[GPU 0] Done"
+# ) &
+# PID0=$!
 
-# SIGTERM trap: forward signal to all child workers so they stop gracefully.
-_pids=""
-_forward_sigterm() {
-    echo "[main] SIGTERM received — forwarding to workers …"
-    # shellcheck disable=SC2086
-    kill -TERM $_pids 2>/dev/null || true
-}
-trap '_forward_sigterm' TERM
+# # --- GPU 1: GTSRB ---
+# (
+#     echo "[GPU 1] Starting gtsrb"
+#     export CUDA_VISIBLE_DEVICES=1
+#     python -m experiments.benchmark.run_benchmark \
+#         --datasets gtsrb \
+#         $COMMON \
+#         > logs/benchmark_gpu1_${SLURM_JOB_ID}.log 2>&1
+#     echo "[GPU 1] Done"
+# ) &
+# PID1=$!
 
-# GPU 0 — mnist + femnist (fast; share one GPU)
-echo "[gpu0] Starting mnist + femnist …"
-CUDA_VISIBLE_DEVICES=0 $CONDA_RUN python -m experiments.benchmark.run_benchmark \
-    --datasets mnist femnist \
-    $COMMON_ARGS \
-    > "logs/benchmark_gpu0_${SLURM_JOB_ID}.log" 2>&1 &
-PID0=$!
-
-# GPU 1 — gtsrb + cifar10
-echo "[gpu1] Starting gtsrb + cifar10 …"
-CUDA_VISIBLE_DEVICES=1 $CONDA_RUN python -m experiments.benchmark.run_benchmark \
-    --datasets gtsrb cifar10 \
-    $COMMON_ARGS \
-    > "logs/benchmark_gpu1_${SLURM_JOB_ID}.log" 2>&1 &
-PID1=$!
-
-# GPU 2 — tiny_imagenet (heaviest — alone)
-echo "[gpu2] Starting tiny_imagenet …"
-CUDA_VISIBLE_DEVICES=2 $CONDA_RUN python -m experiments.benchmark.run_benchmark \
-    --datasets tiny_imagenet \
-    $COMMON_ARGS \
-    > "logs/benchmark_gpu2_${SLURM_JOB_ID}.log" 2>&1 &
+# --- GPU 2: CIFAR-10 ---
+(
+    echo "[GPU 2] Starting cifar10"
+    export CUDA_VISIBLE_DEVICES=0
+    python -m experiments.benchmark.run_benchmark \
+        --datasets cifar10 \
+        $COMMON \
+        > logs/benchmark_gpu2_${SLURM_JOB_ID}.log 2>&1
+    echo "[GPU 2] Done"
+) &
 PID2=$!
 
-_pids="$PID0 $PID1 $PID2"
+# # --- GPU 3: Tiny-ImageNet ---
+# (
+#     echo "[GPU 3] Starting tiny_imagenet"
+#     export CUDA_VISIBLE_DEVICES=3
+#     python -m experiments.benchmark.run_benchmark \
+#         --datasets tiny_imagenet \
+#         $COMMON \
+#         > logs/benchmark_gpu3_${SLURM_JOB_ID}.log 2>&1
+#     echo "[GPU 3] Done"
+# ) &
+# PID3=$!
 
-# Wait for all workers; collect exit codes
-EXIT0=0; EXIT1=0; EXIT2=0
-wait $PID0 || EXIT0=$?
-wait $PID1 || EXIT1=$?
-wait $PID2 || EXIT2=$?
+# Wait for all workers
+wait $PID2 
 
-T_ELAPSED=$(( $(date +%s) - T_START ))
-printf "[benchmark] All workers finished in %dh %dm %ds\n" \
-    $((T_ELAPSED/3600)) $(((T_ELAPSED%3600)/60)) $((T_ELAPSED%60))
-
-echo "[gpu0] exit=$EXIT0  [gpu1] exit=$EXIT1  [gpu2] exit=$EXIT2"
-
-# =============================================================================
-# 5. MERGE SUMMARY (all four datasets)
-# =============================================================================
 echo ""
-echo "[summary] Generating merged benchmark_summary.csv …"
-$CONDA_RUN python -m experiments.benchmark.run_benchmark \
+echo "All workers finished."
+echo "$(date '+%Y-%m-%d %H:%M:%S')"
+
+# Show last few lines of each GPU log for quick inspection
+for gpu in 0 1 2 3; do
+    logfile="logs/benchmark_gpu${gpu}_${SLURM_JOB_ID}.log"
+    if [ -f "$logfile" ]; then
+        echo ""
+        echo "--- GPU ${gpu} last 5 lines ---"
+        tail -5 "$logfile"
+    fi
+done
+
+# ==========================================
+# MERGE SUMMARY
+# ==========================================
+echo ""
+echo "Generating merged benchmark_summary.csv..."
+python -m experiments.benchmark.run_benchmark \
     --results-dir "$RESULTS_DIR" \
     --summarize-only
 
-# =============================================================================
-# 6. JOB REPORT
-# =============================================================================
+# ==========================================
+# CLEANUP
+# ==========================================
+if [ -L "data" ]; then
+    rm -f data
+    [ -d "data_network_backup" ] && mv data_network_backup data
+fi
+rm -rf $SCRATCH_DIR
+
 echo ""
 echo "============================================================"
-echo " Job complete"
-echo " End: $(date '+%Y-%m-%d %H:%M:%S')"
-echo " Summary: $RESULTS_DIR/benchmark_summary.csv"
-NDIRS=$(ls -1 "$RESULTS_DIR/benchmark/" 2>/dev/null | wc -l || echo 0)
-echo " Run directories: $NDIRS"
+echo " Job complete: $(date '+%Y-%m-%d %H:%M:%S')"
+echo " Summary    : $RESULTS_DIR/benchmark_summary.csv"
+echo " Run dirs   : $(ls -1 $RESULTS_DIR/benchmark/ 2>/dev/null | wc -l)"
 echo " Per-GPU logs:"
-ls -lh "logs/benchmark_gpu"*"_${SLURM_JOB_ID}.log" 2>/dev/null || true
+ls -lh logs/benchmark_gpu*_${SLURM_JOB_ID}.log 2>/dev/null || true
 echo "============================================================"
-
-# Fail the job if any worker failed
-[ $EXIT0 -eq 0 ] && [ $EXIT1 -eq 0 ] && [ $EXIT2 -eq 0 ] || exit 1

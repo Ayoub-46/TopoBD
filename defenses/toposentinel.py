@@ -65,19 +65,26 @@ class TopoSentinelServer(FedAvgAggregator):
         bias_history_window:          Controls the ``deque`` size for the
                                       benign bias-distance history
                                       (capacity ≈ ``window × min_clients × 2.5``).
-        bias_interval_lower_percentile:
-                                      Lower percentile of benign history used
-                                      as the interval lower bound.
-        bias_interval_upper_percentile:
-                                      Upper percentile.
+        filter_mode:                  ``"dkw"`` (default) for DKW-calibrated
+                                      accept interval; ``"fixed"`` for the
+                                      original p5/p95 percentile baseline
+                                      (ablation mode).
+        target_fpr:                   Target false-positive rate *delta*
+                                      (probability budget for rejecting a
+                                      benign client).  Used in ``"dkw"`` mode.
+        dkw_confidence:               DKW confidence level ``1 - alpha``.
+                                      Larger values widen the interval to
+                                      provide stronger FPR guarantees.
         bias_interval_margin:         Additive margin applied to both ends of
-                                      the learned interval.
+                                      the interval in ``"fixed"`` mode only.
         bias_fallback_interval:       ``[lo, hi]`` interval used when the
-                                      benign history is too small.
+                                      benign history is too small (``"fixed"``
+                                      mode only).
         min_clients_for_defense:      Minimum number of clients required to
-                                      run the defense; fewer → benign fallback.
+                                      run the defense; fewer → detection skipped.
         min_bias_history_size:        Minimum history entries before the
-                                      adaptive interval is used.
+                                      learned interval is used (``"fixed"``
+                                      mode only; ``"dkw"`` mode requires L ≥ 2).
         **kwargs:                     Forwarded to
                                       :class:`~fl.server.FedAvgAggregator`.
     """
@@ -91,8 +98,9 @@ class TopoSentinelServer(FedAvgAggregator):
         bottleneck_decay_rate: float = 0.99,
         bottleneck_min_threshold: float = 0.01,
         bias_history_window: int = 20,
-        bias_interval_lower_percentile: float = 5.0,
-        bias_interval_upper_percentile: float = 95.0,
+        filter_mode: str = "dkw",
+        target_fpr: float = 0.05,
+        dkw_confidence: float = 0.95,
         bias_interval_margin: float = 0.01,
         bias_fallback_interval: Optional[List[float]] = None,
         min_clients_for_defense: int = 3,
@@ -101,17 +109,18 @@ class TopoSentinelServer(FedAvgAggregator):
     ):
         super().__init__(model=model, device=device, **kwargs)
 
-        self.bias_metric                    = bias_metric.lower()
-        self.bottleneck_initial_threshold   = bottleneck_initial_threshold
-        self.bottleneck_decay_rate          = bottleneck_decay_rate
-        self.bottleneck_min_threshold       = bottleneck_min_threshold
-        self.bias_history_window            = bias_history_window
-        self.bias_interval_lower_percentile = bias_interval_lower_percentile
-        self.bias_interval_upper_percentile = bias_interval_upper_percentile
-        self.bias_interval_margin           = bias_interval_margin
-        self.bias_fallback_interval         = bias_fallback_interval or [0.0, 0.5]
-        self.min_clients_for_defense        = min_clients_for_defense
-        self.min_bias_history_size          = (
+        self.bias_metric                  = bias_metric.lower()
+        self.bottleneck_initial_threshold = bottleneck_initial_threshold
+        self.bottleneck_decay_rate        = bottleneck_decay_rate
+        self.bottleneck_min_threshold     = bottleneck_min_threshold
+        self.bias_history_window          = bias_history_window
+        self.filter_mode                  = filter_mode.lower()
+        self.target_fpr                   = float(target_fpr)
+        self.dkw_confidence               = float(dkw_confidence)
+        self.bias_interval_margin         = bias_interval_margin
+        self.bias_fallback_interval       = bias_fallback_interval or [0.0, 0.5]
+        self.min_clients_for_defense      = min_clients_for_defense
+        self.min_bias_history_size        = (
             min_bias_history_size
             if min_bias_history_size is not None
             else max(50, min_clients_for_defense * 3)
@@ -150,11 +159,11 @@ class TopoSentinelServer(FedAvgAggregator):
 
         logger.info(
             "TopoSentinelServer — metric=%s  threshold=%.3f→%.3f (decay=%.4f)  "
-            "history_window=%d  interval_percentiles=[%.0f, %.0f]",
+            "history_window=%d  filter_mode=%s  target_fpr=%.3f  dkw_confidence=%.3f",
             self.bias_metric,
             bottleneck_initial_threshold, bottleneck_min_threshold,
             bottleneck_decay_rate, bias_history_window,
-            bias_interval_lower_percentile, bias_interval_upper_percentile,
+            self.filter_mode, self.target_fpr, self.dkw_confidence,
         )
 
     # ------------------------------------------------------------------
@@ -373,8 +382,7 @@ class TopoSentinelServer(FedAvgAggregator):
 
         # ---- Intra-round filtering via adaptive learned interval ---------
         logger.info("TopoSentinel: TDA change detected — applying bias filter.")
-        benign_interval = self._get_benign_interval()
-        lo, hi          = benign_interval
+        lo, hi, hist_L, eps_val = self._get_benign_interval()
 
         rejected: set[int] = set()
         for cid in valid_ids:
@@ -388,11 +396,14 @@ class TopoSentinelServer(FedAvgAggregator):
                 "TopoSentinel: bias filter flagged all %d clients — reverting to no rejection.",
                 len(client_ids),
             )
-            return set()
+            rejected.clear()
 
+        # CSV-parseable log for adaptive-interval paper plots
+        n_accepted = len(valid_ids) - len(rejected)
+        eps_str = f"{eps_val:.6f}" if not np.isnan(eps_val) else "nan"
         logger.info(
-            "TopoSentinel: interval=[%.4f, %.4f]  rejected %d / %d clients: %s",
-            lo, hi, len(rejected), len(client_ids), sorted(rejected),
+            "TopoSentinel.filter round=%d L=%d eps=%s theta_min=%.6f theta_max=%.6f accepted=%d rejected=%d",
+            self._round, hist_L, eps_str, lo, hi, n_accepted, len(rejected),
         )
         return rejected
 
@@ -424,27 +435,64 @@ class TopoSentinelServer(FedAvgAggregator):
             dists    = {cid: float(d) for cid, d in zip(valid_ids, arr)}
         return dists
 
-    def _get_benign_interval(self) -> List[float]:
-        """Return the [lo, hi] interval, using history if large enough."""
-        history = np.array(list(self._bias_history))
-        if len(history) >= self.min_bias_history_size:
-            lo = float(np.percentile(history, self.bias_interval_lower_percentile))
-            hi = float(np.percentile(history, self.bias_interval_upper_percentile))
-            lo_m = max(0.0, lo - self.bias_interval_margin)
-            hi_m = hi + self.bias_interval_margin
-            if hi_m <= lo_m:
-                hi_m = lo_m + 1e-6
-            logger.info(
-                "TopoSentinel: learned interval [%.4f, %.4f] from %d history points.",
-                lo_m, hi_m, len(history),
-            )
-            return [lo_m, hi_m]
+    def _get_benign_interval(self) -> tuple[float, float, int, float]:
+        """Compute the accept interval and calibration metadata.
 
-        logger.info(
-            "TopoSentinel: history too small (%d < %d) — using fallback interval %s.",
-            len(history), self.min_bias_history_size, self.bias_fallback_interval,
+        Returns:
+            ``(theta_min, theta_max, L, eps)`` where ``L`` is the current
+            history buffer length and ``eps`` is the DKW correction term
+            (``float('nan')`` when ``filter_mode='fixed'``).
+        """
+        H = np.array(list(self._bias_history))
+        L = len(H)
+
+        # ---- DKW-calibrated mode -------------------------------------------
+        if self.filter_mode == "dkw":
+            if L < 2:
+                logger.info(
+                    "TopoSentinel: DKW calibration skipped (L=%d < 2) — "
+                    "accepting all clients this round.",
+                    L,
+                )
+                return (0.0, float("inf"), L, float("nan"))
+
+            alpha = 1.0 - self.dkw_confidence
+            eps   = float(np.sqrt(np.log(2.0 / alpha) / (2.0 * L)))
+
+            p_lo = self.target_fpr / 2.0 - eps
+            p_hi = 1.0 - self.target_fpr / 2.0 + eps
+
+            if p_lo <= 0.0:
+                theta_min = 0.0
+            else:
+                theta_min = float(np.quantile(H, float(np.clip(p_lo, 0.0, 1.0))))
+
+            theta_max = float(np.quantile(H, float(np.clip(p_hi, 0.0, 1.0))))
+            theta_min = max(0.0, theta_min)
+
+            return (theta_min, theta_max, L, eps)
+
+        # ---- Fixed-percentile mode (ablation baseline) ---------------------
+        if L < self.min_bias_history_size:
+            logger.info(
+                "TopoSentinel: history too small (%d < %d) — using fallback interval %s.",
+                L, self.min_bias_history_size, self.bias_fallback_interval,
+            )
+            lo, hi = self.bias_fallback_interval
+            return (float(lo), float(hi), L, float("nan"))
+
+        lo  = float(np.percentile(H, 5.0))
+        hi  = float(np.percentile(H, 95.0))
+        lo_m = max(0.0, lo - self.bias_interval_margin)
+        hi_m = hi + self.bias_interval_margin
+        if hi_m <= lo_m:
+            hi_m = lo_m + 1e-6
+
+        logger.debug(
+            "TopoSentinel: fixed interval [%.4f, %.4f] from %d history points.",
+            lo_m, hi_m, L,
         )
-        return list(self.bias_fallback_interval)
+        return (lo_m, hi_m, L, float("nan"))
 
     def _compute_clip_norm(self) -> float:
         """Median L2 delta norm of the clients currently in the buffer."""

@@ -1,0 +1,446 @@
+Installing PyTorch (cu124)...
+Installing project dependencies...
+============================================================
+ Job ID   : 408505
+ Node     : l3icalcul07
+ Start    : 2026-06-02 10:15:42
+ Python   : Python 3.10.19
+ PyTorch  : 2.5.1+cu124
+ CUDA     : True
+ GPUs     : NVIDIA RTX A6000,NVIDIA RTX A6000,NVIDIA RTX A6000,NVIDIA RTX A6000
+============================================================
+Setting up scratch at: /tmp/abellach/408505
+Copying data to local scratch...
+data/ -> scratch (fast path)
+
+Starting parallel training on 4 GPUs...
+2026-06-02 10:17:07
+[GPU 1] Starting cifar10_fedavg_a3fl
+[GPU 0] Starting cifar10_benign_iid then cifar10_fedavg_neurotoxin
+[GPU 3] Starting cifar10_fedavg_chameleon
+[GPU 2] Starting cifar10_fedavg_iba
+[GPU 1] Done
+[GPU 3] Done
+[GPU 0] Done
+[GPU 2] Done
+
+All training workers finished.
+2026-06-02 10:17:11
+
+--- GPU 0 last 5 lines ---
+==================================================================
+  Training complete  (0s total)
+  Trained : —
+  Skipped : ['cifar10_benign_iid', 'cifar10_fedavg_neurotoxin']
+==================================================================
+
+--- GPU 1 last 5 lines ---
+==================================================================
+  Training complete  (0s total)
+  Trained : —
+  Skipped : ['cifar10_fedavg_a3fl']
+==================================================================
+
+--- GPU 2 last 5 lines ---
+==================================================================
+  Training complete  (0s total)
+  Trained : —
+  Skipped : ['cifar10_fedavg_iba']
+==================================================================
+
+--- GPU 3 last 5 lines ---
+==================================================================
+  Training complete  (0s total)
+  Trained : —
+  Skipped : ['cifar10_fedavg_chameleon']
+==================================================================
+
+Checkpoint status:
+  [OK]      results/cifar10_benign_iid/final_model.pt
+  [OK]      results/cifar10_fedavg_neurotoxin/final_model.pt
+  [OK]      results/cifar10_fedavg_a3fl/final_model.pt
+  [OK]      results/cifar10_fedavg_iba/final_model.pt
+  [OK]      results/cifar10_fedavg_chameleon/final_model.pt
+
+============================================================
+ Diagnostics Phase
+ 2026-06-02 10:17:11
+============================================================
+Device: cuda
+Output dir: experiments/gradient_alignment/outputs_cifar10
+Config: configs/cifar10_fedavg_iba.yaml (dataset=cifar10, model=resnet18)
+  [skip] Exp 1 'neurotoxin' — CSVs already exist (--force to rerun)
+
+============================================================
+Experiment 1 (α) — attack: a3fl
+============================================================
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+  Loaded checkpoint: results/cifar10_fedavg_a3fl/final_model.pt
+  Loaded trained A3FL pattern from results/cifar10_fedavg_a3fl/trigger.pt
+  Bias-bearing layers (21): ['stem.1', 'layer1.0.bn1', 'layer1.0.bn2', 'layer1.1.bn1', 'layer1.1.bn2', 'layer2.0.bn1', 'layer2.0.bn2', 'layer2.0.downsample.1', 'layer2.1.bn1', 'layer2.1.bn2', 'layer3.0.bn1', 'layer3.0.bn2', 'layer3.0.downsample.1', 'layer3.1.bn1', 'layer3.1.bn2', 'layer4.0.bn1', 'layer4.0.bn2', 'layer4.0.downsample.1', 'layer4.1.bn1', 'layer4.1.bn2', 'fc']
+
+  Running sanity check...
+  Sanity [FAIL] layer=stem.1                                    max_err=3.65e-03
+  Sanity [FAIL] layer=layer1.0.bn1                              max_err=2.01e-03
+  Sanity [FAIL] layer=layer1.0.bn2                              max_err=2.55e-03
+  Sanity [FAIL] layer=layer1.1.bn1                              max_err=2.07e-03
+  Sanity [FAIL] layer=layer1.1.bn2                              max_err=1.81e-03
+  Sanity [FAIL] layer=layer2.0.bn1                              max_err=1.41e-03
+  Sanity [FAIL] layer=layer2.0.bn2                              max_err=1.18e-03
+  Sanity [FAIL] layer=layer2.0.downsample.1                     max_err=1.18e-03
+  Sanity [FAIL] layer=layer2.1.bn1                              max_err=1.34e-03
+  Sanity [FAIL] layer=layer2.1.bn2                              max_err=1.29e-03
+  Sanity [FAIL] layer=layer3.0.bn1                              max_err=1.20e-03
+  Sanity [FAIL] layer=layer3.0.bn2                              max_err=1.19e-03
+  Sanity [FAIL] layer=layer3.0.downsample.1                     max_err=1.19e-03
+  Sanity [FAIL] layer=layer3.1.bn1                              max_err=1.62e-03
+  Sanity [FAIL] layer=layer3.1.bn2                              max_err=6.88e-04
+  Sanity [FAIL] layer=layer4.0.bn1                              max_err=9.85e-04
+  Sanity [FAIL] layer=layer4.0.bn2                              max_err=7.27e-04
+  Sanity [FAIL] layer=layer4.0.downsample.1                     max_err=7.27e-04
+  Sanity [FAIL] layer=layer4.1.bn1                              max_err=7.38e-04
+  Sanity [FAIL] layer=layer4.1.bn2                              max_err=3.48e-04
+  Sanity [PASS] layer=fc                                        max_err=9.95e-06
+  Sanity check: SOME FAIL
+  Processed 10/200 batches
+  Processed 20/200 batches
+  Processed 30/200 batches
+  Processed 40/200 batches
+  Processed 50/200 batches
+  Processed 60/200 batches
+  Processed 70/200 batches
+  Processed 80/200 batches
+  Processed 90/200 batches
+  Processed 100/200 batches
+  Processed 110/200 batches
+  Processed 120/200 batches
+  Processed 130/200 batches
+  Processed 140/200 batches
+  Processed 150/200 batches
+  Processed 160/200 batches
+  Processed 170/200 batches
+  Processed 180/200 batches
+  Processed 190/200 batches
+  Processed 200/200 batches
+  Saved: experiments/gradient_alignment/outputs_cifar10/alpha_raw_a3fl.csv
+  Saved: experiments/gradient_alignment/outputs_cifar10/alpha_summary_a3fl.csv
+
+============================================================
+Experiment 1 (α) — attack: iba
+============================================================
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+  Loaded checkpoint: results/cifar10_fedavg_iba/final_model.pt
+  Loaded trained IBA generator from results/cifar10_fedavg_iba/trigger.pt
+  Bias-bearing layers (21): ['stem.1', 'layer1.0.bn1', 'layer1.0.bn2', 'layer1.1.bn1', 'layer1.1.bn2', 'layer2.0.bn1', 'layer2.0.bn2', 'layer2.0.downsample.1', 'layer2.1.bn1', 'layer2.1.bn2', 'layer3.0.bn1', 'layer3.0.bn2', 'layer3.0.downsample.1', 'layer3.1.bn1', 'layer3.1.bn2', 'layer4.0.bn1', 'layer4.0.bn2', 'layer4.0.downsample.1', 'layer4.1.bn1', 'layer4.1.bn2', 'fc']
+
+  Running sanity check...
+  Sanity [PASS] layer=stem.1                                    max_err=4.56e-06
+  Sanity [PASS] layer=layer1.0.bn1                              max_err=3.31e-06
+  Sanity [PASS] layer=layer1.0.bn2                              max_err=3.52e-06
+  Sanity [PASS] layer=layer1.1.bn1                              max_err=2.91e-06
+  Sanity [PASS] layer=layer1.1.bn2                              max_err=3.74e-06
+  Sanity [PASS] layer=layer2.0.bn1                              max_err=2.50e-06
+  Sanity [PASS] layer=layer2.0.bn2                              max_err=2.80e-06
+  Sanity [PASS] layer=layer2.0.downsample.1                     max_err=2.80e-06
+  Sanity [PASS] layer=layer2.1.bn1                              max_err=2.55e-06
+  Sanity [PASS] layer=layer2.1.bn2                              max_err=3.41e-06
+  Sanity [PASS] layer=layer3.0.bn1                              max_err=1.31e-06
+  Sanity [PASS] layer=layer3.0.bn2                              max_err=4.50e-06
+  Sanity [PASS] layer=layer3.0.downsample.1                     max_err=4.50e-06
+  Sanity [PASS] layer=layer3.1.bn1                              max_err=1.23e-06
+  Sanity [PASS] layer=layer3.1.bn2                              max_err=4.52e-06
+  Sanity [PASS] layer=layer4.0.bn1                              max_err=5.98e-07
+  Sanity [PASS] layer=layer4.0.bn2                              max_err=4.22e-06
+  Sanity [PASS] layer=layer4.0.downsample.1                     max_err=4.22e-06
+  Sanity [PASS] layer=layer4.1.bn1                              max_err=7.75e-07
+  Sanity [PASS] layer=layer4.1.bn2                              max_err=2.14e-06
+  Sanity [PASS] layer=fc                                        max_err=1.59e-07
+  Sanity check: ALL PASS
+  Processed 10/200 batches
+  Processed 20/200 batches
+  Processed 30/200 batches
+  Processed 40/200 batches
+  Processed 50/200 batches
+  Processed 60/200 batches
+  Processed 70/200 batches
+  Processed 80/200 batches
+  Processed 90/200 batches
+  Processed 100/200 batches
+  Processed 110/200 batches
+  Processed 120/200 batches
+  Processed 130/200 batches
+  Processed 140/200 batches
+  Processed 150/200 batches
+  Processed 160/200 batches
+  Processed 170/200 batches
+  Processed 180/200 batches
+  Processed 190/200 batches
+  Processed 200/200 batches
+  Saved: experiments/gradient_alignment/outputs_cifar10/alpha_raw_iba.csv
+  Saved: experiments/gradient_alignment/outputs_cifar10/alpha_summary_iba.csv
+
+============================================================
+Experiment 1 (α) — attack: chameleon
+============================================================
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+  Loaded checkpoint: results/cifar10_fedavg_chameleon/final_model.pt
+  Bias-bearing layers (21): ['stem.1', 'layer1.0.bn1', 'layer1.0.bn2', 'layer1.1.bn1', 'layer1.1.bn2', 'layer2.0.bn1', 'layer2.0.bn2', 'layer2.0.downsample.1', 'layer2.1.bn1', 'layer2.1.bn2', 'layer3.0.bn1', 'layer3.0.bn2', 'layer3.0.downsample.1', 'layer3.1.bn1', 'layer3.1.bn2', 'layer4.0.bn1', 'layer4.0.bn2', 'layer4.0.downsample.1', 'layer4.1.bn1', 'layer4.1.bn2', 'fc']
+
+  Running sanity check...
+  Sanity [FAIL] layer=stem.1                                    max_err=2.84e-03
+  Sanity [FAIL] layer=layer1.0.bn1                              max_err=2.81e-03
+  Sanity [FAIL] layer=layer1.0.bn2                              max_err=3.05e-03
+  Sanity [FAIL] layer=layer1.1.bn1                              max_err=2.61e-03
+  Sanity [FAIL] layer=layer1.1.bn2                              max_err=1.96e-03
+  Sanity [FAIL] layer=layer2.0.bn1                              max_err=1.78e-03
+  Sanity [FAIL] layer=layer2.0.bn2                              max_err=1.95e-03
+  Sanity [FAIL] layer=layer2.0.downsample.1                     max_err=1.95e-03
+  Sanity [FAIL] layer=layer2.1.bn1                              max_err=1.73e-03
+  Sanity [FAIL] layer=layer2.1.bn2                              max_err=1.76e-03
+  Sanity [FAIL] layer=layer3.0.bn1                              max_err=1.08e-03
+  Sanity [FAIL] layer=layer3.0.bn2                              max_err=1.05e-03
+  Sanity [FAIL] layer=layer3.0.downsample.1                     max_err=1.05e-03
+  Sanity [FAIL] layer=layer3.1.bn1                              max_err=1.22e-03
+  Sanity [FAIL] layer=layer3.1.bn2                              max_err=8.71e-04
+  Sanity [FAIL] layer=layer4.0.bn1                              max_err=1.40e-03
+  Sanity [FAIL] layer=layer4.0.bn2                              max_err=1.07e-03
+  Sanity [FAIL] layer=layer4.0.downsample.1                     max_err=1.07e-03
+  Sanity [FAIL] layer=layer4.1.bn1                              max_err=6.64e-04
+  Sanity [FAIL] layer=layer4.1.bn2                              max_err=4.78e-04
+  Sanity [PASS] layer=fc                                        max_err=2.41e-05
+  Sanity check: SOME FAIL
+  Processed 10/200 batches
+  Processed 20/200 batches
+  Processed 30/200 batches
+  Processed 40/200 batches
+  Processed 50/200 batches
+  Processed 60/200 batches
+  Processed 70/200 batches
+  Processed 80/200 batches
+  Processed 90/200 batches
+  Processed 100/200 batches
+  Processed 110/200 batches
+  Processed 120/200 batches
+  Processed 130/200 batches
+  Processed 140/200 batches
+  Processed 150/200 batches
+  Processed 160/200 batches
+  Processed 170/200 batches
+  Processed 180/200 batches
+  Processed 190/200 batches
+  Processed 200/200 batches
+  Saved: experiments/gradient_alignment/outputs_cifar10/alpha_raw_chameleon.csv
+  Saved: experiments/gradient_alignment/outputs_cifar10/alpha_summary_chameleon.csv
+
+============================================================
+Experiment 2 (γ) — clean model gradient diversity
+============================================================
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+  Loaded checkpoint: results/cifar10_benign_iid/final_model.pt
+  Classes: 10
+  Bias layers: ['stem.1', 'layer1.0.bn1', 'layer1.0.bn2', 'layer1.1.bn1', 'layer1.1.bn2', 'layer2.0.bn1', 'layer2.0.bn2', 'layer2.0.downsample.1', 'layer2.1.bn1', 'layer2.1.bn2', 'layer3.0.bn1', 'layer3.0.bn2', 'layer3.0.downsample.1', 'layer3.1.bn1', 'layer3.1.bn2', 'layer4.0.bn1', 'layer4.0.bn2', 'layer4.0.downsample.1', 'layer4.1.bn1', 'layer4.1.bn2', 'fc']
+  Collecting up to 200 samples per class...
+  Actual counts: min=200, max=200
+  Computing class mean bias gradient directions...
+  Class 10/10 done
+
+  Zero-mean residuals per layer:
+    stem.1                                  : 0.0819
+    layer1.0.bn1                            : 0.0724
+    layer1.0.bn2                            : 0.0800
+    layer1.1.bn1                            : 0.0833
+    layer1.1.bn2                            : 0.0669
+    layer2.0.bn1                            : 0.0587
+    layer2.0.bn2                            : 0.0627
+    layer2.0.downsample.1                   : 0.0627
+    layer2.1.bn1                            : 0.0599
+    layer2.1.bn2                            : 0.0597
+    layer3.0.bn1                            : 0.0519
+    layer3.0.bn2                            : 0.0670
+    layer3.0.downsample.1                   : 0.0670
+    layer3.1.bn1                            : 0.0667
+    layer3.1.bn2                            : 0.0613
+    layer4.0.bn1                            : 0.0481
+    layer4.0.bn2                            : 0.0600
+    layer4.0.downsample.1                   : 0.0600
+    layer4.1.bn1                            : 0.0541
+    layer4.1.bn2                            : 0.0295
+    fc                                      : 0.0238
+
+  Computing pairwise cosine similarities...
+    stem.1                                    γ=0.7785  mean_sim=0.2947  eff_rank_lb=1.54  residual=0.0819
+    layer1.0.bn1                              γ=0.7156  mean_sim=0.2603  eff_rank_lb=1.77  residual=0.0724
+    layer1.0.bn2                              γ=0.7993  mean_sim=0.2721  eff_rank_lb=1.47  residual=0.0800
+    layer1.1.bn1                              γ=0.8712  mean_sim=0.3127  eff_rank_lb=1.27  residual=0.0833
+    layer1.1.bn2                              γ=0.7839  mean_sim=0.2703  eff_rank_lb=1.52  residual=0.0669
+    layer2.0.bn1                              γ=0.7386  mean_sim=0.2378  eff_rank_lb=1.68  residual=0.0587
+    layer2.0.bn2                              γ=0.6193  mean_sim=0.1988  eff_rank_lb=2.21  residual=0.0627
+    layer2.0.downsample.1                     γ=0.6193  mean_sim=0.1988  eff_rank_lb=2.21  residual=0.0627
+    layer2.1.bn1                              γ=0.6074  mean_sim=0.2127  eff_rank_lb=2.28  residual=0.0599
+    layer2.1.bn2                              γ=0.6267  mean_sim=0.1804  eff_rank_lb=2.17  residual=0.0597
+    layer3.0.bn1                              γ=0.6388  mean_sim=0.1546  eff_rank_lb=2.11  residual=0.0519
+    layer3.0.bn2                              γ=0.6540  mean_sim=0.1424  eff_rank_lb=2.04  residual=0.0670
+    layer3.0.downsample.1                     γ=0.6540  mean_sim=0.1424  eff_rank_lb=2.04  residual=0.0670
+    layer3.1.bn1                              γ=0.6857  mean_sim=0.1279  eff_rank_lb=1.89  residual=0.0667
+    layer3.1.bn2                              γ=0.6504  mean_sim=0.1226  eff_rank_lb=2.05  residual=0.0613
+    layer4.0.bn1                              γ=0.6567  mean_sim=0.1234  eff_rank_lb=2.02  residual=0.0481
+    layer4.0.bn2                              γ=0.6822  mean_sim=0.1211  eff_rank_lb=1.91  residual=0.0600
+    layer4.0.downsample.1                     γ=0.6822  mean_sim=0.1211  eff_rank_lb=1.91  residual=0.0600
+    layer4.1.bn1                              γ=0.6807  mean_sim=0.1233  eff_rank_lb=1.91  residual=0.0541
+    layer4.1.bn2                              γ=0.7178  mean_sim=0.1227  eff_rank_lb=1.76  residual=0.0295
+    fc                                        γ=0.7864  mean_sim=0.1343  eff_rank_lb=1.51  residual=0.0238
+
+  Saved: experiments/gradient_alignment/outputs_cifar10/gamma_raw.csv
+  Saved: experiments/gradient_alignment/outputs_cifar10/gamma_summary.csv
+
+============================================================
+Extended Lemma 2 — Effective Rank Comparison
+============================================================
+  γ stats computed for 21 layers
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+  Loaded checkpoint: results/cifar10_benign_iid/final_model.pt
+  Bias-bearing layers: ['stem.1', 'layer1.0.bn1', 'layer1.0.bn2', 'layer1.1.bn1', 'layer1.1.bn2', 'layer2.0.bn1', 'layer2.0.bn2', 'layer2.0.downsample.1', 'layer2.1.bn1', 'layer2.1.bn2', 'layer3.0.bn1', 'layer3.0.bn2', 'layer3.0.downsample.1', 'layer3.1.bn1', 'layer3.1.bn2', 'layer4.0.bn1', 'layer4.0.bn2', 'layer4.0.downsample.1', 'layer4.1.bn1', 'layer4.1.bn2', 'fc']
+
+  Computing Σ_clean (200 batches × 64 samples)...
+    clean gradients: 20/200 batches
+    clean gradients: 40/200 batches
+    clean gradients: 60/200 batches
+    clean gradients: 80/200 batches
+    clean gradients: 100/200 batches
+    clean gradients: 120/200 batches
+    clean gradients: 140/200 batches
+    clean gradients: 160/200 batches
+    clean gradients: 180/200 batches
+    clean gradients: 200/200 batches
+  Σ_clean accumulated (12800 total samples)
+    stem.1                                      n_bias=  64  eff_rank_clean=18.13  (n_pos_eigvals=64)
+    layer1.0.bn1                                n_bias=  64  eff_rank_clean=17.87  (n_pos_eigvals=64)
+    layer1.0.bn2                                n_bias=  64  eff_rank_clean=12.94  (n_pos_eigvals=64)
+    layer1.1.bn1                                n_bias=  64  eff_rank_clean=10.13  (n_pos_eigvals=64)
+    layer1.1.bn2                                n_bias=  64  eff_rank_clean=12.49  (n_pos_eigvals=64)
+    layer2.0.bn1                                n_bias= 128  eff_rank_clean=17.64  (n_pos_eigvals=128)
+    layer2.0.bn2                                n_bias= 128  eff_rank_clean=20.78  (n_pos_eigvals=128)
+    layer2.0.downsample.1                       n_bias= 128  eff_rank_clean=20.78  (n_pos_eigvals=128)
+    layer2.1.bn1                                n_bias= 128  eff_rank_clean=19.78  (n_pos_eigvals=128)
+    layer2.1.bn2                                n_bias= 128  eff_rank_clean=20.41  (n_pos_eigvals=128)
+    layer3.0.bn1                                n_bias= 256  eff_rank_clean=27.78  (n_pos_eigvals=256)
+    layer3.0.bn2                                n_bias= 256  eff_rank_clean=20.89  (n_pos_eigvals=256)
+    layer3.0.downsample.1                       n_bias= 256  eff_rank_clean=20.89  (n_pos_eigvals=256)
+    layer3.1.bn1                                n_bias= 256  eff_rank_clean=19.34  (n_pos_eigvals=256)
+    layer3.1.bn2                                n_bias= 256  eff_rank_clean=13.73  (n_pos_eigvals=256)
+    layer4.0.bn1                                n_bias= 512  eff_rank_clean=14.93  (n_pos_eigvals=512)
+    layer4.0.bn2                                n_bias= 512  eff_rank_clean=9.79  (n_pos_eigvals=512)
+    layer4.0.downsample.1                       n_bias= 512  eff_rank_clean=9.79  (n_pos_eigvals=512)
+    layer4.1.bn1                                n_bias= 512  eff_rank_clean=8.91  (n_pos_eigvals=512)
+    layer4.1.bn2                                n_bias= 512  eff_rank_clean=8.41  (n_pos_eigvals=512)
+    fc                                          n_bias=  10  eff_rank_clean=6.72  (n_pos_eigvals=10)
+
+  Zero-mean residuals (from exp_gamma):
+    stem.1                                      residual=0.0819
+    layer1.0.bn1                                residual=0.0724
+    layer1.0.bn2                                residual=0.0800
+    layer1.1.bn1                                residual=0.0833
+    layer1.1.bn2                                residual=0.0669
+    layer2.0.bn1                                residual=0.0587
+    layer2.0.bn2                                residual=0.0627
+    layer2.0.downsample.1                       residual=0.0627
+    layer2.1.bn1                                residual=0.0599
+    layer2.1.bn2                                residual=0.0597
+    layer3.0.bn1                                residual=0.0519
+    layer3.0.bn2                                residual=0.0670
+    layer3.0.downsample.1                       residual=0.0670
+    layer3.1.bn1                                residual=0.0667
+    layer3.1.bn2                                residual=0.0613
+    layer4.0.bn1                                residual=0.0481
+    layer4.0.bn2                                residual=0.0600
+    layer4.0.downsample.1                       residual=0.0600
+    layer4.1.bn1                                residual=0.0541
+    layer4.1.bn2                                residual=0.0295
+    fc                                          residual=0.0238
+
+  Computing Σ_bd for 'neurotoxin' ...
+    done (12800 samples)
+
+  Computing Σ_bd for 'a3fl' ...
+  Loaded trained A3FL pattern from results/cifar10_fedavg_a3fl/trigger.pt
+    done (12800 samples)
+
+  Computing Σ_bd for 'iba' ...
+  Loaded trained IBA generator from results/cifar10_fedavg_iba/trigger.pt
+    done (12800 samples)
+
+  Computing Σ_bd for 'chameleon' ...
+    done (12800 samples)
+
+  Layer                                        γ_max  γ_mean  rank_clean rank_bd_max   rank_gap
+  -----------------------------------------------------------------------------------------------
+  stem.1                                       0.779   0.295      18.134      14.952      3.182
+  layer1.0.bn1                                 0.716   0.260      17.872      13.420      4.453
+  layer1.0.bn2                                 0.799   0.272      12.937      12.446      0.492
+  layer1.1.bn1                                 0.871   0.313      10.130      11.087     -0.958
+  layer1.1.bn2                                 0.784   0.270      12.494      11.593      0.901
+  layer2.0.bn1                                 0.739   0.238      17.638      12.844      4.794
+  layer2.0.bn2                                 0.619   0.199      20.779      15.244      5.534
+  layer2.0.downsample.1                        0.619   0.199      20.779      15.244      5.534
+  layer2.1.bn1                                 0.607   0.213      19.780      14.471      5.309
+  layer2.1.bn2                                 0.627   0.180      20.409      11.654      8.754
+  layer3.0.bn1                                 0.639   0.155      27.777      12.111     15.667
+  layer3.0.bn2                                 0.654   0.142      20.892       8.424     12.468
+  layer3.0.downsample.1                        0.654   0.142      20.892       8.424     12.468
+  layer3.1.bn1                                 0.686   0.128      19.344       6.894     12.450
+  layer3.1.bn2                                 0.650   0.123      13.727       4.460      9.267
+  layer4.0.bn1                                 0.657   0.123      14.926       4.598     10.328
+  layer4.0.bn2                                 0.682   0.121       9.788       2.794      6.995
+  layer4.0.downsample.1                        0.682   0.121       9.788       2.794      6.995
+  layer4.1.bn1                                 0.681   0.123       8.906       2.500      6.406
+  layer4.1.bn2                                 0.718   0.123       8.409       2.096      6.312
+  fc                                           0.786   0.134       6.718       1.757      4.961
+
+  Saved: experiments/gradient_alignment/outputs_cifar10/rank_comparison_table.csv
+  Saved: experiments/gradient_alignment/outputs_cifar10/rank_comparison_table.png
+  Saved: experiments/gradient_alignment/outputs_cifar10/eigenvalue_spectra.png
+
+Generating figures...
+Saved: experiments/gradient_alignment/outputs_cifar10/alpha_distributions.png
+Saved: experiments/gradient_alignment/outputs_cifar10/gamma_heatmaps.png
+Saved: experiments/gradient_alignment/outputs_cifar10/theory_validation.png
+
+Done. All outputs written to: experiments/gradient_alignment/outputs_cifar10
+
+Diagnostic outputs:
+total 65M
+-rw-r--r-- 1 abellach UTILISATEURS 1,2M  2 juin  10:28 alpha_distributions.png
+-rw-r--r-- 1 abellach UTILISATEURS  16M  2 juin  10:19 alpha_raw_a3fl.csv
+-rw-r--r-- 1 abellach UTILISATEURS  16M  2 juin  10:22 alpha_raw_chameleon.csv
+-rw-r--r-- 1 abellach UTILISATEURS  16M  2 juin  10:21 alpha_raw_iba.csv
+-rw-r--r-- 1 abellach UTILISATEURS  16M  1 juin  21:32 alpha_raw_neurotoxin.csv
+-rw-r--r-- 1 abellach UTILISATEURS 2,8K  2 juin  10:19 alpha_summary_a3fl.csv
+-rw-r--r-- 1 abellach UTILISATEURS 2,9K  2 juin  10:22 alpha_summary_chameleon.csv
+-rw-r--r-- 1 abellach UTILISATEURS 2,9K  2 juin  10:21 alpha_summary_iba.csv
+-rw-r--r-- 1 abellach UTILISATEURS 2,9K  1 juin  21:32 alpha_summary_neurotoxin.csv
+-rw-r--r-- 1 abellach UTILISATEURS 1,1M  2 juin  10:28 eigenvalue_spectra.png
+-rw-r--r-- 1 abellach UTILISATEURS 140K  2 juin  10:29 gamma_heatmaps.png
+-rw-r--r-- 1 abellach UTILISATEURS  74K  2 juin  10:23 gamma_raw.csv
+-rw-r--r-- 1 abellach UTILISATEURS 2,0K  2 juin  10:23 gamma_summary.csv
+-rw-r--r-- 1 abellach UTILISATEURS 1,4K  2 juin  10:27 rank_comparison_table.csv
+-rw-r--r-- 1 abellach UTILISATEURS 197K  2 juin  10:28 rank_comparison_table.png
+-rw-r--r-- 1 abellach UTILISATEURS 151K  2 juin  10:29 theory_validation.png
+
+============================================================
+ Job complete: 2026-06-02 10:29:19
+============================================================

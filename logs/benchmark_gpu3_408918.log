@@ -1,0 +1,33 @@
+14:09:53  INFO      benchmark — Matrix: 1 datasets × 6 attacks × 6 defenses × 10 seeds = 360 runs
+14:09:53  INFO      benchmark — Status — complete: 0  partial/incomplete: 0  not started: 360
+14:09:53  INFO      benchmark — Time budget: 98.0 h
+14:09:53  INFO      benchmark — ▶  tiny_imagenet_none_none_seed0
+14:09:53  INFO      experiment.runner — Initialising 'tiny_imagenet_none_none_seed0' | device=cuda | rounds=300 | clients=10/100 | attack=none | defense=none
+14:10:13  INFO      experiment.utils — Built 100 clients — 0 malicious, 100 benign.
+14:10:13  INFO      experiment.runner — Setup complete — 100 clients (0 malicious) | backdoor eval: none
+14:10:56  INFO      experiment.runner — Round    1/300  |  acc:   0.50%  loss: 5.4594  |  mF1: 0.0%
+14:18:31  INFO      experiment.runner — Round   11/300  |  acc:  16.39%  loss: 4.0494  |  mF1: 14.1%
+14:26:18  INFO      experiment.runner — Round   21/300  |  acc:  23.19%  loss: 3.6712  |  mF1: 20.9%
+14:34:01  INFO      experiment.runner — Round   31/300  |  acc:  25.72%  loss: 3.5209  |  mF1: 23.4%
+14:41:52  INFO      experiment.runner — Round   41/300  |  acc:  27.69%  loss: 3.4530  |  mF1: 25.3%
+14:49:44  INFO      experiment.runner — Round   51/300  |  acc:  27.95%  loss: 3.4075  |  mF1: 25.8%
+14:57:40  INFO      experiment.runner — Round   61/300  |  acc:  29.30%  loss: 3.3780  |  mF1: 27.0%
+15:05:30  INFO      experiment.runner — Round   71/300  |  acc:  29.33%  loss: 3.3807  |  mF1: 27.3%
+15:13:22  INFO      experiment.runner — Round   81/300  |  acc:  29.92%  loss: 3.3579  |  mF1: 28.0%
+15:21:14  INFO      experiment.runner — Round   91/300  |  acc:  31.01%  loss: 3.3498  |  mF1: 28.9%
+15:29:43  INFO      experiment.runner — Round  101/300  |  acc:  30.71%  loss: 3.3432  |  mF1: 28.9%
+15:37:47  INFO      experiment.runner — Round  111/300  |  acc:  31.07%  loss: 3.3871  |  mF1: 29.3%
+15:45:42  INFO      experiment.runner — Round  121/300  |  acc:  30.90%  loss: 3.3480  |  mF1: 29.0%
+15:53:42  INFO      experiment.runner — Round  131/300  |  acc:  31.31%  loss: 3.3611  |  mF1: 29.3%
+16:01:42  INFO      experiment.runner — Round  141/300  |  acc:  31.69%  loss: 3.3880  |  mF1: 29.9%
+16:09:47  INFO      experiment.runner — Round  151/300  |  acc:  31.84%  loss: 3.4161  |  mF1: 29.9%
+16:17:50  INFO      experiment.runner — Round  161/300  |  acc:  31.92%  loss: 3.4382  |  mF1: 30.2%
+16:25:52  INFO      experiment.runner — Round  171/300  |  acc:  31.84%  loss: 3.4567  |  mF1: 30.0%
+16:33:47  INFO      experiment.runner — Round  181/300  |  acc:  32.31%  loss: 3.4714  |  mF1: 30.5%
+16:41:57  INFO      experiment.runner — Round  191/300  |  acc:  31.61%  loss: 3.4957  |  mF1: 29.7%
+16:49:52  INFO      experiment.runner — Round  201/300  |  acc:  32.14%  loss: 3.4954  |  mF1: 30.3%
+16:57:44  INFO      experiment.runner — Round  211/300  |  acc:  31.88%  loss: 3.4976  |  mF1: 30.3%
+17:05:39  INFO      experiment.runner — Round  221/300  |  acc:  32.10%  loss: 3.4563  |  mF1: 30.2%
+17:13:30  INFO      experiment.runner — Round  231/300  |  acc:  32.16%  loss: 3.5129  |  mF1: 30.4%
+17:21:20  INFO      experiment.runner — Round  241/300  |  acc:  31.41%  loss: 3.5112  |  mF1: 29.4%
+17:27:19  WARNING   benchmark — SIGTERM received — will stop after the current run.

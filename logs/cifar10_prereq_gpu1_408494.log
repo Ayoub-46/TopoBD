@@ -1,0 +1,1188 @@
+
+Dataset: cifar10
+
+Checkpoint status:
+  cifar10_fedavg_a3fl                       MISSING (will train)
+
+
+==================================================================
+  Run      : cifar10_fedavg_a3fl
+  Purpose  : A3FL attack checkpoint (Experiment 1)
+  Config   : /Utilisateurs/abellach/TopoBD/configs/cifar10_fedavg_a3fl.yaml
+  Attack   : a3fl  |  Defense: none
+  Rounds   : 200  |  Clients: 100/10
+==================================================================
+
+22:13:47  INFO      experiment.runner — Initialising 'cifar10_fedavg_a3fl' | device=cuda | rounds=200 | clients=10/100 | attack=a3fl | defense=none
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+22:14:06  INFO      experiment.utils — Built 100 clients — 10 malicious, 90 benign.
+22:14:06  INFO      datasets.backdoor — BackdoorDataset: 9000 / 9000 samples poisoned (target=0, fraction=1.000, seed=0).
+22:14:06  INFO      experiment.runner — Setup complete — 100 clients (10 malicious) | backdoor eval: static-trigger
+22:14:49  INFO      experiment.runner — Round    1/200  |  acc:  20.00%  loss: 2.2484  |  ASR:   3.02%  asr_loss: 4.1866  |  mF1: 17.1%
+22:21:32  INFO      experiment.runner — Round   11/200  |  acc:  57.05%  loss: 1.2517  |  ASR:   4.22%  asr_loss: 5.6454  |  mF1: 56.7%
+22:28:40  INFO      experiment.runner — Round   21/200  |  acc:  66.44%  loss: 0.9996  |  ASR:   3.34%  asr_loss: 7.0826  |  mF1: 66.4%
+22:35:33  INFO      experiment.runner — Round   31/200  |  acc:  72.02%  loss: 0.8604  |  ASR:   4.27%  asr_loss: 7.7547  |  mF1: 71.8%
+22:42:24  INFO      experiment.runner — Round   41/200  |  acc:  75.38%  loss: 0.7700  |  ASR:   3.11%  asr_loss: 8.8679  |  mF1: 75.4%
+22:48:45  INFO      attacks.a3fl_client — A3FL client [35] — round 50: optimising trigger.
+22:48:45  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:48:52  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+22:48:52  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:48:55  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:48:55  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=127).
+22:48:59  INFO      attacks.a3fl_client — A3FL client [35] — round 50: poisoned 226 / 500 samples (target=0).
+22:49:19  INFO      attacks.a3fl_client — A3FL client [86] — round 50: optimising trigger.
+22:49:19  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:49:20  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:49:20  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:49:21  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:49:21  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=178).
+22:49:24  INFO      attacks.a3fl_client — A3FL client [86] — round 50: poisoned 224 / 500 samples (target=0).
+22:49:35  INFO      experiment.runner — Round   51/200  |  acc:  77.48%  loss: 0.6981  |  ASR:   8.79%  asr_loss: 5.8712  |  mF1: 77.4%
+22:49:42  INFO      attacks.a3fl_client — A3FL client [3] — round 51: optimising trigger.
+22:49:42  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:49:44  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+22:49:44  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:49:44  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:49:44  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=96).
+22:49:52  INFO      attacks.a3fl_client — A3FL client [3] — round 51: poisoned 226 / 500 samples (target=0).
+22:49:53  INFO      attacks.a3fl_client — A3FL client [14] — round 51: optimising trigger.
+22:49:53  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:49:54  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:49:54  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:49:55  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:49:55  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=107).
+22:49:58  INFO      attacks.a3fl_client — A3FL client [14] — round 51: poisoned 223 / 500 samples (target=0).
+22:50:11  INFO      attacks.a3fl_client — A3FL client [13] — round 51: optimising trigger.
+22:50:11  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:50:13  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:50:13  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:50:13  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:50:13  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=106).
+22:50:16  INFO      attacks.a3fl_client — A3FL client [13] — round 51: poisoned 227 / 500 samples (target=0).
+22:50:46  INFO      attacks.a3fl_client — A3FL client [14] — round 52: optimising trigger.
+22:50:46  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:50:48  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:50:48  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:50:48  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:50:51  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=108).
+22:50:55  INFO      attacks.a3fl_client — A3FL client [14] — round 52: poisoned 223 / 500 samples (target=0).
+22:51:43  INFO      attacks.a3fl_client — A3FL client [94] — round 53: optimising trigger.
+22:51:43  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:51:45  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+22:51:45  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:51:46  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:51:46  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=189).
+22:51:50  INFO      attacks.a3fl_client — A3FL client [94] — round 53: poisoned 228 / 500 samples (target=0).
+22:51:58  INFO      attacks.a3fl_client — A3FL client [94] — round 54: optimising trigger.
+22:51:58  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:52:00  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+22:52:00  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:52:00  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:52:00  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=190).
+22:52:04  INFO      attacks.a3fl_client — A3FL client [94] — round 54: poisoned 228 / 500 samples (target=0).
+22:53:46  INFO      attacks.a3fl_client — A3FL client [86] — round 56: optimising trigger.
+22:53:46  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:53:47  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:53:47  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:53:48  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:53:48  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=184).
+22:53:51  INFO      attacks.a3fl_client — A3FL client [86] — round 56: poisoned 224 / 500 samples (target=0).
+22:55:07  INFO      attacks.a3fl_client — A3FL client [86] — round 58: optimising trigger.
+22:55:07  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:55:09  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:55:09  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:55:10  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:55:10  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=186).
+22:55:13  INFO      attacks.a3fl_client — A3FL client [86] — round 58: poisoned 224 / 500 samples (target=0).
+22:55:25  INFO      attacks.a3fl_client — A3FL client [94] — round 58: optimising trigger.
+22:55:25  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:55:27  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+22:55:27  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:55:27  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:55:27  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=194).
+22:55:30  INFO      attacks.a3fl_client — A3FL client [94] — round 58: poisoned 228 / 500 samples (target=0).
+22:55:53  INFO      attacks.a3fl_client — A3FL client [81] — round 59: optimising trigger.
+22:55:53  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:55:55  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:55:55  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:55:55  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:55:55  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=182).
+22:55:58  INFO      attacks.a3fl_client — A3FL client [81] — round 59: poisoned 223 / 500 samples (target=0).
+22:56:20  INFO      attacks.a3fl_client — A3FL client [86] — round 60: optimising trigger.
+22:56:20  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:56:22  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:56:22  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:56:23  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:56:23  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=188).
+22:56:26  INFO      attacks.a3fl_client — A3FL client [86] — round 60: poisoned 224 / 500 samples (target=0).
+22:56:30  INFO      attacks.a3fl_client — A3FL client [28] — round 60: optimising trigger.
+22:56:30  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:56:32  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:56:32  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:56:33  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:56:33  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=130).
+22:56:36  INFO      attacks.a3fl_client — A3FL client [28] — round 60: poisoned 232 / 500 samples (target=0).
+22:56:43  INFO      attacks.a3fl_client — A3FL client [3] — round 60: optimising trigger.
+22:56:43  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:56:44  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+22:56:44  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:56:45  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:56:45  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=105).
+22:56:48  INFO      attacks.a3fl_client — A3FL client [3] — round 60: poisoned 226 / 500 samples (target=0).
+22:56:52  INFO      attacks.a3fl_client — A3FL client [31] — round 60: optimising trigger.
+22:56:52  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:56:54  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:56:54  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:56:55  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:56:55  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=133).
+22:56:58  INFO      attacks.a3fl_client — A3FL client [31] — round 60: poisoned 223 / 500 samples (target=0).
+22:57:10  INFO      experiment.runner — Round   61/200  |  acc:  79.53%  loss: 0.6330  |  ASR: 100.00%  asr_loss: 0.0005  |  mF1: 79.5%
+22:58:01  INFO      attacks.a3fl_client — A3FL client [31] — round 62: optimising trigger.
+22:58:01  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:58:03  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+22:58:03  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:58:03  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:58:09  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=135).
+22:58:12  INFO      attacks.a3fl_client — A3FL client [31] — round 62: poisoned 223 / 500 samples (target=0).
+22:58:38  INFO      attacks.a3fl_client — A3FL client [13] — round 63: optimising trigger.
+22:58:38  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:58:40  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:58:40  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:58:41  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:58:41  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=118).
+22:58:45  INFO      attacks.a3fl_client — A3FL client [13] — round 63: poisoned 227 / 500 samples (target=0).
+22:58:53  INFO      attacks.a3fl_client — A3FL client [28] — round 63: optimising trigger.
+22:58:53  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:58:54  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:58:54  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:58:55  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:58:55  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=133).
+22:58:59  INFO      attacks.a3fl_client — A3FL client [28] — round 63: poisoned 232 / 500 samples (target=0).
+22:59:24  INFO      attacks.a3fl_client — A3FL client [31] — round 64: optimising trigger.
+22:59:24  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:59:26  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:59:26  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:59:27  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:59:27  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=137).
+22:59:30  INFO      attacks.a3fl_client — A3FL client [31] — round 64: poisoned 223 / 500 samples (target=0).
+22:59:39  INFO      attacks.a3fl_client — A3FL client [17] — round 64: optimising trigger.
+22:59:39  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+22:59:41  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+22:59:41  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+22:59:42  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+22:59:42  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=123).
+22:59:45  INFO      attacks.a3fl_client — A3FL client [17] — round 64: poisoned 226 / 500 samples (target=0).
+23:01:07  INFO      attacks.a3fl_client — A3FL client [31] — round 66: optimising trigger.
+23:01:07  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:01:09  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:01:09  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:01:09  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:01:09  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=139).
+23:01:13  INFO      attacks.a3fl_client — A3FL client [31] — round 66: poisoned 223 / 500 samples (target=0).
+23:01:13  INFO      attacks.a3fl_client — A3FL client [81] — round 66: optimising trigger.
+23:01:13  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:01:15  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:01:16  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:01:17  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:01:17  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=189).
+23:01:20  INFO      attacks.a3fl_client — A3FL client [81] — round 66: poisoned 223 / 500 samples (target=0).
+23:01:20  INFO      attacks.a3fl_client — A3FL client [35] — round 66: optimising trigger.
+23:01:20  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:01:23  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:01:23  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:01:23  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:01:23  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=143).
+23:01:26  INFO      attacks.a3fl_client — A3FL client [35] — round 66: poisoned 226 / 500 samples (target=0).
+23:02:00  INFO      attacks.a3fl_client — A3FL client [35] — round 67: optimising trigger.
+23:02:00  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:02:01  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:02:01  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:02:02  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:02:02  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=144).
+23:02:05  INFO      attacks.a3fl_client — A3FL client [35] — round 67: poisoned 226 / 500 samples (target=0).
+23:02:43  INFO      attacks.a3fl_client — A3FL client [17] — round 68: optimising trigger.
+23:02:43  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:02:44  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:02:44  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:02:45  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:02:45  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=127).
+23:02:48  INFO      attacks.a3fl_client — A3FL client [17] — round 68: poisoned 226 / 500 samples (target=0).
+23:04:43  INFO      experiment.runner — Round   71/200  |  acc:  81.48%  loss: 0.6030  |  ASR:  99.94%  asr_loss: 0.0015  |  mF1: 81.3%
+23:05:05  INFO      attacks.a3fl_client — A3FL client [94] — round 71: optimising trigger.
+23:05:05  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:05:06  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:05:06  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:05:07  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:05:07  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=207).
+23:05:11  INFO      attacks.a3fl_client — A3FL client [94] — round 71: poisoned 228 / 500 samples (target=0).
+23:05:19  INFO      attacks.a3fl_client — A3FL client [28] — round 71: optimising trigger.
+23:05:19  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:05:21  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:05:22  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:05:22  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:05:22  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=141).
+23:05:26  INFO      attacks.a3fl_client — A3FL client [28] — round 71: poisoned 232 / 500 samples (target=0).
+23:05:35  INFO      attacks.a3fl_client — A3FL client [28] — round 72: optimising trigger.
+23:05:35  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:05:37  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:05:37  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:05:38  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:05:38  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=142).
+23:05:41  INFO      attacks.a3fl_client — A3FL client [28] — round 72: poisoned 232 / 500 samples (target=0).
+23:05:52  INFO      attacks.a3fl_client — A3FL client [3] — round 72: optimising trigger.
+23:05:52  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:05:54  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:05:54  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:05:55  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:05:55  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=117).
+23:05:58  INFO      attacks.a3fl_client — A3FL client [3] — round 72: poisoned 226 / 500 samples (target=0).
+23:06:14  INFO      attacks.a3fl_client — A3FL client [86] — round 72: optimising trigger.
+23:06:14  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:06:16  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:06:16  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:06:16  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:06:16  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=200).
+23:06:20  INFO      attacks.a3fl_client — A3FL client [86] — round 72: poisoned 224 / 500 samples (target=0).
+23:06:56  INFO      attacks.a3fl_client — A3FL client [3] — round 73: optimising trigger.
+23:06:56  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:06:58  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:06:58  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:06:59  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:06:59  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=118).
+23:07:02  INFO      attacks.a3fl_client — A3FL client [3] — round 73: poisoned 226 / 500 samples (target=0).
+23:07:19  INFO      attacks.a3fl_client — A3FL client [3] — round 74: optimising trigger.
+23:07:19  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:07:21  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:07:25  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:07:25  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:07:25  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=119).
+23:07:29  INFO      attacks.a3fl_client — A3FL client [3] — round 74: poisoned 226 / 500 samples (target=0).
+23:07:41  INFO      attacks.a3fl_client — A3FL client [17] — round 74: optimising trigger.
+23:07:41  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:07:43  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:07:43  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:07:44  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:07:44  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=133).
+23:07:47  INFO      attacks.a3fl_client — A3FL client [17] — round 74: poisoned 226 / 500 samples (target=0).
+23:08:30  INFO      attacks.a3fl_client — A3FL client [35] — round 75: optimising trigger.
+23:08:30  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:08:32  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:08:32  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:08:32  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:08:32  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=152).
+23:08:35  INFO      attacks.a3fl_client — A3FL client [35] — round 75: poisoned 226 / 500 samples (target=0).
+23:09:17  INFO      attacks.a3fl_client — A3FL client [28] — round 76: optimising trigger.
+23:09:17  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:09:19  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:09:19  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:09:20  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:09:20  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=146).
+23:09:27  INFO      attacks.a3fl_client — A3FL client [28] — round 76: poisoned 232 / 500 samples (target=0).
+23:09:56  INFO      attacks.a3fl_client — A3FL client [3] — round 77: optimising trigger.
+23:09:56  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:09:58  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:09:58  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:09:59  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:09:59  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=122).
+23:10:02  INFO      attacks.a3fl_client — A3FL client [3] — round 77: poisoned 226 / 500 samples (target=0).
+23:10:02  INFO      attacks.a3fl_client — A3FL client [31] — round 77: optimising trigger.
+23:10:02  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:10:04  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:10:04  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:10:05  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:10:05  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=150).
+23:10:08  INFO      attacks.a3fl_client — A3FL client [31] — round 77: poisoned 223 / 500 samples (target=0).
+23:10:42  INFO      attacks.a3fl_client — A3FL client [14] — round 78: optimising trigger.
+23:10:42  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:10:44  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:10:44  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:10:45  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:10:45  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=134).
+23:10:48  INFO      attacks.a3fl_client — A3FL client [14] — round 78: poisoned 223 / 500 samples (target=0).
+23:11:40  INFO      attacks.a3fl_client — A3FL client [14] — round 79: optimising trigger.
+23:11:40  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:11:42  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:11:42  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:11:42  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:11:42  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=135).
+23:11:46  INFO      attacks.a3fl_client — A3FL client [14] — round 79: poisoned 223 / 500 samples (target=0).
+23:12:04  INFO      attacks.a3fl_client — A3FL client [13] — round 80: optimising trigger.
+23:12:04  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:12:05  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:12:05  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:12:06  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:12:06  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=135).
+23:12:09  INFO      attacks.a3fl_client — A3FL client [13] — round 80: poisoned 227 / 500 samples (target=0).
+23:12:13  INFO      attacks.a3fl_client — A3FL client [3] — round 80: optimising trigger.
+23:12:13  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:12:15  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:12:15  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:12:16  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:12:16  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=125).
+23:12:19  INFO      attacks.a3fl_client — A3FL client [3] — round 80: poisoned 226 / 500 samples (target=0).
+23:12:28  INFO      attacks.a3fl_client — A3FL client [86] — round 80: optimising trigger.
+23:12:28  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:12:29  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:12:29  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:12:30  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:12:30  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=208).
+23:12:34  INFO      attacks.a3fl_client — A3FL client [86] — round 80: poisoned 224 / 500 samples (target=0).
+23:13:00  INFO      experiment.runner — Round   81/200  |  acc:  82.72%  loss: 0.5802  |  ASR: 100.00%  asr_loss: 0.0001  |  mF1: 82.6%
+23:13:16  INFO      attacks.a3fl_client — A3FL client [31] — round 81: optimising trigger.
+23:13:16  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:13:18  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:13:18  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:13:18  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:13:18  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=154).
+23:13:22  INFO      attacks.a3fl_client — A3FL client [31] — round 81: poisoned 223 / 500 samples (target=0).
+23:13:22  INFO      attacks.a3fl_client — A3FL client [13] — round 81: optimising trigger.
+23:13:22  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:13:25  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+23:13:25  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:13:25  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:13:25  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=136).
+23:13:29  INFO      attacks.a3fl_client — A3FL client [13] — round 81: poisoned 227 / 500 samples (target=0).
+23:14:58  INFO      attacks.a3fl_client — A3FL client [13] — round 83: optimising trigger.
+23:14:58  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:15:00  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:15:00  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:15:01  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:15:01  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=138).
+23:15:05  INFO      attacks.a3fl_client — A3FL client [13] — round 83: poisoned 227 / 500 samples (target=0).
+23:15:13  INFO      attacks.a3fl_client — A3FL client [81] — round 83: optimising trigger.
+23:15:13  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:15:15  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:15:15  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:15:16  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:15:16  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=206).
+23:15:19  INFO      attacks.a3fl_client — A3FL client [81] — round 83: poisoned 223 / 500 samples (target=0).
+23:16:40  INFO      attacks.a3fl_client — A3FL client [31] — round 85: optimising trigger.
+23:16:40  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:16:42  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:16:42  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:16:43  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:16:45  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=158).
+23:16:49  INFO      attacks.a3fl_client — A3FL client [31] — round 85: poisoned 223 / 500 samples (target=0).
+23:16:56  INFO      attacks.a3fl_client — A3FL client [35] — round 86: optimising trigger.
+23:16:56  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:16:58  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:16:58  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:16:59  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:16:59  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=163).
+23:17:04  INFO      attacks.a3fl_client — A3FL client [35] — round 86: poisoned 226 / 500 samples (target=0).
+23:17:09  INFO      attacks.a3fl_client — A3FL client [31] — round 86: optimising trigger.
+23:17:09  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:17:12  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:17:12  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:17:13  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:17:13  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=159).
+23:17:16  INFO      attacks.a3fl_client — A3FL client [31] — round 86: poisoned 223 / 500 samples (target=0).
+23:17:45  INFO      attacks.a3fl_client — A3FL client [3] — round 87: optimising trigger.
+23:17:45  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:17:47  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:17:47  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:17:47  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:17:47  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=132).
+23:17:51  INFO      attacks.a3fl_client — A3FL client [3] — round 87: poisoned 226 / 500 samples (target=0).
+23:18:17  INFO      attacks.a3fl_client — A3FL client [35] — round 87: optimising trigger.
+23:18:17  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:18:19  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:18:19  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:18:20  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:18:20  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=164).
+23:18:24  INFO      attacks.a3fl_client — A3FL client [35] — round 87: poisoned 226 / 500 samples (target=0).
+23:18:38  INFO      attacks.a3fl_client — A3FL client [35] — round 88: optimising trigger.
+23:18:38  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:18:40  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:18:40  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:18:41  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:18:41  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=165).
+23:18:45  INFO      attacks.a3fl_client — A3FL client [35] — round 88: poisoned 226 / 500 samples (target=0).
+23:20:11  INFO      attacks.a3fl_client — A3FL client [28] — round 90: optimising trigger.
+23:20:11  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:20:13  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:20:13  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:20:14  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:20:14  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=160).
+23:20:17  INFO      attacks.a3fl_client — A3FL client [28] — round 90: poisoned 232 / 500 samples (target=0).
+23:20:24  INFO      attacks.a3fl_client — A3FL client [31] — round 90: optimising trigger.
+23:20:24  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:20:26  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:20:26  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:20:27  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:20:27  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=163).
+23:20:30  INFO      attacks.a3fl_client — A3FL client [31] — round 90: poisoned 223 / 500 samples (target=0).
+23:20:53  INFO      experiment.runner — Round   91/200  |  acc:  82.94%  loss: 0.5506  |  ASR: 100.00%  asr_loss: 0.0000  |  mF1: 82.9%
+23:22:43  INFO      attacks.a3fl_client — A3FL client [94] — round 93: optimising trigger.
+23:22:43  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:22:45  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:22:45  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:22:46  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:22:46  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=229).
+23:22:50  INFO      attacks.a3fl_client — A3FL client [94] — round 93: poisoned 228 / 500 samples (target=0).
+23:22:57  INFO      attacks.a3fl_client — A3FL client [35] — round 93: optimising trigger.
+23:22:57  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:22:58  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:22:58  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:22:59  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:22:59  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=170).
+23:23:02  INFO      attacks.a3fl_client — A3FL client [35] — round 93: poisoned 226 / 500 samples (target=0).
+23:24:15  INFO      attacks.a3fl_client — A3FL client [35] — round 95: optimising trigger.
+23:24:15  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:24:17  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:24:17  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:24:18  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:24:18  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=172).
+23:24:21  INFO      attacks.a3fl_client — A3FL client [35] — round 95: poisoned 226 / 500 samples (target=0).
+23:24:49  INFO      attacks.a3fl_client — A3FL client [81] — round 96: optimising trigger.
+23:24:49  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:24:51  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:24:51  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:24:52  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:24:52  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=219).
+23:24:55  INFO      attacks.a3fl_client — A3FL client [81] — round 96: poisoned 223 / 500 samples (target=0).
+23:25:03  INFO      attacks.a3fl_client — A3FL client [13] — round 96: optimising trigger.
+23:25:03  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:25:05  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:25:05  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:25:06  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:25:06  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=151).
+23:25:14  INFO      attacks.a3fl_client — A3FL client [13] — round 96: poisoned 227 / 500 samples (target=0).
+23:26:00  INFO      attacks.a3fl_client — A3FL client [14] — round 97: optimising trigger.
+23:26:00  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:26:02  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:26:02  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:26:03  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:26:03  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=153).
+23:26:07  INFO      attacks.a3fl_client — A3FL client [14] — round 97: poisoned 223 / 500 samples (target=0).
+23:27:04  INFO      attacks.a3fl_client — A3FL client [31] — round 99: optimising trigger.
+23:27:04  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:27:06  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:27:06  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:27:07  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:27:07  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=172).
+23:27:11  INFO      attacks.a3fl_client — A3FL client [31] — round 99: poisoned 223 / 500 samples (target=0).
+23:27:38  INFO      attacks.a3fl_client — A3FL client [28] — round 99: optimising trigger.
+23:27:38  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:27:40  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:27:40  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:27:41  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:27:41  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=169).
+23:27:44  INFO      attacks.a3fl_client — A3FL client [28] — round 99: poisoned 232 / 500 samples (target=0).
+23:28:44  INFO      experiment.runner — Round  101/200  |  acc:  84.16%  loss: 0.5490  |  ASR: 100.00%  asr_loss: 0.0000  |  mF1: 84.0%
+23:28:54  INFO      attacks.a3fl_client — A3FL client [94] — round 101: optimising trigger.
+23:28:54  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:28:56  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:28:56  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:28:57  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:28:57  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=237).
+23:29:06  INFO      attacks.a3fl_client — A3FL client [94] — round 101: poisoned 228 / 500 samples (target=0).
+23:31:34  INFO      attacks.a3fl_client — A3FL client [14] — round 104: optimising trigger.
+23:31:34  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:31:36  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:31:36  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:31:37  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:31:37  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=160).
+23:31:41  INFO      attacks.a3fl_client — A3FL client [14] — round 104: poisoned 223 / 500 samples (target=0).
+23:31:50  INFO      attacks.a3fl_client — A3FL client [28] — round 105: optimising trigger.
+23:31:50  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:31:52  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:31:53  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:31:54  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:31:54  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=175).
+23:31:57  INFO      attacks.a3fl_client — A3FL client [28] — round 105: poisoned 232 / 500 samples (target=0).
+23:33:57  INFO      attacks.a3fl_client — A3FL client [94] — round 107: optimising trigger.
+23:33:57  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:33:59  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9998, dynamic_lambda=0.1000.
+23:33:59  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:33:59  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:33:59  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=243).
+23:34:03  INFO      attacks.a3fl_client — A3FL client [94] — round 107: poisoned 228 / 500 samples (target=0).
+23:34:19  INFO      attacks.a3fl_client — A3FL client [3] — round 108: optimising trigger.
+23:34:19  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:34:22  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:34:22  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:34:22  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:34:22  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=153).
+23:34:31  INFO      attacks.a3fl_client — A3FL client [3] — round 108: poisoned 226 / 500 samples (target=0).
+23:34:38  INFO      attacks.a3fl_client — A3FL client [86] — round 108: optimising trigger.
+23:34:38  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:34:40  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:34:40  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:34:41  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:34:41  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=236).
+23:34:44  INFO      attacks.a3fl_client — A3FL client [86] — round 108: poisoned 224 / 500 samples (target=0).
+23:35:02  INFO      attacks.a3fl_client — A3FL client [86] — round 109: optimising trigger.
+23:35:02  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:35:04  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:35:04  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:35:05  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:35:05  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=237).
+23:35:08  INFO      attacks.a3fl_client — A3FL client [86] — round 109: poisoned 224 / 500 samples (target=0).
+23:35:47  INFO      attacks.a3fl_client — A3FL client [35] — round 110: optimising trigger.
+23:35:47  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:35:50  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:35:50  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:35:50  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:35:50  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=187).
+23:35:54  INFO      attacks.a3fl_client — A3FL client [35] — round 110: poisoned 226 / 500 samples (target=0).
+23:36:07  INFO      attacks.a3fl_client — A3FL client [81] — round 110: optimising trigger.
+23:36:07  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:36:08  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:36:08  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:36:09  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:36:09  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=233).
+23:36:13  INFO      attacks.a3fl_client — A3FL client [81] — round 110: poisoned 223 / 500 samples (target=0).
+23:36:38  INFO      experiment.runner — Round  111/200  |  acc:  84.34%  loss: 0.5335  |  ASR: 100.00%  asr_loss: 0.0000  |  mF1: 84.3%
+23:36:53  INFO      attacks.a3fl_client — A3FL client [13] — round 111: optimising trigger.
+23:36:53  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:36:55  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+23:36:55  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:36:55  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:36:55  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=166).
+23:36:59  INFO      attacks.a3fl_client — A3FL client [13] — round 111: poisoned 227 / 500 samples (target=0).
+23:37:58  INFO      attacks.a3fl_client — A3FL client [14] — round 112: optimising trigger.
+23:37:58  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:38:01  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:38:01  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:38:01  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:38:01  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=168).
+23:38:05  INFO      attacks.a3fl_client — A3FL client [14] — round 112: poisoned 223 / 500 samples (target=0).
+23:40:07  INFO      attacks.a3fl_client — A3FL client [3] — round 115: optimising trigger.
+23:40:07  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:40:09  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:40:09  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:40:09  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:40:09  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=160).
+23:40:13  INFO      attacks.a3fl_client — A3FL client [3] — round 115: poisoned 226 / 500 samples (target=0).
+23:40:59  INFO      attacks.a3fl_client — A3FL client [28] — round 116: optimising trigger.
+23:40:59  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:41:01  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:41:01  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:41:02  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:41:02  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=186).
+23:41:05  INFO      attacks.a3fl_client — A3FL client [28] — round 116: poisoned 232 / 500 samples (target=0).
+23:41:09  INFO      attacks.a3fl_client — A3FL client [14] — round 117: optimising trigger.
+23:41:09  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:41:11  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:41:11  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:41:12  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:41:12  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=173).
+23:41:16  INFO      attacks.a3fl_client — A3FL client [14] — round 117: poisoned 223 / 500 samples (target=0).
+23:42:09  INFO      attacks.a3fl_client — A3FL client [31] — round 118: optimising trigger.
+23:42:09  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:42:12  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:42:12  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:42:12  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:42:12  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=191).
+23:42:16  INFO      attacks.a3fl_client — A3FL client [31] — round 118: poisoned 223 / 500 samples (target=0).
+23:42:51  INFO      attacks.a3fl_client — A3FL client [17] — round 119: optimising trigger.
+23:42:51  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:42:53  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:42:53  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:42:54  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:42:54  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=178).
+23:42:59  INFO      attacks.a3fl_client — A3FL client [17] — round 119: poisoned 226 / 500 samples (target=0).
+23:43:05  INFO      attacks.a3fl_client — A3FL client [35] — round 119: optimising trigger.
+23:43:05  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:43:08  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:43:08  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:43:08  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:43:08  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=196).
+23:43:12  INFO      attacks.a3fl_client — A3FL client [35] — round 119: poisoned 226 / 500 samples (target=0).
+23:44:17  INFO      experiment.runner — Round  121/200  |  acc:  85.24%  loss: 0.5106  |  ASR: 100.00%  asr_loss: 0.0000  |  mF1: 85.2%
+23:48:21  INFO      attacks.a3fl_client — A3FL client [86] — round 126: optimising trigger.
+23:48:21  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:48:23  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:48:23  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:48:23  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:48:23  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=254).
+23:48:27  INFO      attacks.a3fl_client — A3FL client [86] — round 126: poisoned 224 / 500 samples (target=0).
+23:50:02  INFO      attacks.a3fl_client — A3FL client [81] — round 128: optimising trigger.
+23:50:02  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:50:04  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:50:04  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:50:05  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:50:05  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=251).
+23:50:11  INFO      attacks.a3fl_client — A3FL client [81] — round 128: poisoned 223 / 500 samples (target=0).
+23:50:34  INFO      attacks.a3fl_client — A3FL client [3] — round 129: optimising trigger.
+23:50:34  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:50:36  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:50:36  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:50:37  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:50:37  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=174).
+23:50:40  INFO      attacks.a3fl_client — A3FL client [3] — round 129: poisoned 226 / 500 samples (target=0).
+23:51:17  INFO      attacks.a3fl_client — A3FL client [31] — round 130: optimising trigger.
+23:51:17  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:51:19  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:51:19  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:51:19  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:51:19  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=203).
+23:51:23  INFO      attacks.a3fl_client — A3FL client [31] — round 130: poisoned 223 / 500 samples (target=0).
+23:52:00  INFO      experiment.runner — Round  131/200  |  acc:  85.83%  loss: 0.4889  |  ASR: 100.00%  asr_loss: 0.0000  |  mF1: 85.7%
+23:52:46  INFO      attacks.a3fl_client — A3FL client [81] — round 132: optimising trigger.
+23:52:46  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:52:47  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:52:47  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:52:48  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:52:48  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=255).
+23:52:51  INFO      attacks.a3fl_client — A3FL client [81] — round 132: poisoned 223 / 500 samples (target=0).
+23:53:10  INFO      attacks.a3fl_client — A3FL client [86] — round 132: optimising trigger.
+23:53:10  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:53:12  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:53:12  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:53:12  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:53:12  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=260).
+23:53:16  INFO      attacks.a3fl_client — A3FL client [86] — round 132: poisoned 224 / 500 samples (target=0).
+23:53:52  INFO      attacks.a3fl_client — A3FL client [81] — round 133: optimising trigger.
+23:53:52  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:53:54  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:53:54  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:53:54  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:53:54  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=256).
+23:53:58  INFO      attacks.a3fl_client — A3FL client [81] — round 133: poisoned 223 / 500 samples (target=0).
+23:54:38  INFO      attacks.a3fl_client — A3FL client [13] — round 134: optimising trigger.
+23:54:38  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:54:40  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+23:54:40  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:54:41  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:54:41  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=189).
+23:54:44  INFO      attacks.a3fl_client — A3FL client [13] — round 134: poisoned 227 / 500 samples (target=0).
+23:55:27  INFO      attacks.a3fl_client — A3FL client [35] — round 135: optimising trigger.
+23:55:27  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:55:30  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:55:30  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:55:30  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:55:30  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=212).
+23:55:34  INFO      attacks.a3fl_client — A3FL client [35] — round 135: poisoned 226 / 500 samples (target=0).
+23:56:26  INFO      attacks.a3fl_client — A3FL client [28] — round 136: optimising trigger.
+23:56:26  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:56:28  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+23:56:28  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:56:29  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:56:29  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=206).
+23:56:32  INFO      attacks.a3fl_client — A3FL client [28] — round 136: poisoned 232 / 500 samples (target=0).
+23:56:32  INFO      attacks.a3fl_client — A3FL client [81] — round 136: optimising trigger.
+23:56:32  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:56:35  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:56:38  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:56:38  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:56:38  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=259).
+23:56:42  INFO      attacks.a3fl_client — A3FL client [81] — round 136: poisoned 223 / 500 samples (target=0).
+23:56:59  INFO      attacks.a3fl_client — A3FL client [86] — round 137: optimising trigger.
+23:56:59  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:57:01  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+23:57:01  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:57:01  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:57:01  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=265).
+23:57:05  INFO      attacks.a3fl_client — A3FL client [86] — round 137: poisoned 224 / 500 samples (target=0).
+23:57:24  INFO      attacks.a3fl_client — A3FL client [17] — round 137: optimising trigger.
+23:57:24  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:57:26  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+23:57:26  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:57:26  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:57:26  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=196).
+23:57:30  INFO      attacks.a3fl_client — A3FL client [17] — round 137: poisoned 226 / 500 samples (target=0).
+23:59:55  INFO      attacks.a3fl_client — A3FL client [14] — round 140: optimising trigger.
+23:59:55  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+23:59:58  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+23:59:58  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+23:59:59  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+23:59:59  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=196).
+00:00:04  INFO      attacks.a3fl_client — A3FL client [14] — round 140: poisoned 223 / 500 samples (target=0).
+00:00:13  INFO      experiment.runner — Round  141/200  |  acc:  85.88%  loss: 0.4938  |  ASR: 100.00%  asr_loss: 0.0000  |  mF1: 85.8%
+00:00:29  INFO      attacks.a3fl_client — A3FL client [28] — round 141: optimising trigger.
+00:00:29  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:00:30  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:00:30  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:00:31  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:00:31  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=211).
+00:00:35  INFO      attacks.a3fl_client — A3FL client [28] — round 141: poisoned 232 / 500 samples (target=0).
+00:00:35  INFO      attacks.a3fl_client — A3FL client [86] — round 141: optimising trigger.
+00:00:35  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:00:37  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:00:37  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:00:38  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:00:38  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=269).
+00:00:43  INFO      attacks.a3fl_client — A3FL client [86] — round 141: poisoned 224 / 500 samples (target=0).
+00:01:35  INFO      attacks.a3fl_client — A3FL client [86] — round 142: optimising trigger.
+00:01:35  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:01:37  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:01:37  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:01:38  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:01:38  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=270).
+00:01:41  INFO      attacks.a3fl_client — A3FL client [86] — round 142: poisoned 224 / 500 samples (target=0).
+00:01:49  INFO      attacks.a3fl_client — A3FL client [86] — round 143: optimising trigger.
+00:01:49  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:01:52  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:01:52  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:01:52  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:01:52  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=271).
+00:01:58  INFO      attacks.a3fl_client — A3FL client [86] — round 143: poisoned 224 / 500 samples (target=0).
+00:02:11  INFO      attacks.a3fl_client — A3FL client [81] — round 143: optimising trigger.
+00:02:11  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:02:14  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:02:14  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:02:15  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:02:15  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=266).
+00:02:18  INFO      attacks.a3fl_client — A3FL client [81] — round 143: poisoned 223 / 500 samples (target=0).
+00:02:22  INFO      attacks.a3fl_client — A3FL client [13] — round 143: optimising trigger.
+00:02:22  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:02:24  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:02:24  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:02:25  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:02:25  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=198).
+00:02:29  INFO      attacks.a3fl_client — A3FL client [13] — round 143: poisoned 227 / 500 samples (target=0).
+00:02:38  INFO      attacks.a3fl_client — A3FL client [3] — round 143: optimising trigger.
+00:02:38  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:02:40  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:02:40  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:02:40  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:02:40  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=188).
+00:02:44  INFO      attacks.a3fl_client — A3FL client [3] — round 143: poisoned 226 / 500 samples (target=0).
+00:03:09  INFO      attacks.a3fl_client — A3FL client [28] — round 144: optimising trigger.
+00:03:09  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:03:11  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9995, dynamic_lambda=0.1000.
+00:03:11  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:03:12  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:03:12  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=214).
+00:03:15  INFO      attacks.a3fl_client — A3FL client [28] — round 144: poisoned 232 / 500 samples (target=0).
+00:03:23  INFO      attacks.a3fl_client — A3FL client [81] — round 144: optimising trigger.
+00:03:23  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:03:25  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:03:25  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:03:26  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:03:26  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=267).
+00:03:29  INFO      attacks.a3fl_client — A3FL client [81] — round 144: poisoned 223 / 500 samples (target=0).
+00:03:54  INFO      attacks.a3fl_client — A3FL client [14] — round 145: optimising trigger.
+00:03:54  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:03:56  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:03:56  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:03:57  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:03:57  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=201).
+00:04:01  INFO      attacks.a3fl_client — A3FL client [14] — round 145: poisoned 223 / 500 samples (target=0).
+00:04:01  INFO      attacks.a3fl_client — A3FL client [17] — round 145: optimising trigger.
+00:04:01  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:04:03  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:04:03  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:04:04  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:04:04  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=204).
+00:04:07  INFO      attacks.a3fl_client — A3FL client [17] — round 145: poisoned 226 / 500 samples (target=0).
+00:04:40  INFO      attacks.a3fl_client — A3FL client [17] — round 146: optimising trigger.
+00:04:40  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:04:42  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:04:42  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:04:42  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:04:42  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=205).
+00:04:47  INFO      attacks.a3fl_client — A3FL client [17] — round 146: poisoned 226 / 500 samples (target=0).
+00:06:07  INFO      attacks.a3fl_client — A3FL client [35] — round 148: optimising trigger.
+00:06:07  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:06:09  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:06:09  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:06:09  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:06:09  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=225).
+00:06:15  INFO      attacks.a3fl_client — A3FL client [35] — round 148: poisoned 226 / 500 samples (target=0).
+00:07:13  INFO      attacks.a3fl_client — A3FL client [35] — round 149: optimising trigger.
+00:07:13  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:07:15  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:07:15  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:07:16  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:07:16  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=226).
+00:07:19  INFO      attacks.a3fl_client — A3FL client [35] — round 149: poisoned 226 / 500 samples (target=0).
+00:07:56  INFO      attacks.a3fl_client — A3FL client [81] — round 150: optimising trigger.
+00:07:56  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:07:58  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:07:58  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:07:59  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:07:59  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=273).
+00:08:02  INFO      attacks.a3fl_client — A3FL client [81] — round 150: poisoned 223 / 500 samples (target=0).
+00:08:17  INFO      attacks.a3fl_client — A3FL client [31] — round 150: optimising trigger.
+00:08:17  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:08:18  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:08:18  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:08:19  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:08:22  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=223).
+00:08:26  INFO      attacks.a3fl_client — A3FL client [31] — round 150: poisoned 223 / 500 samples (target=0).
+00:08:35  INFO      experiment.runner — Round  151/200  |  acc:  86.58%  loss: 0.4698  |  ASR: 100.00%  asr_loss: 0.0000  |  mF1: 86.6%
+00:09:28  INFO      attacks.a3fl_client — A3FL client [35] — round 152: optimising trigger.
+00:09:28  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:09:30  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:09:30  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:09:31  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:09:31  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=229).
+00:09:35  INFO      attacks.a3fl_client — A3FL client [35] — round 152: poisoned 226 / 500 samples (target=0).
+00:09:51  INFO      attacks.a3fl_client — A3FL client [14] — round 152: optimising trigger.
+00:09:51  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:09:53  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:09:54  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:09:54  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:09:54  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=208).
+00:09:58  INFO      attacks.a3fl_client — A3FL client [14] — round 152: poisoned 223 / 500 samples (target=0).
+00:10:06  INFO      attacks.a3fl_client — A3FL client [3] — round 153: optimising trigger.
+00:10:06  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:10:07  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:10:07  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:10:08  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:10:08  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=198).
+00:10:11  INFO      attacks.a3fl_client — A3FL client [3] — round 153: poisoned 226 / 500 samples (target=0).
+00:10:58  INFO      attacks.a3fl_client — A3FL client [94] — round 154: optimising trigger.
+00:10:58  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:11:00  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:11:00  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:11:01  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:11:01  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=290).
+00:11:04  INFO      attacks.a3fl_client — A3FL client [94] — round 154: poisoned 228 / 500 samples (target=0).
+00:11:12  INFO      attacks.a3fl_client — A3FL client [14] — round 154: optimising trigger.
+00:11:12  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:11:14  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:11:14  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:11:14  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:11:14  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=210).
+00:11:18  INFO      attacks.a3fl_client — A3FL client [14] — round 154: poisoned 223 / 500 samples (target=0).
+00:11:54  INFO      attacks.a3fl_client — A3FL client [13] — round 155: optimising trigger.
+00:11:54  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:11:56  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:11:56  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:11:57  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:11:57  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=210).
+00:12:01  INFO      attacks.a3fl_client — A3FL client [13] — round 155: poisoned 227 / 500 samples (target=0).
+00:12:05  INFO      attacks.a3fl_client — A3FL client [28] — round 155: optimising trigger.
+00:12:05  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:12:07  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:12:07  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:12:08  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:12:08  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=225).
+00:12:12  INFO      attacks.a3fl_client — A3FL client [28] — round 155: poisoned 232 / 500 samples (target=0).
+00:12:47  INFO      attacks.a3fl_client — A3FL client [3] — round 156: optimising trigger.
+00:12:47  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:12:49  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:12:49  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:12:49  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:12:49  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=201).
+00:12:53  INFO      attacks.a3fl_client — A3FL client [3] — round 156: poisoned 226 / 500 samples (target=0).
+00:13:17  INFO      attacks.a3fl_client — A3FL client [13] — round 157: optimising trigger.
+00:13:17  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:13:19  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:13:19  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:13:20  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:13:20  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=212).
+00:13:24  INFO      attacks.a3fl_client — A3FL client [13] — round 157: poisoned 227 / 500 samples (target=0).
+00:14:07  INFO      attacks.a3fl_client — A3FL client [35] — round 158: optimising trigger.
+00:14:07  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:14:09  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:14:09  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:14:09  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:14:09  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=235).
+00:14:14  INFO      attacks.a3fl_client — A3FL client [35] — round 158: poisoned 226 / 500 samples (target=0).
+00:14:18  INFO      attacks.a3fl_client — A3FL client [81] — round 158: optimising trigger.
+00:14:18  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:14:20  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:14:20  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:14:21  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:14:21  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=281).
+00:14:24  INFO      attacks.a3fl_client — A3FL client [81] — round 158: poisoned 223 / 500 samples (target=0).
+00:15:27  INFO      attacks.a3fl_client — A3FL client [14] — round 160: optimising trigger.
+00:15:27  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:15:29  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:15:29  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:15:30  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:15:30  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=216).
+00:15:33  INFO      attacks.a3fl_client — A3FL client [14] — round 160: poisoned 223 / 500 samples (target=0).
+00:16:21  INFO      experiment.runner — Round  161/200  |  acc:  86.88%  loss: 0.4762  |  ASR: 100.00%  asr_loss: 0.0000  |  mF1: 86.8%
+00:17:47  INFO      attacks.a3fl_client — A3FL client [94] — round 163: optimising trigger.
+00:17:47  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:17:49  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:17:49  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:17:49  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:17:49  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=299).
+00:17:54  INFO      attacks.a3fl_client — A3FL client [94] — round 163: poisoned 228 / 500 samples (target=0).
+00:19:10  INFO      attacks.a3fl_client — A3FL client [13] — round 164: optimising trigger.
+00:19:10  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:19:12  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:19:12  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:19:13  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:19:13  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=219).
+00:19:17  INFO      attacks.a3fl_client — A3FL client [13] — round 164: poisoned 227 / 500 samples (target=0).
+00:19:45  INFO      attacks.a3fl_client — A3FL client [28] — round 165: optimising trigger.
+00:19:45  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:19:47  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:19:47  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:19:48  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:19:49  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=235).
+00:19:52  INFO      attacks.a3fl_client — A3FL client [28] — round 165: poisoned 232 / 500 samples (target=0).
+00:19:52  INFO      attacks.a3fl_client — A3FL client [13] — round 165: optimising trigger.
+00:19:52  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:19:54  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:19:54  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:19:55  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:19:55  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=220).
+00:19:58  INFO      attacks.a3fl_client — A3FL client [13] — round 165: poisoned 227 / 500 samples (target=0).
+00:20:19  INFO      attacks.a3fl_client — A3FL client [14] — round 166: optimising trigger.
+00:20:19  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:20:21  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:20:21  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:20:22  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:20:22  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=222).
+00:20:25  INFO      attacks.a3fl_client — A3FL client [14] — round 166: poisoned 223 / 500 samples (target=0).
+00:20:30  INFO      attacks.a3fl_client — A3FL client [35] — round 166: optimising trigger.
+00:20:30  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:20:32  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:20:32  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:20:32  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:20:32  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=243).
+00:20:36  INFO      attacks.a3fl_client — A3FL client [35] — round 166: poisoned 226 / 500 samples (target=0).
+00:20:39  INFO      attacks.a3fl_client — A3FL client [28] — round 166: optimising trigger.
+00:20:39  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:20:41  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:20:41  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:20:42  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:20:42  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=236).
+00:20:45  INFO      attacks.a3fl_client — A3FL client [28] — round 166: poisoned 232 / 500 samples (target=0).
+00:21:09  INFO      attacks.a3fl_client — A3FL client [86] — round 167: optimising trigger.
+00:21:09  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:21:11  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9995, dynamic_lambda=0.1000.
+00:21:11  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:21:12  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:21:12  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=295).
+00:21:21  INFO      attacks.a3fl_client — A3FL client [86] — round 167: poisoned 224 / 500 samples (target=0).
+00:21:29  INFO      attacks.a3fl_client — A3FL client [3] — round 167: optimising trigger.
+00:21:29  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:21:31  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:21:31  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:21:31  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:21:31  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=212).
+00:21:35  INFO      attacks.a3fl_client — A3FL client [3] — round 167: poisoned 226 / 500 samples (target=0).
+00:22:56  INFO      attacks.a3fl_client — A3FL client [94] — round 169: optimising trigger.
+00:22:56  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:22:58  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:22:58  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:22:59  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:23:00  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=305).
+00:23:05  INFO      attacks.a3fl_client — A3FL client [94] — round 169: poisoned 228 / 500 samples (target=0).
+00:23:06  INFO      attacks.a3fl_client — A3FL client [81] — round 169: optimising trigger.
+00:23:06  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:23:08  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:23:08  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:23:09  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:23:09  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=292).
+00:23:12  INFO      attacks.a3fl_client — A3FL client [81] — round 169: poisoned 223 / 500 samples (target=0).
+00:23:13  INFO      attacks.a3fl_client — A3FL client [3] — round 169: optimising trigger.
+00:23:13  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:23:15  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:23:15  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:23:15  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:23:15  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=214).
+00:23:19  INFO      attacks.a3fl_client — A3FL client [3] — round 169: poisoned 226 / 500 samples (target=0).
+00:24:24  INFO      experiment.runner — Round  171/200  |  acc:  87.32%  loss: 0.4529  |  ASR: 100.00%  asr_loss: 0.0000  |  mF1: 87.3%
+00:24:58  INFO      attacks.a3fl_client — A3FL client [86] — round 171: optimising trigger.
+00:24:58  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:25:00  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:25:00  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:25:01  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:25:01  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=299).
+00:25:04  INFO      attacks.a3fl_client — A3FL client [86] — round 171: poisoned 224 / 500 samples (target=0).
+00:25:57  INFO      attacks.a3fl_client — A3FL client [14] — round 173: optimising trigger.
+00:25:57  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:25:59  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:25:59  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:26:00  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:26:00  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=229).
+00:26:04  INFO      attacks.a3fl_client — A3FL client [14] — round 173: poisoned 223 / 500 samples (target=0).
+00:26:16  INFO      attacks.a3fl_client — A3FL client [86] — round 173: optimising trigger.
+00:26:16  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:26:18  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:26:18  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:26:18  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:26:18  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=301).
+00:26:22  INFO      attacks.a3fl_client — A3FL client [86] — round 173: poisoned 224 / 500 samples (target=0).
+00:26:52  INFO      attacks.a3fl_client — A3FL client [28] — round 174: optimising trigger.
+00:26:52  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:26:53  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9995, dynamic_lambda=0.1000.
+00:26:53  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:26:54  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:26:54  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=244).
+00:26:58  INFO      attacks.a3fl_client — A3FL client [28] — round 174: poisoned 232 / 500 samples (target=0).
+00:27:33  INFO      attacks.a3fl_client — A3FL client [17] — round 175: optimising trigger.
+00:27:33  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:27:36  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:27:39  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:27:40  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:27:40  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=234).
+00:27:44  INFO      attacks.a3fl_client — A3FL client [17] — round 175: poisoned 226 / 500 samples (target=0).
+00:29:17  INFO      attacks.a3fl_client — A3FL client [94] — round 177: optimising trigger.
+00:29:17  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:29:21  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:29:23  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:29:24  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:29:24  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=313).
+00:29:28  INFO      attacks.a3fl_client — A3FL client [94] — round 177: poisoned 228 / 500 samples (target=0).
+00:30:15  INFO      attacks.a3fl_client — A3FL client [81] — round 178: optimising trigger.
+00:30:15  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:30:17  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:30:17  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:30:18  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:30:18  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=301).
+00:30:23  INFO      attacks.a3fl_client — A3FL client [81] — round 178: poisoned 223 / 500 samples (target=0).
+00:30:32  INFO      attacks.a3fl_client — A3FL client [14] — round 178: optimising trigger.
+00:30:32  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:30:34  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:30:34  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:30:34  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:30:34  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=234).
+00:30:38  INFO      attacks.a3fl_client — A3FL client [14] — round 178: poisoned 223 / 500 samples (target=0).
+00:31:18  INFO      attacks.a3fl_client — A3FL client [13] — round 179: optimising trigger.
+00:31:18  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:31:20  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9995, dynamic_lambda=0.1000.
+00:31:20  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:31:21  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:31:21  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=234).
+00:31:24  INFO      attacks.a3fl_client — A3FL client [13] — round 179: poisoned 227 / 500 samples (target=0).
+00:31:25  INFO      attacks.a3fl_client — A3FL client [31] — round 179: optimising trigger.
+00:31:25  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:31:26  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:31:26  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:31:27  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:31:32  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=252).
+00:31:36  INFO      attacks.a3fl_client — A3FL client [31] — round 179: poisoned 223 / 500 samples (target=0).
+00:32:11  INFO      attacks.a3fl_client — A3FL client [28] — round 180: optimising trigger.
+00:32:11  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:32:13  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:32:13  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:32:13  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:32:13  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=250).
+00:32:17  INFO      attacks.a3fl_client — A3FL client [28] — round 180: poisoned 232 / 500 samples (target=0).
+00:32:33  INFO      experiment.runner — Round  181/200  |  acc:  87.34%  loss: 0.4575  |  ASR: 100.00%  asr_loss: 0.0000  |  mF1: 87.2%
+00:32:46  INFO      attacks.a3fl_client — A3FL client [81] — round 181: optimising trigger.
+00:32:46  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:32:48  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:32:48  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:32:48  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:32:48  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=304).
+00:32:52  INFO      attacks.a3fl_client — A3FL client [81] — round 181: poisoned 223 / 500 samples (target=0).
+00:32:52  INFO      attacks.a3fl_client — A3FL client [14] — round 181: optimising trigger.
+00:32:52  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:32:54  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:32:54  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:32:54  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:32:54  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=237).
+00:32:58  INFO      attacks.a3fl_client — A3FL client [14] — round 181: poisoned 223 / 500 samples (target=0).
+00:33:32  INFO      attacks.a3fl_client — A3FL client [13] — round 182: optimising trigger.
+00:33:32  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:33:34  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9995, dynamic_lambda=0.1000.
+00:33:34  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:33:35  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:33:35  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=237).
+00:33:43  INFO      attacks.a3fl_client — A3FL client [13] — round 182: poisoned 227 / 500 samples (target=0).
+00:35:18  INFO      attacks.a3fl_client — A3FL client [81] — round 184: optimising trigger.
+00:35:18  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:35:20  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:35:20  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:35:21  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:35:21  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=307).
+00:35:25  INFO      attacks.a3fl_client — A3FL client [81] — round 184: poisoned 223 / 500 samples (target=0).
+00:36:10  INFO      attacks.a3fl_client — A3FL client [35] — round 185: optimising trigger.
+00:36:10  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:36:14  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9997, dynamic_lambda=0.1000.
+00:36:14  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:36:15  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:36:15  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=262).
+00:36:18  INFO      attacks.a3fl_client — A3FL client [35] — round 185: poisoned 226 / 500 samples (target=0).
+00:37:55  INFO      attacks.a3fl_client — A3FL client [94] — round 188: optimising trigger.
+00:37:55  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:37:57  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:37:57  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:37:58  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:37:58  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=324).
+00:38:01  INFO      attacks.a3fl_client — A3FL client [94] — round 188: poisoned 228 / 500 samples (target=0).
+00:38:52  INFO      attacks.a3fl_client — A3FL client [13] — round 189: optimising trigger.
+00:38:52  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:38:54  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9995, dynamic_lambda=0.1000.
+00:38:54  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:38:54  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:38:54  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=244).
+00:38:58  INFO      attacks.a3fl_client — A3FL client [13] — round 189: poisoned 227 / 500 samples (target=0).
+00:39:30  INFO      attacks.a3fl_client — A3FL client [31] — round 190: optimising trigger.
+00:39:30  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:39:32  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:39:32  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:39:32  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:39:32  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=263).
+00:39:36  INFO      attacks.a3fl_client — A3FL client [31] — round 190: poisoned 223 / 500 samples (target=0).
+00:40:18  INFO      experiment.runner — Round  191/200  |  acc:  87.40%  loss: 0.4564  |  ASR: 100.00%  asr_loss: 0.0000  |  mF1: 87.3%
+00:40:37  INFO      attacks.a3fl_client — A3FL client [86] — round 191: optimising trigger.
+00:40:37  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:40:39  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:40:39  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:40:39  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:40:39  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=319).
+00:40:43  INFO      attacks.a3fl_client — A3FL client [86] — round 191: poisoned 224 / 500 samples (target=0).
+00:41:20  INFO      attacks.a3fl_client — A3FL client [86] — round 192: optimising trigger.
+00:41:20  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:41:22  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:41:22  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:41:23  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:41:23  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=320).
+00:41:27  INFO      attacks.a3fl_client — A3FL client [86] — round 192: poisoned 224 / 500 samples (target=0).
+00:43:31  INFO      attacks.a3fl_client — A3FL client [94] — round 195: optimising trigger.
+00:43:31  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:43:33  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:43:33  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:43:34  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:43:34  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=331).
+00:43:38  INFO      attacks.a3fl_client — A3FL client [94] — round 195: poisoned 228 / 500 samples (target=0).
+00:44:39  INFO      attacks.a3fl_client — A3FL client [28] — round 197: optimising trigger.
+00:44:39  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:44:40  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9995, dynamic_lambda=0.1000.
+00:44:40  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:44:41  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:44:41  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=267).
+00:44:45  INFO      attacks.a3fl_client — A3FL client [28] — round 197: poisoned 232 / 500 samples (target=0).
+00:44:45  INFO      attacks.a3fl_client — A3FL client [17] — round 197: optimising trigger.
+00:44:45  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:44:47  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:44:47  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:44:48  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:44:48  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=256).
+00:44:51  INFO      attacks.a3fl_client — A3FL client [17] — round 197: poisoned 226 / 500 samples (target=0).
+00:45:23  INFO      attacks.a3fl_client — A3FL client [94] — round 197: optimising trigger.
+00:45:23  INFO      attacks.triggers.a3fl — A3FL: building adversarial model (20 epochs).
+00:45:25  INFO      attacks.triggers.a3fl — A3FL: model similarity=0.9996, dynamic_lambda=0.1000.
+00:45:25  INFO      attacks.triggers.a3fl — A3FL: optimising trigger (5 epochs).
+00:45:25  INFO      attacks.triggers.a3fl — A3FL: trigger optimisation complete.
+00:45:25  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=333).
+00:45:29  INFO      attacks.a3fl_client — A3FL client [94] — round 197: poisoned 228 / 500 samples (target=0).
+00:47:03  INFO      experiment.runner — Round  200/200  |  acc:  87.68%  loss: 0.4499  |  ASR: 100.00%  asr_loss: 0.0000  |  mF1: 87.7%
+
+==============================================================
+  Summary — 21 rounds evaluated
+==============================================================
+  Final clean accuracy               87.68%
+  Best  clean accuracy               87.68%
+  Final clean loss                   0.4499
+  Macro F1                           87.65%
+  Final ASR                         100.00%
+  Mean ASR (attack window)           91.71%
+  Max  ASR (attack window)          100.00%
+==============================================================
+
+00:47:04  INFO      experiment.runner — Final model saved to results/cifar10_fedavg_a3fl/final_model.pt
+00:47:04  INFO      experiment.runner — Trigger state saved to results/cifar10_fedavg_a3fl/trigger.pt
+00:47:04  INFO      experiment.runner — Client atypicality written to results/cifar10_fedavg_a3fl/client_atypicality.json
+00:47:04  INFO      experiment.runner — Client inclusion rates written to results/cifar10_fedavg_a3fl/client_inclusion.csv
+
+==================================================================
+  Done: cifar10_fedavg_a3fl  (2h 33m 16s)
+  Clean accuracy : 87.68%
+  ASR            : 100.00%
+  Checkpoint     : /Utilisateurs/abellach/TopoBD/results/cifar10_fedavg_a3fl/final_model.pt
+==================================================================
+
+
+==================================================================
+  Training complete  (2h 33m 16s total)
+  Trained : ['cifar10_fedavg_a3fl']
+  Skipped : —
+==================================================================

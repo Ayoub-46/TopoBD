@@ -1,0 +1,86 @@
+Installing PyTorch (cu124)...
+Installing project dependencies...
+============================================================
+ Job ID   : 409570
+ Node     : l3icalcul07
+ Start    : 2026-06-11 11:55:43
+ Python   : Python 3.10.19
+ PyTorch  : 2.5.1+cu124
+ CUDA     : True
+ GPUs     : NVIDIA RTX A6000,NVIDIA RTX A6000,NVIDIA RTX A6000,NVIDIA RTX A6000
+============================================================
+Setting up scratch at: /tmp/abellach/409570
+Copying data to local scratch...
+data/ -> scratch (fast path)
+
+Starting parallel benchmark on 4 GPUs...
+2026-06-11 11:56:09
+[GPU 1] Starting gtsrb
+[GPU 0] Starting femnist
+[GPU 2] Starting cifar10
+[GPU 3] Starting tiny_imagenet
+[GPU 2] Done
+[GPU 1] Done
+[GPU 3] Done
+[GPU 0] Done
+
+All workers finished.
+2026-06-15 15:02:40
+
+--- GPU 0 last 5 lines ---
+femnist   a3fl     flame       10           0.859          0.001     0.773    0.087
+femnist   a3fl     mkrum       10           0.860          0.001     0.397    0.177
+femnist   a3fl  nnm_krum       10           0.858          0.001     0.420    0.121
+femnist    iba deepsight       10           0.859          0.000     1.000    0.000
+femnist    iba     flame        7           0.859          0.001     1.000    0.000
+
+--- GPU 1 last 5 lines ---
+  gtsrb   a3fl     flame       10           0.929          0.003     0.991    0.008
+  gtsrb   a3fl     mkrum       10           0.928          0.003     0.993    0.010
+  gtsrb   a3fl  nnm_krum       10           0.924          0.004     0.985    0.019
+  gtsrb    iba deepsight       10           0.929          0.004     0.997    0.005
+  gtsrb    iba     flame        5           0.930          0.005     0.996    0.008
+
+--- GPU 2 last 5 lines ---
+
+dataset attack   defense  n_seeds  clean_acc_mean  clean_acc_std  asr_mean  asr_std
+cifar10   a3fl deepsight       10           0.878          0.004     1.000    0.000
+cifar10   a3fl     flame       10           0.864          0.003     1.000    0.000
+cifar10   a3fl     mkrum        8           0.877          0.004     1.000    0.000
+
+--- GPU 3 last 5 lines ---
+
+
+      dataset attack   defense  n_seeds  clean_acc_mean  clean_acc_std  asr_mean  asr_std
+tiny_imagenet   a3fl deepsight       10           0.522          0.004     1.000    0.000
+tiny_imagenet   a3fl     flame        4           0.437          0.006     0.979    0.041
+
+Generating merged benchmark_summary.csv...
+
+dataset attack   defense  n_seeds  clean_acc_mean  clean_acc_std  asr_mean  asr_std
+femnist   a3fl deepsight       10           0.859          0.001     0.830    0.097
+femnist   a3fl     flame       10           0.859          0.001     0.773    0.087
+femnist   a3fl     mkrum       10           0.860          0.001     0.397    0.177
+femnist   a3fl  nnm_krum       10           0.858          0.001     0.420    0.121
+femnist    iba deepsight       10           0.859          0.000     1.000    0.000
+femnist    iba     flame        7           0.859          0.001     1.000    0.000
+  gtsrb   a3fl deepsight       10           0.928          0.003     0.996    0.005
+  gtsrb   a3fl     flame       10           0.929          0.003     0.991    0.008
+  gtsrb   a3fl     mkrum       10           0.928          0.003     0.993    0.010
+  gtsrb   a3fl  nnm_krum       10           0.924          0.004     0.985    0.019
+  gtsrb    iba deepsight       10           0.929          0.004     0.997    0.005
+  gtsrb    iba     flame        5           0.930          0.005     0.996    0.008
+cifar10   a3fl deepsight       10           0.878          0.004     1.000    0.000
+cifar10   a3fl     flame       10           0.864          0.003     1.000    0.000
+cifar10   a3fl     mkrum        8           0.877          0.004     1.000    0.000
+
+============================================================
+ Job complete: 2026-06-15 15:03:33
+ Summary    : results/benchmark_summary.csv
+ Run dirs   : 471
+ Per-GPU logs:
+-rw-r--r-- 1 abellach UTILISATEURS 7,1M 15 juin  15:02 logs/benchmark_gpu0_409570.log
+-rw-r--r-- 1 abellach UTILISATEURS 8,9M 15 juin  12:35 logs/benchmark_gpu1_409570.log
+-rw-r--r-- 1 abellach UTILISATEURS 5,7M 15 juin  12:21 logs/benchmark_gpu2_409570.log
+-rw-r--r-- 1 abellach UTILISATEURS 3,8M 15 juin  13:38 logs/benchmark_gpu3_409570.log
+============================================================

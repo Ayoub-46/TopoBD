@@ -1,0 +1,48 @@
+Progress report — 2026-06-23 15:08:49
+Results dir : results
+Suite       : all
+
+
+══════════════════════════════════════════════════════════════════════
+  MAIN BENCHMARK   4 datasets × 4 attacks × 4 defenses × 10 seeds = 640 runs
+══════════════════════════════════════════════════════════════════════
+  ✓ done:   276  (43%)   ▷ partial:    0   · missing:  364
+  [█████████████████·······················]
+
+  Dataset    Done   Part   Miss  Total   ETA (single GPU)
+  ────────────────────────────────────────────────────────────
+  femnist     107      0     53    160   ~44h10m
+  gtsrb       113      0     47    160   ~70h30m
+  cifar10      56      0    104    160   ~312h00m
+  cifar100      0      0    160    160   ~533h20m
+
+══════════════════════════════════════════════════════════════════════
+  TOPOSENTINEL BENCHMARK   4 datasets × 4 attacks × 10 seeds = 160 runs
+══════════════════════════════════════════════════════════════════════
+  ✓ done:     0  (0%)   ▷ partial:    0   · missing:  160
+  [········································]
+
+  Dataset    Done   Part   Miss  Total   ETA (single GPU)
+  ────────────────────────────────────────────────────────────
+  femnist       0      0     40     40   ~33h20m
+  gtsrb         0      0     40     40   ~60h00m
+  cifar10       0      0     40     40   ~120h00m
+  cifar100      0      0     40     40   ~133h20m
+
+══════════════════════════════════════════════════════════════════════
+  ABLATION   4 datasets × 4 attacks × 2 variants × 10 seeds = 320 runs
+══════════════════════════════════════════════════════════════════════
+  ✓ done:     0  (0%)   ▷ partial:    0   · missing:  320
+  [········································]
+
+  Dataset/Variant   Done   Part   Miss  Total   ETA (single GPU)
+  ─────────────────────────────────────────────────────────────────
+  femnist/dkw         0      0     40     40   ~33h20m
+  femnist/fixed       0      0     40     40   ~33h20m
+  gtsrb/dkw           0      0     40     40   ~60h00m
+  gtsrb/fixed         0      0     40     40   ~60h00m
+  cifar10/dkw         0      0     40     40   ~120h00m
+  cifar10/fixed       0      0     40     40   ~120h00m
+  cifar100/dkw        0      0     40     40   ~133h20m
+  cifar100/fixed      0      0     40     40   ~133h20m
+

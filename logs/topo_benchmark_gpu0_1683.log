@@ -1,0 +1,1006 @@
+17:24:05  INFO      topo_benchmark — Matrix: 1 datasets × 4 attacks × 10 seeds = 40 runs
+17:24:05  INFO      topo_benchmark — Status — complete: 0  partial: 0  missing: 40
+17:24:05  INFO      topo_benchmark — Time budget: 138.0 h
+17:24:05  INFO      topo_benchmark — ▶  femnist_a3fl_toposentinel_seed0
+17:24:05  INFO      experiment.runner — Initialising 'femnist_a3fl_toposentinel_seed0' | device=cuda | rounds=150 | clients=10/100 | attack=a3fl | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_a3fl_toposentinel_seed0 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_a3fl_toposentinel_seed1
+17:24:22  INFO      experiment.runner — Initialising 'femnist_a3fl_toposentinel_seed1' | device=cuda | rounds=150 | clients=10/100 | attack=a3fl | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_a3fl_toposentinel_seed1 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_a3fl_toposentinel_seed2
+17:24:22  INFO      experiment.runner — Initialising 'femnist_a3fl_toposentinel_seed2' | device=cuda | rounds=150 | clients=10/100 | attack=a3fl | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_a3fl_toposentinel_seed2 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_a3fl_toposentinel_seed3
+17:24:22  INFO      experiment.runner — Initialising 'femnist_a3fl_toposentinel_seed3' | device=cuda | rounds=150 | clients=10/100 | attack=a3fl | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_a3fl_toposentinel_seed3 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_a3fl_toposentinel_seed4
+17:24:22  INFO      experiment.runner — Initialising 'femnist_a3fl_toposentinel_seed4' | device=cuda | rounds=150 | clients=10/100 | attack=a3fl | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_a3fl_toposentinel_seed4 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_a3fl_toposentinel_seed5
+17:24:22  INFO      experiment.runner — Initialising 'femnist_a3fl_toposentinel_seed5' | device=cuda | rounds=150 | clients=10/100 | attack=a3fl | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_a3fl_toposentinel_seed5 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_a3fl_toposentinel_seed6
+17:24:22  INFO      experiment.runner — Initialising 'femnist_a3fl_toposentinel_seed6' | device=cuda | rounds=150 | clients=10/100 | attack=a3fl | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_a3fl_toposentinel_seed6 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_a3fl_toposentinel_seed7
+17:24:22  INFO      experiment.runner — Initialising 'femnist_a3fl_toposentinel_seed7' | device=cuda | rounds=150 | clients=10/100 | attack=a3fl | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_a3fl_toposentinel_seed7 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_a3fl_toposentinel_seed8
+17:24:22  INFO      experiment.runner — Initialising 'femnist_a3fl_toposentinel_seed8' | device=cuda | rounds=150 | clients=10/100 | attack=a3fl | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_a3fl_toposentinel_seed8 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_a3fl_toposentinel_seed9
+17:24:22  INFO      experiment.runner — Initialising 'femnist_a3fl_toposentinel_seed9' | device=cuda | rounds=150 | clients=10/100 | attack=a3fl | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_a3fl_toposentinel_seed9 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_iba_toposentinel_seed0
+17:24:22  INFO      experiment.runner — Initialising 'femnist_iba_toposentinel_seed0' | device=cuda | rounds=150 | clients=10/100 | attack=iba | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_iba_toposentinel_seed0 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_iba_toposentinel_seed1
+17:24:22  INFO      experiment.runner — Initialising 'femnist_iba_toposentinel_seed1' | device=cuda | rounds=150 | clients=10/100 | attack=iba | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_iba_toposentinel_seed1 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_iba_toposentinel_seed2
+17:24:22  INFO      experiment.runner — Initialising 'femnist_iba_toposentinel_seed2' | device=cuda | rounds=150 | clients=10/100 | attack=iba | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_iba_toposentinel_seed2 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_iba_toposentinel_seed3
+17:24:22  INFO      experiment.runner — Initialising 'femnist_iba_toposentinel_seed3' | device=cuda | rounds=150 | clients=10/100 | attack=iba | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_iba_toposentinel_seed3 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_iba_toposentinel_seed4
+17:24:22  INFO      experiment.runner — Initialising 'femnist_iba_toposentinel_seed4' | device=cuda | rounds=150 | clients=10/100 | attack=iba | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_iba_toposentinel_seed4 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_iba_toposentinel_seed5
+17:24:22  INFO      experiment.runner — Initialising 'femnist_iba_toposentinel_seed5' | device=cuda | rounds=150 | clients=10/100 | attack=iba | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_iba_toposentinel_seed5 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_iba_toposentinel_seed6
+17:24:22  INFO      experiment.runner — Initialising 'femnist_iba_toposentinel_seed6' | device=cuda | rounds=150 | clients=10/100 | attack=iba | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_iba_toposentinel_seed6 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_iba_toposentinel_seed7
+17:24:22  INFO      experiment.runner — Initialising 'femnist_iba_toposentinel_seed7' | device=cuda | rounds=150 | clients=10/100 | attack=iba | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_iba_toposentinel_seed7 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_iba_toposentinel_seed8
+17:24:22  INFO      experiment.runner — Initialising 'femnist_iba_toposentinel_seed8' | device=cuda | rounds=150 | clients=10/100 | attack=iba | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_iba_toposentinel_seed8 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_iba_toposentinel_seed9
+17:24:22  INFO      experiment.runner — Initialising 'femnist_iba_toposentinel_seed9' | device=cuda | rounds=150 | clients=10/100 | attack=iba | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_iba_toposentinel_seed9 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_neurotoxin_toposentinel_seed0
+17:24:22  INFO      experiment.runner — Initialising 'femnist_neurotoxin_toposentinel_seed0' | device=cuda | rounds=150 | clients=10/100 | attack=neurotoxin | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_neurotoxin_toposentinel_seed0 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_neurotoxin_toposentinel_seed1
+17:24:22  INFO      experiment.runner — Initialising 'femnist_neurotoxin_toposentinel_seed1' | device=cuda | rounds=150 | clients=10/100 | attack=neurotoxin | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_neurotoxin_toposentinel_seed1 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_neurotoxin_toposentinel_seed2
+17:24:22  INFO      experiment.runner — Initialising 'femnist_neurotoxin_toposentinel_seed2' | device=cuda | rounds=150 | clients=10/100 | attack=neurotoxin | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_neurotoxin_toposentinel_seed2 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_neurotoxin_toposentinel_seed3
+17:24:22  INFO      experiment.runner — Initialising 'femnist_neurotoxin_toposentinel_seed3' | device=cuda | rounds=150 | clients=10/100 | attack=neurotoxin | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_neurotoxin_toposentinel_seed3 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_neurotoxin_toposentinel_seed4
+17:24:22  INFO      experiment.runner — Initialising 'femnist_neurotoxin_toposentinel_seed4' | device=cuda | rounds=150 | clients=10/100 | attack=neurotoxin | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_neurotoxin_toposentinel_seed4 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_neurotoxin_toposentinel_seed5
+17:24:22  INFO      experiment.runner — Initialising 'femnist_neurotoxin_toposentinel_seed5' | device=cuda | rounds=150 | clients=10/100 | attack=neurotoxin | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_neurotoxin_toposentinel_seed5 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_neurotoxin_toposentinel_seed6
+17:24:22  INFO      experiment.runner — Initialising 'femnist_neurotoxin_toposentinel_seed6' | device=cuda | rounds=150 | clients=10/100 | attack=neurotoxin | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_neurotoxin_toposentinel_seed6 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_neurotoxin_toposentinel_seed7
+17:24:22  INFO      experiment.runner — Initialising 'femnist_neurotoxin_toposentinel_seed7' | device=cuda | rounds=150 | clients=10/100 | attack=neurotoxin | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_neurotoxin_toposentinel_seed7 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_neurotoxin_toposentinel_seed8
+17:24:22  INFO      experiment.runner — Initialising 'femnist_neurotoxin_toposentinel_seed8' | device=cuda | rounds=150 | clients=10/100 | attack=neurotoxin | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_neurotoxin_toposentinel_seed8 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_neurotoxin_toposentinel_seed9
+17:24:22  INFO      experiment.runner — Initialising 'femnist_neurotoxin_toposentinel_seed9' | device=cuda | rounds=150 | clients=10/100 | attack=neurotoxin | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_neurotoxin_toposentinel_seed9 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_chameleon_toposentinel_seed0
+17:24:22  INFO      experiment.runner — Initialising 'femnist_chameleon_toposentinel_seed0' | device=cuda | rounds=150 | clients=10/100 | attack=chameleon | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_chameleon_toposentinel_seed0 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_chameleon_toposentinel_seed1
+17:24:22  INFO      experiment.runner — Initialising 'femnist_chameleon_toposentinel_seed1' | device=cuda | rounds=150 | clients=10/100 | attack=chameleon | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_chameleon_toposentinel_seed1 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_chameleon_toposentinel_seed2
+17:24:22  INFO      experiment.runner — Initialising 'femnist_chameleon_toposentinel_seed2' | device=cuda | rounds=150 | clients=10/100 | attack=chameleon | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_chameleon_toposentinel_seed2 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_chameleon_toposentinel_seed3
+17:24:22  INFO      experiment.runner — Initialising 'femnist_chameleon_toposentinel_seed3' | device=cuda | rounds=150 | clients=10/100 | attack=chameleon | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_chameleon_toposentinel_seed3 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_chameleon_toposentinel_seed4
+17:24:22  INFO      experiment.runner — Initialising 'femnist_chameleon_toposentinel_seed4' | device=cuda | rounds=150 | clients=10/100 | attack=chameleon | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_chameleon_toposentinel_seed4 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_chameleon_toposentinel_seed5
+17:24:22  INFO      experiment.runner — Initialising 'femnist_chameleon_toposentinel_seed5' | device=cuda | rounds=150 | clients=10/100 | attack=chameleon | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_chameleon_toposentinel_seed5 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_chameleon_toposentinel_seed6
+17:24:22  INFO      experiment.runner — Initialising 'femnist_chameleon_toposentinel_seed6' | device=cuda | rounds=150 | clients=10/100 | attack=chameleon | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_chameleon_toposentinel_seed6 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_chameleon_toposentinel_seed7
+17:24:22  INFO      experiment.runner — Initialising 'femnist_chameleon_toposentinel_seed7' | device=cuda | rounds=150 | clients=10/100 | attack=chameleon | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_chameleon_toposentinel_seed7 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_chameleon_toposentinel_seed8
+17:24:22  INFO      experiment.runner — Initialising 'femnist_chameleon_toposentinel_seed8' | device=cuda | rounds=150 | clients=10/100 | attack=chameleon | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_chameleon_toposentinel_seed8 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — ▶  femnist_chameleon_toposentinel_seed9
+17:24:22  INFO      experiment.runner — Initialising 'femnist_chameleon_toposentinel_seed9' | device=cuda | rounds=150 | clients=10/100 | attack=chameleon | defense=toposentinel
+17:24:22  ERROR     topo_benchmark — ✗  femnist_chameleon_toposentinel_seed9 — [Errno 2] No such file or directory: 'data/EMNIST'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_toposentinel.py", line 190, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/femnist.py", line 40, in load_datasets
+    setattr(self, attr_full, EMNIST(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 298, in __init__
+    super().__init__(root, **kwargs)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 100, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/mnist.py", line 333, in download
+    os.makedirs(self.raw_folder, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — Training done — 40 new runs  (40 failed).
+17:24:22  INFO      topo_benchmark — Generating summary CSV …
+17:24:22  INFO      topo_benchmark — Summary → results/toposentinel_summary.csv  (0 rows)

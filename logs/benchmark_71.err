@@ -1,0 +1,5 @@
+11:02:52  INFO      benchmark — Matrix: 4 datasets × 4 attacks × 4 defenses × 10 seeds = 640 runs
+11:02:52  INFO      benchmark — Status — complete: 305  partial/incomplete: 3  not started: 332
+11:02:52  INFO      benchmark — Time budget: 47.0 h
+11:02:52  INFO      benchmark — Generating summary CSV …
+11:02:54  INFO      benchmark — Summary → results/benchmark_summary.csv  (33 rows)

@@ -1,0 +1,5 @@
+17:24:38  INFO      topo_benchmark — Matrix: 4 datasets × 4 attacks × 10 seeds = 160 runs
+17:24:38  INFO      topo_benchmark — Status — complete: 0  partial: 0  missing: 160
+17:24:38  INFO      topo_benchmark — Time budget: 47.0 h
+17:24:38  INFO      topo_benchmark — Generating summary CSV …
+17:24:38  INFO      topo_benchmark — Summary → results/toposentinel_summary.csv  (0 rows)

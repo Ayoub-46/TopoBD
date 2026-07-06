@@ -1,0 +1,69 @@
+14:09:52  INFO      benchmark — Matrix: 1 datasets × 6 attacks × 6 defenses × 10 seeds = 360 runs
+14:09:52  INFO      benchmark — Status — complete: 0  partial/incomplete: 0  not started: 360
+14:09:52  INFO      benchmark — Time budget: 98.0 h
+14:09:52  INFO      benchmark — ▶  cifar10_none_none_seed0
+14:09:53  INFO      experiment.runner — Initialising 'cifar10_none_none_seed0' | device=cuda | rounds=240 | clients=10/100 | attack=none | defense=none
+14:10:15  INFO      experiment.utils — Built 100 clients — 0 malicious, 100 benign.
+14:10:15  INFO      experiment.runner — Setup complete — 100 clients (0 malicious) | backdoor eval: none
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+14:10:44  INFO      experiment.runner — Round    1/240  |  acc:  13.27%  loss: 3.8487  |  mF1: 6.6%
+14:16:10  INFO      experiment.runner — Round   11/240  |  acc:  57.21%  loss: 1.2297  |  mF1: 57.2%
+14:21:58  INFO      experiment.runner — Round   21/240  |  acc:  68.10%  loss: 0.9767  |  mF1: 67.9%
+14:27:42  INFO      experiment.runner — Round   31/240  |  acc:  72.14%  loss: 0.8684  |  mF1: 72.1%
+14:33:29  INFO      experiment.runner — Round   41/240  |  acc:  76.35%  loss: 0.7513  |  mF1: 76.2%
+14:39:12  INFO      experiment.runner — Round   51/240  |  acc:  78.49%  loss: 0.6969  |  mF1: 78.4%
+14:45:04  INFO      experiment.runner — Round   61/240  |  acc:  80.54%  loss: 0.6452  |  mF1: 80.5%
+14:50:53  INFO      experiment.runner — Round   71/240  |  acc:  81.50%  loss: 0.6379  |  mF1: 81.4%
+14:56:56  INFO      experiment.runner — Round   81/240  |  acc:  82.69%  loss: 0.6016  |  mF1: 82.5%
+15:02:47  INFO      experiment.runner — Round   91/240  |  acc:  83.38%  loss: 0.5727  |  mF1: 83.3%
+15:08:36  INFO      experiment.runner — Round  101/240  |  acc:  84.29%  loss: 0.5606  |  mF1: 84.2%
+15:14:26  INFO      experiment.runner — Round  111/240  |  acc:  84.63%  loss: 0.5518  |  mF1: 84.5%
+15:20:14  INFO      experiment.runner — Round  121/240  |  acc:  84.60%  loss: 0.5650  |  mF1: 84.5%
+15:26:03  INFO      experiment.runner — Round  131/240  |  acc:  85.35%  loss: 0.5169  |  mF1: 85.3%
+15:32:45  INFO      experiment.runner — Round  141/240  |  acc:  86.04%  loss: 0.5226  |  mF1: 85.9%
+15:38:29  INFO      experiment.runner — Round  151/240  |  acc:  86.33%  loss: 0.5056  |  mF1: 86.3%
+15:44:11  INFO      experiment.runner — Round  161/240  |  acc:  86.31%  loss: 0.5040  |  mF1: 86.3%
+15:49:55  INFO      experiment.runner — Round  171/240  |  acc:  86.44%  loss: 0.5205  |  mF1: 86.5%
+15:55:48  INFO      experiment.runner — Round  181/240  |  acc:  86.99%  loss: 0.4977  |  mF1: 87.0%
+16:01:36  INFO      experiment.runner — Round  191/240  |  acc:  86.97%  loss: 0.5038  |  mF1: 87.0%
+16:07:27  INFO      experiment.runner — Round  201/240  |  acc:  87.26%  loss: 0.4947  |  mF1: 87.2%
+16:13:18  INFO      experiment.runner — Round  211/240  |  acc:  87.60%  loss: 0.4915  |  mF1: 87.6%
+16:19:11  INFO      experiment.runner — Round  221/240  |  acc:  87.35%  loss: 0.4977  |  mF1: 87.2%
+16:24:59  INFO      experiment.runner — Round  231/240  |  acc:  87.61%  loss: 0.4940  |  mF1: 87.5%
+16:30:11  INFO      experiment.runner — Round  240/240  |  acc:  87.78%  loss: 0.4824  |  mF1: 87.8%
+16:30:11  INFO      experiment.runner — Final model saved to results/benchmark/cifar10_none_none_seed0/final_model.pt
+16:30:11  INFO      experiment.runner — Client atypicality written to results/benchmark/cifar10_none_none_seed0/client_atypicality.json
+16:30:11  INFO      experiment.runner — Client inclusion rates written to results/benchmark/cifar10_none_none_seed0/client_inclusion.csv
+16:30:12  INFO      benchmark — ✓  cifar10_none_none_seed0  (140.3 min)
+16:30:12  INFO      benchmark — ▶  cifar10_none_none_seed1
+16:30:12  INFO      experiment.runner — Initialising 'cifar10_none_none_seed1' | device=cuda | rounds=240 | clients=10/100 | attack=none | defense=none
+16:30:27  INFO      experiment.utils — Built 100 clients — 0 malicious, 100 benign.
+16:30:27  INFO      experiment.runner — Setup complete — 100 clients (0 malicious) | backdoor eval: none
+
+==============================================================
+  Summary — 25 rounds evaluated
+==============================================================
+  Final clean accuracy               87.78%
+  Best  clean accuracy               87.78%
+  Final clean loss                   0.4824
+  Macro F1                           87.75%
+==============================================================
+
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+16:31:04  INFO      experiment.runner — Round    1/240  |  acc:  12.14%  loss: 4.6205  |  mF1: 5.3%
+16:36:51  INFO      experiment.runner — Round   11/240  |  acc:  58.77%  loss: 1.1903  |  mF1: 58.7%
+16:42:38  INFO      experiment.runner — Round   21/240  |  acc:  66.72%  loss: 1.0103  |  mF1: 66.7%
+16:48:32  INFO      experiment.runner — Round   31/240  |  acc:  72.44%  loss: 0.8635  |  mF1: 72.4%
+16:54:26  INFO      experiment.runner — Round   41/240  |  acc:  76.29%  loss: 0.7737  |  mF1: 75.9%
+17:00:25  INFO      experiment.runner — Round   51/240  |  acc:  78.66%  loss: 0.7018  |  mF1: 78.5%
+17:06:38  INFO      experiment.runner — Round   61/240  |  acc:  80.52%  loss: 0.6385  |  mF1: 80.4%
+17:12:43  INFO      experiment.runner — Round   71/240  |  acc:  81.61%  loss: 0.6348  |  mF1: 81.4%
+17:18:49  INFO      experiment.runner — Round   81/240  |  acc:  83.05%  loss: 0.5745  |  mF1: 83.0%
+17:24:58  INFO      experiment.runner — Round   91/240  |  acc:  83.85%  loss: 0.5575  |  mF1: 83.8%
+17:27:19  WARNING   benchmark — SIGTERM received — will stop after the current run.

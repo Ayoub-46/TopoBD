@@ -91,6 +91,34 @@ GTSRB_RUNS = [
     },
 ]
 
+FEMNIST_RUNS = [
+    {
+        "name":    "femnist_benign_iid",
+        "config":  os.path.join(_REPO, "configs", "femnist_benign_iid.yaml"),
+        "purpose": "benign baseline (required by Experiment 2 / γ)",
+    },
+    {
+        "name":    "femnist_fedavg_neurotoxin",
+        "config":  os.path.join(_REPO, "configs", "femnist_fedavg_neurotoxin.yaml"),
+        "purpose": "Neurotoxin attack checkpoint (Experiment 1)",
+    },
+    {
+        "name":    "femnist_fedavg_a3fl",
+        "config":  os.path.join(_REPO, "configs", "femnist_fedavg_a3fl.yaml"),
+        "purpose": "A3FL attack checkpoint (Experiment 1)",
+    },
+    {
+        "name":    "femnist_fedavg_iba",
+        "config":  os.path.join(_REPO, "configs", "femnist_fedavg_iba.yaml"),
+        "purpose": "IBA attack checkpoint (Experiment 1)",
+    },
+    {
+        "name":    "femnist_fedavg_chameleon",
+        "config":  os.path.join(_REPO, "configs", "femnist_fedavg_chameleon.yaml"),
+        "purpose": "Chameleon attack checkpoint (Experiment 1)",
+    },
+]
+
 CIFAR10_RUNS = [
     {
         "name":    "cifar10_benign_iid",
@@ -122,7 +150,7 @@ CIFAR10_RUNS = [
 # Default to GTSRB for backward compatibility; overridden by --dataset.
 RUNS = GTSRB_RUNS
 
-_ALL_RUNS = {r["name"]: r for r in GTSRB_RUNS + CIFAR10_RUNS}
+_ALL_RUNS = {r["name"]: r for r in GTSRB_RUNS + CIFAR10_RUNS + FEMNIST_RUNS}
 RUN_BY_NAME = {r["name"]: r for r in RUNS}   # updated in main() after arg parsing
 
 
@@ -193,7 +221,7 @@ def parse_args() -> argparse.Namespace:
         description="Train FL experiments whose checkpoints are needed by run_all.py."
     )
     p.add_argument(
-        "--dataset", choices=["gtsrb", "cifar10"], default="gtsrb",
+        "--dataset", choices=["gtsrb", "cifar10", "femnist"], default="gtsrb",
         help="Dataset to train prerequisite runs for (default: gtsrb).",
     )
     p.add_argument(
@@ -233,7 +261,8 @@ def main() -> None:
     os.makedirs(results_dir, exist_ok=True)
 
     # Resolve run list for the requested dataset
-    dataset_runs = CIFAR10_RUNS if args.dataset == "cifar10" else GTSRB_RUNS
+    _dataset_map = {"cifar10": CIFAR10_RUNS, "femnist": FEMNIST_RUNS, "gtsrb": GTSRB_RUNS}
+    dataset_runs = _dataset_map[args.dataset]
     run_by_name  = {r["name"]: r for r in dataset_runs}
     run_names    = args.runs if args.runs else list(run_by_name.keys())
 

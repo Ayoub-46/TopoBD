@@ -1,0 +1,696 @@
+
+Dataset: femnist
+
+Checkpoint status:
+  femnist_fedavg_iba                        MISSING (will train)
+
+
+==================================================================
+  Run      : femnist_fedavg_iba
+  Purpose  : IBA attack checkpoint (Experiment 1)
+  Config   : /Utilisateurs/abellach/TopoBD/configs/femnist_fedavg_iba.yaml
+  Attack   : iba  |  Defense: none
+  Rounds   : 150  |  Clients: 100/10
+==================================================================
+
+11:03:21  INFO      experiment.runner — Initialising 'femnist_fedavg_iba' | device=cuda | rounds=150 | clients=10/100 | attack=iba | defense=none
+11:04:01  INFO      experiment.utils — Built 100 clients — 10 malicious, 90 benign.
+11:04:01  INFO      datasets.backdoor — BackdoorDataset: 110545 / 110545 samples poisoned (target=0, fraction=1.000, seed=0).
+11:04:01  INFO      experiment.runner — Setup complete — 100 clients (10 malicious) | backdoor eval: static-trigger
+11:09:00  INFO      experiment.runner — Round    1/150  |  acc:  50.94%  loss: 1.9571  |  ASR:   4.44%  asr_loss: 6.3140  |  mF1: 22.1%
+11:17:12  INFO      experiment.runner — Round   11/150  |  acc:  80.10%  loss: 0.6108  |  ASR:   2.25%  asr_loss: 9.7599  |  mF1: 60.2%
+11:25:14  INFO      experiment.runner — Round   21/150  |  acc:  82.81%  loss: 0.5045  |  ASR:   2.22%  asr_loss: 10.4995  |  mF1: 65.1%
+11:33:20  INFO      experiment.runner — Round   31/150  |  acc:  83.71%  loss: 0.4704  |  ASR:   2.09%  asr_loss: 10.7521  |  mF1: 67.1%
+11:36:35  INFO      attacks.iba_client — IBA client [31] — round 39: training generator.
+11:36:35  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:36:36  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:36:36  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=112).
+11:36:50  INFO      attacks.iba_client — IBA client [31] — round 39: poisoned 3312 / 6980 samples (target=0).
+11:41:24  INFO      experiment.runner — Round   41/150  |  acc:  84.31%  loss: 0.4501  |  ASR:  96.36%  asr_loss: 0.3398  |  mF1: 68.0%
+11:41:24  INFO      attacks.iba_client — IBA client [13] — round 41: training generator.
+11:41:24  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:41:24  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:41:24  INFO      datasets.backdoor — BackdoorDataset: 3315 / 6980 samples poisoned (target=0, fraction=0.500, seed=96).
+11:41:39  INFO      attacks.iba_client — IBA client [13] — round 41: poisoned 3315 / 6980 samples (target=0).
+11:41:39  INFO      attacks.iba_client — IBA client [17] — round 41: training generator.
+11:41:39  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:41:39  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:41:39  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6980 samples poisoned (target=0, fraction=0.500, seed=100).
+11:41:53  INFO      attacks.iba_client — IBA client [17] — round 41: poisoned 3311 / 6980 samples (target=0).
+11:41:55  INFO      attacks.iba_client — IBA client [14] — round 41: training generator.
+11:41:55  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:41:56  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:41:56  INFO      datasets.backdoor — BackdoorDataset: 3329 / 6980 samples poisoned (target=0, fraction=0.500, seed=97).
+11:42:10  INFO      attacks.iba_client — IBA client [14] — round 41: poisoned 3329 / 6980 samples (target=0).
+11:42:33  INFO      attacks.iba_client — IBA client [81] — round 42: training generator.
+11:42:33  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:42:34  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:42:34  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=165).
+11:42:49  INFO      attacks.iba_client — IBA client [81] — round 42: poisoned 3316 / 6979 samples (target=0).
+11:43:06  INFO      attacks.iba_client — IBA client [81] — round 43: training generator.
+11:43:06  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:43:07  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:43:07  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=166).
+11:43:20  INFO      attacks.iba_client — IBA client [81] — round 43: poisoned 3316 / 6979 samples (target=0).
+11:43:23  INFO      attacks.iba_client — IBA client [35] — round 43: training generator.
+11:43:23  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:43:24  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:43:24  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=120).
+11:43:38  INFO      attacks.iba_client — IBA client [35] — round 43: poisoned 3314 / 6979 samples (target=0).
+11:43:54  INFO      attacks.iba_client — IBA client [94] — round 44: training generator.
+11:43:54  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:43:55  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:43:55  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6979 samples poisoned (target=0, fraction=0.500, seed=180).
+11:44:09  INFO      attacks.iba_client — IBA client [94] — round 44: poisoned 3311 / 6979 samples (target=0).
+11:44:22  INFO      attacks.iba_client — IBA client [14] — round 44: training generator.
+11:44:22  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:44:23  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:44:23  INFO      datasets.backdoor — BackdoorDataset: 3329 / 6980 samples poisoned (target=0, fraction=0.500, seed=100).
+11:44:38  INFO      attacks.iba_client — IBA client [14] — round 44: poisoned 3329 / 6980 samples (target=0).
+11:45:16  INFO      attacks.iba_client — IBA client [31] — round 46: training generator.
+11:45:16  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:45:17  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:45:17  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=119).
+11:45:33  INFO      attacks.iba_client — IBA client [31] — round 46: poisoned 3312 / 6980 samples (target=0).
+11:45:35  INFO      attacks.iba_client — IBA client [13] — round 46: training generator.
+11:45:35  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:45:36  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:45:36  INFO      datasets.backdoor — BackdoorDataset: 3315 / 6980 samples poisoned (target=0, fraction=0.500, seed=101).
+11:45:50  INFO      attacks.iba_client — IBA client [13] — round 46: poisoned 3315 / 6980 samples (target=0).
+11:46:10  INFO      attacks.iba_client — IBA client [3] — round 47: training generator.
+11:46:10  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:46:11  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:46:11  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=92).
+11:46:27  INFO      attacks.iba_client — IBA client [3] — round 47: poisoned 3304 / 6980 samples (target=0).
+11:46:27  INFO      attacks.iba_client — IBA client [94] — round 47: training generator.
+11:46:27  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:46:28  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:46:28  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6979 samples poisoned (target=0, fraction=0.500, seed=183).
+11:46:42  INFO      attacks.iba_client — IBA client [94] — round 47: poisoned 3311 / 6979 samples (target=0).
+11:46:49  INFO      attacks.iba_client — IBA client [94] — round 48: training generator.
+11:46:49  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:46:50  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:46:50  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6979 samples poisoned (target=0, fraction=0.500, seed=184).
+11:47:05  INFO      attacks.iba_client — IBA client [94] — round 48: poisoned 3311 / 6979 samples (target=0).
+11:47:05  INFO      attacks.iba_client — IBA client [31] — round 48: training generator.
+11:47:05  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:47:06  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:47:06  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=121).
+11:47:19  INFO      attacks.iba_client — IBA client [31] — round 48: poisoned 3312 / 6980 samples (target=0).
+11:47:28  INFO      attacks.iba_client — IBA client [13] — round 48: training generator.
+11:47:28  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:47:29  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:47:29  INFO      datasets.backdoor — BackdoorDataset: 3315 / 6980 samples poisoned (target=0, fraction=0.500, seed=103).
+11:47:43  INFO      attacks.iba_client — IBA client [13] — round 48: poisoned 3315 / 6980 samples (target=0).
+11:47:50  INFO      attacks.iba_client — IBA client [28] — round 49: training generator.
+11:47:50  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:47:50  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:47:50  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=119).
+11:48:05  INFO      attacks.iba_client — IBA client [28] — round 49: poisoned 3326 / 6980 samples (target=0).
+11:48:16  INFO      attacks.iba_client — IBA client [3] — round 49: training generator.
+11:48:16  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:48:17  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:48:17  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=94).
+11:48:31  INFO      attacks.iba_client — IBA client [3] — round 49: poisoned 3304 / 6980 samples (target=0).
+11:48:40  INFO      attacks.iba_client — IBA client [35] — round 50: training generator.
+11:48:40  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:48:41  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:48:41  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=127).
+11:48:55  INFO      attacks.iba_client — IBA client [35] — round 50: poisoned 3314 / 6979 samples (target=0).
+11:49:06  INFO      attacks.iba_client — IBA client [86] — round 50: training generator.
+11:49:06  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:49:07  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:49:07  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=178).
+11:49:22  INFO      attacks.iba_client — IBA client [86] — round 50: poisoned 3333 / 6979 samples (target=0).
+11:53:12  INFO      experiment.runner — Round   51/150  |  acc:  84.51%  loss: 0.4389  |  ASR: 100.00%  asr_loss: 0.0294  |  mF1: 68.3%
+11:53:16  INFO      attacks.iba_client — IBA client [3] — round 51: training generator.
+11:53:16  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:53:17  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:53:17  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=96).
+11:53:31  INFO      attacks.iba_client — IBA client [3] — round 51: poisoned 3304 / 6980 samples (target=0).
+11:53:31  INFO      attacks.iba_client — IBA client [14] — round 51: training generator.
+11:53:31  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:53:31  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:53:31  INFO      datasets.backdoor — BackdoorDataset: 3329 / 6980 samples poisoned (target=0, fraction=0.500, seed=107).
+11:53:47  INFO      attacks.iba_client — IBA client [14] — round 51: poisoned 3329 / 6980 samples (target=0).
+11:53:56  INFO      attacks.iba_client — IBA client [13] — round 51: training generator.
+11:53:56  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:53:57  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:53:57  INFO      datasets.backdoor — BackdoorDataset: 3315 / 6980 samples poisoned (target=0, fraction=0.500, seed=106).
+11:54:11  INFO      attacks.iba_client — IBA client [13] — round 51: poisoned 3315 / 6980 samples (target=0).
+11:54:27  INFO      attacks.iba_client — IBA client [14] — round 52: training generator.
+11:54:27  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:54:27  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:54:27  INFO      datasets.backdoor — BackdoorDataset: 3329 / 6980 samples poisoned (target=0, fraction=0.500, seed=108).
+11:54:41  INFO      attacks.iba_client — IBA client [14] — round 52: poisoned 3329 / 6980 samples (target=0).
+11:55:08  INFO      attacks.iba_client — IBA client [94] — round 53: training generator.
+11:55:08  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:55:09  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:55:09  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6979 samples poisoned (target=0, fraction=0.500, seed=189).
+11:55:23  INFO      attacks.iba_client — IBA client [94] — round 53: poisoned 3311 / 6979 samples (target=0).
+11:55:23  INFO      attacks.iba_client — IBA client [94] — round 54: training generator.
+11:55:23  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:55:24  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:55:24  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6979 samples poisoned (target=0, fraction=0.500, seed=190).
+11:55:38  INFO      attacks.iba_client — IBA client [94] — round 54: poisoned 3311 / 6979 samples (target=0).
+11:56:37  INFO      attacks.iba_client — IBA client [86] — round 56: training generator.
+11:56:37  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:56:38  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:56:38  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=184).
+11:56:52  INFO      attacks.iba_client — IBA client [86] — round 56: poisoned 3333 / 6979 samples (target=0).
+11:57:33  INFO      attacks.iba_client — IBA client [86] — round 58: training generator.
+11:57:33  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:57:34  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:57:34  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=186).
+11:57:48  INFO      attacks.iba_client — IBA client [86] — round 58: poisoned 3333 / 6979 samples (target=0).
+11:57:55  INFO      attacks.iba_client — IBA client [94] — round 58: training generator.
+11:57:55  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:57:56  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:57:56  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6979 samples poisoned (target=0, fraction=0.500, seed=194).
+11:58:11  INFO      attacks.iba_client — IBA client [94] — round 58: poisoned 3311 / 6979 samples (target=0).
+11:58:22  INFO      attacks.iba_client — IBA client [81] — round 59: training generator.
+11:58:22  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:58:23  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:58:23  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=182).
+11:58:38  INFO      attacks.iba_client — IBA client [81] — round 59: poisoned 3316 / 6979 samples (target=0).
+11:58:49  INFO      attacks.iba_client — IBA client [86] — round 60: training generator.
+11:58:49  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:58:50  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:58:50  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=188).
+11:59:04  INFO      attacks.iba_client — IBA client [86] — round 60: poisoned 3333 / 6979 samples (target=0).
+11:59:06  INFO      attacks.iba_client — IBA client [28] — round 60: training generator.
+11:59:06  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:59:07  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:59:09  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=130).
+11:59:23  INFO      attacks.iba_client — IBA client [28] — round 60: poisoned 3326 / 6980 samples (target=0).
+11:59:29  INFO      attacks.iba_client — IBA client [3] — round 60: training generator.
+11:59:29  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:59:29  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:59:29  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=105).
+11:59:43  INFO      attacks.iba_client — IBA client [3] — round 60: poisoned 3304 / 6980 samples (target=0).
+11:59:46  INFO      attacks.iba_client — IBA client [31] — round 60: training generator.
+11:59:46  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+11:59:46  INFO      attacks.triggers.iba — IBA: generator training complete.
+11:59:46  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=133).
+12:00:00  INFO      attacks.iba_client — IBA client [31] — round 60: poisoned 3312 / 6980 samples (target=0).
+12:03:55  INFO      experiment.runner — Round   61/150  |  acc:  84.79%  loss: 0.4311  |  ASR: 100.00%  asr_loss: 0.0180  |  mF1: 68.5%
+12:04:23  INFO      attacks.iba_client — IBA client [31] — round 62: training generator.
+12:04:23  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:04:24  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:04:24  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=135).
+12:04:38  INFO      attacks.iba_client — IBA client [31] — round 62: poisoned 3312 / 6980 samples (target=0).
+12:04:54  INFO      attacks.iba_client — IBA client [13] — round 63: training generator.
+12:04:54  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:04:54  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:04:54  INFO      datasets.backdoor — BackdoorDataset: 3315 / 6980 samples poisoned (target=0, fraction=0.500, seed=118).
+12:05:09  INFO      attacks.iba_client — IBA client [13] — round 63: poisoned 3315 / 6980 samples (target=0).
+12:05:13  INFO      attacks.iba_client — IBA client [28] — round 63: training generator.
+12:05:13  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:05:14  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:05:14  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=133).
+12:05:28  INFO      attacks.iba_client — IBA client [28] — round 63: poisoned 3326 / 6980 samples (target=0).
+12:05:42  INFO      attacks.iba_client — IBA client [31] — round 64: training generator.
+12:05:42  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:05:42  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:05:42  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=137).
+12:05:57  INFO      attacks.iba_client — IBA client [31] — round 64: poisoned 3312 / 6980 samples (target=0).
+12:06:01  INFO      attacks.iba_client — IBA client [17] — round 64: training generator.
+12:06:01  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:06:02  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:06:02  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6980 samples poisoned (target=0, fraction=0.500, seed=123).
+12:06:16  INFO      attacks.iba_client — IBA client [17] — round 64: poisoned 3311 / 6980 samples (target=0).
+12:07:04  INFO      attacks.iba_client — IBA client [31] — round 66: training generator.
+12:07:04  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:07:05  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:07:05  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=139).
+12:07:20  INFO      attacks.iba_client — IBA client [31] — round 66: poisoned 3312 / 6980 samples (target=0).
+12:07:20  INFO      attacks.iba_client — IBA client [81] — round 66: training generator.
+12:07:20  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:07:21  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:07:21  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=189).
+12:07:36  INFO      attacks.iba_client — IBA client [81] — round 66: poisoned 3316 / 6979 samples (target=0).
+12:07:36  INFO      attacks.iba_client — IBA client [35] — round 66: training generator.
+12:07:36  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:07:37  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:07:37  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=143).
+12:07:51  INFO      attacks.iba_client — IBA client [35] — round 66: poisoned 3314 / 6979 samples (target=0).
+12:08:06  INFO      attacks.iba_client — IBA client [35] — round 67: training generator.
+12:08:06  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:08:07  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:08:07  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=144).
+12:08:20  INFO      attacks.iba_client — IBA client [35] — round 67: poisoned 3314 / 6979 samples (target=0).
+12:08:44  INFO      attacks.iba_client — IBA client [17] — round 68: training generator.
+12:08:44  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:08:45  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:08:45  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6980 samples poisoned (target=0, fraction=0.500, seed=127).
+12:08:59  INFO      attacks.iba_client — IBA client [17] — round 68: poisoned 3311 / 6980 samples (target=0).
+12:13:43  INFO      experiment.runner — Round   71/150  |  acc:  85.03%  loss: 0.4235  |  ASR:  99.98%  asr_loss: 0.0684  |  mF1: 69.3%
+12:13:54  INFO      attacks.iba_client — IBA client [94] — round 71: training generator.
+12:13:54  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:13:55  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:13:55  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6979 samples poisoned (target=0, fraction=0.500, seed=207).
+12:14:09  INFO      attacks.iba_client — IBA client [94] — round 71: poisoned 3311 / 6979 samples (target=0).
+12:14:14  INFO      attacks.iba_client — IBA client [28] — round 71: training generator.
+12:14:14  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:14:15  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:14:15  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=141).
+12:14:29  INFO      attacks.iba_client — IBA client [28] — round 71: poisoned 3326 / 6980 samples (target=0).
+12:14:32  INFO      attacks.iba_client — IBA client [28] — round 72: training generator.
+12:14:32  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:14:32  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:14:32  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=142).
+12:14:46  INFO      attacks.iba_client — IBA client [28] — round 72: poisoned 3326 / 6980 samples (target=0).
+12:14:53  INFO      attacks.iba_client — IBA client [3] — round 72: training generator.
+12:14:53  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:14:54  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:14:54  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=117).
+12:15:08  INFO      attacks.iba_client — IBA client [3] — round 72: poisoned 3304 / 6980 samples (target=0).
+12:15:14  INFO      attacks.iba_client — IBA client [86] — round 72: training generator.
+12:15:14  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:15:15  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:15:15  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=200).
+12:15:29  INFO      attacks.iba_client — IBA client [86] — round 72: poisoned 3333 / 6979 samples (target=0).
+12:15:46  INFO      attacks.iba_client — IBA client [3] — round 73: training generator.
+12:15:46  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:15:46  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:15:46  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=118).
+12:16:00  INFO      attacks.iba_client — IBA client [3] — round 73: poisoned 3304 / 6980 samples (target=0).
+12:16:10  INFO      attacks.iba_client — IBA client [3] — round 74: training generator.
+12:16:10  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:16:11  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:16:11  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=119).
+12:16:25  INFO      attacks.iba_client — IBA client [3] — round 74: poisoned 3304 / 6980 samples (target=0).
+12:16:31  INFO      attacks.iba_client — IBA client [17] — round 74: training generator.
+12:16:32  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:16:32  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:16:32  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6980 samples poisoned (target=0, fraction=0.500, seed=133).
+12:16:48  INFO      attacks.iba_client — IBA client [17] — round 74: poisoned 3311 / 6980 samples (target=0).
+12:17:12  INFO      attacks.iba_client — IBA client [35] — round 75: training generator.
+12:17:12  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:17:13  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:17:13  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=152).
+12:17:27  INFO      attacks.iba_client — IBA client [35] — round 75: poisoned 3314 / 6979 samples (target=0).
+12:17:51  INFO      attacks.iba_client — IBA client [28] — round 76: training generator.
+12:17:51  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:17:52  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:17:52  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=146).
+12:18:06  INFO      attacks.iba_client — IBA client [28] — round 76: poisoned 3326 / 6980 samples (target=0).
+12:18:20  INFO      attacks.iba_client — IBA client [3] — round 77: training generator.
+12:18:20  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:18:21  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:18:21  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=122).
+12:18:34  INFO      attacks.iba_client — IBA client [3] — round 77: poisoned 3304 / 6980 samples (target=0).
+12:18:34  INFO      attacks.iba_client — IBA client [31] — round 77: training generator.
+12:18:34  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:18:35  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:18:35  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=150).
+12:18:49  INFO      attacks.iba_client — IBA client [31] — round 77: poisoned 3312 / 6980 samples (target=0).
+12:19:08  INFO      attacks.iba_client — IBA client [14] — round 78: training generator.
+12:19:08  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:19:09  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:19:09  INFO      datasets.backdoor — BackdoorDataset: 3329 / 6980 samples poisoned (target=0, fraction=0.500, seed=134).
+12:19:22  INFO      attacks.iba_client — IBA client [14] — round 78: poisoned 3329 / 6980 samples (target=0).
+12:19:49  INFO      attacks.iba_client — IBA client [14] — round 79: training generator.
+12:19:49  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:19:50  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:19:50  INFO      datasets.backdoor — BackdoorDataset: 3329 / 6980 samples poisoned (target=0, fraction=0.500, seed=135).
+12:20:03  INFO      attacks.iba_client — IBA client [14] — round 79: poisoned 3329 / 6980 samples (target=0).
+12:20:11  INFO      attacks.iba_client — IBA client [13] — round 80: training generator.
+12:20:11  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:20:12  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:20:12  INFO      datasets.backdoor — BackdoorDataset: 3315 / 6980 samples poisoned (target=0, fraction=0.500, seed=135).
+12:20:26  INFO      attacks.iba_client — IBA client [13] — round 80: poisoned 3315 / 6980 samples (target=0).
+12:20:28  INFO      attacks.iba_client — IBA client [3] — round 80: training generator.
+12:20:28  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:20:30  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:20:30  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=125).
+12:20:43  INFO      attacks.iba_client — IBA client [3] — round 80: poisoned 3304 / 6980 samples (target=0).
+12:20:49  INFO      attacks.iba_client — IBA client [86] — round 80: training generator.
+12:20:49  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:20:50  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:20:50  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=208).
+12:21:03  INFO      attacks.iba_client — IBA client [86] — round 80: poisoned 3333 / 6979 samples (target=0).
+12:24:56  INFO      experiment.runner — Round   81/150  |  acc:  85.10%  loss: 0.4204  |  ASR: 100.00%  asr_loss: 0.0253  |  mF1: 69.5%
+12:25:06  INFO      attacks.iba_client — IBA client [31] — round 81: training generator.
+12:25:06  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:25:07  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:25:07  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=154).
+12:25:20  INFO      attacks.iba_client — IBA client [31] — round 81: poisoned 3312 / 6980 samples (target=0).
+12:25:20  INFO      attacks.iba_client — IBA client [13] — round 81: training generator.
+12:25:20  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:25:21  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:25:21  INFO      datasets.backdoor — BackdoorDataset: 3315 / 6980 samples poisoned (target=0, fraction=0.500, seed=136).
+12:25:34  INFO      attacks.iba_client — IBA client [13] — round 81: poisoned 3315 / 6980 samples (target=0).
+12:26:22  INFO      attacks.iba_client — IBA client [13] — round 83: training generator.
+12:26:22  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:26:23  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:26:23  INFO      datasets.backdoor — BackdoorDataset: 3315 / 6980 samples poisoned (target=0, fraction=0.500, seed=138).
+12:26:36  INFO      attacks.iba_client — IBA client [13] — round 83: poisoned 3315 / 6980 samples (target=0).
+12:26:41  INFO      attacks.iba_client — IBA client [81] — round 83: training generator.
+12:26:41  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:26:41  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:26:41  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=206).
+12:26:55  INFO      attacks.iba_client — IBA client [81] — round 83: poisoned 3316 / 6979 samples (target=0).
+12:27:41  INFO      attacks.iba_client — IBA client [31] — round 85: training generator.
+12:27:41  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:27:41  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:27:41  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=158).
+12:27:54  INFO      attacks.iba_client — IBA client [31] — round 85: poisoned 3312 / 6980 samples (target=0).
+12:27:58  INFO      attacks.iba_client — IBA client [35] — round 86: training generator.
+12:27:58  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:27:59  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:27:59  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=163).
+12:28:12  INFO      attacks.iba_client — IBA client [35] — round 86: poisoned 3314 / 6979 samples (target=0).
+12:28:15  INFO      attacks.iba_client — IBA client [31] — round 86: training generator.
+12:28:15  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:28:16  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:28:16  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=159).
+12:28:29  INFO      attacks.iba_client — IBA client [31] — round 86: poisoned 3312 / 6980 samples (target=0).
+12:28:46  INFO      attacks.iba_client — IBA client [3] — round 87: training generator.
+12:28:46  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:28:47  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:28:47  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=132).
+12:29:01  INFO      attacks.iba_client — IBA client [3] — round 87: poisoned 3304 / 6980 samples (target=0).
+12:29:17  INFO      attacks.iba_client — IBA client [35] — round 87: training generator.
+12:29:17  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:29:18  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:29:18  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=164).
+12:29:31  INFO      attacks.iba_client — IBA client [35] — round 87: poisoned 3314 / 6979 samples (target=0).
+12:29:36  INFO      attacks.iba_client — IBA client [35] — round 88: training generator.
+12:29:36  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:29:37  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:29:37  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=165).
+12:29:50  INFO      attacks.iba_client — IBA client [35] — round 88: poisoned 3314 / 6979 samples (target=0).
+12:30:37  INFO      attacks.iba_client — IBA client [28] — round 90: training generator.
+12:30:37  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:30:38  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:30:38  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=160).
+12:30:51  INFO      attacks.iba_client — IBA client [28] — round 90: poisoned 3326 / 6980 samples (target=0).
+12:30:56  INFO      attacks.iba_client — IBA client [31] — round 90: training generator.
+12:30:56  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:30:56  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:30:56  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=163).
+12:31:11  INFO      attacks.iba_client — IBA client [31] — round 90: poisoned 3312 / 6980 samples (target=0).
+12:34:51  INFO      experiment.runner — Round   91/150  |  acc:  85.17%  loss: 0.4170  |  ASR: 100.00%  asr_loss: 0.0293  |  mF1: 69.5%
+12:35:52  INFO      attacks.iba_client — IBA client [94] — round 93: training generator.
+12:35:52  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:35:53  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:35:53  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6979 samples poisoned (target=0, fraction=0.500, seed=229).
+12:36:07  INFO      attacks.iba_client — IBA client [94] — round 93: poisoned 3311 / 6979 samples (target=0).
+12:36:09  INFO      attacks.iba_client — IBA client [35] — round 93: training generator.
+12:36:09  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:36:10  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:36:10  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=170).
+12:36:24  INFO      attacks.iba_client — IBA client [35] — round 93: poisoned 3314 / 6979 samples (target=0).
+12:37:04  INFO      attacks.iba_client — IBA client [35] — round 95: training generator.
+12:37:04  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:37:05  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:37:05  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=172).
+12:37:19  INFO      attacks.iba_client — IBA client [35] — round 95: poisoned 3314 / 6979 samples (target=0).
+12:37:34  INFO      attacks.iba_client — IBA client [81] — round 96: training generator.
+12:37:34  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:37:35  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:37:35  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=219).
+12:37:49  INFO      attacks.iba_client — IBA client [81] — round 96: poisoned 3316 / 6979 samples (target=0).
+12:37:56  INFO      attacks.iba_client — IBA client [13] — round 96: training generator.
+12:37:56  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:37:57  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:37:57  INFO      datasets.backdoor — BackdoorDataset: 3315 / 6980 samples poisoned (target=0, fraction=0.500, seed=151).
+12:38:10  INFO      attacks.iba_client — IBA client [13] — round 96: poisoned 3315 / 6980 samples (target=0).
+12:38:34  INFO      attacks.iba_client — IBA client [14] — round 97: training generator.
+12:38:34  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:38:35  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:38:35  INFO      datasets.backdoor — BackdoorDataset: 3329 / 6980 samples poisoned (target=0, fraction=0.500, seed=153).
+12:38:48  INFO      attacks.iba_client — IBA client [14] — round 97: poisoned 3329 / 6980 samples (target=0).
+12:39:17  INFO      attacks.iba_client — IBA client [31] — round 99: training generator.
+12:39:17  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:39:18  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:39:18  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=172).
+12:39:31  INFO      attacks.iba_client — IBA client [31] — round 99: poisoned 3312 / 6980 samples (target=0).
+12:39:47  INFO      attacks.iba_client — IBA client [28] — round 99: training generator.
+12:39:47  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:39:48  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:39:48  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=169).
+12:40:01  INFO      attacks.iba_client — IBA client [28] — round 99: poisoned 3326 / 6980 samples (target=0).
+12:44:06  INFO      experiment.runner — Round  101/150  |  acc:  85.36%  loss: 0.4113  |  ASR: 100.00%  asr_loss: 0.0356  |  mF1: 70.1%
+12:44:10  INFO      attacks.iba_client — IBA client [94] — round 101: training generator.
+12:44:11  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:44:11  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:44:11  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6979 samples poisoned (target=0, fraction=0.500, seed=237).
+12:44:24  INFO      attacks.iba_client — IBA client [94] — round 101: poisoned 3311 / 6979 samples (target=0).
+12:45:51  INFO      attacks.iba_client — IBA client [14] — round 104: training generator.
+12:45:51  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:45:52  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:45:52  INFO      datasets.backdoor — BackdoorDataset: 3329 / 6980 samples poisoned (target=0, fraction=0.500, seed=160).
+12:46:05  INFO      attacks.iba_client — IBA client [14] — round 104: poisoned 3329 / 6980 samples (target=0).
+12:46:08  INFO      attacks.iba_client — IBA client [28] — round 105: training generator.
+12:46:08  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:46:09  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:46:09  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=175).
+12:46:22  INFO      attacks.iba_client — IBA client [28] — round 105: poisoned 3326 / 6980 samples (target=0).
+12:47:28  INFO      attacks.iba_client — IBA client [94] — round 107: training generator.
+12:47:28  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:47:29  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:47:29  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6979 samples poisoned (target=0, fraction=0.500, seed=243).
+12:47:42  INFO      attacks.iba_client — IBA client [94] — round 107: poisoned 3311 / 6979 samples (target=0).
+12:47:49  INFO      attacks.iba_client — IBA client [3] — round 108: training generator.
+12:47:49  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:47:50  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:47:50  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=153).
+12:48:03  INFO      attacks.iba_client — IBA client [3] — round 108: poisoned 3304 / 6980 samples (target=0).
+12:48:08  INFO      attacks.iba_client — IBA client [86] — round 108: training generator.
+12:48:08  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:48:09  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:48:09  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=236).
+12:48:22  INFO      attacks.iba_client — IBA client [86] — round 108: poisoned 3333 / 6979 samples (target=0).
+12:48:31  INFO      attacks.iba_client — IBA client [86] — round 109: training generator.
+12:48:31  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:48:32  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:48:32  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=237).
+12:48:45  INFO      attacks.iba_client — IBA client [86] — round 109: poisoned 3333 / 6979 samples (target=0).
+12:49:06  INFO      attacks.iba_client — IBA client [35] — round 110: training generator.
+12:49:06  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:49:07  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:49:07  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=187).
+12:49:20  INFO      attacks.iba_client — IBA client [35] — round 110: poisoned 3314 / 6979 samples (target=0).
+12:49:28  INFO      attacks.iba_client — IBA client [81] — round 110: training generator.
+12:49:28  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:49:28  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:49:28  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=233).
+12:49:42  INFO      attacks.iba_client — IBA client [81] — round 110: poisoned 3316 / 6979 samples (target=0).
+12:53:20  INFO      experiment.runner — Round  111/150  |  acc:  85.38%  loss: 0.4100  |  ASR: 100.00%  asr_loss: 0.0218  |  mF1: 69.8%
+12:53:33  INFO      attacks.iba_client — IBA client [13] — round 111: training generator.
+12:53:33  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:53:34  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:53:34  INFO      datasets.backdoor — BackdoorDataset: 3315 / 6980 samples poisoned (target=0, fraction=0.500, seed=166).
+12:53:47  INFO      attacks.iba_client — IBA client [13] — round 111: poisoned 3315 / 6980 samples (target=0).
+12:54:20  INFO      attacks.iba_client — IBA client [14] — round 112: training generator.
+12:54:20  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:54:21  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:54:21  INFO      datasets.backdoor — BackdoorDataset: 3329 / 6980 samples poisoned (target=0, fraction=0.500, seed=168).
+12:54:34  INFO      attacks.iba_client — IBA client [14] — round 112: poisoned 3329 / 6980 samples (target=0).
+12:55:40  INFO      attacks.iba_client — IBA client [3] — round 115: training generator.
+12:55:40  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:55:40  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:55:40  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=160).
+12:55:53  INFO      attacks.iba_client — IBA client [3] — round 115: poisoned 3304 / 6980 samples (target=0).
+12:56:16  INFO      attacks.iba_client — IBA client [28] — round 116: training generator.
+12:56:16  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:56:17  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:56:17  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=186).
+12:56:30  INFO      attacks.iba_client — IBA client [28] — round 116: poisoned 3326 / 6980 samples (target=0).
+12:56:30  INFO      attacks.iba_client — IBA client [14] — round 117: training generator.
+12:56:30  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:56:31  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:56:31  INFO      datasets.backdoor — BackdoorDataset: 3329 / 6980 samples poisoned (target=0, fraction=0.500, seed=173).
+12:56:44  INFO      attacks.iba_client — IBA client [14] — round 117: poisoned 3329 / 6980 samples (target=0).
+12:57:14  INFO      attacks.iba_client — IBA client [31] — round 118: training generator.
+12:57:14  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:57:15  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:57:15  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=191).
+12:57:28  INFO      attacks.iba_client — IBA client [31] — round 118: poisoned 3312 / 6980 samples (target=0).
+12:57:47  INFO      attacks.iba_client — IBA client [17] — round 119: training generator.
+12:57:47  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:57:48  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:57:48  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6980 samples poisoned (target=0, fraction=0.500, seed=178).
+12:58:01  INFO      attacks.iba_client — IBA client [17] — round 119: poisoned 3311 / 6980 samples (target=0).
+12:58:03  INFO      attacks.iba_client — IBA client [35] — round 119: training generator.
+12:58:03  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+12:58:04  INFO      attacks.triggers.iba — IBA: generator training complete.
+12:58:04  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=196).
+12:58:18  INFO      attacks.iba_client — IBA client [35] — round 119: poisoned 3314 / 6979 samples (target=0).
+13:02:21  INFO      experiment.runner — Round  121/150  |  acc:  85.45%  loss: 0.4084  |  ASR: 100.00%  asr_loss: 0.0402  |  mF1: 70.2%
+13:04:32  INFO      attacks.iba_client — IBA client [86] — round 126: training generator.
+13:04:32  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:04:33  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:04:33  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=254).
+13:04:47  INFO      attacks.iba_client — IBA client [86] — round 126: poisoned 3333 / 6979 samples (target=0).
+13:05:39  INFO      attacks.iba_client — IBA client [81] — round 128: training generator.
+13:05:39  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:05:40  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:05:40  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=251).
+13:05:54  INFO      attacks.iba_client — IBA client [81] — round 128: poisoned 3316 / 6979 samples (target=0).
+13:06:07  INFO      attacks.iba_client — IBA client [3] — round 129: training generator.
+13:06:07  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:06:08  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:06:08  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=174).
+13:06:22  INFO      attacks.iba_client — IBA client [3] — round 129: poisoned 3304 / 6980 samples (target=0).
+13:06:41  INFO      attacks.iba_client — IBA client [31] — round 130: training generator.
+13:06:41  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:06:42  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:06:42  INFO      datasets.backdoor — BackdoorDataset: 3312 / 6980 samples poisoned (target=0, fraction=0.500, seed=203).
+13:06:56  INFO      attacks.iba_client — IBA client [31] — round 130: poisoned 3312 / 6980 samples (target=0).
+13:10:47  INFO      experiment.runner — Round  131/150  |  acc:  85.49%  loss: 0.4056  |  ASR: 100.00%  asr_loss: 0.0320  |  mF1: 70.2%
+13:11:14  INFO      attacks.iba_client — IBA client [81] — round 132: training generator.
+13:11:14  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:11:15  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:11:15  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=255).
+13:11:29  INFO      attacks.iba_client — IBA client [81] — round 132: poisoned 3316 / 6979 samples (target=0).
+13:11:40  INFO      attacks.iba_client — IBA client [86] — round 132: training generator.
+13:11:40  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:11:41  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:11:41  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=260).
+13:11:54  INFO      attacks.iba_client — IBA client [86] — round 132: poisoned 3333 / 6979 samples (target=0).
+13:12:11  INFO      attacks.iba_client — IBA client [81] — round 133: training generator.
+13:12:11  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:12:12  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:12:12  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=256).
+13:12:25  INFO      attacks.iba_client — IBA client [81] — round 133: poisoned 3316 / 6979 samples (target=0).
+13:12:44  INFO      attacks.iba_client — IBA client [13] — round 134: training generator.
+13:12:44  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:12:45  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:12:45  INFO      datasets.backdoor — BackdoorDataset: 3315 / 6980 samples poisoned (target=0, fraction=0.500, seed=189).
+13:12:58  INFO      attacks.iba_client — IBA client [13] — round 134: poisoned 3315 / 6980 samples (target=0).
+13:13:21  INFO      attacks.iba_client — IBA client [35] — round 135: training generator.
+13:13:21  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:13:22  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:13:22  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=212).
+13:13:36  INFO      attacks.iba_client — IBA client [35] — round 135: poisoned 3314 / 6979 samples (target=0).
+13:14:06  INFO      attacks.iba_client — IBA client [28] — round 136: training generator.
+13:14:06  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:14:07  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:14:07  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=206).
+13:14:19  INFO      attacks.iba_client — IBA client [28] — round 136: poisoned 3326 / 6980 samples (target=0).
+13:14:19  INFO      attacks.iba_client — IBA client [81] — round 136: training generator.
+13:14:19  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:14:21  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:14:21  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=259).
+13:14:33  INFO      attacks.iba_client — IBA client [81] — round 136: poisoned 3316 / 6979 samples (target=0).
+13:14:41  INFO      attacks.iba_client — IBA client [86] — round 137: training generator.
+13:14:42  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:14:42  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:14:44  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=265).
+13:14:58  INFO      attacks.iba_client — IBA client [86] — round 137: poisoned 3333 / 6979 samples (target=0).
+13:15:10  INFO      attacks.iba_client — IBA client [17] — round 137: training generator.
+13:15:10  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:15:11  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:15:11  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6980 samples poisoned (target=0, fraction=0.500, seed=196).
+13:15:24  INFO      attacks.iba_client — IBA client [17] — round 137: poisoned 3311 / 6980 samples (target=0).
+13:16:32  INFO      attacks.iba_client — IBA client [14] — round 140: training generator.
+13:16:32  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:16:32  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:16:32  INFO      datasets.backdoor — BackdoorDataset: 3329 / 6980 samples poisoned (target=0, fraction=0.500, seed=196).
+13:16:46  INFO      attacks.iba_client — IBA client [14] — round 140: poisoned 3329 / 6980 samples (target=0).
+13:20:15  INFO      experiment.runner — Round  141/150  |  acc:  85.56%  loss: 0.4045  |  ASR: 100.00%  asr_loss: 0.0260  |  mF1: 70.0%
+13:20:24  INFO      attacks.iba_client — IBA client [28] — round 141: training generator.
+13:20:24  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:20:25  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:20:25  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=211).
+13:20:38  INFO      attacks.iba_client — IBA client [28] — round 141: poisoned 3326 / 6980 samples (target=0).
+13:20:38  INFO      attacks.iba_client — IBA client [86] — round 141: training generator.
+13:20:38  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:20:39  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:20:39  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=269).
+13:20:53  INFO      attacks.iba_client — IBA client [86] — round 141: poisoned 3333 / 6979 samples (target=0).
+13:21:22  INFO      attacks.iba_client — IBA client [86] — round 142: training generator.
+13:21:22  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:21:22  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:21:22  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=270).
+13:21:36  INFO      attacks.iba_client — IBA client [86] — round 142: poisoned 3333 / 6979 samples (target=0).
+13:21:39  INFO      attacks.iba_client — IBA client [86] — round 143: training generator.
+13:21:39  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:21:40  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:21:40  INFO      datasets.backdoor — BackdoorDataset: 3333 / 6979 samples poisoned (target=0, fraction=0.500, seed=271).
+13:21:53  INFO      attacks.iba_client — IBA client [86] — round 143: poisoned 3333 / 6979 samples (target=0).
+13:22:01  INFO      attacks.iba_client — IBA client [81] — round 143: training generator.
+13:22:01  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:22:02  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:22:02  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=266).
+13:22:15  INFO      attacks.iba_client — IBA client [81] — round 143: poisoned 3316 / 6979 samples (target=0).
+13:22:18  INFO      attacks.iba_client — IBA client [13] — round 143: training generator.
+13:22:18  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:22:19  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:22:19  INFO      datasets.backdoor — BackdoorDataset: 3315 / 6980 samples poisoned (target=0, fraction=0.500, seed=198).
+13:22:32  INFO      attacks.iba_client — IBA client [13] — round 143: poisoned 3315 / 6980 samples (target=0).
+13:22:37  INFO      attacks.iba_client — IBA client [3] — round 143: training generator.
+13:22:37  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:22:38  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:22:38  INFO      datasets.backdoor — BackdoorDataset: 3304 / 6980 samples poisoned (target=0, fraction=0.500, seed=188).
+13:22:52  INFO      attacks.iba_client — IBA client [3] — round 143: poisoned 3304 / 6980 samples (target=0).
+13:23:01  INFO      attacks.iba_client — IBA client [28] — round 144: training generator.
+13:23:02  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:23:02  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:23:02  INFO      datasets.backdoor — BackdoorDataset: 3326 / 6980 samples poisoned (target=0, fraction=0.500, seed=214).
+13:23:15  INFO      attacks.iba_client — IBA client [28] — round 144: poisoned 3326 / 6980 samples (target=0).
+13:23:20  INFO      attacks.iba_client — IBA client [81] — round 144: training generator.
+13:23:20  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:23:21  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:23:21  INFO      datasets.backdoor — BackdoorDataset: 3316 / 6979 samples poisoned (target=0, fraction=0.500, seed=267).
+13:23:34  INFO      attacks.iba_client — IBA client [81] — round 144: poisoned 3316 / 6979 samples (target=0).
+13:23:46  INFO      attacks.iba_client — IBA client [14] — round 145: training generator.
+13:23:46  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:23:47  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:23:47  INFO      datasets.backdoor — BackdoorDataset: 3329 / 6980 samples poisoned (target=0, fraction=0.500, seed=201).
+13:24:00  INFO      attacks.iba_client — IBA client [14] — round 145: poisoned 3329 / 6980 samples (target=0).
+13:24:00  INFO      attacks.iba_client — IBA client [17] — round 145: training generator.
+13:24:00  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:24:02  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:24:02  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6980 samples poisoned (target=0, fraction=0.500, seed=204).
+13:24:16  INFO      attacks.iba_client — IBA client [17] — round 145: poisoned 3311 / 6980 samples (target=0).
+13:24:32  INFO      attacks.iba_client — IBA client [17] — round 146: training generator.
+13:24:32  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:24:33  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:24:33  INFO      datasets.backdoor — BackdoorDataset: 3311 / 6980 samples poisoned (target=0, fraction=0.500, seed=205).
+13:24:47  INFO      attacks.iba_client — IBA client [17] — round 146: poisoned 3311 / 6980 samples (target=0).
+13:25:54  INFO      attacks.iba_client — IBA client [35] — round 148: training generator.
+13:25:55  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:25:56  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:25:56  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=225).
+13:26:09  INFO      attacks.iba_client — IBA client [35] — round 148: poisoned 3314 / 6979 samples (target=0).
+13:27:06  INFO      attacks.iba_client — IBA client [35] — round 149: training generator.
+13:27:06  INFO      attacks.triggers.iba — IBA: training generator for 5 epochs (target=0, α=0.200, λ=0.0100).
+13:27:08  INFO      attacks.triggers.iba — IBA: generator training complete.
+13:27:08  INFO      datasets.backdoor — BackdoorDataset: 3314 / 6979 samples poisoned (target=0, fraction=0.500, seed=226).
+13:27:21  INFO      attacks.iba_client — IBA client [35] — round 149: poisoned 3314 / 6979 samples (target=0).
+13:31:14  INFO      experiment.runner — Round  150/150  |  acc:  85.48%  loss: 0.4053  |  ASR: 100.00%  asr_loss: 0.0256  |  mF1: 70.2%
+
+==============================================================
+  Summary — 16 rounds evaluated
+==============================================================
+  Final clean accuracy               85.48%
+  Best  clean accuracy               85.56%
+  Final clean loss                   0.4053
+  Macro F1                           70.18%
+  Final ASR                         100.00%
+  Mean ASR (attack window)          100.00%
+  Max  ASR (attack window)          100.00%
+==============================================================
+
+13:31:14  INFO      experiment.runner — Final model saved to results/femnist_fedavg_iba/final_model.pt
+13:31:14  INFO      experiment.runner — Trigger state saved to results/femnist_fedavg_iba/trigger.pt
+13:31:14  INFO      experiment.runner — Client atypicality written to results/femnist_fedavg_iba/client_atypicality.json
+13:31:14  INFO      experiment.runner — Client inclusion rates written to results/femnist_fedavg_iba/client_inclusion.csv
+
+==================================================================
+  Done: femnist_fedavg_iba  (2h 27m 53s)
+  Clean accuracy : 85.48%
+  ASR            : 100.00%
+  Checkpoint     : /Utilisateurs/abellach/TopoBD/results/femnist_fedavg_iba/final_model.pt
+==================================================================
+
+
+==================================================================
+  Training complete  (2h 27m 53s total)
+  Trained : ['femnist_fedavg_iba']
+  Skipped : —
+==================================================================

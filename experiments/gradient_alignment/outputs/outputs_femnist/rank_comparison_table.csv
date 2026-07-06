@@ -1,0 +1,6 @@
+layer_name,layer_idx,gamma_max,gamma_mean,eff_rank_clean_direct,eff_rank_bd_min,eff_rank_bd_max,rank_gap
+features.0,0,0.9837,0.4460,3.3991,1.9903,2.5034,0.8957
+features.3,1,0.9557,0.3069,7.4086,2.2842,3.9510,3.4576
+classifier.0,2,0.9556,0.1656,25.2039,1.8167,2.4804,22.7235
+classifier.2,3,0.9455,0.1253,24.6253,1.7078,2.3339,22.2914
+classifier.4,4,0.9831,0.0215,14.6294,1.0569,1.6791,12.9503

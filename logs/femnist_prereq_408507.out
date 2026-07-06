@@ -1,0 +1,339 @@
+Installing PyTorch (cu124)...
+Installing project dependencies...
+============================================================
+ Job ID   : 408507
+ Node     : l3icalcul07
+ Start    : 2026-06-02 11:01:53
+ Python   : Python 3.10.19
+ PyTorch  : 2.5.1+cu124
+ CUDA     : True
+ GPUs     : NVIDIA RTX A6000,NVIDIA RTX A6000,NVIDIA RTX A6000,NVIDIA RTX A6000
+============================================================
+Setting up scratch at: /tmp/abellach/408507
+Copying data to local scratch...
+data/ -> scratch (fast path)
+
+Starting parallel training on 4 GPUs...
+2026-06-02 11:03:18
+[GPU 0] Starting femnist_benign_iid then femnist_fedavg_neurotoxin
+[GPU 1] Starting femnist_fedavg_a3fl
+[GPU 2] Starting femnist_fedavg_iba
+[GPU 3] Starting femnist_fedavg_chameleon
+[GPU 3] Done
+[GPU 1] Done
+[GPU 0] Done
+[GPU 2] Done
+
+All training workers finished.
+2026-06-02 13:31:18
+
+--- GPU 0 last 5 lines ---
+==================================================================
+  Training complete  (2h 21m 6s total)
+  Trained : ['femnist_benign_iid', 'femnist_fedavg_neurotoxin']
+  Skipped : —
+==================================================================
+
+--- GPU 1 last 5 lines ---
+==================================================================
+  Training complete  (1h 13m 35s total)
+  Trained : ['femnist_fedavg_a3fl']
+  Skipped : —
+==================================================================
+
+--- GPU 2 last 5 lines ---
+==================================================================
+  Training complete  (2h 27m 53s total)
+  Trained : ['femnist_fedavg_iba']
+  Skipped : —
+==================================================================
+
+--- GPU 3 last 5 lines ---
+==================================================================
+  Training complete  (1h 7m 46s total)
+  Trained : ['femnist_fedavg_chameleon']
+  Skipped : —
+==================================================================
+
+Checkpoint status:
+  [OK]      results/femnist_benign_iid/final_model.pt
+  [OK]      results/femnist_fedavg_neurotoxin/final_model.pt
+  [OK]      results/femnist_fedavg_a3fl/final_model.pt
+  [OK]      results/femnist_fedavg_iba/final_model.pt
+  [OK]      results/femnist_fedavg_chameleon/final_model.pt
+
+============================================================
+ Diagnostics Phase
+ 2026-06-02 13:31:18
+============================================================
+Device: cuda
+Output dir: experiments/gradient_alignment/outputs_femnist
+Config: configs/femnist_fedavg_iba.yaml (dataset=femnist, model=lenet5)
+
+============================================================
+Experiment 1 (α) — attack: neurotoxin
+============================================================
+  Loaded checkpoint: results/femnist_fedavg_neurotoxin/final_model.pt
+  Bias-bearing layers (5): ['features.0', 'features.3', 'classifier.0', 'classifier.2', 'classifier.4']
+
+  Running sanity check...
+  Sanity [PASS] layer=features.0                                max_err=1.19e-07
+  Sanity [PASS] layer=features.3                                max_err=5.96e-08
+  Sanity [PASS] layer=classifier.0                              max_err=0.00e+00
+  Sanity [PASS] layer=classifier.2                              max_err=0.00e+00
+  Sanity [PASS] layer=classifier.4                              max_err=0.00e+00
+  Sanity check: ALL PASS
+  Processed 10/200 batches
+  Processed 20/200 batches
+  Processed 30/200 batches
+  Processed 40/200 batches
+  Processed 50/200 batches
+  Processed 60/200 batches
+  Processed 70/200 batches
+  Processed 80/200 batches
+  Processed 90/200 batches
+  Processed 100/200 batches
+  Processed 110/200 batches
+  Processed 120/200 batches
+  Processed 130/200 batches
+  Processed 140/200 batches
+  Processed 150/200 batches
+  Processed 160/200 batches
+  Processed 170/200 batches
+  Processed 180/200 batches
+  Processed 190/200 batches
+  Processed 200/200 batches
+  Saved: experiments/gradient_alignment/outputs_femnist/alpha_raw_neurotoxin.csv
+  Saved: experiments/gradient_alignment/outputs_femnist/alpha_summary_neurotoxin.csv
+
+============================================================
+Experiment 1 (α) — attack: a3fl
+============================================================
+  Loaded checkpoint: results/femnist_fedavg_a3fl/final_model.pt
+  Loaded trained A3FL pattern from results/femnist_fedavg_a3fl/trigger.pt
+  Bias-bearing layers (5): ['features.0', 'features.3', 'classifier.0', 'classifier.2', 'classifier.4']
+
+  Running sanity check...
+  Sanity [PASS] layer=features.0                                max_err=2.38e-07
+  Sanity [PASS] layer=features.3                                max_err=1.19e-07
+  Sanity [PASS] layer=classifier.0                              max_err=0.00e+00
+  Sanity [PASS] layer=classifier.2                              max_err=0.00e+00
+  Sanity [PASS] layer=classifier.4                              max_err=0.00e+00
+  Sanity check: ALL PASS
+  Processed 10/200 batches
+  Processed 20/200 batches
+  Processed 30/200 batches
+  Processed 40/200 batches
+  Processed 50/200 batches
+  Processed 60/200 batches
+  Processed 70/200 batches
+  Processed 80/200 batches
+  Processed 90/200 batches
+  Processed 100/200 batches
+  Processed 110/200 batches
+  Processed 120/200 batches
+  Processed 130/200 batches
+  Processed 140/200 batches
+  Processed 150/200 batches
+  Processed 160/200 batches
+  Processed 170/200 batches
+  Processed 180/200 batches
+  Processed 190/200 batches
+  Processed 200/200 batches
+  Saved: experiments/gradient_alignment/outputs_femnist/alpha_raw_a3fl.csv
+  Saved: experiments/gradient_alignment/outputs_femnist/alpha_summary_a3fl.csv
+
+============================================================
+Experiment 1 (α) — attack: iba
+============================================================
+  Loaded checkpoint: results/femnist_fedavg_iba/final_model.pt
+  Loaded trained IBA generator from results/femnist_fedavg_iba/trigger.pt
+  Bias-bearing layers (5): ['features.0', 'features.3', 'classifier.0', 'classifier.2', 'classifier.4']
+
+  Running sanity check...
+  Sanity [PASS] layer=features.0                                max_err=3.73e-09
+  Sanity [PASS] layer=features.3                                max_err=9.31e-10
+  Sanity [PASS] layer=classifier.0                              max_err=0.00e+00
+  Sanity [PASS] layer=classifier.2                              max_err=0.00e+00
+  Sanity [PASS] layer=classifier.4                              max_err=0.00e+00
+  Sanity check: ALL PASS
+  Processed 10/200 batches
+  Processed 20/200 batches
+  Processed 30/200 batches
+  Processed 40/200 batches
+  Processed 50/200 batches
+  Processed 60/200 batches
+  Processed 70/200 batches
+  Processed 80/200 batches
+  Processed 90/200 batches
+  Processed 100/200 batches
+  Processed 110/200 batches
+  Processed 120/200 batches
+  Processed 130/200 batches
+  Processed 140/200 batches
+  Processed 150/200 batches
+  Processed 160/200 batches
+  Processed 170/200 batches
+  Processed 180/200 batches
+  Processed 190/200 batches
+  Processed 200/200 batches
+  Saved: experiments/gradient_alignment/outputs_femnist/alpha_raw_iba.csv
+  Saved: experiments/gradient_alignment/outputs_femnist/alpha_summary_iba.csv
+
+============================================================
+Experiment 1 (α) — attack: chameleon
+============================================================
+  Loaded checkpoint: results/femnist_fedavg_chameleon/final_model.pt
+  Bias-bearing layers (5): ['features.0', 'features.3', 'classifier.0', 'classifier.2', 'classifier.4']
+
+  Running sanity check...
+  Sanity [PASS] layer=features.0                                max_err=2.38e-07
+  Sanity [PASS] layer=features.3                                max_err=5.96e-08
+  Sanity [PASS] layer=classifier.0                              max_err=0.00e+00
+  Sanity [PASS] layer=classifier.2                              max_err=0.00e+00
+  Sanity [PASS] layer=classifier.4                              max_err=0.00e+00
+  Sanity check: ALL PASS
+  Processed 10/200 batches
+  Processed 20/200 batches
+  Processed 30/200 batches
+  Processed 40/200 batches
+  Processed 50/200 batches
+  Processed 60/200 batches
+  Processed 70/200 batches
+  Processed 80/200 batches
+  Processed 90/200 batches
+  Processed 100/200 batches
+  Processed 110/200 batches
+  Processed 120/200 batches
+  Processed 130/200 batches
+  Processed 140/200 batches
+  Processed 150/200 batches
+  Processed 160/200 batches
+  Processed 170/200 batches
+  Processed 180/200 batches
+  Processed 190/200 batches
+  Processed 200/200 batches
+  Saved: experiments/gradient_alignment/outputs_femnist/alpha_raw_chameleon.csv
+  Saved: experiments/gradient_alignment/outputs_femnist/alpha_summary_chameleon.csv
+
+============================================================
+Experiment 2 (γ) — clean model gradient diversity
+============================================================
+  Loaded checkpoint: results/femnist_benign_iid/final_model.pt
+  Classes: 62
+  Bias layers: ['features.0', 'features.3', 'classifier.0', 'classifier.2', 'classifier.4']
+  Collecting up to 200 samples per class...
+  Actual counts: min=200, max=200
+  Computing class mean bias gradient directions...
+  Class 10/62 done
+  Class 20/62 done
+  Class 30/62 done
+  Class 40/62 done
+  Class 50/62 done
+  Class 60/62 done
+  Class 62/62 done
+
+  Zero-mean residuals per layer:
+    features.0                              : 0.0991
+    features.3                              : 0.0641
+    classifier.0                            : 0.0384
+    classifier.2                            : 0.0373
+    classifier.4                            : 0.0484
+
+  Computing pairwise cosine similarities...
+    features.0                                γ=0.9837  mean_sim=0.4460  eff_rank_lb=1.03  residual=0.0991
+    features.3                                γ=0.9557  mean_sim=0.3069  eff_rank_lb=1.09  residual=0.0641
+    classifier.0                              γ=0.9556  mean_sim=0.1656  eff_rank_lb=1.09  residual=0.0384
+    classifier.2                              γ=0.9455  mean_sim=0.1253  eff_rank_lb=1.12  residual=0.0373
+    classifier.4                              γ=0.9831  mean_sim=0.0215  eff_rank_lb=1.03  residual=0.0484
+
+  Saved: experiments/gradient_alignment/outputs_femnist/gamma_raw.csv
+  Saved: experiments/gradient_alignment/outputs_femnist/gamma_summary.csv
+
+============================================================
+Extended Lemma 2 — Effective Rank Comparison
+============================================================
+  γ stats computed for 5 layers
+  Loaded checkpoint: results/femnist_benign_iid/final_model.pt
+  Bias-bearing layers: ['features.0', 'features.3', 'classifier.0', 'classifier.2', 'classifier.4']
+
+  Computing Σ_clean (200 batches × 64 samples)...
+    clean gradients: 20/200 batches
+    clean gradients: 40/200 batches
+    clean gradients: 60/200 batches
+    clean gradients: 80/200 batches
+    clean gradients: 100/200 batches
+    clean gradients: 120/200 batches
+    clean gradients: 140/200 batches
+    clean gradients: 160/200 batches
+    clean gradients: 180/200 batches
+    clean gradients: 200/200 batches
+  Σ_clean accumulated (12800 total samples)
+    features.0                                  n_bias=   6  eff_rank_clean=3.40  (n_pos_eigvals=6)
+    features.3                                  n_bias=  16  eff_rank_clean=7.41  (n_pos_eigvals=16)
+    classifier.0                                n_bias= 120  eff_rank_clean=25.20  (n_pos_eigvals=120)
+    classifier.2                                n_bias=  84  eff_rank_clean=24.63  (n_pos_eigvals=84)
+    classifier.4                                n_bias=  62  eff_rank_clean=14.63  (n_pos_eigvals=62)
+
+  Zero-mean residuals (from exp_gamma):
+    features.0                                  residual=0.0991
+    features.3                                  residual=0.0641
+    classifier.0                                residual=0.0384
+    classifier.2                                residual=0.0373
+    classifier.4                                residual=0.0484
+
+  Computing Σ_bd for 'neurotoxin' ...
+    done (12800 samples)
+
+  Computing Σ_bd for 'a3fl' ...
+  Loaded trained A3FL pattern from results/femnist_fedavg_a3fl/trigger.pt
+    done (12800 samples)
+
+  Computing Σ_bd for 'iba' ...
+  Loaded trained IBA generator from results/femnist_fedavg_iba/trigger.pt
+    done (12800 samples)
+
+  Computing Σ_bd for 'chameleon' ...
+    done (12800 samples)
+
+  Layer                                        γ_max  γ_mean  rank_clean rank_bd_max   rank_gap
+  -----------------------------------------------------------------------------------------------
+  features.0                                   0.984   0.446       3.399       2.503      0.896
+  features.3                                   0.956   0.307       7.409       3.951      3.458
+  classifier.0                                 0.956   0.166      25.204       2.480     22.724
+  classifier.2                                 0.946   0.125      24.625       2.334     22.291
+  classifier.4                                 0.983   0.022      14.629       1.679     12.950
+
+  Saved: experiments/gradient_alignment/outputs_femnist/rank_comparison_table.csv
+  Saved: experiments/gradient_alignment/outputs_femnist/rank_comparison_table.png
+  Saved: experiments/gradient_alignment/outputs_femnist/eigenvalue_spectra.png
+
+Generating figures...
+Saved: experiments/gradient_alignment/outputs_femnist/alpha_distributions.png
+Saved: experiments/gradient_alignment/outputs_femnist/gamma_heatmaps.png
+Saved: experiments/gradient_alignment/outputs_femnist/theory_validation.png
+
+Done. All outputs written to: experiments/gradient_alignment/outputs_femnist
+
+Diagnostic outputs:
+total 17M
+-rw-r--r-- 1 abellach UTILISATEURS 325K  2 juin  13:37 alpha_distributions.png
+-rw-r--r-- 1 abellach UTILISATEURS 3,6M  2 juin  13:32 alpha_raw_a3fl.csv
+-rw-r--r-- 1 abellach UTILISATEURS 3,6M  2 juin  13:34 alpha_raw_chameleon.csv
+-rw-r--r-- 1 abellach UTILISATEURS 3,6M  2 juin  13:34 alpha_raw_iba.csv
+-rw-r--r-- 1 abellach UTILISATEURS 3,6M  2 juin  13:32 alpha_raw_neurotoxin.csv
+-rw-r--r-- 1 abellach UTILISATEURS  770  2 juin  13:32 alpha_summary_a3fl.csv
+-rw-r--r-- 1 abellach UTILISATEURS  769  2 juin  13:34 alpha_summary_chameleon.csv
+-rw-r--r-- 1 abellach UTILISATEURS  776  2 juin  13:34 alpha_summary_iba.csv
+-rw-r--r-- 1 abellach UTILISATEURS  776  2 juin  13:32 alpha_summary_neurotoxin.csv
+-rw-r--r-- 1 abellach UTILISATEURS 294K  2 juin  13:36 eigenvalue_spectra.png
+-rw-r--r-- 1 abellach UTILISATEURS  93K  2 juin  13:37 gamma_heatmaps.png
+-rw-r--r-- 1 abellach UTILISATEURS 738K  2 juin  13:34 gamma_raw.csv
+-rw-r--r-- 1 abellach UTILISATEURS  520  2 juin  13:34 gamma_summary.csv
+-rw-r--r-- 1 abellach UTILISATEURS  392  2 juin  13:36 rank_comparison_table.csv
+-rw-r--r-- 1 abellach UTILISATEURS  63K  2 juin  13:36 rank_comparison_table.png
+-rw-r--r-- 1 abellach UTILISATEURS 129K  2 juin  13:37 theory_validation.png
+
+============================================================
+ Job complete: 2026-06-02 13:37:09
+============================================================

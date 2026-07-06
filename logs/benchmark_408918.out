@@ -1,0 +1,21 @@
+Installing PyTorch (cu124)...
+Installing project dependencies...
+============================================================
+ Job ID   : 408918
+ Node     : l3icalcul07
+ Start    : 2026-06-04 14:09:30
+ Python   : Python 3.10.19
+ PyTorch  : 2.5.1+cu124
+ CUDA     : True
+ GPUs     : NVIDIA RTX A6000,NVIDIA RTX A6000,NVIDIA RTX A6000,NVIDIA RTX A6000
+============================================================
+Setting up scratch at: /tmp/abellach/408918
+Copying data to local scratch...
+data/ -> scratch (fast path)
+
+Starting parallel benchmark on 4 GPUs...
+2026-06-04 14:09:49
+[GPU 2] Starting cifar10
+[GPU 0] Starting femnist
+[GPU 3] Starting tiny_imagenet
+[GPU 1] Starting gtsrb

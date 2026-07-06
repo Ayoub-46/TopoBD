@@ -1,0 +1,93 @@
+Installing PyTorch (cu124)...
+Installing project dependencies...
+============================================================
+ Job ID   : 71
+ Node     : l3icalcul07
+ Start    : 2026-06-26 11:01:12
+ Python   : Python 3.10.19
+ PyTorch  : 2.5.1+cu124
+ CUDA     : True
+ GPUs     : NVIDIA RTX A6000,NVIDIA RTX A6000,NVIDIA RTX A6000
+============================================================
+Setting up scratch at: /tmp/abellach/71
+Warning: 'data' folder not found — datasets will be downloaded on first run.
+
+Starting parallel benchmark on 4 GPUs...
+2026-06-26 11:02:08
+[GPU 0] Starting femnist
+[GPU 2] Starting cifar10
+[GPU 1] Starting gtsrb
+[GPU 0] Done
+[GPU 2] Done
+[GPU 1] Done
+
+All workers finished.
+2026-06-26 11:02:37
+
+--- GPU 0 last 5 lines ---
+femnist neurotoxin deepsight       10           0.858          0.001     0.035    0.007
+femnist neurotoxin     flame       10           0.859          0.001     0.021    0.001
+femnist neurotoxin     mkrum       10           0.859          0.001     0.022    0.002
+femnist neurotoxin  nnm_krum       10           0.858          0.001     0.022    0.002
+femnist  chameleon deepsight        2           0.858          0.001     0.063    0.044
+
+--- GPU 1 last 5 lines ---
+  gtsrb neurotoxin deepsight       10           0.925          0.002     0.606    0.046
+  gtsrb neurotoxin     flame       10           0.927          0.004     0.618    0.072
+  gtsrb neurotoxin     mkrum       10           0.927          0.003     0.451    0.086
+  gtsrb neurotoxin  nnm_krum       10           0.923          0.002     0.259    0.092
+  gtsrb  chameleon deepsight        5           0.924          0.012     0.466    0.091
+
+--- GPU 2 last 5 lines ---
+cifar10   a3fl     mkrum       10           0.876          0.004     1.000    0.000
+cifar10   a3fl  nnm_krum       10           0.866          0.004     1.000    0.000
+cifar10    iba deepsight       10           0.879          0.002     0.999    0.001
+cifar10    iba     flame       10           0.863          0.003     0.999    0.001
+cifar10    iba     mkrum        1           0.863            NaN     1.000      NaN
+
+Generating merged benchmark_summary.csv...
+
+dataset     attack   defense  n_seeds  clean_acc_mean  clean_acc_std  asr_mean  asr_std
+femnist       a3fl deepsight       10           0.859          0.001     0.830    0.097
+femnist       a3fl     flame       10           0.859          0.001     0.773    0.087
+femnist       a3fl     mkrum       10           0.860          0.001     0.397    0.177
+femnist       a3fl  nnm_krum       10           0.858          0.001     0.420    0.121
+femnist        iba deepsight       10           0.859          0.000     1.000    0.000
+femnist        iba     flame       10           0.859          0.001     1.000    0.000
+femnist        iba     mkrum       10           0.859          0.001     1.000    0.000
+femnist        iba  nnm_krum       10           0.857          0.001     0.999    0.001
+femnist neurotoxin deepsight       10           0.858          0.001     0.035    0.007
+femnist neurotoxin     flame       10           0.859          0.001     0.021    0.001
+femnist neurotoxin     mkrum       10           0.859          0.001     0.022    0.002
+femnist neurotoxin  nnm_krum       10           0.858          0.001     0.022    0.002
+femnist  chameleon deepsight        2           0.858          0.001     0.063    0.044
+  gtsrb       a3fl deepsight       10           0.928          0.003     0.996    0.005
+  gtsrb       a3fl     flame       10           0.929          0.003     0.991    0.008
+  gtsrb       a3fl     mkrum       10           0.928          0.003     0.993    0.010
+  gtsrb       a3fl  nnm_krum       10           0.924          0.004     0.985    0.019
+  gtsrb        iba deepsight       10           0.929          0.004     0.997    0.005
+  gtsrb        iba     flame       10           0.928          0.005     0.997    0.006
+  gtsrb        iba     mkrum       10           0.928          0.003     0.998    0.003
+  gtsrb        iba  nnm_krum       10           0.924          0.003     0.994    0.009
+  gtsrb neurotoxin deepsight       10           0.925          0.002     0.606    0.046
+  gtsrb neurotoxin     flame       10           0.927          0.004     0.618    0.072
+  gtsrb neurotoxin     mkrum       10           0.927          0.003     0.451    0.086
+  gtsrb neurotoxin  nnm_krum       10           0.923          0.002     0.259    0.092
+  gtsrb  chameleon deepsight        5           0.924          0.012     0.466    0.091
+cifar10       a3fl deepsight       10           0.878          0.004     1.000    0.000
+cifar10       a3fl     flame       10           0.864          0.003     1.000    0.000
+cifar10       a3fl     mkrum       10           0.876          0.004     1.000    0.000
+cifar10       a3fl  nnm_krum       10           0.866          0.004     1.000    0.000
+cifar10        iba deepsight       10           0.879          0.002     0.999    0.001
+cifar10        iba     flame       10           0.863          0.003     0.999    0.001
+cifar10        iba     mkrum        1           0.863            NaN     1.000      NaN
+
+============================================================
+ Job complete: 2026-06-26 11:02:57
+ Summary    : results/benchmark_summary.csv
+ Run dirs   : 655
+ Per-GPU logs:
+-rw-r--r-- 1 abellach UTILISATEURS  72K 26 juin  11:02 logs/benchmark_gpu0_71.log
+-rw-r--r-- 1 abellach UTILISATEURS  68K 26 juin  11:02 logs/benchmark_gpu1_71.log
+-rw-r--r-- 1 abellach UTILISATEURS 188K 26 juin  11:02 logs/benchmark_gpu2_71.log
+============================================================

@@ -1,0 +1,58 @@
+Installing PyTorch (cu124)...
+Installing project dependencies...
+============================================================
+ Job ID   : 1683
+ Node     : l3icalcul07
+ Start    : 2026-07-04 17:23:27
+ Python   : Python 3.10.19
+ PyTorch  : 2.5.1+cu124
+ CUDA     : True
+ GPUs     : NVIDIA RTX A6000,NVIDIA RTX A6000,NVIDIA RTX A6000
+============================================================
+Setting up scratch at: /tmp/abellach/1683
+Warning: 'data' folder not found — datasets will be downloaded on first run.
+
+Starting TopoSentinel benchmark on 4 GPUs...
+2026-07-04 17:23:57
+[GPU 1] Starting gtsrb
+[GPU 0] Starting femnist
+[GPU 2] Starting cifar10
+[GPU 2] Done
+[GPU 1] Done
+[GPU 0] Done
+
+All workers finished.
+2026-07-04 17:24:29
+
+--- GPU 0 last 5 lines ---
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/EMNIST'
+17:24:22  INFO      topo_benchmark — Training done — 40 new runs  (40 failed).
+17:24:22  INFO      topo_benchmark — Generating summary CSV …
+17:24:22  INFO      topo_benchmark — Summary → results/toposentinel_summary.csv  (0 rows)
+
+--- GPU 1 last 5 lines ---
+    mkdir(name, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gtsrb'
+17:24:22  INFO      topo_benchmark — Training done — 40 new runs  (40 failed).
+17:24:22  INFO      topo_benchmark — Generating summary CSV …
+17:24:22  INFO      topo_benchmark — Summary → results/toposentinel_summary.csv  (0 rows)
+
+--- GPU 2 last 5 lines ---
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+17:24:22  INFO      topo_benchmark — Training done — 40 new runs  (40 failed).
+17:24:22  INFO      topo_benchmark — Generating summary CSV …
+17:24:22  INFO      topo_benchmark — Summary → results/toposentinel_summary.csv  (0 rows)
+
+Generating merged toposentinel_summary.csv...
+
+============================================================
+ Job complete: 2026-07-04 17:24:40
+ Summary    : results/toposentinel_summary.csv
+ Run dirs   : 0
+ Per-GPU logs:
+-rw-r--r-- 1 abellach UTILISATEURS 74K  4 juil. 17:24 logs/topo_benchmark_gpu0_1683.log
+-rw-r--r-- 1 abellach UTILISATEURS 76K  4 juil. 17:24 logs/topo_benchmark_gpu1_1683.log
+-rw-r--r-- 1 abellach UTILISATEURS 77K  4 juil. 17:24 logs/topo_benchmark_gpu2_1683.log
+============================================================

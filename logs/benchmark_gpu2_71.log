@@ -1,0 +1,2515 @@
+11:02:17  INFO      benchmark — Matrix: 1 datasets × 4 attacks × 4 defenses × 10 seeds = 160 runs
+11:02:17  INFO      benchmark — Status — complete: 60  partial/incomplete: 1  not started: 99
+11:02:17  INFO      benchmark — Time budget: 98.0 h
+11:02:17  INFO      benchmark — ▶  cifar10_iba_mkrum_seed0
+11:02:17  INFO      experiment.runner — Initialising 'cifar10_iba_mkrum_seed0' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_mkrum_seed0 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_mkrum_seed1
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_mkrum_seed1' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_mkrum_seed1 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_mkrum_seed2
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_mkrum_seed2' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_mkrum_seed2 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_mkrum_seed3
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_mkrum_seed3' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_mkrum_seed3 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_mkrum_seed4
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_mkrum_seed4' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_mkrum_seed4 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_mkrum_seed5
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_mkrum_seed5' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_mkrum_seed5 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_mkrum_seed6
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_mkrum_seed6' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_mkrum_seed6 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_mkrum_seed7
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_mkrum_seed7' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_mkrum_seed7 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_mkrum_seed8
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_mkrum_seed8' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_mkrum_seed8 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_mkrum_seed9
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_mkrum_seed9' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_mkrum_seed9 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_nnm_krum_seed0
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_nnm_krum_seed0' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_nnm_krum_seed0 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_nnm_krum_seed1
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_nnm_krum_seed1' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_nnm_krum_seed1 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_nnm_krum_seed2
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_nnm_krum_seed2' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_nnm_krum_seed2 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_nnm_krum_seed3
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_nnm_krum_seed3' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_nnm_krum_seed3 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_nnm_krum_seed4
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_nnm_krum_seed4' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_nnm_krum_seed4 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_nnm_krum_seed5
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_nnm_krum_seed5' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_nnm_krum_seed5 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_nnm_krum_seed6
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_nnm_krum_seed6' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_nnm_krum_seed6 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_nnm_krum_seed7
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_nnm_krum_seed7' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_nnm_krum_seed7 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_nnm_krum_seed8
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_nnm_krum_seed8' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_nnm_krum_seed8 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_iba_nnm_krum_seed9
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_iba_nnm_krum_seed9' | device=cuda | rounds=240 | clients=10/100 | attack=iba | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_iba_nnm_krum_seed9 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_deepsight_seed0
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_deepsight_seed0' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_deepsight_seed0 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_deepsight_seed1
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_deepsight_seed1' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_deepsight_seed1 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_deepsight_seed2
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_deepsight_seed2' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_deepsight_seed2 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_deepsight_seed3
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_deepsight_seed3' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_deepsight_seed3 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_deepsight_seed4
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_deepsight_seed4' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_deepsight_seed4 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_deepsight_seed5
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_deepsight_seed5' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_deepsight_seed5 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_deepsight_seed6
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_deepsight_seed6' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_deepsight_seed6 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_deepsight_seed7
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_deepsight_seed7' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_deepsight_seed7 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_deepsight_seed8
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_deepsight_seed8' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_deepsight_seed8 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_deepsight_seed9
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_deepsight_seed9' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_deepsight_seed9 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_flame_seed0
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_flame_seed0' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_flame_seed0 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_flame_seed1
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_flame_seed1' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_flame_seed1 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_flame_seed2
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_flame_seed2' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_flame_seed2 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_flame_seed3
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_flame_seed3' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_flame_seed3 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_flame_seed4
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_flame_seed4' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_flame_seed4 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_flame_seed5
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_flame_seed5' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_flame_seed5 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_flame_seed6
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_flame_seed6' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_flame_seed6 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_flame_seed7
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_flame_seed7' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_flame_seed7 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_flame_seed8
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_flame_seed8' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_flame_seed8 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_flame_seed9
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_flame_seed9' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_flame_seed9 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_mkrum_seed0
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_mkrum_seed0' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_mkrum_seed0 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_mkrum_seed1
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_mkrum_seed1' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_mkrum_seed1 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_mkrum_seed2
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_mkrum_seed2' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_mkrum_seed2 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_mkrum_seed3
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_mkrum_seed3' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_mkrum_seed3 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_mkrum_seed4
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_mkrum_seed4' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_mkrum_seed4 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_mkrum_seed5
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_mkrum_seed5' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_mkrum_seed5 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_mkrum_seed6
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_mkrum_seed6' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_mkrum_seed6 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_mkrum_seed7
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_mkrum_seed7' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_mkrum_seed7 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_mkrum_seed8
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_mkrum_seed8' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_mkrum_seed8 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_mkrum_seed9
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_mkrum_seed9' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_mkrum_seed9 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_nnm_krum_seed0
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_nnm_krum_seed0' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_nnm_krum_seed0 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_nnm_krum_seed1
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_nnm_krum_seed1' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_nnm_krum_seed1 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_nnm_krum_seed2
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_nnm_krum_seed2' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_nnm_krum_seed2 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_nnm_krum_seed3
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_nnm_krum_seed3' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_nnm_krum_seed3 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_nnm_krum_seed4
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_nnm_krum_seed4' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_nnm_krum_seed4 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_nnm_krum_seed5
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_nnm_krum_seed5' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_nnm_krum_seed5 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_nnm_krum_seed6
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_nnm_krum_seed6' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_nnm_krum_seed6 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_nnm_krum_seed7
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_nnm_krum_seed7' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_nnm_krum_seed7 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_nnm_krum_seed8
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_nnm_krum_seed8' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_nnm_krum_seed8 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_neurotoxin_nnm_krum_seed9
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_neurotoxin_nnm_krum_seed9' | device=cuda | rounds=240 | clients=10/100 | attack=neurotoxin | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_neurotoxin_nnm_krum_seed9 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_deepsight_seed0
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_deepsight_seed0' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_deepsight_seed0 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_deepsight_seed1
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_deepsight_seed1' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_deepsight_seed1 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_deepsight_seed2
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_deepsight_seed2' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_deepsight_seed2 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_deepsight_seed3
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_deepsight_seed3' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_deepsight_seed3 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_deepsight_seed4
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_deepsight_seed4' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_deepsight_seed4 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_deepsight_seed5
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_deepsight_seed5' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_deepsight_seed5 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_deepsight_seed6
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_deepsight_seed6' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_deepsight_seed6 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_deepsight_seed7
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_deepsight_seed7' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_deepsight_seed7 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_deepsight_seed8
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_deepsight_seed8' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_deepsight_seed8 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_deepsight_seed9
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_deepsight_seed9' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=deepsight
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_deepsight_seed9 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_flame_seed0
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_flame_seed0' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_flame_seed0 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_flame_seed1
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_flame_seed1' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_flame_seed1 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_flame_seed2
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_flame_seed2' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_flame_seed2 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_flame_seed3
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_flame_seed3' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_flame_seed3 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_flame_seed4
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_flame_seed4' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_flame_seed4 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_flame_seed5
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_flame_seed5' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_flame_seed5 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_flame_seed6
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_flame_seed6' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_flame_seed6 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_flame_seed7
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_flame_seed7' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_flame_seed7 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_flame_seed8
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_flame_seed8' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_flame_seed8 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_flame_seed9
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_flame_seed9' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=flame
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_flame_seed9 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_mkrum_seed0
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_mkrum_seed0' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_mkrum_seed0 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_mkrum_seed1
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_mkrum_seed1' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_mkrum_seed1 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_mkrum_seed2
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_mkrum_seed2' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_mkrum_seed2 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_mkrum_seed3
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_mkrum_seed3' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_mkrum_seed3 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_mkrum_seed4
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_mkrum_seed4' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_mkrum_seed4 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_mkrum_seed5
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_mkrum_seed5' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_mkrum_seed5 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_mkrum_seed6
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_mkrum_seed6' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_mkrum_seed6 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_mkrum_seed7
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_mkrum_seed7' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_mkrum_seed7 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_mkrum_seed8
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_mkrum_seed8' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_mkrum_seed8 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_mkrum_seed9
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_mkrum_seed9' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=mkrum
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_mkrum_seed9 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_nnm_krum_seed0
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_nnm_krum_seed0' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_nnm_krum_seed0 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_nnm_krum_seed1
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_nnm_krum_seed1' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_nnm_krum_seed1 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_nnm_krum_seed2
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_nnm_krum_seed2' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_nnm_krum_seed2 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_nnm_krum_seed3
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_nnm_krum_seed3' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_nnm_krum_seed3 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_nnm_krum_seed4
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_nnm_krum_seed4' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_nnm_krum_seed4 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_nnm_krum_seed5
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_nnm_krum_seed5' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_nnm_krum_seed5 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_nnm_krum_seed6
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_nnm_krum_seed6' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_nnm_krum_seed6 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_nnm_krum_seed7
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_nnm_krum_seed7' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_nnm_krum_seed7 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_nnm_krum_seed8
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_nnm_krum_seed8' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_nnm_krum_seed8 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — ▶  cifar10_chameleon_nnm_krum_seed9
+11:02:36  INFO      experiment.runner — Initialising 'cifar10_chameleon_nnm_krum_seed9' | device=cuda | rounds=240 | clients=10/100 | attack=chameleon | defense=nnm
+11:02:36  ERROR     benchmark — ✗  cifar10_chameleon_nnm_krum_seed9 — [Errno 17] File exists: 'data'
+Traceback (most recent call last):
+  File "/Utilisateurs/abellach/TopoBD/experiments/benchmark/run_benchmark.py", line 143, in run_one
+    FLRunner(config).run()
+  File "/Utilisateurs/abellach/TopoBD/experiment/runner.py", line 74, in __init__
+    self.adapter = build_adapter(config)
+  File "/Utilisateurs/abellach/TopoBD/experiment/utils.py", line 99, in build_adapter
+    adapter.setup()
+  File "/Utilisateurs/abellach/TopoBD/datasets/adapter.py", line 116, in setup
+    self.load_datasets()
+  File "/Utilisateurs/abellach/TopoBD/datasets/cifar10.py", line 56, in load_datasets
+    self._train_dataset = CIFAR10(
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 66, in __init__
+    self.download()
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/cifar.py", line 140, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 111, in download_url
+    os.makedirs(root, exist_ok=True)
+  File "/Utilisateurs/abellach/.conda/envs/toposentinel/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: 'data'
+11:02:36  INFO      benchmark — Training done — 100 new runs  (100 failed).
+11:02:36  INFO      benchmark — Generating summary CSV …
+11:02:37  INFO      benchmark — Summary → results/benchmark_summary.csv  (7 rows)
+
+dataset attack   defense  n_seeds  clean_acc_mean  clean_acc_std  asr_mean  asr_std
+cifar10   a3fl deepsight       10           0.878          0.004     1.000    0.000
+cifar10   a3fl     flame       10           0.864          0.003     1.000    0.000
+cifar10   a3fl     mkrum       10           0.876          0.004     1.000    0.000
+cifar10   a3fl  nnm_krum       10           0.866          0.004     1.000    0.000
+cifar10    iba deepsight       10           0.879          0.002     0.999    0.001
+cifar10    iba     flame       10           0.863          0.003     0.999    0.001
+cifar10    iba     mkrum        1           0.863            NaN     1.000      NaN

@@ -1,0 +1,451 @@
+
+Dataset: cifar10
+
+Checkpoint status:
+  cifar10_benign_iid                        MISSING (will train)
+  cifar10_fedavg_neurotoxin                 MISSING (will train)
+
+
+==================================================================
+  Run      : cifar10_benign_iid
+  Purpose  : benign baseline (required by Experiment 2 / γ)
+  Config   : /Utilisateurs/abellach/TopoBD/configs/cifar10_benign_iid.yaml
+  Attack   : none  |  Defense: none
+  Rounds   : 200  |  Clients: 100/10
+==================================================================
+
+22:13:47  INFO      experiment.runner — Initialising 'cifar10_benign_iid' | device=cuda | rounds=200 | clients=10/100 | attack=none | defense=none
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+22:14:06  INFO      experiment.utils — Built 100 clients — 0 malicious, 100 benign.
+22:14:06  INFO      experiment.runner — Setup complete — 100 clients (0 malicious) | backdoor eval: none
+22:14:40  INFO      experiment.runner — Round    1/200  |  acc:  10.99%  loss: 4.1109  |  mF1: 3.5%
+22:21:04  INFO      experiment.runner — Round   11/200  |  acc:  57.11%  loss: 1.2579  |  mF1: 57.0%
+22:27:53  INFO      experiment.runner — Round   21/200  |  acc:  66.70%  loss: 1.0066  |  mF1: 66.2%
+22:34:32  INFO      experiment.runner — Round   31/200  |  acc:  72.07%  loss: 0.8755  |  mF1: 71.9%
+22:41:11  INFO      experiment.runner — Round   41/200  |  acc:  76.17%  loss: 0.7654  |  mF1: 76.0%
+22:47:51  INFO      experiment.runner — Round   51/200  |  acc:  77.72%  loss: 0.7411  |  mF1: 77.5%
+22:54:44  INFO      experiment.runner — Round   61/200  |  acc:  80.08%  loss: 0.6541  |  mF1: 79.9%
+23:01:47  INFO      experiment.runner — Round   71/200  |  acc:  81.73%  loss: 0.6189  |  mF1: 81.6%
+23:08:59  INFO      experiment.runner — Round   81/200  |  acc:  82.64%  loss: 0.5973  |  mF1: 82.5%
+23:15:47  INFO      experiment.runner — Round   91/200  |  acc:  83.48%  loss: 0.5713  |  mF1: 83.3%
+23:22:52  INFO      experiment.runner — Round  101/200  |  acc:  84.09%  loss: 0.5533  |  mF1: 83.9%
+23:29:43  INFO      experiment.runner — Round  111/200  |  acc:  84.82%  loss: 0.5206  |  mF1: 84.7%
+23:36:25  INFO      experiment.runner — Round  121/200  |  acc:  85.65%  loss: 0.5095  |  mF1: 85.6%
+23:43:08  INFO      experiment.runner — Round  131/200  |  acc:  85.90%  loss: 0.5016  |  mF1: 85.8%
+23:50:04  INFO      experiment.runner — Round  141/200  |  acc:  86.13%  loss: 0.4923  |  mF1: 86.0%
+23:56:59  INFO      experiment.runner — Round  151/200  |  acc:  86.79%  loss: 0.4707  |  mF1: 86.7%
+00:04:39  INFO      experiment.runner — Round  161/200  |  acc:  86.35%  loss: 0.4829  |  mF1: 86.3%
+00:12:02  INFO      experiment.runner — Round  171/200  |  acc:  87.37%  loss: 0.4510  |  mF1: 87.4%
+00:18:53  INFO      experiment.runner — Round  181/200  |  acc:  87.34%  loss: 0.4671  |  mF1: 87.2%
+00:25:59  INFO      experiment.runner — Round  191/200  |  acc:  87.76%  loss: 0.4643  |  mF1: 87.6%
+00:32:38  INFO      experiment.runner — Round  200/200  |  acc:  87.90%  loss: 0.4556  |  mF1: 87.9%
+
+==============================================================
+  Summary — 21 rounds evaluated
+==============================================================
+  Final clean accuracy               87.90%
+  Best  clean accuracy               87.90%
+  Final clean loss                   0.4556
+  Macro F1                           87.85%
+==============================================================
+
+00:32:39  INFO      experiment.runner — Final model saved to results/cifar10_benign_iid/final_model.pt
+00:32:39  INFO      experiment.runner — Client atypicality written to results/cifar10_benign_iid/client_atypicality.json
+00:32:39  INFO      experiment.runner — Client inclusion rates written to results/cifar10_benign_iid/client_inclusion.csv
+
+==================================================================
+  Done: cifar10_benign_iid  (2h 18m 51s)
+  Clean accuracy : 87.90%
+  ASR            : —
+  Checkpoint     : /Utilisateurs/abellach/TopoBD/results/cifar10_benign_iid/final_model.pt
+==================================================================
+
+
+==================================================================
+  Run      : cifar10_fedavg_neurotoxin
+  Purpose  : Neurotoxin attack checkpoint (Experiment 1)
+  Config   : /Utilisateurs/abellach/TopoBD/configs/cifar10_fedavg_neurotoxin.yaml
+  Attack   : neurotoxin  |  Defense: none
+  Rounds   : 200  |  Clients: 100/10
+==================================================================
+
+00:32:39  INFO      experiment.runner — Initialising 'cifar10_fedavg_neurotoxin' | device=cuda | rounds=200 | clients=10/100 | attack=neurotoxin | defense=none
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+00:32:54  INFO      experiment.utils — Built 100 clients — 10 malicious, 90 benign.
+00:32:54  INFO      datasets.backdoor — BackdoorDataset: 9000 / 9000 samples poisoned (target=0, fraction=1.000, seed=0).
+00:32:54  INFO      experiment.runner — Setup complete — 100 clients (10 malicious) | backdoor eval: static-trigger
+00:33:44  INFO      experiment.runner — Round    1/200  |  acc:  20.00%  loss: 2.2484  |  ASR:   3.66%  asr_loss: 4.1546  |  mF1: 17.1%
+00:41:45  INFO      experiment.runner — Round   11/200  |  acc:  57.05%  loss: 1.2517  |  ASR:   4.20%  asr_loss: 5.6479  |  mF1: 56.7%
+00:50:18  INFO      experiment.runner — Round   21/200  |  acc:  66.44%  loss: 0.9996  |  ASR:   3.10%  asr_loss: 7.1345  |  mF1: 66.4%
+00:58:28  INFO      experiment.runner — Round   31/200  |  acc:  72.02%  loss: 0.8604  |  ASR:   3.94%  asr_loss: 7.8428  |  mF1: 71.8%
+01:06:44  INFO      experiment.runner — Round   41/200  |  acc:  75.38%  loss: 0.7700  |  ASR:   2.99%  asr_loss: 8.9387  |  mF1: 75.4%
+01:16:22  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=127).
+01:16:31  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 50: poisoned 226/500 samples (target=0, masked=True).
+01:17:03  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=178).
+01:17:14  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 50: poisoned 224/500 samples (target=0, masked=True).
+01:17:22  INFO      experiment.runner — Round   51/200  |  acc:  77.93%  loss: 0.7052  |  ASR:   4.49%  asr_loss: 8.1056  |  mF1: 77.9%
+01:17:36  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=96).
+01:17:45  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 51: poisoned 226/500 samples (target=0, masked=True).
+01:17:46  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=107).
+01:17:55  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 51: poisoned 223/500 samples (target=0, masked=True).
+01:18:20  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=106).
+01:18:28  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 51: poisoned 227/500 samples (target=0, masked=True).
+01:19:13  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=108).
+01:19:23  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 52: poisoned 223/500 samples (target=0, masked=True).
+01:20:34  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=189).
+01:20:43  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 53: poisoned 228/500 samples (target=0, masked=True).
+01:20:45  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=190).
+01:20:54  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 54: poisoned 228/500 samples (target=0, masked=True).
+01:23:38  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=184).
+01:23:45  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 56: poisoned 224/500 samples (target=0, masked=True).
+01:25:25  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=186).
+01:25:34  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 58: poisoned 224/500 samples (target=0, masked=True).
+01:25:57  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=194).
+01:26:04  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 58: poisoned 228/500 samples (target=0, masked=True).
+01:26:37  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=182).
+01:26:46  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 59: poisoned 223/500 samples (target=0, masked=True).
+01:27:18  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=188).
+01:27:27  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 60: poisoned 224/500 samples (target=0, masked=True).
+01:27:34  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=130).
+01:27:44  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 60: poisoned 232/500 samples (target=0, masked=True).
+01:27:57  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=105).
+01:28:08  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 60: poisoned 226/500 samples (target=0, masked=True).
+01:28:16  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=133).
+01:28:26  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 60: poisoned 223/500 samples (target=0, masked=True).
+01:28:39  INFO      experiment.runner — Round   61/200  |  acc:  79.87%  loss: 0.6264  |  ASR:   3.57%  asr_loss: 7.7731  |  mF1: 79.9%
+01:30:00  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=135).
+01:30:09  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 62: poisoned 223/500 samples (target=0, masked=True).
+01:30:49  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=118).
+01:30:56  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 63: poisoned 227/500 samples (target=0, masked=True).
+01:31:09  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=133).
+01:31:17  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 63: poisoned 232/500 samples (target=0, masked=True).
+01:31:56  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=137).
+01:32:05  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 64: poisoned 223/500 samples (target=0, masked=True).
+01:32:20  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=123).
+01:32:28  INFO      attacks.neurotoxin_client — Neurotoxin client [17] round 64: poisoned 226/500 samples (target=0, masked=True).
+01:34:35  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=139).
+01:34:44  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 66: poisoned 223/500 samples (target=0, masked=True).
+01:34:46  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=189).
+01:34:59  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 66: poisoned 223/500 samples (target=0, masked=True).
+01:35:01  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=143).
+01:35:10  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 66: poisoned 226/500 samples (target=0, masked=True).
+01:35:50  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=144).
+01:36:00  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 67: poisoned 226/500 samples (target=0, masked=True).
+01:37:00  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=127).
+01:37:08  INFO      attacks.neurotoxin_client — Neurotoxin client [17] round 68: poisoned 226/500 samples (target=0, masked=True).
+01:40:00  INFO      experiment.runner — Round   71/200  |  acc:  81.38%  loss: 0.6080  |  ASR:   2.30%  asr_loss: 11.1266  |  mF1: 81.3%
+01:40:33  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=207).
+01:40:43  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 71: poisoned 228/500 samples (target=0, masked=True).
+01:40:58  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=141).
+01:41:06  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 71: poisoned 232/500 samples (target=0, masked=True).
+01:41:14  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=142).
+01:41:24  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 72: poisoned 232/500 samples (target=0, masked=True).
+01:41:44  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=117).
+01:41:53  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 72: poisoned 226/500 samples (target=0, masked=True).
+01:42:18  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=200).
+01:42:28  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 72: poisoned 224/500 samples (target=0, masked=True).
+01:43:17  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=118).
+01:43:28  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 73: poisoned 226/500 samples (target=0, masked=True).
+01:43:56  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=119).
+01:44:06  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 74: poisoned 226/500 samples (target=0, masked=True).
+01:44:29  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=133).
+01:44:39  INFO      attacks.neurotoxin_client — Neurotoxin client [17] round 74: poisoned 226/500 samples (target=0, masked=True).
+01:45:49  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=152).
+01:45:59  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 75: poisoned 226/500 samples (target=0, masked=True).
+01:47:06  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=146).
+01:47:16  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 76: poisoned 232/500 samples (target=0, masked=True).
+01:47:58  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=122).
+01:48:09  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 77: poisoned 226/500 samples (target=0, masked=True).
+01:48:10  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=150).
+01:48:21  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 77: poisoned 223/500 samples (target=0, masked=True).
+01:49:14  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=134).
+01:49:26  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 78: poisoned 223/500 samples (target=0, masked=True).
+01:50:35  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=135).
+01:50:44  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 79: poisoned 223/500 samples (target=0, masked=True).
+01:51:06  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=135).
+01:51:15  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 80: poisoned 227/500 samples (target=0, masked=True).
+01:51:24  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=125).
+01:51:32  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 80: poisoned 226/500 samples (target=0, masked=True).
+01:51:55  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=208).
+01:52:04  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 80: poisoned 224/500 samples (target=0, masked=True).
+01:52:44  INFO      experiment.runner — Round   81/200  |  acc:  81.77%  loss: 0.5861  |  ASR:   3.89%  asr_loss: 8.6281  |  mF1: 81.6%
+01:53:13  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=154).
+01:53:23  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 81: poisoned 223/500 samples (target=0, masked=True).
+01:53:25  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=136).
+01:53:34  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 81: poisoned 227/500 samples (target=0, masked=True).
+01:55:58  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=138).
+01:56:09  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 83: poisoned 227/500 samples (target=0, masked=True).
+01:56:22  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=206).
+01:56:32  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 83: poisoned 223/500 samples (target=0, masked=True).
+01:58:34  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=158).
+01:58:43  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 85: poisoned 223/500 samples (target=0, masked=True).
+01:58:52  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=163).
+01:59:01  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 86: poisoned 226/500 samples (target=0, masked=True).
+01:59:09  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=159).
+01:59:19  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 86: poisoned 223/500 samples (target=0, masked=True).
+02:00:06  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=132).
+02:00:14  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 87: poisoned 226/500 samples (target=0, masked=True).
+02:01:03  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=164).
+02:01:12  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 87: poisoned 226/500 samples (target=0, masked=True).
+02:01:27  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=165).
+02:01:36  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 88: poisoned 226/500 samples (target=0, masked=True).
+02:03:48  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=160).
+02:03:57  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 90: poisoned 232/500 samples (target=0, masked=True).
+02:04:13  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=163).
+02:04:21  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 90: poisoned 223/500 samples (target=0, masked=True).
+02:04:49  INFO      experiment.runner — Round   91/200  |  acc:  82.63%  loss: 0.5594  |  ASR:   3.44%  asr_loss: 9.1864  |  mF1: 82.5%
+02:07:41  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=229).
+02:07:52  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 93: poisoned 228/500 samples (target=0, masked=True).
+02:08:00  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=170).
+02:08:11  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 93: poisoned 226/500 samples (target=0, masked=True).
+02:10:04  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=172).
+02:10:12  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 95: poisoned 226/500 samples (target=0, masked=True).
+02:10:58  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=219).
+02:11:08  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 96: poisoned 223/500 samples (target=0, masked=True).
+02:11:22  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=151).
+02:11:31  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 96: poisoned 227/500 samples (target=0, masked=True).
+02:12:37  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=153).
+02:12:47  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 97: poisoned 223/500 samples (target=0, masked=True).
+02:14:07  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=172).
+02:14:17  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 99: poisoned 223/500 samples (target=0, masked=True).
+02:15:11  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=169).
+02:15:20  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 99: poisoned 232/500 samples (target=0, masked=True).
+02:16:40  INFO      experiment.runner — Round  101/200  |  acc:  83.48%  loss: 0.5739  |  ASR:   2.44%  asr_loss: 11.8205  |  mF1: 83.3%
+02:16:54  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=237).
+02:17:04  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 101: poisoned 228/500 samples (target=0, masked=True).
+02:20:52  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=160).
+02:21:02  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 104: poisoned 223/500 samples (target=0, masked=True).
+02:21:11  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=175).
+02:21:20  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 105: poisoned 232/500 samples (target=0, masked=True).
+02:24:35  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=243).
+02:24:44  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 107: poisoned 228/500 samples (target=0, masked=True).
+02:25:07  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=153).
+02:25:17  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 108: poisoned 226/500 samples (target=0, masked=True).
+02:25:32  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=236).
+02:25:41  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 108: poisoned 224/500 samples (target=0, masked=True).
+02:26:09  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=237).
+02:26:19  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 109: poisoned 224/500 samples (target=0, masked=True).
+02:27:23  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=187).
+02:27:32  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 110: poisoned 226/500 samples (target=0, masked=True).
+02:27:54  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=233).
+02:28:03  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 110: poisoned 223/500 samples (target=0, masked=True).
+02:28:37  INFO      experiment.runner — Round  111/200  |  acc:  84.36%  loss: 0.5247  |  ASR:   4.38%  asr_loss: 9.1512  |  mF1: 84.2%
+02:29:04  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=166).
+02:29:11  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 111: poisoned 227/500 samples (target=0, masked=True).
+02:30:50  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=168).
+02:31:02  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 112: poisoned 223/500 samples (target=0, masked=True).
+02:34:12  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=160).
+02:34:20  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 115: poisoned 226/500 samples (target=0, masked=True).
+02:35:32  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=186).
+02:35:40  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 116: poisoned 232/500 samples (target=0, masked=True).
+02:35:42  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=173).
+02:35:50  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 117: poisoned 223/500 samples (target=0, masked=True).
+02:37:43  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=191).
+02:37:52  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 118: poisoned 223/500 samples (target=0, masked=True).
+02:38:48  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=178).
+02:38:58  INFO      attacks.neurotoxin_client — Neurotoxin client [17] round 119: poisoned 226/500 samples (target=0, masked=True).
+02:39:07  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=196).
+02:39:17  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 119: poisoned 226/500 samples (target=0, masked=True).
+02:41:00  INFO      experiment.runner — Round  121/200  |  acc:  84.29%  loss: 0.5369  |  ASR:   4.76%  asr_loss: 10.0007  |  mF1: 84.2%
+02:47:22  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=254).
+02:47:31  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 126: poisoned 224/500 samples (target=0, masked=True).
+02:49:59  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=251).
+02:50:09  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 128: poisoned 223/500 samples (target=0, masked=True).
+02:50:45  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=174).
+02:50:56  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 129: poisoned 226/500 samples (target=0, masked=True).
+02:51:54  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=203).
+02:52:02  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 130: poisoned 223/500 samples (target=0, masked=True).
+02:52:54  INFO      experiment.runner — Round  131/200  |  acc:  85.53%  loss: 0.4981  |  ASR:   5.76%  asr_loss: 9.1030  |  mF1: 85.5%
+02:54:17  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=255).
+02:54:26  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 132: poisoned 223/500 samples (target=0, masked=True).
+02:55:01  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=260).
+02:55:10  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 132: poisoned 224/500 samples (target=0, masked=True).
+02:56:06  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=256).
+02:56:17  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 133: poisoned 223/500 samples (target=0, masked=True).
+02:57:11  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=189).
+02:57:23  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 134: poisoned 227/500 samples (target=0, masked=True).
+02:58:38  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=212).
+02:58:46  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 135: poisoned 226/500 samples (target=0, masked=True).
+03:00:11  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=206).
+03:00:22  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 136: poisoned 232/500 samples (target=0, masked=True).
+03:00:24  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=259).
+03:00:34  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 136: poisoned 223/500 samples (target=0, masked=True).
+03:00:55  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=265).
+03:01:03  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 137: poisoned 224/500 samples (target=0, masked=True).
+03:01:37  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=196).
+03:01:46  INFO      attacks.neurotoxin_client — Neurotoxin client [17] round 137: poisoned 226/500 samples (target=0, masked=True).
+03:05:49  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=196).
+03:05:58  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 140: poisoned 223/500 samples (target=0, masked=True).
+03:06:06  INFO      experiment.runner — Round  141/200  |  acc:  85.74%  loss: 0.4953  |  ASR:  10.57%  asr_loss: 8.1701  |  mF1: 85.6%
+03:06:37  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=211).
+03:06:47  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 141: poisoned 232/500 samples (target=0, masked=True).
+03:06:50  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=269).
+03:06:59  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 141: poisoned 224/500 samples (target=0, masked=True).
+03:08:34  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=270).
+03:08:42  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 142: poisoned 224/500 samples (target=0, masked=True).
+03:08:49  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=271).
+03:09:00  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 143: poisoned 224/500 samples (target=0, masked=True).
+03:09:20  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=266).
+03:09:29  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 143: poisoned 223/500 samples (target=0, masked=True).
+03:09:36  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=198).
+03:09:45  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 143: poisoned 227/500 samples (target=0, masked=True).
+03:10:01  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=188).
+03:10:09  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 143: poisoned 226/500 samples (target=0, masked=True).
+03:10:41  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=214).
+03:10:50  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 144: poisoned 232/500 samples (target=0, masked=True).
+03:11:04  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=267).
+03:11:12  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 144: poisoned 223/500 samples (target=0, masked=True).
+03:11:49  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=201).
+03:11:57  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 145: poisoned 223/500 samples (target=0, masked=True).
+03:11:59  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=204).
+03:12:07  INFO      attacks.neurotoxin_client — Neurotoxin client [17] round 145: poisoned 226/500 samples (target=0, masked=True).
+03:12:48  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=205).
+03:12:58  INFO      attacks.neurotoxin_client — Neurotoxin client [17] round 146: poisoned 226/500 samples (target=0, masked=True).
+03:15:32  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=225).
+03:15:41  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 148: poisoned 226/500 samples (target=0, masked=True).
+03:17:15  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=226).
+03:17:26  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 149: poisoned 226/500 samples (target=0, masked=True).
+03:18:15  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=273).
+03:18:24  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 150: poisoned 223/500 samples (target=0, masked=True).
+03:18:53  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=223).
+03:19:03  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 150: poisoned 223/500 samples (target=0, masked=True).
+03:19:10  INFO      experiment.runner — Round  151/200  |  acc:  86.15%  loss: 0.4753  |  ASR:  32.79%  asr_loss: 4.5860  |  mF1: 86.1%
+03:20:37  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=229).
+03:20:46  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 152: poisoned 226/500 samples (target=0, masked=True).
+03:21:14  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=208).
+03:21:22  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 152: poisoned 223/500 samples (target=0, masked=True).
+03:21:30  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=198).
+03:21:38  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 153: poisoned 226/500 samples (target=0, masked=True).
+03:22:49  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=290).
+03:22:57  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 154: poisoned 228/500 samples (target=0, masked=True).
+03:23:12  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=210).
+03:23:22  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 154: poisoned 223/500 samples (target=0, masked=True).
+03:24:18  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=210).
+03:24:28  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 155: poisoned 227/500 samples (target=0, masked=True).
+03:24:38  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=225).
+03:24:47  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 155: poisoned 232/500 samples (target=0, masked=True).
+03:25:40  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=201).
+03:25:51  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 156: poisoned 226/500 samples (target=0, masked=True).
+03:26:26  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=212).
+03:26:35  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 157: poisoned 227/500 samples (target=0, masked=True).
+03:27:38  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=235).
+03:27:49  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 158: poisoned 226/500 samples (target=0, masked=True).
+03:27:59  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=281).
+03:28:09  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 158: poisoned 223/500 samples (target=0, masked=True).
+03:29:46  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=216).
+03:29:56  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 160: poisoned 223/500 samples (target=0, masked=True).
+03:31:11  INFO      experiment.runner — Round  161/200  |  acc:  86.24%  loss: 0.4829  |  ASR:  37.70%  asr_loss: 4.5917  |  mF1: 86.2%
+03:33:21  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=299).
+03:33:31  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 163: poisoned 228/500 samples (target=0, masked=True).
+03:35:26  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=219).
+03:35:35  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 164: poisoned 227/500 samples (target=0, masked=True).
+03:36:16  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=235).
+03:36:24  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 165: poisoned 232/500 samples (target=0, masked=True).
+03:36:26  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=220).
+03:36:37  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 165: poisoned 227/500 samples (target=0, masked=True).
+03:37:00  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=222).
+03:37:09  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 166: poisoned 223/500 samples (target=0, masked=True).
+03:37:18  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=243).
+03:37:30  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 166: poisoned 226/500 samples (target=0, masked=True).
+03:37:38  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=236).
+03:37:47  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 166: poisoned 232/500 samples (target=0, masked=True).
+03:38:25  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=295).
+03:38:34  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 167: poisoned 224/500 samples (target=0, masked=True).
+03:38:50  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=212).
+03:38:57  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 167: poisoned 226/500 samples (target=0, masked=True).
+03:41:03  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=305).
+03:41:13  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 169: poisoned 228/500 samples (target=0, masked=True).
+03:41:15  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=292).
+03:41:24  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 169: poisoned 223/500 samples (target=0, masked=True).
+03:41:25  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=214).
+03:41:36  INFO      attacks.neurotoxin_client — Neurotoxin client [3] round 169: poisoned 226/500 samples (target=0, masked=True).
+03:43:16  INFO      experiment.runner — Round  171/200  |  acc:  86.73%  loss: 0.4735  |  ASR:  52.16%  asr_loss: 3.5203  |  mF1: 86.7%
+03:44:24  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=299).
+03:44:34  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 171: poisoned 224/500 samples (target=0, masked=True).
+03:46:02  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=229).
+03:46:12  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 173: poisoned 223/500 samples (target=0, masked=True).
+03:46:34  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=301).
+03:46:44  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 173: poisoned 224/500 samples (target=0, masked=True).
+03:47:25  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=244).
+03:47:36  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 174: poisoned 232/500 samples (target=0, masked=True).
+03:48:29  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=234).
+03:48:38  INFO      attacks.neurotoxin_client — Neurotoxin client [17] round 175: poisoned 226/500 samples (target=0, masked=True).
+03:51:37  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=313).
+03:51:46  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 177: poisoned 228/500 samples (target=0, masked=True).
+03:53:08  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=301).
+03:53:18  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 178: poisoned 223/500 samples (target=0, masked=True).
+03:53:37  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=234).
+03:53:48  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 178: poisoned 223/500 samples (target=0, masked=True).
+03:54:56  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=234).
+03:55:05  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 179: poisoned 227/500 samples (target=0, masked=True).
+03:55:07  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=252).
+03:55:16  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 179: poisoned 223/500 samples (target=0, masked=True).
+03:56:14  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=250).
+03:56:23  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 180: poisoned 232/500 samples (target=0, masked=True).
+03:56:44  INFO      experiment.runner — Round  181/200  |  acc:  87.04%  loss: 0.4505  |  ASR:  61.26%  asr_loss: 2.6335  |  mF1: 87.0%
+03:57:07  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=304).
+03:57:17  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 181: poisoned 223/500 samples (target=0, masked=True).
+03:57:20  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=237).
+03:57:30  INFO      attacks.neurotoxin_client — Neurotoxin client [14] round 181: poisoned 223/500 samples (target=0, masked=True).
+03:58:24  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=237).
+03:58:34  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 182: poisoned 227/500 samples (target=0, masked=True).
+04:00:55  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=307).
+04:01:05  INFO      attacks.neurotoxin_client — Neurotoxin client [81] round 184: poisoned 223/500 samples (target=0, masked=True).
+04:02:14  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=262).
+04:02:24  INFO      attacks.neurotoxin_client — Neurotoxin client [35] round 185: poisoned 226/500 samples (target=0, masked=True).
+04:04:52  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=324).
+04:05:03  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 188: poisoned 228/500 samples (target=0, masked=True).
+04:06:35  INFO      datasets.backdoor — BackdoorDataset: 227 / 500 samples poisoned (target=0, fraction=0.500, seed=244).
+04:06:43  INFO      attacks.neurotoxin_client — Neurotoxin client [13] round 189: poisoned 227/500 samples (target=0, masked=True).
+04:07:33  INFO      datasets.backdoor — BackdoorDataset: 223 / 500 samples poisoned (target=0, fraction=0.500, seed=263).
+04:07:42  INFO      attacks.neurotoxin_client — Neurotoxin client [31] round 190: poisoned 223/500 samples (target=0, masked=True).
+04:08:40  INFO      experiment.runner — Round  191/200  |  acc:  86.73%  loss: 0.4827  |  ASR:  47.14%  asr_loss: 3.8361  |  mF1: 86.6%
+04:09:13  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=319).
+04:09:24  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 191: poisoned 224/500 samples (target=0, masked=True).
+04:10:22  INFO      datasets.backdoor — BackdoorDataset: 224 / 500 samples poisoned (target=0, fraction=0.500, seed=320).
+04:10:33  INFO      attacks.neurotoxin_client — Neurotoxin client [86] round 192: poisoned 224/500 samples (target=0, masked=True).
+04:13:46  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=331).
+04:13:55  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 195: poisoned 228/500 samples (target=0, masked=True).
+04:15:27  INFO      datasets.backdoor — BackdoorDataset: 232 / 500 samples poisoned (target=0, fraction=0.500, seed=267).
+04:15:37  INFO      attacks.neurotoxin_client — Neurotoxin client [28] round 197: poisoned 232/500 samples (target=0, masked=True).
+04:15:40  INFO      datasets.backdoor — BackdoorDataset: 226 / 500 samples poisoned (target=0, fraction=0.500, seed=256).
+04:15:49  INFO      attacks.neurotoxin_client — Neurotoxin client [17] round 197: poisoned 226/500 samples (target=0, masked=True).
+04:16:35  INFO      datasets.backdoor — BackdoorDataset: 228 / 500 samples poisoned (target=0, fraction=0.500, seed=333).
+04:16:43  INFO      attacks.neurotoxin_client — Neurotoxin client [94] round 197: poisoned 228/500 samples (target=0, masked=True).
+04:19:00  INFO      experiment.runner — Round  200/200  |  acc:  87.25%  loss: 0.4599  |  ASR:  61.22%  asr_loss: 2.8801  |  mF1: 87.2%
+
+==============================================================
+  Summary — 21 rounds evaluated
+==============================================================
+  Final clean accuracy               87.25%
+  Best  clean accuracy               87.25%
+  Final clean loss                   0.4599
+  Macro F1                           87.24%
+  Final ASR                          61.22%
+  Mean ASR (attack window)           19.54%
+  Max  ASR (attack window)           61.26%
+==============================================================
+
+04:19:01  INFO      experiment.runner — Final model saved to results/cifar10_fedavg_neurotoxin/final_model.pt
+04:19:01  INFO      experiment.runner — Client atypicality written to results/cifar10_fedavg_neurotoxin/client_atypicality.json
+04:19:01  INFO      experiment.runner — Client inclusion rates written to results/cifar10_fedavg_neurotoxin/client_inclusion.csv
+
+==================================================================
+  Done: cifar10_fedavg_neurotoxin  (3h 46m 22s)
+  Clean accuracy : 87.25%
+  ASR            : 61.22%
+  Checkpoint     : /Utilisateurs/abellach/TopoBD/results/cifar10_fedavg_neurotoxin/final_model.pt
+==================================================================
+
+
+==================================================================
+  Training complete  (6h 5m 14s total)
+  Trained : ['cifar10_benign_iid', 'cifar10_fedavg_neurotoxin']
+  Skipped : —
+==================================================================

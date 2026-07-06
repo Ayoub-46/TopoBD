@@ -160,11 +160,18 @@ _ATTACK_CHECKPOINT_MAPS: dict = {
         "iba":        "cifar10_fedavg_iba",
         "chameleon":  "cifar10_fedavg_chameleon",
     },
+    "femnist": {
+        "neurotoxin": "femnist_fedavg_neurotoxin",
+        "a3fl":       "femnist_fedavg_a3fl",
+        "iba":        "femnist_fedavg_iba",
+        "chameleon":  "femnist_fedavg_chameleon",
+    },
 }
 
 _BENIGN_RUNS: dict = {
     "gtsrb":   "gtsrb_benign_iid",
     "cifar10": "cifar10_benign_iid",
+    "femnist": "femnist_benign_iid",
 }
 
 # Kept for backward compatibility (existing code that imports these names).

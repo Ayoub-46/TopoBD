@@ -1,0 +1,13 @@
+
+Dataset: cifar10
+
+Checkpoint status:
+  cifar10_fedavg_a3fl                       PRESENT (will skip)
+
+SKIP  cifar10_fedavg_a3fl  (final_model.pt exists)
+
+==================================================================
+  Training complete  (0s total)
+  Trained : —
+  Skipped : ['cifar10_fedavg_a3fl']
+==================================================================

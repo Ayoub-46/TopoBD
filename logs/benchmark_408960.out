@@ -1,0 +1,92 @@
+Installing PyTorch (cu124)...
+Installing project dependencies...
+============================================================
+ Job ID   : 408960
+ Node     : l3icalcul07
+ Start    : 2026-06-04 17:27:40
+ Python   : Python 3.10.19
+ PyTorch  : 2.5.1+cu124
+ CUDA     : True
+ GPUs     : NVIDIA RTX A6000,NVIDIA RTX A6000,NVIDIA RTX A6000,NVIDIA RTX A6000
+============================================================
+Setting up scratch at: /tmp/abellach/408960
+Copying data to local scratch...
+data/ -> scratch (fast path)
+
+Starting parallel benchmark on 4 GPUs...
+2026-06-04 17:28:02
+[GPU 0] Starting femnist
+[GPU 1] Starting gtsrb
+[GPU 2] Starting cifar10
+[GPU 3] Starting tiny_imagenet
+[GPU 3] Done
+[GPU 2] Done
+[GPU 1] Done
+[GPU 0] Done
+
+All workers finished.
+2026-06-08 19:31:35
+
+--- GPU 0 last 5 lines ---
+femnist   none     mkrum       10           0.860          0.001       NaN      NaN
+femnist   none      krum       10           0.849          0.002       NaN      NaN
+femnist   none  nnm_krum       10           0.859          0.001       NaN      NaN
+femnist  patch      none       10           0.860          0.001     0.916    0.108
+femnist  patch     flame        9           0.859          0.001     0.945    0.056
+
+--- GPU 1 last 5 lines ---
+  gtsrb   none deepsight       10           0.927          0.003       NaN      NaN
+  gtsrb   none     mkrum       10           0.926          0.003       NaN      NaN
+  gtsrb   none      krum       10           0.912          0.009       NaN      NaN
+  gtsrb   none  nnm_krum       10           0.925          0.003       NaN      NaN
+  gtsrb  patch      none        2           0.925          0.001     0.895    0.005
+
+--- GPU 2 last 5 lines ---
+dataset attack   defense  n_seeds  clean_acc_mean  clean_acc_std  asr_mean  asr_std
+cifar10   none      none       10           0.878          0.003       NaN      NaN
+cifar10   none     flame       10           0.865          0.004       NaN      NaN
+cifar10   none deepsight       10           0.878          0.003       NaN      NaN
+cifar10   none     mkrum        4           0.877          0.003       NaN      NaN
+
+--- GPU 3 last 5 lines ---
+
+
+      dataset attack defense  n_seeds  clean_acc_mean  clean_acc_std  asr_mean  asr_std
+tiny_imagenet   none    none       10           0.526          0.005       NaN      NaN
+tiny_imagenet   none   flame        5           0.447          0.003       NaN      NaN
+
+Generating merged benchmark_summary.csv...
+
+      dataset attack   defense  n_seeds  clean_acc_mean  clean_acc_std  asr_mean  asr_std
+      femnist   none      none       10           0.861          0.001       NaN      NaN
+      femnist   none     flame       10           0.860          0.001       NaN      NaN
+      femnist   none deepsight       10           0.861          0.001       NaN      NaN
+      femnist   none     mkrum       10           0.860          0.001       NaN      NaN
+      femnist   none      krum       10           0.849          0.002       NaN      NaN
+      femnist   none  nnm_krum       10           0.859          0.001       NaN      NaN
+      femnist  patch      none       10           0.860          0.001     0.916    0.108
+      femnist  patch     flame        9           0.859          0.001     0.945    0.056
+        gtsrb   none      none       10           0.927          0.003       NaN      NaN
+        gtsrb   none     flame       10           0.927          0.003       NaN      NaN
+        gtsrb   none deepsight       10           0.927          0.003       NaN      NaN
+        gtsrb   none     mkrum       10           0.926          0.003       NaN      NaN
+        gtsrb   none      krum       10           0.912          0.009       NaN      NaN
+        gtsrb   none  nnm_krum       10           0.925          0.003       NaN      NaN
+        gtsrb  patch      none        2           0.925          0.001     0.895    0.005
+      cifar10   none      none       10           0.878          0.003       NaN      NaN
+      cifar10   none     flame       10           0.865          0.004       NaN      NaN
+      cifar10   none deepsight       10           0.878          0.003       NaN      NaN
+      cifar10   none     mkrum        4           0.877          0.003       NaN      NaN
+tiny_imagenet   none      none       10           0.526          0.005       NaN      NaN
+tiny_imagenet   none     flame        5           0.447          0.003       NaN      NaN
+
+============================================================
+ Job complete: 2026-06-08 19:31:58
+ Summary    : results/benchmark_summary.csv
+ Run dirs   : 190
+ Per-GPU logs:
+-rw-r--r-- 1 abellach UTILISATEURS 3,1M  8 juin  19:31 logs/benchmark_gpu0_408960.log
+-rw-r--r-- 1 abellach UTILISATEURS 2,8M  8 juin  18:18 logs/benchmark_gpu1_408960.log
+-rw-r--r-- 1 abellach UTILISATEURS 2,7M  8 juin  17:23 logs/benchmark_gpu2_408960.log
+-rw-r--r-- 1 abellach UTILISATEURS 1,2M  8 juin  15:35 logs/benchmark_gpu3_408960.log
+============================================================
