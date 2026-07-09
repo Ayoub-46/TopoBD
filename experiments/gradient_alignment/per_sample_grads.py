@@ -116,6 +116,36 @@ def per_sample_bias_gradients_from_labels(
         return _per_sample_grads_loop(model, inputs, targets, param_type="bias")
 
 
+def per_sample_weight_gradients_from_labels(
+    model: nn.Module,
+    inputs: torch.Tensor,
+    labels: torch.Tensor,
+    device: torch.device,
+) -> Dict[str, torch.Tensor]:
+    """Per-sample flattened weight gradients using each sample's own true label.
+
+    Mirrors :func:`per_sample_bias_gradients_from_labels` for the weight path.
+    Used for the clean weight covariance Σ_clean_W = (1/N) Σ_i g_i g_i^T with
+    the identical uncentered convention as the bias side.
+
+    Args:
+        model:   Eval-mode model on ``device``.
+        inputs:  Normalised batch ``(N, C, H, W)`` on ``device``.
+        labels:  True class labels ``(N,)`` long tensor.
+        device:  Torch device.
+
+    Returns:
+        Dict mapping layer name → tensor of shape ``(N, weight_numel)``.
+    """
+    model.eval()
+    targets = labels.to(device)
+    try:
+        return _per_sample_grads_vmap(model, inputs, targets, param_type="weight")
+    except Exception as exc:
+        print(f"[per_sample_grads] vmap failed ({exc}); using loop fallback.")
+        return _per_sample_grads_loop(model, inputs, targets, param_type="weight")
+
+
 def per_sample_weight_gradients(
     model: nn.Module,
     inputs: torch.Tensor,

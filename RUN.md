@@ -129,3 +129,14 @@ ATTACKS="none neurotoxin",DEFENSES="none toposentinel" \
 | Inclusion rate | `client_inclusion.csv` | `inclusion_rate` |
 | FPR vs atypicality | `client_inclusion.csv` | `empirical_fpr` + `atypicality` |
 | AUPRC scores | `anomaly_scores.csv` | `score`, `is_malicious` |
+
+python -m experiments.gradient_alignment.run_all \
+  --config configs/femnist_fedavg_iba.yaml \
+  --benign-checkpoint results/femnist_benign_iid/final_model.pt \
+  --kappa-weight \
+  --skip-exp1 --skip-exp2 \
+  --attacks neurotoxin a3fl iba chameleon \
+  --n-batches 200 --batch-size 64 \
+  --n-gram-samples 1000 --coord-subsample 5000 \
+  --output-dir experiments/gradient_alignment/outputs/outputs_femnist \
+  --device cuda

@@ -113,29 +113,29 @@ echo ""
 echo "Starting parallel benchmark on 4 GPUs..."
 echo "$(date '+%Y-%m-%d %H:%M:%S')"
 
-# # --- GPU 0: FEMNIST ---
-# (
-#     echo "[GPU 0] Starting femnist"
-#     export CUDA_VISIBLE_DEVICES=0
-#     python -m experiments.benchmark.run_benchmark \
-#         --datasets femnist \
-#         $COMMON \
-#         > logs/benchmark_gpu0_${SLURM_JOB_ID}.log 2>&1
-#     echo "[GPU 0] Done"
-# ) &
-# PID0=$!
+# --- GPU 0: FEMNIST ---
+(
+    echo "[GPU 0] Starting femnist"
+    export CUDA_VISIBLE_DEVICES=0
+    python -m experiments.benchmark.run_benchmark \
+        --datasets femnist \
+        $COMMON \
+        > logs/benchmark_gpu0_${SLURM_JOB_ID}.log 2>&1
+    echo "[GPU 0] Done"
+) &
+PID0=$!
 
-# # --- GPU 1: GTSRB ---
-# (
-#     echo "[GPU 1] Starting gtsrb"
-#     export CUDA_VISIBLE_DEVICES=1
-#     python -m experiments.benchmark.run_benchmark \
-#         --datasets gtsrb \
-#         $COMMON \
-#         > logs/benchmark_gpu1_${SLURM_JOB_ID}.log 2>&1
-#     echo "[GPU 1] Done"
-# ) &
-# PID1=$!
+# --- GPU 1: GTSRB ---
+(
+    echo "[GPU 1] Starting gtsrb"
+    export CUDA_VISIBLE_DEVICES=1
+    python -m experiments.benchmark.run_benchmark \
+        --datasets gtsrb \
+        $COMMON \
+        > logs/benchmark_gpu1_${SLURM_JOB_ID}.log 2>&1
+    echo "[GPU 1] Done"
+) &
+PID1=$!
 
 # --- GPU 2: CIFAR-10 ---
 (
@@ -162,7 +162,7 @@ PID2=$!
 # PID3=$!
 
 # Wait for all workers
-wait $PID2 
+wait $PID0 $PID1 $PID2 
 
 echo ""
 echo "All workers finished."

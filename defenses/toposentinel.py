@@ -32,6 +32,7 @@ Follows the two-step detection + aggregation pattern:
 
 from __future__ import annotations
 
+import csv
 import logging
 from collections import deque
 from typing import FrozenSet, List, Optional
@@ -65,26 +66,53 @@ class TopoSentinelServer(FedAvgAggregator):
         bias_history_window:          Controls the ``deque`` size for the
                                       benign bias-distance history
                                       (capacity ≈ ``window × min_clients × 2.5``).
-        filter_mode:                  ``"dkw"`` (default) for DKW-calibrated
-                                      accept interval; ``"fixed"`` for the
-                                      original p5/p95 percentile baseline
-                                      (ablation mode).
-        target_fpr:                   Target false-positive rate *delta*
-                                      (probability budget for rejecting a
-                                      benign client).  Used in ``"dkw"`` mode.
-        dkw_confidence:               DKW confidence level ``1 - alpha``.
-                                      Larger values widen the interval to
-                                      provide stronger FPR guarantees.
         bias_interval_margin:         Additive margin applied to both ends of
-                                      the interval in ``"fixed"`` mode only.
+                                      the accept interval (5th/95th percentile
+                                      of the benign bias-delta history).
         bias_fallback_interval:       ``[lo, hi]`` interval used when the
-                                      benign history is too small (``"fixed"``
-                                      mode only).
+                                      benign history is too small.
         min_clients_for_defense:      Minimum number of clients required to
                                       run the defense; fewer → detection skipped.
         min_bias_history_size:        Minimum history entries before the
-                                      learned interval is used (``"fixed"``
-                                      mode only; ``"dkw"`` mode requires L ≥ 2).
+                                      learned interval is used; below this,
+                                      ``bias_fallback_interval`` is used instead.
+        analysis_mode:                Pure-observability switch (default
+                                      ``False``).  When ``True``, no client is
+                                      ever rejected — every detection quantity
+                                      (bottleneck distance, decay threshold,
+                                      accept interval, per-client distances)
+                                      is still computed and logged to
+                                      ``_alarm_log`` / ``_filter_log`` (see
+                                      :meth:`write_analysis_logs`), but nothing
+                                      acts on it.  Production behaviour when
+                                      ``False`` is unchanged.
+        attack_pattern:               ``{"period": P, "duty": D, "warmup": W}``
+                                      sporadic ground-truth attack schedule
+                                      used only for analysis-mode logging.
+                                      Round ``r`` is an "attack round" iff
+                                      ``r >= W and (r - W) % P < D``, i.e. the
+                                      first ``W`` rounds are always quiet, so
+                                      the benign bias-history / reference H0
+                                      diagram is seeded from clean rounds
+                                      before any attack begins. Default
+                                      ``{"period": 10, "duty": 1, "warmup": 0}``.
+        console_monitor:              When ``True`` (production path only,
+                                      i.e. ``analysis_mode=False``), print one
+                                      line to stdout every round: selected
+                                      clients, the malicious ones among them,
+                                      the bottleneck distance and threshold,
+                                      whether filtering triggered, rejected
+                                      clients, and TPR/FPR — for interactive
+                                      threshold tuning. Never changes what is
+                                      rejected; observability only. Default
+                                      ``False``.
+        exclude_bn_bias:               When ``True``, BatchNorm bias (beta)
+                                      parameters are excluded from bias-space
+                                      extraction -- only Conv/Linear additive
+                                      bias is used for both the TDA alarm and
+                                      the intra-round filter. Default
+                                      ``False`` (BatchNorm bias included, as
+                                      documented in ``_compute_bias_param_names``).
         **kwargs:                     Forwarded to
                                       :class:`~fl.server.FedAvgAggregator`.
     """
@@ -94,17 +122,18 @@ class TopoSentinelServer(FedAvgAggregator):
         model: torch.nn.Module,
         device: torch.device,
         bias_metric: str = "euclidean",
-        bottleneck_initial_threshold: float = 0.8,
+        bottleneck_initial_threshold: float = 0.3,
         bottleneck_decay_rate: float = 0.99,
         bottleneck_min_threshold: float = 0.01,
         bias_history_window: int = 20,
-        filter_mode: str = "dkw",
-        target_fpr: float = 0.05,
-        dkw_confidence: float = 0.95,
         bias_interval_margin: float = 0.01,
         bias_fallback_interval: Optional[List[float]] = None,
         min_clients_for_defense: int = 3,
         min_bias_history_size: Optional[int] = None,
+        analysis_mode: bool = False,
+        attack_pattern: Optional[dict] = None,
+        console_monitor: bool = False,
+        exclude_bn_bias: bool = False,
         **kwargs,
     ):
         super().__init__(model=model, device=device, **kwargs)
@@ -114,9 +143,6 @@ class TopoSentinelServer(FedAvgAggregator):
         self.bottleneck_decay_rate        = bottleneck_decay_rate
         self.bottleneck_min_threshold     = bottleneck_min_threshold
         self.bias_history_window          = bias_history_window
-        self.filter_mode                  = filter_mode.lower()
-        self.target_fpr                   = float(target_fpr)
-        self.dkw_confidence               = float(dkw_confidence)
         self.bias_interval_margin         = bias_interval_margin
         self.bias_fallback_interval       = bias_fallback_interval or [0.0, 0.5]
         self.min_clients_for_defense      = min_clients_for_defense
@@ -125,6 +151,15 @@ class TopoSentinelServer(FedAvgAggregator):
             if min_bias_history_size is not None
             else max(50, min_clients_for_defense * 3)
         )
+
+        # ---- Analysis (observability-only) mode ---------------------------
+        self.analysis_mode = bool(analysis_mode)
+        pattern            = attack_pattern or {}
+        self._attack_period = max(1, int(pattern.get("period", 10)))
+        self._attack_duty   = max(0, min(int(pattern.get("duty", 1)), self._attack_period))
+        self._attack_warmup = max(0, int(pattern.get("warmup", 0)))
+        self._alarm_log: List[dict]  = []
+        self._filter_log: List[dict] = []
 
         # Build TDA metric
         if self.bias_metric == "magnitude_cosine":
@@ -156,14 +191,28 @@ class TopoSentinelServer(FedAvgAggregator):
         self._clip_norm: float                 = 1.0   # set by filter_updates
         # Populated by _run_defense; surfaced in DetectionResult for AUPRC.
         self._last_client_scores: Optional[dict] = None
+        # Populated by _run_defense; surfaced in filter_updates()'s optional
+        # console_monitor summary.
+        self._last_bottleneck_distance: Optional[float] = None
+        self._last_triggered: Optional[bool]             = None
+        self.console_monitor = bool(console_monitor)
+        self.exclude_bn_bias = bool(exclude_bn_bias)
+
+        # ---- Bias-parameter selection (module-type based) ------------------
+        # Computed once from the live model's module tree, not by matching
+        # "bias" as a name substring -- see _compute_bias_param_names().
+        self._bias_param_names: List[str] = self._compute_bias_param_names()
+        logger.info(
+            "TopoSentinelServer: %d additive-bias parameters selected: %s",
+            len(self._bias_param_names), self._bias_param_names,
+        )
 
         logger.info(
             "TopoSentinelServer — metric=%s  threshold=%.3f→%.3f (decay=%.4f)  "
-            "history_window=%d  filter_mode=%s  target_fpr=%.3f  dkw_confidence=%.3f",
+            "history_window=%d",
             self.bias_metric,
             bottleneck_initial_threshold, bottleneck_min_threshold,
             bottleneck_decay_rate, bias_history_window,
-            self.filter_mode, self.target_fpr, self.dkw_confidence,
         )
 
     # ------------------------------------------------------------------
@@ -201,21 +250,39 @@ class TopoSentinelServer(FedAvgAggregator):
 
         rejected: set[int] = set()
 
-        try:
-            if n < self.min_clients_for_defense:
-                logger.info(
-                    "TopoSentinel round %d: n=%d < min=%d — detection skipped.",
-                    self._round, n, self.min_clients_for_defense,
+        if self.analysis_mode:
+            # Pure observability: compute and log every quantity, but never
+            # reject a client — every client is aggregated normally.
+            is_attack_round = self._is_attack_round(self._round)
+            try:
+                self._run_defense_analysis(
+                    client_ids, threshold, is_attack_round, true_malicious
                 )
-            else:
-                rejected = self._run_defense(client_ids, threshold)
+            except Exception as exc:
+                logger.warning(
+                    "TopoSentinel[analysis] round %d: logging failed (%s).",
+                    self._round, exc,
+                )
+        else:
+            # Reset so a skipped/errored round doesn't show stale values from
+            # a previous round in the console_monitor summary below.
+            self._last_bottleneck_distance = None
+            self._last_triggered           = None
+            try:
+                if n < self.min_clients_for_defense:
+                    logger.info(
+                        "TopoSentinel round %d: n=%d < min=%d — detection skipped.",
+                        self._round, n, self.min_clients_for_defense,
+                    )
+                else:
+                    rejected = self._run_defense(client_ids, threshold)
 
-        except Exception as exc:
-            logger.warning(
-                "TopoSentinel round %d: defense error (%s) — no clients rejected.",
-                self._round, exc,
-            )
-            rejected.clear()
+            except Exception as exc:
+                logger.warning(
+                    "TopoSentinel round %d: defense error (%s) — no clients rejected.",
+                    self._round, exc,
+                )
+                rejected.clear()
 
         # Prune buffer
         rejected_ids: FrozenSet[int] = frozenset(rejected)
@@ -233,10 +300,57 @@ class TopoSentinelServer(FedAvgAggregator):
             self._clip_norm, threshold, len(self._bias_history),
         )
 
+        if self.console_monitor and not self.analysis_mode:
+            self._print_console_monitor_line(
+                round_idx=self._round - 1,
+                client_ids=client_ids,
+                true_malicious=true_malicious,
+                rejected_ids=rejected_ids,
+                threshold=threshold,
+            )
+
         return DetectionResult(
             rejected_ids=rejected_ids,
             true_malicious=true_malicious,
             client_scores=self._last_client_scores,
+        )
+
+    def _print_console_monitor_line(
+        self,
+        round_idx: int,
+        client_ids: List[int],
+        true_malicious: FrozenSet[int],
+        rejected_ids: FrozenSet[int],
+        threshold: float,
+    ) -> None:
+        """Print one human-readable line to stdout summarizing this round's
+        detection decision, for interactive threshold tuning.
+
+        Observability only -- never changes what gets rejected. Gated by
+        ``console_monitor`` (production path only; analysis_mode has its own
+        CSV-based logging).
+        """
+        malicious_selected = sorted(set(client_ids) & set(true_malicious))
+        benign_selected     = sorted(set(client_ids) - set(true_malicious))
+
+        tp  = len(rejected_ids & set(malicious_selected))
+        fp  = len(rejected_ids & set(benign_selected))
+        tpr = tp / len(malicious_selected) if malicious_selected else float("nan")
+        fpr = fp / len(benign_selected) if benign_selected else float("nan")
+
+        bd_str   = (
+            f"{self._last_bottleneck_distance:.4f}"
+            if self._last_bottleneck_distance is not None else "n/a"
+        )
+        trig_str = (
+            str(self._last_triggered) if self._last_triggered is not None else "n/a"
+        )
+
+        print(
+            f"[TopoSentinel] round={round_idx:4d}  "
+            f"clients={sorted(client_ids)}  malicious={malicious_selected}  "
+            f"bottleneck={bd_str}  threshold={threshold:.4f}  triggered={trig_str}  "
+            f"rejected={sorted(rejected_ids)}  TPR={tpr:.3f}  FPR={fpr:.3f}"
         )
 
     # ------------------------------------------------------------------
@@ -341,6 +455,7 @@ class TopoSentinelServer(FedAvgAggregator):
         bias_deltas      = np.vstack([client_biases[c] for c in valid_ids]) - global_bias
         current_diagram  = self._analyser.compute_diagram(bias_deltas)
         trigger_filtering = False
+        bd: Optional[float] = None
 
         if current_diagram is not None and len(current_diagram) > 0:
             h0_curr = current_diagram[current_diagram[:, 2] == 0]
@@ -364,10 +479,17 @@ class TopoSentinelServer(FedAvgAggregator):
             if not trigger_filtering:
                 self._prev_h0 = h0_curr
 
-        # ---- Per-client distance from median bias vector ----------------
-        bias_abs     = np.vstack([client_biases[c] for c in valid_ids])
-        median_bias  = np.median(bias_abs, axis=0)
-        dists        = self._bias_distances_from_median(valid_ids, client_biases, median_bias)
+        # Surfaced for filter_updates()'s optional console_monitor summary.
+        self._last_bottleneck_distance = bd
+        self._last_triggered           = trigger_filtering
+
+        # ---- Per-client distance from median bias DELTA ------------------
+        # Consistent with the alarm above: both operate on deltas, not on
+        # the raw absolute bias vectors (bias_deltas is already client_bias
+        # - global_bias, aligned row-for-row with valid_ids).
+        client_deltas = dict(zip(valid_ids, bias_deltas))
+        median_delta  = np.median(bias_deltas, axis=0)
+        dists         = self._bias_distances_from_median(valid_ids, client_deltas, median_delta)
         # Store bias distances so filter_updates can expose them for AUPRC.
         self._last_client_scores = {cid: dists.get(cid, float("inf")) for cid in valid_ids}
 
@@ -382,7 +504,7 @@ class TopoSentinelServer(FedAvgAggregator):
 
         # ---- Intra-round filtering via adaptive learned interval ---------
         logger.info("TopoSentinel: TDA change detected — applying bias filter.")
-        lo, hi, hist_L, eps_val = self._get_benign_interval()
+        lo, hi, hist_L = self._get_benign_interval()
 
         rejected: set[int] = set()
         for cid in valid_ids:
@@ -400,12 +522,161 @@ class TopoSentinelServer(FedAvgAggregator):
 
         # CSV-parseable log for adaptive-interval paper plots
         n_accepted = len(valid_ids) - len(rejected)
-        eps_str = f"{eps_val:.6f}" if not np.isnan(eps_val) else "nan"
         logger.info(
-            "TopoSentinel.filter round=%d L=%d eps=%s theta_min=%.6f theta_max=%.6f accepted=%d rejected=%d",
-            self._round, hist_L, eps_str, lo, hi, n_accepted, len(rejected),
+            "TopoSentinel.filter round=%d L=%d theta_min=%.6f theta_max=%.6f accepted=%d rejected=%d",
+            self._round, hist_L, lo, hi, n_accepted, len(rejected),
         )
         return rejected
+
+    # ------------------------------------------------------------------
+    # Analysis (observability-only) mode
+    # ------------------------------------------------------------------
+
+    def _is_attack_round(self, round_idx: int) -> bool:
+        """Sporadic ground-truth schedule: round ``r`` is an attack round iff
+        ``r >= warmup and (r - warmup) % period < duty``. The ``warmup``
+        rounds are always quiet, so the benign reference (bias history /
+        H0 diagram) is seeded before any attack begins. Used only for
+        analysis-mode logging."""
+        if round_idx < self._attack_warmup:
+            return False
+        return ((round_idx - self._attack_warmup) % self._attack_period) < self._attack_duty
+
+    def _run_defense_analysis(
+        self,
+        client_ids: List[int],
+        threshold: float,
+        is_attack_round: bool,
+        true_malicious: FrozenSet[int],
+    ) -> None:
+        """Compute and log every detection quantity without rejecting anyone.
+
+        Mirrors ``_run_defense``'s computations (same bottleneck distance,
+        same ``_get_benign_interval`` accept interval) but the benign
+        baseline (``_prev_h0`` / ``_bias_history``) is advanced on
+        ground-truth quiet rounds (``is_attack_round == False``) rather than
+        on the computed trigger decision, since no rejection ever happens
+        here to keep the trigger meaningful.
+        """
+        round_idx = self._round
+        n         = len(client_ids)
+
+        num_malicious_present = sum(
+            1 for cid in client_ids if is_attack_round and cid in true_malicious
+        )
+
+        w_inf             = float("nan")
+        s_t               = float("nan")
+        r_ratio           = float("nan")
+        would_alarm_decay = float("nan")
+
+        global_params = self.get_params()
+        global_bias   = self._extract_bias_vector(global_params)
+
+        client_biases: dict[int, np.ndarray] = {}
+        if global_bias is not None:
+            for cid in client_ids:
+                v = self._extract_bias_vector(self._received_updates[cid]["params"])
+                if v is not None:
+                    client_biases[cid] = v
+
+        valid_ids = [cid for cid in client_ids if cid in client_biases]
+        h0_curr   = None
+
+        if global_bias is not None and len(valid_ids) >= 2:
+            bias_deltas = np.vstack([client_biases[c] for c in valid_ids]) - global_bias
+            delta_norms = np.linalg.norm(bias_deltas, axis=1)
+            s_t         = float(np.median(np.abs(delta_norms - np.median(delta_norms))))
+            tau_min     = max(0.0, self.bottleneck_min_threshold)
+
+            current_diagram = self._analyser.compute_diagram(bias_deltas)
+            if current_diagram is not None and len(current_diagram) > 0:
+                h0_curr = current_diagram[current_diagram[:, 2] == 0]
+
+            if (
+                h0_curr is not None and len(h0_curr) > 0
+                and self._prev_h0 is not None and len(self._prev_h0) > 0
+            ):
+                try:
+                    import persim
+                    finite_prev = self._prev_h0[np.isfinite(self._prev_h0[:, 1])]
+                    finite_curr = h0_curr[np.isfinite(h0_curr[:, 1])]
+                    if len(finite_prev) > 0 and len(finite_curr) > 0:
+                        w_inf = float(persim.bottleneck(finite_prev[:, :2], finite_curr[:, :2]))
+                except Exception as exc:
+                    logger.warning(
+                        "TopoSentinel[analysis]: bottleneck computation failed (%s).", exc
+                    )
+
+            if not np.isnan(w_inf):
+                would_alarm_decay = float(w_inf > threshold)
+                r_ratio           = w_inf / (s_t + tau_min)
+
+        # ---- Per-client distance to median bias DELTA; interval that -------
+        # ---- WOULD be used this round (logging only, never gates). --------
+        # Consistent with the alarm: both operate on deltas, not on the raw
+        # absolute bias vectors. Computed independently of the TDA block
+        # above since that one is gated on len(valid_ids) >= 2, while a
+        # single client (len(valid_ids) == 1) can still be logged here.
+        if valid_ids:
+            client_deltas = {cid: client_biases[cid] - global_bias for cid in valid_ids}
+            delta_mat     = np.vstack([client_deltas[c] for c in valid_ids])
+            median_delta  = np.median(delta_mat, axis=0)
+            dists         = self._bias_distances_from_median(valid_ids, client_deltas, median_delta)
+            lo, hi, _     = self._get_benign_interval()
+
+            for cid in valid_ids:
+                d               = dists[cid]
+                is_mal_present  = is_attack_round and (cid in true_malicious)
+                self._filter_log.append({
+                    "round": round_idx,
+                    "is_attack_round": int(is_attack_round),
+                    "client_id": cid,
+                    "is_malicious_present": int(is_mal_present),
+                    "d_i": d,
+                    "theta_min": lo,
+                    "theta_max": hi,
+                    "inside_interval": int(lo <= d <= hi),
+                })
+
+            # Ground-truth-gated baseline update: quiet rounds only. Never
+            # let a computed threshold decide what enters the baseline.
+            if not is_attack_round:
+                if h0_curr is not None:
+                    self._prev_h0 = h0_curr
+                self._bias_history.extend(dists.values())
+
+        self._alarm_log.append({
+            "round": round_idx,
+            "is_attack_round": int(is_attack_round),
+            "num_clients": n,
+            "num_malicious_present": num_malicious_present,
+            "W_inf": w_inf,
+            "tau_decay": threshold,
+            "s_t": s_t,
+            "R_ratio": r_ratio,
+            "would_alarm_decay": would_alarm_decay,
+        })
+
+    def write_analysis_logs(self, alarm_csv_path: str, filter_csv_path: str) -> None:
+        """Write the accumulated analysis-mode logs to CSV (no-op if empty).
+
+        Args:
+            alarm_csv_path:  Destination for the one-row-per-round alarm log.
+            filter_csv_path: Destination for the one-row-per-client-per-round
+                             filter log.
+        """
+        if self._alarm_log:
+            with open(alarm_csv_path, "w", newline="") as f:
+                writer = csv.DictWriter(f, fieldnames=list(self._alarm_log[0].keys()))
+                writer.writeheader()
+                writer.writerows(self._alarm_log)
+
+        if self._filter_log:
+            with open(filter_csv_path, "w", newline="") as f:
+                writer = csv.DictWriter(f, fieldnames=list(self._filter_log[0].keys()))
+                writer.writeheader()
+                writer.writerows(self._filter_log)
 
     # ------------------------------------------------------------------
     # Helpers
@@ -414,72 +685,50 @@ class TopoSentinelServer(FedAvgAggregator):
     def _bias_distances_from_median(
         self,
         valid_ids: List[int],
-        client_biases: dict,
-        median_bias: np.ndarray,
+        client_deltas: dict,
+        median_delta: np.ndarray,
     ) -> dict[int, float]:
-        """Compute each client's distance from the median bias vector."""
+        """Compute each client's distance from the median bias DELTA.
+
+        Both callers pass bias-delta vectors (``client_bias - global_bias``),
+        never raw absolute bias vectors, so this always operates in delta
+        space -- consistent with the inter-round TDA alarm.
+        """
         if self.bias_metric == "cosine":
             from scipy.spatial.distance import cosine as scipy_cosine
-            med_norm = float(np.linalg.norm(median_bias))
+            med_norm = float(np.linalg.norm(median_delta))
             dists    = {}
             for cid in valid_ids:
-                v      = client_biases[cid]
+                v      = client_deltas[cid]
                 v_norm = float(np.linalg.norm(v))
                 dists[cid] = (
                     1.0 if v_norm < 1e-9 or med_norm < 1e-9
-                    else float(scipy_cosine(v, median_bias))
+                    else float(scipy_cosine(v, median_delta))
                 )
         else:
-            bias_mat = np.vstack([client_biases[c] for c in valid_ids])
-            arr      = np.linalg.norm(bias_mat - median_bias, axis=1)
-            dists    = {cid: float(d) for cid, d in zip(valid_ids, arr)}
+            delta_mat = np.vstack([client_deltas[c] for c in valid_ids])
+            arr       = np.linalg.norm(delta_mat - median_delta, axis=1)
+            dists     = {cid: float(d) for cid, d in zip(valid_ids, arr)}
         return dists
 
-    def _get_benign_interval(self) -> tuple[float, float, int, float]:
-        """Compute the accept interval and calibration metadata.
+    def _get_benign_interval(self) -> tuple[float, float, int]:
+        """Compute the accept interval from the 5th/95th percentiles of the
+        benign bias-delta history, with an additive margin on both ends.
 
         Returns:
-            ``(theta_min, theta_max, L, eps)`` where ``L`` is the current
-            history buffer length and ``eps`` is the DKW correction term
-            (``float('nan')`` when ``filter_mode='fixed'``).
+            ``(theta_min, theta_max, L)`` where ``L`` is the current history
+            buffer length.
         """
         H = np.array(list(self._bias_history))
         L = len(H)
 
-        # ---- DKW-calibrated mode -------------------------------------------
-        if self.filter_mode == "dkw":
-            if L < 2:
-                logger.info(
-                    "TopoSentinel: DKW calibration skipped (L=%d < 2) — "
-                    "accepting all clients this round.",
-                    L,
-                )
-                return (0.0, float("inf"), L, float("nan"))
-
-            alpha = 1.0 - self.dkw_confidence
-            eps   = float(np.sqrt(np.log(2.0 / alpha) / (2.0 * L)))
-
-            p_lo = self.target_fpr / 2.0 - eps
-            p_hi = 1.0 - self.target_fpr / 2.0 + eps
-
-            if p_lo <= 0.0:
-                theta_min = 0.0
-            else:
-                theta_min = float(np.quantile(H, float(np.clip(p_lo, 0.0, 1.0))))
-
-            theta_max = float(np.quantile(H, float(np.clip(p_hi, 0.0, 1.0))))
-            theta_min = max(0.0, theta_min)
-
-            return (theta_min, theta_max, L, eps)
-
-        # ---- Fixed-percentile mode (ablation baseline) ---------------------
         if L < self.min_bias_history_size:
             logger.info(
                 "TopoSentinel: history too small (%d < %d) — using fallback interval %s.",
                 L, self.min_bias_history_size, self.bias_fallback_interval,
             )
             lo, hi = self.bias_fallback_interval
-            return (float(lo), float(hi), L, float("nan"))
+            return (float(lo), float(hi), L)
 
         lo  = float(np.percentile(H, 5.0))
         hi  = float(np.percentile(H, 95.0))
@@ -492,7 +741,7 @@ class TopoSentinelServer(FedAvgAggregator):
             "TopoSentinel: fixed interval [%.4f, %.4f] from %d history points.",
             lo_m, hi_m, L,
         )
-        return (lo_m, hi_m, L, float("nan"))
+        return (lo_m, hi_m, L)
 
     def _compute_clip_norm(self) -> float:
         """Median L2 delta norm of the clients currently in the buffer."""
@@ -510,13 +759,44 @@ class TopoSentinelServer(FedAvgAggregator):
         nonzero = [v for v in norms if v > 0]
         return float(np.median(nonzero)) if nonzero else 1.0
 
-    @staticmethod
-    def _extract_bias_vector(params: dict) -> Optional[np.ndarray]:
-        """Flatten all bias tensors from a state dict into one float64 vector."""
+    def _compute_bias_param_names(self) -> List[str]:
+        """Enumerate exact additive-bias parameter names by walking the
+        model's module tree, selecting each module's ``.bias`` when it is a
+        learnable :class:`~torch.nn.Parameter`.
+
+        This is module-type driven, not name-substring matching: it
+        naturally includes Conv/Linear bias AND BatchNorm's bias (beta),
+        while excluding ``.weight`` unambiguously (including BatchNorm's
+        gamma), because PyTorch consistently names every layer type's
+        additive term ``.bias`` and its multiplicative term ``.weight``
+        regardless of module type. Computed once at construction from
+        ``self.model`` -- every client's state dict shares the same
+        architecture and therefore the same parameter names.
+
+        When ``self.exclude_bn_bias`` is ``True``, BatchNorm modules
+        (:class:`~torch.nn.modules.batchnorm._BatchNorm` -- covers
+        BatchNorm1d/2d/3d and SyncBatchNorm) are skipped entirely, so only
+        Conv/Linear-style additive bias contributes to the bias-space
+        distances and TDA diagram.
+        """
+        names: List[str] = []
+        for module_name, module in self.model.named_modules():
+            if self.exclude_bn_bias and isinstance(
+                module, torch.nn.modules.batchnorm._BatchNorm
+            ):
+                continue
+            bias = getattr(module, "bias", None)
+            if isinstance(bias, torch.nn.Parameter):
+                names.append(f"{module_name}.bias" if module_name else "bias")
+        return names
+
+    def _extract_bias_vector(self, params: dict) -> Optional[np.ndarray]:
+        """Flatten this model's additive-bias parameters (see
+        ``_bias_param_names``) from a state dict into one float64 vector."""
         tensors = [
-            p.detach().cpu().float().flatten()
-            for name, p in params.items()
-            if "bias" in name and isinstance(p, torch.Tensor)
+            params[name].detach().cpu().float().flatten()
+            for name in self._bias_param_names
+            if name in params and isinstance(params[name], torch.Tensor)
         ]
         if not tensors:
             return None

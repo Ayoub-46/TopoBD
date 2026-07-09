@@ -61,8 +61,8 @@ class PatchClient(BenignClient):
     once in ``__init__`` with fixed poisoned indices (static trigger, seed
     from config).  At each round, :meth:`local_train` consults the attack
     window and either trains on the poisoned dataset (inside window) or
-    falls back to standard benign training on the clean pre-norm dataset
-    (outside window).
+    falls back to standard benign training on a normalised, unpoisoned
+    dataset (outside window) -- matching a real :class:`~fl.client.BenignClient`.
 
     Args:
         config: :class:`PatchConfig` instance.
@@ -84,6 +84,30 @@ class PatchClient(BenignClient):
         )
         self._poisoned_loader = DataLoader(
             poisoned_dataset,
+            batch_size=self.trainloader.batch_size,
+            shuffle=True,
+            num_workers=self.trainloader.num_workers,
+            pin_memory=self.trainloader.pin_memory,
+        )
+
+        # Outside the attack window this client must train exactly like a
+        # BenignClient -- but self.trainloader is the pre-normalisation
+        # loader (needed so the trigger can be pasted in [0,1] space).
+        # poison_fraction=0.0 poisons nothing while still applying
+        # normalize_transform to every sample (BackdoorDataset applies
+        # post_trigger_transform unconditionally), giving a clean loader
+        # equivalent to what a real benign client trains on.
+        clean_dataset = BackdoorDataset(
+            original_dataset=self.trainloader.dataset,
+            trigger_fn=config.trigger.apply,
+            target_label=config.target_label,
+            post_trigger_transform=config.normalize_transform,
+            poison_fraction=0.0,
+            seed=config.seed,
+            poison_exclude_target=True,
+        )
+        self._clean_loader = DataLoader(
+            clean_dataset,
             batch_size=self.trainloader.batch_size,
             shuffle=True,
             num_workers=self.trainloader.num_workers,
@@ -115,7 +139,11 @@ class PatchClient(BenignClient):
         cfg = self.config
 
         if not (cfg.attack_start_round <= round_idx <= cfg.attack_end_round):
-            return super().local_train(epochs=epochs, round_idx=round_idx)
+            original_loader = self.trainloader
+            self.trainloader = self._clean_loader
+            result = super().local_train(epochs=epochs, round_idx=round_idx)
+            self.trainloader = original_loader
+            return result
 
         # Temporarily swap in the poisoned loader, run the inherited training
         # loop, then restore the clean loader.

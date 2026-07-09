@@ -91,6 +91,29 @@ class A3FLClient(BenignClient):
         super().__init__(*args, **kwargs)
         self.config = config
 
+        # Outside the attack window this client must train exactly like a
+        # BenignClient -- but self.trainloader is the pre-normalisation
+        # loader (needed so the trigger can be pasted in [0,1] space).
+        # poison_fraction=0.0 poisons nothing while still applying
+        # normalize_transform to every sample (BackdoorDataset applies
+        # post_trigger_transform unconditionally), giving a clean loader
+        # equivalent to what a real benign client trains on.
+        clean_dataset = BackdoorDataset(
+            original_dataset=self.trainloader.dataset,
+            trigger_fn=config.trigger.apply,
+            target_label=config.target_label,
+            post_trigger_transform=config.normalize_transform,
+            poison_fraction=0.0,
+            seed=config.seed,
+            poison_exclude_target=True,
+        )
+        self._clean_loader = DataLoader(
+            clean_dataset,
+            batch_size=self.trainloader.batch_size,
+            shuffle=True,
+            num_workers=getattr(self.trainloader, "num_workers", 0),
+        )
+
     # ------------------------------------------------------------------
     # BenignClient interface
     # ------------------------------------------------------------------
@@ -116,7 +139,11 @@ class A3FLClient(BenignClient):
 
         # ---- Benign fallback ------------------------------------------------
         if not (cfg.attack_start_round <= round_idx <= cfg.attack_end_round):
-            return super().local_train(epochs=epochs, round_idx=round_idx)
+            original_loader = self.trainloader
+            self.trainloader = self._clean_loader
+            result = super().local_train(epochs=epochs, round_idx=round_idx)
+            self.trainloader = original_loader
+            return result
 
         # ---- Stage 1: optimise trigger against the current global model -----
         logger.info(

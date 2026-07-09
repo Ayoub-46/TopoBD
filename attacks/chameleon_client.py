@@ -40,6 +40,7 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader, TensorDataset
 
 from fl.client import BenignClient, ClientUpdate
+from datasets.backdoor import BackdoorDataset
 from models import get_model
 
 logger = logging.getLogger(__name__)
@@ -114,6 +115,43 @@ class ChameleonClient(BenignClient):
         super().__init__(**kwargs)
         self.config = config
 
+        # Outside the attack window (or when no target-class peers exist,
+        # see local_train) this client must train exactly like a
+        # BenignClient -- but self.trainloader is the pre-normalisation
+        # loader (perturbations are optimised in raw [0,1] space).
+        # poison_fraction=0.0 poisons nothing (trigger_fn is the identity
+        # and is never invoked anyway) while still applying
+        # normalize_transform to every sample (BackdoorDataset applies
+        # post_trigger_transform unconditionally), giving a clean loader
+        # equivalent to what a real benign client trains on.
+        clean_dataset = BackdoorDataset(
+            original_dataset=self.trainloader.dataset,
+            trigger_fn=lambda x: x,
+            target_label=config.target_label,
+            post_trigger_transform=config.normalize_transform,
+            poison_fraction=0.0,
+            seed=config.seed,
+            poison_exclude_target=True,
+        )
+        self._clean_loader = DataLoader(
+            clean_dataset,
+            batch_size=self.trainloader.batch_size,
+            shuffle=True,
+            num_workers=getattr(self.trainloader, "num_workers", 0),
+        )
+
+    def _clean_local_train(
+        self, epochs: Optional[int], round_idx: int
+    ) -> ClientUpdate:
+        """Benign-fallback training on the normalised clean loader (used
+        both outside the attack window and when there are no target-class
+        peers to poison towards)."""
+        original_loader = self.trainloader
+        self.trainloader = self._clean_loader
+        result = super().local_train(epochs=epochs, round_idx=round_idx)
+        self.trainloader = original_loader
+        return result
+
     # ------------------------------------------------------------------
     # local_train override
     # ------------------------------------------------------------------
@@ -139,7 +177,7 @@ class ChameleonClient(BenignClient):
 
         # ---- Benign fallback outside attack window --------------------------
         if not (cfg.attack_start_round <= round_idx <= cfg.attack_end_round):
-            return super().local_train(epochs=epochs, round_idx=round_idx)
+            return self._clean_local_train(epochs=epochs, round_idx=round_idx)
 
         n_epochs = epochs if epochs is not None else self.epochs_default
         round_seed = cfg.seed + round_idx
@@ -158,7 +196,7 @@ class ChameleonClient(BenignClient):
                 "in local data — falling back to benign training.",
                 self.id, round_idx,
             )
-            return super().local_train(epochs=epochs, round_idx=round_idx)
+            return self._clean_local_train(epochs=epochs, round_idx=round_idx)
 
         # Sub-sample peer pool if it exceeds the configured cap
         if len(peer_images) > cfg.peer_pool_size:

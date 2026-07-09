@@ -45,6 +45,7 @@ from experiment.utils import resolve_device
 from .exp_alpha import run_alpha_experiment
 from .exp_gamma import run_gamma_experiment
 from .exp_lemma2 import run_lemma2_experiment
+from .exp_kappa import run_kappa_experiment
 from .visualize import (
     plot_alpha_distributions,
     plot_gamma_heatmaps,
@@ -72,6 +73,10 @@ def _gamma_exists(output_dir: str) -> bool:
 
 def _lemma2_exists(output_dir: str) -> bool:
     return os.path.exists(os.path.join(output_dir, "rank_comparison_table.csv"))
+
+
+def _kappa_exists(output_dir: str) -> bool:
+    return os.path.exists(os.path.join(output_dir, "kappa_comparison_table.csv"))
 
 
 # ---------------------------------------------------------------------------
@@ -116,6 +121,20 @@ def parse_args() -> argparse.Namespace:
                         "Requires Exp 2 (gamma_raw.csv) and Exp 1 alpha summaries.")
     p.add_argument("--force", action="store_true",
                    help="Re-run experiments even if output CSVs already exist.")
+    p.add_argument("--kappa-weight", action="store_true", dest="kappa_weight",
+                   help="Run the kappa comparison experiment (bias vs weight "
+                        "effective-rank contrast, Theorem 1). Loads bias columns "
+                        "from the existing rank_comparison_table.csv and computes "
+                        "weight-side effective ranks. Requires --benign-checkpoint "
+                        "and rank_comparison_table.csv in --output-dir.")
+    p.add_argument("--n-gram-samples", type=int, default=1000,
+                   dest="n_gram_samples",
+                   help="Max N rows in the Gram matrix for weight eff_rank "
+                        "(default 1000). Effective rank converges well below this.")
+    p.add_argument("--coord-subsample", type=int, default=5000,
+                   dest="coord_subsample",
+                   help="d' for coordinate subsampling when weight D > 20000 "
+                        "(default 5000). Same coords used for clean and BD.")
     return p.parse_args()
 
 
@@ -245,6 +264,30 @@ def main() -> None:
                 )
             except Exception as exc:
                 print(f"ERROR in Extended Lemma 2: {exc}")
+                import traceback
+                traceback.print_exc()
+
+    # ---- kappa weight experiment (Step 4–6) ---------------------------------
+    if args.kappa_weight:
+        if not args.force and _kappa_exists(args.output_dir):
+            print("  [skip] kappa experiment — kappa_comparison_table.csv exists "
+                  "(--force to rerun)")
+        else:
+            try:
+                run_kappa_experiment(
+                    config=config,
+                    benign_checkpoint=benign_ckpt,
+                    attacks=args.attacks,
+                    n_batches=args.n_batches,
+                    batch_size=args.batch_size,
+                    device=device,
+                    output_dir=args.output_dir,
+                    results_dir=args.results_dir,
+                    n_gram_samples=args.n_gram_samples,
+                    coord_subsample_dim=args.coord_subsample,
+                )
+            except Exception as exc:
+                print(f"ERROR in kappa experiment: {exc}")
                 import traceback
                 traceback.print_exc()
 

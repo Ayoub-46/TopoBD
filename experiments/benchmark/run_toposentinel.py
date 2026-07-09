@@ -1,7 +1,7 @@
 """TopoSentinel benchmark runner — all attack × dataset × seed combinations.
 
-Runs TopoSentinel with the DKW filter (filter_mode="dkw", target_fpr=0.05,
-dkw_confidence=0.95) against every combination of:
+Runs TopoSentinel (fixed 5th/95th-percentile intra-round filter; DKW
+calibration was removed) against every combination of:
   datasets : cifar10, cifar100, gtsrb, femnist
   attacks  : a3fl, iba, neurotoxin, chameleon
   seeds    : 0 … N_SEEDS-1 (default 10)
@@ -107,9 +107,6 @@ def _make_topo_config(
     seed: int,
     results_dir: str,
     device: str,
-    filter_mode: str = "dkw",
-    target_fpr: float = 0.05,
-    dkw_confidence: float = 0.95,
 ) -> ExperimentConfig:
     dc   = DATASET_CFG[dataset]
     name = f"{dataset}_{attack}_{_DEFENSE}_seed{seed}"
@@ -127,14 +124,7 @@ def _make_topo_config(
         lr=dc["lr"],
         weight_decay=dc["weight_decay"],
         attack=_make_attack_config(attack, dc),
-        defense=DefenseConfig(
-            defense_type="toposentinel",
-            defense_kwargs={
-                "filter_mode":    filter_mode,
-                "target_fpr":     target_fpr,
-                "dkw_confidence": dkw_confidence,
-            },
-        ),
+        defense=DefenseConfig(defense_type="toposentinel"),
         eval_every=EVAL_EVERY,
         output_dir=os.path.join(results_dir, _SUBDIR),
         device=device,
@@ -174,8 +164,6 @@ def run_one(
     seed: int,
     results_dir: str,
     device: str,
-    target_fpr: float,
-    dkw_confidence: float,
 ) -> bool:
     from experiment.runner import FLRunner
 
@@ -183,10 +171,7 @@ def run_one(
     logger.info("▶  %s", run_name)
     t0 = time.time()
     try:
-        config = _make_topo_config(
-            dataset, attack, seed, results_dir, device,
-            target_fpr=target_fpr, dkw_confidence=dkw_confidence,
-        )
+        config = _make_topo_config(dataset, attack, seed, results_dir, device)
         FLRunner(config).run()
         logger.info("✓  %s  (%.1f min)", run_name, (time.time() - t0) / 60)
         return True
@@ -272,10 +257,6 @@ def _parse_args() -> argparse.Namespace:
                    help="Subset of attacks (default: all).")
     p.add_argument("--seeds",     nargs="+", type=int, default=None,
                    help="Subset of seeds (default: 0–9).")
-    p.add_argument("--target-fpr", type=float, default=0.05,
-                   help="DKW target false-positive rate δ (default 0.05).")
-    p.add_argument("--dkw-confidence", type=float, default=0.95,
-                   help="DKW confidence 1−α (default 0.95).")
     p.add_argument("--summarize-only", action="store_true",
                    help="Skip training; regenerate summary CSV only.")
     p.add_argument("--dry-run",   action="store_true",
@@ -361,11 +342,7 @@ def main() -> None:
                     )
                     break
 
-                ok = run_one(
-                    dataset, attack, seed, args.results_dir, args.device,
-                    target_fpr=args.target_fpr,
-                    dkw_confidence=args.dkw_confidence,
-                )
+                ok = run_one(dataset, attack, seed, args.results_dir, args.device)
                 n_run += 1
                 if not ok:
                     n_failed += 1
