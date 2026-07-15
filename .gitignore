@@ -76,3 +76,6 @@ configs/
 *~
 .DS_Store
 Thumbs.db
+
+**.md
+check_model_convergence.py

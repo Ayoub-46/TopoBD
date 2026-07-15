@@ -61,6 +61,21 @@ class IBAConfig:
                              better gradient estimate.
         seed:                Base RNG seed.  Effective seed per round is
                              ``seed + round_idx``.
+        delta:               Poisoning-SPACE constraint (paper §3.2): after
+                             poisoned local training the malicious update is
+                             projected onto the L2 ball of radius ``delta``
+                             around the received global model, so the update's
+                             norm cannot exceed a benign-looking magnitude.
+                             ``None`` disables the projection.
+        dimension_k_percent: Poisoning-DIMENSION constraint (paper Eq. 6): the
+                             fraction of coordinates — the *bottom* ``k`` by
+                             running main-task gradient magnitude (the
+                             least-frequently-updated ones) — the poison update
+                             is confined to; all other coordinates are zeroed.
+                             ``0`` or ``1`` disables the masking.
+        clean_grad_batches:  Clean (main-task) mini-batches used each active
+                             round to update the running per-coordinate
+                             gradient-magnitude estimate that defines the mask.
     """
     trigger: IBATrigger
     target_label: int
@@ -71,6 +86,13 @@ class IBAConfig:
     trigger_sample_size: int = 512
     seed: int = 42
     attack_epochs: int = 10
+    # ---- Stage 3: constrained model poisoning (paper §3.2) ----
+    # delta = L2 vicinity radius. Default 2.3 is calibrated to a benign
+    # update's L2 norm for CIFAR-10 / VGG-13-noBN in this federation (measured
+    # ~2.32); recalibrate for other datasets/models. ``None`` disables it.
+    delta: Optional[float] = 2.3
+    dimension_k_percent: float = 0.5
+    clean_grad_batches: int = 2
 
 
 # ---------------------------------------------------------------------------
@@ -92,6 +114,12 @@ class IBAClient(BenignClient):
     def __init__(self, config: IBAConfig, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.config = config
+
+        # Stage 3 poisoning-dimension: running per-coordinate estimate of the
+        # main-task (clean) gradient magnitude, maintained across the
+        # attacker's active rounds (paper Eq. 6). Lazily initialised.
+        self._grad_running: Optional[dict] = None
+        self._grad_rounds: int = 0
 
         # Outside the attack window this client must train exactly like a
         # BenignClient -- but self.trainloader is the pre-normalisation
@@ -147,7 +175,17 @@ class IBAClient(BenignClient):
             self.trainloader = original_loader
             return result
 
-        # ---- Stage 1: fine-tune the shared U-Net generator ------------------
+        # Snapshot the received global model BEFORE any local update. Used by
+        # the Stage-3 constrained-poisoning projections (space + dimension).
+        # The runner calls set_params(global) immediately before local_train,
+        # and generator training below freezes the model, so self._model here
+        # is exactly the current global model.
+        w_global = {k: v.detach().cpu().clone()
+                    for k, v in self._model.state_dict().items()}
+
+        # ---- Stage 1+2: fine-tune the shared U-Net generator ----------------
+        # (against the CURRENT global model; ε follows the Eq. 4 decay via
+        #  round_idx / attack_start_round.)
         logger.info(
             "IBA client [%d] — round %d: training generator.", self.id, round_idx
         )
@@ -157,13 +195,21 @@ class IBAClient(BenignClient):
                 model=self._model,
                 dataloader=trigger_loader,
                 target_class=cfg.target_label,
+                round_idx=round_idx,
+                attack_start_round=cfg.attack_start_round,
             )
         else:
             logger.warning(
                 "IBA client [%d] — trigger training skipped: no local data.", self.id
             )
 
-        # ---- Stage 2: train on poisoned + clean data -----------------------
+        # ---- Stage 3 (dimension): refresh the running main-task gradient
+        #      magnitude estimate at the current global model (paper Eq. 6). ----
+        if 0.0 < cfg.dimension_k_percent < 1.0:
+            self._update_clean_grad_estimate(cfg.clean_grad_batches)
+
+        # ---- Poisoned local training (loss mixture α=β=0.5 via poison_fraction
+        #      data mixing, paper Eq. 3) ----------------------------------------
         round_seed = cfg.seed + round_idx
 
         poisoned_dataset = BackdoorDataset(
@@ -189,6 +235,13 @@ class IBAClient(BenignClient):
         finally:
             self.trainloader = original_loader
 
+        # ---- Stage 3: constrained model poisoning (paper §3.2) --------------
+        # Project the raw poisoned update (w_local - w_global) onto (i) the
+        # bottom-k% least-updated coordinates, then (ii) the L2 δ-ball.
+        constrained_weights, raw_norm, proj_norm, n_coords = \
+            self._constrain_poison_update(w_global, result.weights)
+        result.weights = constrained_weights
+
         result.is_malicious = True
         result.metadata.update({
             "attack": "iba",
@@ -196,15 +249,127 @@ class IBAClient(BenignClient):
             "poison_fraction": cfg.poison_fraction,
             "num_poisoned": len(poisoned_dataset.poisoned_indices),
             "round_seed": round_seed,
+            "update_norm_raw": raw_norm,
+            "update_norm_projected": proj_norm,
+            "poisoned_coords": n_coords,
         })
 
         logger.info(
-            "IBA client [%d] — round %d: poisoned %d / %d samples (target=%d).",
+            "IBA client [%d] — round %d: poisoned %d / %d samples (target=%d); "
+            "update L2 %.3f→%.3f (δ=%s), %d poisoned coords (k=%.2f).",
             self.id, round_idx,
             len(poisoned_dataset.poisoned_indices), len(poisoned_dataset),
-            cfg.target_label,
+            cfg.target_label, raw_norm, proj_norm, cfg.delta, n_coords,
+            cfg.dimension_k_percent,
         )
         return result
+
+    # ------------------------------------------------------------------
+    # Stage 3 — constrained model poisoning (paper §3.2)
+    # ------------------------------------------------------------------
+
+    def _update_clean_grad_estimate(self, n_batches: int) -> None:
+        """Update the running per-coordinate main-task gradient magnitude.
+
+        Runs ``n_batches`` CE backward passes on CLEAN local data (true labels)
+        at the current global model and accumulates the running MEAN of
+        ``|∂L_main/∂θ|`` per coordinate across the attacker's active rounds.
+        This is our defensible reading of paper Eq. 6: the "infrequently
+        updated" coordinates are those with the smallest running main-task
+        gradient magnitude.  (Eq. 6's running-average is stated ambiguously in
+        the paper; cross-check against the authors' code at
+        github.com/sail-research/iba before treating this as canonical.)
+
+        Kept on CPU so the per-coordinate estimate does not consume GPU memory.
+        """
+        model = self._model
+        model.train()
+        batch_accum = {name: torch.zeros_like(p, device="cpu")
+                       for name, p in model.named_parameters()}
+        seen = 0
+        loader_iter = iter(self._clean_loader)
+        for _ in range(max(1, n_batches)):
+            try:
+                x, y = next(loader_iter)
+            except StopIteration:
+                break
+            x, y = x.to(self.device), y.to(self.device)
+            model.zero_grad(set_to_none=True)
+            self.loss_fn(model(x), y).backward()
+            for name, p in model.named_parameters():
+                if p.grad is not None:
+                    batch_accum[name] += p.grad.detach().abs().cpu()
+            seen += 1
+        model.zero_grad(set_to_none=True)
+        if seen == 0:
+            return
+        batch_mean = {name: acc / seen for name, acc in batch_accum.items()}
+
+        if self._grad_running is None:
+            self._grad_running = batch_mean
+            self._grad_rounds = 1
+        else:
+            r = self._grad_rounds
+            self._grad_running = {
+                name: (self._grad_running[name] * r + batch_mean[name]) / (r + 1)
+                for name in batch_mean
+            }
+            self._grad_rounds = r + 1
+
+    def _constrain_poison_update(self, w_global: dict, w_local: dict):
+        """Apply the poisoning-dimension and poisoning-space constraints.
+
+        Returns ``(new_weights, raw_norm, projected_norm, n_poisoned_coords)``.
+
+        (i) Dimension (paper Eq. 6): confine the update ``w_local - w_global`` to
+            the bottom-``k``% coordinates by running main-task gradient
+            magnitude (a single GLOBAL threshold across all float parameters,
+            matching the concatenated-ranking convention); zero the rest.
+        (ii) Space (paper §3.2, PGD vicinity): if the (masked) update's global
+            L2 norm exceeds ``delta``, rescale it onto the δ-ball around
+            ``w_global``.  We use a post-hoc projection of the final update
+            rather than per-step PGD: for a fixed vicinity radius the two reach
+            the same feasible set, and the post-hoc form is deterministic and
+            leaves the inner poisoned-training loop (and its α=β=0.5 mixture)
+            untouched.
+        """
+        cfg = self.config
+        float_keys = [k for k, v in w_global.items() if torch.is_floating_point(v)]
+        update = {k: (w_local[k].cpu() - w_global[k].cpu()) for k in float_keys}
+
+        # (i) dimension mask -------------------------------------------------
+        n_coords = 0
+        if (self._grad_running is not None
+                and 0.0 < cfg.dimension_k_percent < 1.0):
+            all_mag = torch.cat([
+                self._grad_running[k].flatten()
+                for k in float_keys if k in self._grad_running
+            ])
+            kth = max(1, int(cfg.dimension_k_percent * all_mag.numel()))
+            threshold = torch.kthvalue(all_mag, kth).values
+            for k in float_keys:
+                if k in self._grad_running:
+                    mask = (self._grad_running[k] <= threshold).to(update[k].dtype)
+                    update[k] = update[k] * mask
+                    n_coords += int(mask.sum().item())
+
+        # (ii) space projection onto the L2 δ-ball ---------------------------
+        raw_norm = float(torch.sqrt(sum((update[k] ** 2).sum()
+                                        for k in float_keys)).item())
+        proj_norm = raw_norm
+        if cfg.delta is not None and raw_norm > cfg.delta:
+            scale = cfg.delta / (raw_norm + 1e-12)
+            for k in float_keys:
+                update[k] = update[k] * scale
+            proj_norm = cfg.delta
+
+        new_weights = {}
+        for k, v in w_global.items():
+            if k in float_keys:
+                new_weights[k] = v.cpu() + update[k]
+            else:  # non-float buffers (e.g. num_batches_tracked): keep local
+                new_weights[k] = w_local[k].cpu()
+        return new_weights, raw_norm, proj_norm, n_coords
 
     # ------------------------------------------------------------------
     # Internal helpers

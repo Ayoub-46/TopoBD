@@ -113,6 +113,24 @@ class TopoSentinelServer(FedAvgAggregator):
                                       the intra-round filter. Default
                                       ``False`` (BatchNorm bias included, as
                                       documented in ``_compute_bias_param_names``).
+        clip_mode:                     Post-filter aggregation clipping
+                                      strategy applied to each surviving
+                                      client's delta before weighted
+                                      averaging:
+                                      ``"global"`` (default) -- one scalar
+                                      scale per client, from the L2 norm of
+                                      its *full* flattened delta against the
+                                      median survivor norm (original
+                                      behaviour); ``"layerwise"`` -- an
+                                      independent scale per parameter tensor,
+                                      each against that tensor's own median
+                                      survivor norm, so a client cannot evade
+                                      clipping by concentrating a large
+                                      perturbation in one layer while keeping
+                                      its overall norm modest; ``"none"`` --
+                                      no clipping (deltas pass through
+                                      unscaled), for measuring how much
+                                      clipping alone suppresses an attack.
         **kwargs:                     Forwarded to
                                       :class:`~fl.server.FedAvgAggregator`.
     """
@@ -134,6 +152,7 @@ class TopoSentinelServer(FedAvgAggregator):
         attack_pattern: Optional[dict] = None,
         console_monitor: bool = False,
         exclude_bn_bias: bool = False,
+        clip_mode: str = "global",
         **kwargs,
     ):
         super().__init__(model=model, device=device, **kwargs)
@@ -188,7 +207,14 @@ class TopoSentinelServer(FedAvgAggregator):
         self._bias_history: deque              = deque(
             maxlen=int(bias_history_window * min_clients_for_defense * 2.5)
         )
-        self._clip_norm: float                 = 1.0   # set by filter_updates
+        self._clip_norm: float                 = 1.0   # set by filter_updates ("global"/"none" modes)
+        self._clip_norms_layerwise: Optional[dict] = None  # set by filter_updates ("layerwise" mode)
+        self.clip_mode = clip_mode.lower()
+        if self.clip_mode not in ("global", "layerwise", "none"):
+            logger.warning(
+                "TopoSentinel: unknown clip_mode '%s', defaulting to 'global'.", clip_mode,
+            )
+            self.clip_mode = "global"
         # Populated by _run_defense; surfaced in DetectionResult for AUPRC.
         self._last_client_scores: Optional[dict] = None
         # Populated by _run_defense; surfaced in filter_updates()'s optional
@@ -289,8 +315,11 @@ class TopoSentinelServer(FedAvgAggregator):
         for cid in rejected_ids:
             del self._received_updates[cid]
 
-        # Clip norm for aggregate() — computed from survivors
-        self._clip_norm = self._compute_clip_norm()
+        # Clip norm(s) for aggregate() — computed from survivors
+        if self.clip_mode == "layerwise":
+            self._clip_norms_layerwise = self._compute_clip_norms_layerwise()
+        else:
+            self._clip_norm = self._compute_clip_norm()
         self._round    += 1
 
         logger.info(
@@ -387,7 +416,30 @@ class TopoSentinelServer(FedAvgAggregator):
             local    = self._received_updates[cid]["params"]
             weight   = self._received_updates[cid]["length"] / total_samples
 
-            # L2 norm of this client's full delta (float params only)
+            if self.clip_mode == "layerwise":
+                # Independent scale per parameter tensor: a client cannot
+                # evade clipping here by concentrating a large perturbation
+                # in one layer while keeping its overall (global) norm modest.
+                layer_norms = self._clip_norms_layerwise or {}
+                for k, global_v in global_params.items():
+                    if k not in local or not global_v.is_floating_point():
+                        continue
+                    delta_k     = local[k].float() - global_v.float()
+                    layer_norm  = delta_k.norm(p=2).item()
+                    layer_clip  = max(layer_norms.get(k, 1.0), 1e-6)
+                    scale_k     = min(1.0, layer_clip / layer_norm) if layer_norm > 1e-9 else 1.0
+                    accum[k]   += delta_k * scale_k * weight
+                continue
+
+            if self.clip_mode == "none":
+                for k, global_v in global_params.items():
+                    if k not in local or not global_v.is_floating_point():
+                        continue
+                    accum[k] += (local[k].float() - global_v.float()) * weight
+                continue
+
+            # "global" (default): one scalar scale per client, from the L2
+            # norm of its full flattened delta (float params only).
             delta_parts = [
                 (local[k].float() - global_params[k].float()).flatten()
                 for k in local
@@ -758,6 +810,25 @@ class TopoSentinelServer(FedAvgAggregator):
                 norms.append(torch.cat(parts).norm(p=2).item())
         nonzero = [v for v in norms if v > 0]
         return float(np.median(nonzero)) if nonzero else 1.0
+
+    def _compute_clip_norms_layerwise(self) -> dict:
+        """Per-parameter-tensor median L2 delta norm of the clients currently
+        in the buffer (used by ``clip_mode="layerwise"``)."""
+        global_params = self.get_params()
+        norms_per_key: dict = {
+            k: [] for k, v in global_params.items() if v.is_floating_point()
+        }
+        for data in self._received_updates.values():
+            local = data["params"]
+            for k in norms_per_key:
+                if k in local:
+                    delta = local[k].float() - global_params[k].float()
+                    norms_per_key[k].append(delta.norm(p=2).item())
+        result = {}
+        for k, norms in norms_per_key.items():
+            nonzero = [v for v in norms if v > 0]
+            result[k] = float(np.median(nonzero)) if nonzero else 1.0
+        return result
 
     def _compute_bias_param_names(self) -> List[str]:
         """Enumerate exact additive-bias parameter names by walking the

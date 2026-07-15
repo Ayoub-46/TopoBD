@@ -23,6 +23,7 @@ from .cnn import SimpleCNN
 from .gtsrb_cnn import GTSRBNet
 from .lenet5 import LeNet5
 from .resnet import resnet18, resnet34
+from .vgg import VGG, vgg13, vgg13_nobn
 
 # ---------------------------------------------------------------------------
 # Registry
@@ -117,6 +118,16 @@ def _build_lenet5(config: ModelConfig) -> BaseModel:
     return LeNet5(config)
 
 
+@register_model("vgg13")
+def _build_vgg13(config: ModelConfig) -> BaseModel:
+    return vgg13(config)
+
+
+@register_model("vgg13_nobn")
+def _build_vgg13_nobn(config: ModelConfig) -> BaseModel:
+    return vgg13_nobn(config)
+
+
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
@@ -131,4 +142,5 @@ __all__ = [
     "SimpleCNN",
     "GTSRBNet",
     "LeNet5",
+    "VGG",
 ]

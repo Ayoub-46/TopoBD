@@ -111,7 +111,10 @@ def _build_iba(**kwargs) -> IBATrigger:
     in_channels        = kwargs.get("in_channels", 3)
     base_features      = kwargs.get("base_features", 32)
     normalize_transform = kwargs.get("normalize_transform", None)
-    valid = {"alpha", "lambda_noise", "generator_epochs", "generator_lr"}
+    # epsilon = L∞ floor ε̂ (paper Eq. 1); eps_0/lambda_decay = decay schedule
+    # (Eq. 4). Legacy alpha/lambda_noise kwargs are intentionally dropped: the
+    # L∞ clamp replaced the α-scaling + L2 penalty.
+    valid = {"epsilon", "eps_0", "lambda_decay", "generator_epochs", "generator_lr"}
     trigger_kw = {k: v for k, v in kwargs.items() if k in valid}
     unet = UNet(in_channels=in_channels, base_features=base_features)
     return IBATrigger(unet=unet, normalize_transform=normalize_transform, **trigger_kw)

@@ -70,6 +70,38 @@ _SUBDIR   = "toposentinel_benchmark"
 
 _SAFETY_MARGIN_SECS = 600
 
+# ---------------------------------------------------------------------------
+# Per-dataset bottleneck-alarm thresholds
+# ---------------------------------------------------------------------------
+# The bottleneck distance W_inf of the client bias persistence diagram is
+# model/dataset dependent — from the IBA analysis_mode sweep
+# (results/analysis/iba_fixed_detection_summary.csv) the ATTACK-round W_inf is
+# roughly gtsrb≈0.024, femnist≈0.054, cifar≈0.099, with QUIET-round W_inf about
+# half of that (0.012 / 0.026 / 0.033). A single min_threshold therefore cannot
+# separate attack from quiet across datasets: the previous uniform 0.05 sat
+# ABOVE gtsrb's attack signal (0.024), so the alarm could never fire there
+# (measured recall 0.0), while barely clearing femnist's (recall 0.2).
+#
+# Each dataset's min_threshold is set ~0.7×(attack W_inf) — comfortably below
+# the attack signal yet above that dataset's quiet W_inf (near-zero FPR) — and
+# the initial threshold decays to it before the attack window opens
+# (attack_start: femnist 37, gtsrb 50, cifar 80).
+_DEFAULT_BOTTLENECK = {
+    "bottleneck_initial_threshold": 0.15,
+    "bottleneck_decay_rate": 0.96,
+    "bottleneck_min_threshold": 0.05,
+}
+_BOTTLENECK_THRESHOLDS = {
+    "gtsrb":    {"bottleneck_initial_threshold": 0.05,
+                 "bottleneck_decay_rate": 0.95, "bottleneck_min_threshold": 0.017},
+    "femnist":  {"bottleneck_initial_threshold": 0.08,
+                 "bottleneck_decay_rate": 0.95, "bottleneck_min_threshold": 0.038},
+    "cifar10":  {"bottleneck_initial_threshold": 0.15,
+                 "bottleneck_decay_rate": 0.96, "bottleneck_min_threshold": 0.060},
+    "cifar100": {"bottleneck_initial_threshold": 0.15,
+                 "bottleneck_decay_rate": 0.96, "bottleneck_min_threshold": 0.060},
+}
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s  %(levelname)-8s  %(name)s — %(message)s",
@@ -124,7 +156,13 @@ def _make_topo_config(
         lr=dc["lr"],
         weight_decay=dc["weight_decay"],
         attack=_make_attack_config(attack, dc),
-        defense=DefenseConfig(defense_type="toposentinel"),
+        defense=DefenseConfig(
+            defense_type="toposentinel",
+            # Per-dataset bottleneck-alarm thresholds calibrated to that
+            # dataset's W_inf scale (see _BOTTLENECK_THRESHOLDS above). The
+            # intra-round bias-distance filter is unchanged.
+            defense_kwargs=dict(_BOTTLENECK_THRESHOLDS.get(dataset, _DEFAULT_BOTTLENECK)),
+        ),
         eval_every=EVAL_EVERY,
         output_dir=os.path.join(results_dir, _SUBDIR),
         device=device,
