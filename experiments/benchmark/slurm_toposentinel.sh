@@ -10,21 +10,9 @@
 #SBATCH --output=logs/topo_benchmark_%j.out
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=32GB
-#SBATCH --gres=gpu:1
-#
-# One dataset per job on a single GPU (robust + easy to schedule). To run the
-# full matrix, submit one job per dataset — they run in parallel across the
-# cluster, no 4-GPU node required:
-#
-#   for d in femnist gtsrb cifar10 cifar100; do
-#       sbatch --job-name=topo_$d --export=ALL,DATASET=$d slurm_toposentinel.sh
-#   done
-#
-# Each job stops gracefully before the SLURM wall-clock limit and skips
-# already-complete runs, so a dataset that needs more than one job just gets
-# resubmitted and resumes where it left off.
+#SBATCH --cpus-per-task=32          # 8 per GPU worker
+#SBATCH --mem=64GB
+#SBATCH --gres=gpu:4               # one GPU per dataset worker
 
 # ==========================================
 # CONFIGURATION
@@ -33,17 +21,13 @@ PYTHON_VERSION=3.10
 ENVIRONMENT_NAME="toposentinel"
 TORCH_CUDA="${TORCH_CUDA:-cu124}"
 
-# Python-side time budget — the runner stops voluntarily before the hard SLURM
+# Python-side time budget — workers stop voluntarily before the hard SLURM
 # limit so the summary pass completes cleanly.  Set ~2 h below --time.
 TIME_LIMIT_HOURS="${TIME_LIMIT_HOURS:-98}"
 
 RESULTS_DIR="${RESULTS_DIR:-results}"
 
-# Dataset for this job. Leave empty to run ALL datasets sequentially (resumable
-# across resubmissions); set e.g. DATASET=gtsrb for one-dataset-per-job.
-DATASET="${DATASET:-}"
-
-# Optional subsetting — leave empty to run all attacks / seeds
+# Optional subsetting — leave empty to run the full matrix for each dataset
 ATTACKS="${ATTACKS:-}"
 SEEDS="${SEEDS:-}"
 
@@ -108,33 +92,62 @@ else
 fi
 
 # ==========================================
-# BUILD ARGUMENTS
+# BUILD COMMON ARGUMENTS
 # ==========================================
 COMMON="--results-dir $RESULTS_DIR --time-limit-hours $TIME_LIMIT_HOURS --device cuda"
-[ -n "$DATASET" ]           && COMMON="$COMMON --datasets $DATASET"
 [ -n "$ATTACKS" ]           && COMMON="$COMMON --attacks $ATTACKS"
 [ -n "$SEEDS" ]             && COMMON="$COMMON --seeds $SEEDS"
 [ "$SUMMARIZE_ONLY" -eq 1 ] && COMMON="$COMMON --summarize-only"
 
 # ==========================================
-# EXECUTION — single GPU, one dataset (or all if DATASET is empty)
+# PARALLEL EXECUTION — 4 GPUS
 # ==========================================
-# The runner iterates the (dataset ×) attack × seed matrix shortest-first,
-# skips already-complete runs, and stops gracefully before the time budget so
-# the summary pass always completes.  Resubmit to resume.
+# One GPU per dataset; each worker runs the full attack × seed matrix for its
+# dataset against TopoSentinel and stops gracefully when the time budget runs
+# out.  Already-complete runs are skipped automatically on resubmission.
 #
-# Per-dataset estimate (4 attacks × 10 seeds, ~min/run): femnist ~33 h,
-# gtsrb ~60 h, cifar10 ~120 h, cifar100 ~133 h — hence one-job-per-dataset.
+#   GPU 0  femnist   (~50 min/run)
+#   GPU 1  gtsrb     (~90 min/run)
+#   GPU 2  cifar10   (~180 min/run)
+#   GPU 3  cifar100  (~200 min/run)
 
 echo ""
-echo "Starting TopoSentinel benchmark  (DATASET='${DATASET:-ALL}')"
+echo "Starting TopoSentinel benchmark on 4 GPUs..."
 echo "$(date '+%Y-%m-%d %H:%M:%S')"
 
-RUN_LOG="logs/topo_benchmark_${SLURM_JOB_ID}.log"
-python -m experiments.benchmark.run_toposentinel $COMMON 2>&1 | tee "$RUN_LOG"
+DATASETS_BY_GPU=(femnist gtsrb cifar10 cifar100)
+PIDS=()
+
+for gpu in "${!DATASETS_BY_GPU[@]}"; do
+    ds="${DATASETS_BY_GPU[$gpu]}"
+    (
+        echo "[GPU ${gpu}] Starting ${ds}"
+        export CUDA_VISIBLE_DEVICES=${gpu}
+        python -m experiments.benchmark.run_toposentinel \
+            --datasets "${ds}" \
+            $COMMON \
+            > "logs/topo_benchmark_gpu${gpu}_${SLURM_JOB_ID}.log" 2>&1
+        echo "[GPU ${gpu}] Done (${ds})"
+    ) &
+    PIDS+=($!)
+done
+
+# Wait for all workers
+wait "${PIDS[@]}"
 
 echo ""
-echo "Run finished. $(date '+%Y-%m-%d %H:%M:%S')"
+echo "All workers finished."
+echo "$(date '+%Y-%m-%d %H:%M:%S')"
+
+# Show last few lines of each GPU log for quick inspection
+for gpu in "${!DATASETS_BY_GPU[@]}"; do
+    logfile="logs/topo_benchmark_gpu${gpu}_${SLURM_JOB_ID}.log"
+    if [ -f "$logfile" ]; then
+        echo ""
+        echo "--- GPU ${gpu} (${DATASETS_BY_GPU[$gpu]}) last 5 lines ---"
+        tail -5 "$logfile"
+    fi
+done
 
 # ==========================================
 # MERGE SUMMARY
@@ -157,8 +170,8 @@ rm -rf $SCRATCH_DIR
 echo ""
 echo "============================================================"
 echo " Job complete: $(date '+%Y-%m-%d %H:%M:%S')"
-echo " Dataset    : ${DATASET:-ALL}"
 echo " Summary    : $RESULTS_DIR/toposentinel_summary.csv"
 echo " Run dirs   : $(ls -1 $RESULTS_DIR/toposentinel_benchmark/ 2>/dev/null | wc -l)"
-echo " Run log    : $RUN_LOG"
+echo " Per-GPU logs:"
+ls -lh logs/topo_benchmark_gpu*_${SLURM_JOB_ID}.log 2>/dev/null || true
 echo "============================================================"

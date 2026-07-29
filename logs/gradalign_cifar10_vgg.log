@@ -1,0 +1,85 @@
+Device: cuda
+Output dir: experiments/gradient_alignment/outputs/outputs_cifar10_vgg13_nobn
+Config: configs/cifar10_fedavg_iba_vgg13_nobn.yaml (dataset=cifar10, model=vgg13_nobn)
+  [skip] Exp 1 'neurotoxin' — CSVs already exist (--force to rerun)
+  [skip] Exp 1 'a3fl' — CSVs already exist (--force to rerun)
+  [skip] Exp 1 'iba' — CSVs already exist (--force to rerun)
+  [skip] Exp 2 — CSVs already exist (--force to rerun)
+
+============================================================
+Extended Lemma 2 — Effective Rank Comparison
+============================================================
+  γ stats computed for 11 layers
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+/home/ayoub/miniconda3/envs/FL/lib/python3.12/site-packages/torch/cuda/__init__.py:716: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+  Loaded checkpoint: results/iba_forensics/cifar10_benign_iid/final_model.pt
+  Bias-bearing layers: ['features.0', 'features.2', 'features.5', 'features.7', 'features.10', 'features.12', 'features.15', 'features.17', 'features.20', 'features.22', 'classifier']
+
+  Computing Σ_clean (50 batches × 64 samples)...
+    clean gradients: 20/50 batches
+    clean gradients: 40/50 batches
+  Σ_clean accumulated (3200 total samples)
+    features.0                                  n_bias=  64  eff_rank_clean=8.88  (n_pos_eigvals=64)
+    features.2                                  n_bias=  64  eff_rank_clean=7.20  (n_pos_eigvals=64)
+    features.5                                  n_bias= 128  eff_rank_clean=13.13  (n_pos_eigvals=128)
+    features.7                                  n_bias= 128  eff_rank_clean=14.82  (n_pos_eigvals=128)
+    features.10                                 n_bias= 256  eff_rank_clean=29.48  (n_pos_eigvals=256)
+    features.12                                 n_bias= 256  eff_rank_clean=23.95  (n_pos_eigvals=256)
+    features.15                                 n_bias= 512  eff_rank_clean=41.43  (n_pos_eigvals=512)
+    features.17                                 n_bias= 512  eff_rank_clean=23.16  (n_pos_eigvals=512)
+    features.20                                 n_bias= 512  eff_rank_clean=17.34  (n_pos_eigvals=512)
+    features.22                                 n_bias= 512  eff_rank_clean=10.02  (n_pos_eigvals=512)
+    classifier                                  n_bias=  10  eff_rank_clean=7.13  (n_pos_eigvals=10)
+
+  Zero-mean residuals (from exp_gamma):
+    features.0                                  residual=0.0958
+    features.2                                  residual=0.1173
+    features.5                                  residual=0.0817
+    features.7                                  residual=0.0596
+    features.10                                 residual=0.0522
+    features.12                                 residual=0.0514
+    features.15                                 residual=0.0450
+    features.17                                 residual=0.0504
+    features.20                                 residual=0.0448
+    features.22                                 residual=0.0519
+    classifier                                  residual=0.0409
+
+  Computing Σ_bd for 'neurotoxin' ...
+    done (3200 samples)
+
+  Computing Σ_bd for 'a3fl' ...
+  Loaded trained A3FL pattern from results/iba_forensics/cifar10_fedavg_a3fl/trigger.pt
+    done (3200 samples)
+
+  Computing Σ_bd for 'iba' ...
+  Loaded trained IBA generator from results/iba_forensics/cifar10_fedavg_iba/trigger.pt
+    done (3200 samples)
+
+  Layer                                        γ_max  γ_mean  rank_clean rank_bd_max   rank_gap
+  -----------------------------------------------------------------------------------------------
+  features.0                                   0.852   0.317       8.885       3.158      5.727
+  features.2                                   0.818   0.321       7.198       2.951      4.247
+  features.5                                   0.542   0.235      13.132       3.484      9.648
+  features.7                                   0.586   0.238      14.821       3.327     11.494
+  features.10                                  0.498   0.177      29.479       4.449     25.030
+  features.12                                  0.557   0.166      23.954       3.569     20.385
+  features.15                                  0.596   0.141      41.427       4.484     36.943
+  features.17                                  0.564   0.147      23.163       3.178     19.985
+  features.20                                  0.601   0.155      17.342       2.715     14.627
+  features.22                                  0.656   0.116      10.019       1.731      8.288
+  classifier                                   0.761   0.120       7.131       1.426      5.705
+
+  Saved: experiments/gradient_alignment/outputs/outputs_cifar10_vgg13_nobn/rank_comparison_table.csv
+  Saved: experiments/gradient_alignment/outputs/outputs_cifar10_vgg13_nobn/rank_comparison_table.png
+  Saved: experiments/gradient_alignment/outputs/outputs_cifar10_vgg13_nobn/eigenvalue_spectra.png
+
+Generating figures...
+Saved: experiments/gradient_alignment/outputs/outputs_cifar10_vgg13_nobn/alpha_distributions.png
+Saved: experiments/gradient_alignment/outputs/outputs_cifar10_vgg13_nobn/gamma_heatmaps.png
+Saved: experiments/gradient_alignment/outputs/outputs_cifar10_vgg13_nobn/theory_validation.png
+
+Done. All outputs written to: experiments/gradient_alignment/outputs/outputs_cifar10_vgg13_nobn
